@@ -356,7 +356,6 @@ ac
 
 <app><lem xml:id="lem-15.8">pugna occupatum animum haberent</lem><rdg wit="#M">p- h- o- a</rdg></app>
 ac
-15.8 atque … exposceret om. S (uerba 16)
 <app><lem xml:id="lem-15.8">prospectu locum spectaculo</lem><rdg wit="#M">prospectaculo cum s-</rdg></app>
 ac : prospectaculo s- Mc
 <app><lem xml:id="lem-15.8">spectaculo</lem><rdg wit="#T">-oque</rdg></app>
@@ -467,7 +466,6 @@ ac
         
 <app><lem xml:id="lem-19.5">eodemque</lem><rdg wit="#V">eodem</rdg></app>
         
-19.6 pugnabatur … (24.2) ut ad om. S 
  
 <app><lem xml:id="lem-20.3">coeperunt</lem><rdg wit="#M">rec-</rdg></app>
  
