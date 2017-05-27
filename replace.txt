@@ -1,0 +1,691 @@
+Appendix critica (work in progress)
+ 
+<app><lem xml:id="lem-1.1">Rhodo</lem><rdg wit="#S">et Ordo</rdg></app>
+
+<app><lem xml:id="lem-1.1">Creta</lem><rdg wit="#S">certa</rdg></app>
+
+<app><lem xml:id="1.2">operibus</lem><rdg wit="#M"/></app>
+
+<app><lem xml:id="1.2">uidentur</lem><rdg wit="#M"/></app>
+
+<app><lem xml:id="lem-1.2">arietes</lem><rdg wit="#S">aretes</rdg></app>
+
+<app><lem xml:id="lem-1.3">materia sunt aedificia</lem><rdg wit="#S">materias a-</rdg></app>
+
+<app><lem xml:id="1.3">et</lem><rdg wit="#M"/></app>
+
+<app><lem xml:id="lem-1.3">structuris</lem><rdg wit="#S">fruc-</rdg></app>
+
+<app><lem xml:id="lem-1.4">a</lem><rdg wit="#V">ac</rdg></app>
+
+<app><lem xml:id="lem-1.4">reliqua</lem><rdg wit="#S">relili-</rdg></app>
+
+<app><lem xml:id="lem-1.5">esset</lem><rdg wit="#S">esse</rdg></app>
+
+<app><lem xml:id="lem-1.5">altera</lem><rdg wit="#S">ad terra</rdg></app>
+
+<app><lem xml:id="lem-1.5">utrumque</lem><rdg wit="#M">utrique</rdg></app>
+
+<app><lem xml:id="lem-2.1">cunctatio</lem><rdg wit="#S">contatio</rdg></app>
+
+<app><lem xml:id="lem-2.1">fines</lem><rdg wit="#S">-e</rdg></app>
+
+<app><lem xml:id="lem-2.1">regnumque</lem><rdg wit="#S">ren-</rdg></app>
+
+<app><lem xml:id="lem-2.1">conquisitoresque</lem><rdg wit="#M">in-</rdg></app>
+
+<app><lem xml:id="lem-2.2">urbe</lem><rdg wit="#S">hu-</rdg></app>
+
+<app><lem xml:id="lem-2.2">armauerant</lem><rdg wit="#M">-uerunt</rdg></app>
+
+<app><lem xml:id="lem-2.2">locupletiores</lem><rdg wit="#M">lucu-</rdg></app>
+
+<app><lem xml:id="lem-2.3">ueteranas</lem><rdg wit="#S">ueet-</rdg></app>
+
+<app><lem xml:id="lem-2.3">urbis</lem><rdg wit="#S">hubis</rdg></app>
+
+<app><lem xml:id="2.4">uiis</lem><rdg wit="#S"/></app>
+
+<app><lem xml:id="lem-2.4">triplicem</lem><rdg wit="#T">-e</rdg></app>
+
+<app><lem xml:id="lem-2.4">erat</lem><rdg wit="#S">-ant</rdg></app>
+
+<app><lem xml:id="lem-2.4">partes</lem><rdg wit="#S">pater</rdg></app>
+
+<app><lem xml:id="lem-2.4">erant</lem><rdg wit="#M">habebat e-</rdg></app>
+ac
+<app><lem xml:id="lem-2.5">subiectisque</lem><rdg wit="#S">-tusque</rdg></app>
+
+<app><lem xml:id="lem-2.5">funibus</lem><rdg wit="#S">fin-</rdg></app>
+
+<app><lem xml:id="lem-2.5">quamcumque</lem><rdg wit="#S">qua-</rdg></app>
+
+<app><lem xml:id="lem-2.5">erat</lem><rdg wit="#T">-ant</rdg></app>
+
+<app><lem xml:id="lem-2.5">mouebant</lem><rdg wit="#S">-batur</rdg></app>
+
+<app><lem xml:id="lem-3.1">urbs fertilissima</lem><rdg wit="#S">his feralisima</rdg></app>
+
+<app><lem xml:id="lem-3.1">homines</lem><rdg wit="#S">om-</rdg></app>
+
+<app><lem xml:id="lem-3.1">imitati</lem><rdg wit="#M">-ari</rdg></app>
+
+<app><lem xml:id="lem-3.3">annis</lem><rdg wit="#S">animis</rdg></app>
+
+<app><lem xml:id="lem-3.3">Caesarem</lem><rdg wit="#S">ac cessarem</rdg></app>
+
+<app><lem xml:id="3.4">ex</lem><rdg wit="#V"/></app>
+
+<app><lem xml:id="3.4">propter</lem><rdg wit="#S"/></app>
+
+<app><lem xml:id="lem-4.1">exercitui</lem><rdg wit="#V">-u</rdg></app>
+
+<app><lem xml:id="lem-4.1">Arsinoen</lem><rdg wit="#U">asrnoen</rdg></app>
+
+<app><lem xml:id="lem-4.1">summam</lem><rdg wit="#S">sumam</rdg></app>
+
+<app><lem xml:id="lem-4.2">Ganymedi</lem><rdg wit="#S">Grani-</rdg></app>
+
+<app><lem xml:id="lem-4.2">officio</lem><rdg wit="#M">offio</rdg></app>
+
+<app><lem xml:id="lem-4.2">pari</lem><rdg wit="#S">patri</rdg></app>
+
+<app><lem xml:id="lem-5.1">est</lem><rdg wit="#V">enim</rdg></app>
+
+<app><lem xml:id="lem-5.1">pertinentes</lem><rdg wit="#M">perting-</rdg></app>
+
+<app><lem xml:id="lem-5.1">priuatas</lem><rdg wit="#M">-os</rdg></app>
+
+<app><lem xml:id="lem-5.1">ac</lem><rdg wit="#U">hac</rdg></app>
+
+<app><lem xml:id="lem-5.1">subsidit</lem><rdg wit="#V">-det</rdg></app>
+
+<app><lem xml:id="lem-5.2">hac</lem><rdg wit="#V">ac</rdg></app>
+
+<app><lem xml:id="lem-5.2">domini</lem><rdg wit="#S">-nia</rdg></app>
+
+<app><lem xml:id="lem-5.2">Nilo</lem><rdg wit="#S">nichilo</rdg></app>
+
+<app><lem xml:id="lem-5.2">adeo</lem><rdg wit="#S">aeo</rdg></app>
+
+<app><lem xml:id="lem-5.2">limosa</lem><rdg wit="#S">lun-</rdg></app>
+
+<app><lem xml:id="lem-5.2">contenta</lem><rdg wit="#S">-emta</rdg></app>
+
+<app><lem xml:id="lem-5.2">parte</lem><rdg wit="#S">pater</rdg></app>
+
+<app><lem xml:id="lem-5.3">facto</lem><rdg wit="#S">-ta</rdg></app>
+
+<app><lem xml:id="lem-5.3">uicatim</lem><rdg wit="#T">uac-</rdg></app>
+
+<app><lem xml:id="lem-5.3">ex priuatis aedificiis</lem><rdg wit="#V">ex a- p-</rdg></app>
+
+<app><lem xml:id="lem-5.3">priuatis</lem><rdg wit="#S">primiuatis</rdg></app>
+
+<app><lem xml:id="lem-5.3">ac</lem><rdg wit="#S">a</rdg></app>
+
+<app><lem xml:id="lem-5.3">utebantur</lem><rdg wit="#M">-batur</rdg></app>
+
+<app><lem xml:id="lem-6.1">mari</lem><rdg wit="#V">mare</rdg></app>
+
+<app><lem xml:id="6.1">ac</lem><rdg wit="#V"/></app>
+
+<app><lem xml:id="lem-6.1">intermittebat</lem><rdg wit="#M">-bant</rdg></app>
+
+<app><lem xml:id="lem-6.2">causam salsior</lem><rdg wit="#S">acussam fal-</rdg></app>
+
+<app><lem xml:id="lem-6.2">paulo praeter consuetudinem aqua</lem><rdg wit="#M">a- pa- pr- c-</rdg></app>
+
+<app><lem xml:id="lem-6.2">hominibus admirationem praebebat</lem><rdg wit="#V">h- exhibebat ad-</rdg></app>
+
+<app><lem xml:id="lem-6.2">nec</lem><rdg wit="#S">ne</rdg></app>
+
+<app><lem xml:id="6.3">uero</lem><rdg wit="#U"/></app>
+
+<app><lem xml:id="lem-6.3">propior</lem><rdg wit="#S">-prior</rdg></app>
+
+ 
+<app><lem xml:id="lem-7.1">incessit</lem><rdg wit="#S">inie-</rdg></app>
+
+7.1 casum2] cassum S 
+<app><lem xml:id="lem-7.2">quam</lem><rdg wit="#S">quan</rdg></app>
+
+<app><lem xml:id="lem-7.3">et natura cognoscatur</lem><rdg wit="#M">c- et n-</rdg></app>
+
+<app><lem xml:id="lem-7.3">hoc genus ad proditionem</lem><rdg wit="#M">ad p- h- g-</rdg></app>
+ac
+<app><lem xml:id="lem-7.3">ad</lem><rdg wit="#S">a</rdg></app>
+
+ 
+<app><lem xml:id="lem-8.1">suorum</lem><rdg wit="#M">suor</rdg></app>
+
+<app><lem xml:id="lem-8.1">puteis</lem><rdg wit="#T">-eus</rdg></app>
+
+<app><lem xml:id="8.1">enim</lem><rdg wit="#T"/></app>
+
+<app><lem xml:id="lem-8.2">atque</lem><rdg wit="#S">aquae</rdg></app>
+
+<app><lem xml:id="lem-8.2">haberent</lem><rdg wit="#T">tener-</rdg></app>
+
+<app><lem xml:id="lem-8.2">cottidie nauibus</lem><rdg wit="#V">n- c-</rdg></app>
+ 
+<app><lem xml:id="lem-8.2">uel a</lem><rdg wit="#S">uella</rdg></app>
+
+<app><lem xml:id="lem-8.2">praecluderentur</lem><rdg wit="#M">-dentur</rdg></app>
+ 
+<app><lem xml:id="lem-8.3">esse</lem><rdg wit="#S">-et</rdg></app>
+
+<app><lem xml:id="lem-8.3">nihil</lem><rdg wit="#M">nichil</rdg></app>
+
+<app><lem xml:id="lem-8.3">praeterquam</lem><rdg wit="#S">praeter quan</rdg></app>
+
+<app><lem xml:id="lem-8.4">aduersos</lem><rdg wit="#T">-rsus</rdg></app>
+ 
+<app><lem xml:id="8.4">ex</lem><rdg wit="#T"/></app>
+
+<app><lem xml:id="lem-8.4">pares</lem><rdg wit="#S">paress</rdg></app>
+
+<app><lem xml:id="lem-8.5">moram</lem><rdg wit="#S">-rem</rdg></app>
+
+<app><lem xml:id="lem-8.6">proinde</lem><rdg wit="#U">dei-</rdg></app>
+
+<app><lem xml:id="lem-8.6">uincendum</lem><rdg wit="#S">uic-</rdg></app>
+
+ 
+<app><lem xml:id="9.1">negotium</lem><rdg wit="#M"/></app>
+ 
+<app><lem xml:id="lem-9.1">fodiendos</lem><rdg wit="#S">-ndo</rdg></app>
+
+<app><lem xml:id="9.3">supra</lem><rdg wit="#T"/></app>
+
+<app><lem xml:id="lem-9.3">Alexandrinam</lem><rdg wit="#S">-dream</rdg></app>
+
+<app><lem xml:id="lem-9.4">continenter</lem><rdg wit="#T">continentur</rdg></app>
+
+<app><lem xml:id="lem-9.4">omni</lem><rdg wit="#T">-ium</rdg></app>
+
+ 
+<app><lem xml:id="lem-10.1">nudare</lem><rdg wit="#U">-ari</rdg></app>
+
+<app><lem xml:id="lem-10.2">appellatur</lem><rdg wit="#M">-ellabatur</rdg></app>
+
+<app><lem xml:id="lem-10.2">praedatum</lem><rdg wit="#S">praeced-</rdg></app>
+
+<app><lem xml:id="lem-10.5">nolebat</lem><rdg wit="#S">ualebant</rdg></app>
+
+<app><lem xml:id="lem-10.5">nullos</lem><rdg wit="#S">-o</rdg></app>
+
+<app><lem xml:id="lem-10.5">X</lem><rdg wit="#V">decimam</rdg></app>
+
+<app><lem xml:id="lem-10.5">notitia</lem><rdg wit="#U">-am</rdg></app>
+
+<app><lem xml:id="lem-10.5">idonea esset</lem><rdg wit="#M">e- i-</rdg></app>
+
+<app><lem xml:id="lem-10.5">inertiam</lem><rdg wit="#M">inhe-</rdg></app>
+
+<app><lem xml:id="lem-10.6">de causis</lem><rdg wit="#S">deauis</rdg></app>
+
+<app><lem xml:id="lem-10.6">detrahit</lem><rdg wit="#S">-achit</rdg></app>
+
+ 
+<app><lem xml:id="lem-11.1">nauis</lem><rdg wit="#S">nanauis</rdg></app>
+
+<app><lem xml:id="lem-11.1">Caesaris cornu</lem><rdg wit="#V">co- Cae-</rdg></app>
+
+<app><lem xml:id="lem-11.1">longe ab</lem><rdg wit="#S">l- que a-</rdg></app>
+
+<app><lem xml:id="lem-11.1">collocata</lem><rdg wit="#M">collata</rdg></app>
+
+<app><lem xml:id="lem-11.1">sese</lem><rdg wit="#S">ses</rdg></app>
+
+<app><lem xml:id="lem-11.2">coactus</lem><rdg wit="#S">coatus</rdg></app>
+
+<app><lem xml:id="lem-11.2">turpem</lem><rdg wit="#V">-piter</rdg></app>
+
+<app><lem xml:id="lem-11.2">casurum</lem><rdg wit="#M">caesarum</rdg></app>
+
+<app><lem xml:id="lem-11.3">onus</lem><rdg wit="#U">ho-</rdg></app>
+
+<app><lem xml:id="lem-11.3">culpa</lem><rdg wit="#U">-am</rdg></app>
+
+<app><lem xml:id="lem-11.4">secundissimum</lem><rdg wit="#S">secumd-</rdg></app>
+
+<app><lem xml:id="lem-11.4">depressa</lem><rdg wit="#S">deperr-</rdg></app>
+
+<app><lem xml:id="lem-11.5">classe</lem><rdg wit="#S">cbasse</rdg></app>
+
+<app><lem xml:id="lem-11.5">potitus</lem><rdg wit="#S">porti-</rdg></app>
+
+<app><lem xml:id="lem-11.5">esset</lem><rdg wit="#V">est</rdg></app>
+
+<app><lem xml:id="lem-11.6">hac</lem><rdg wit="#S">hanc</rdg></app>
+
+<app><lem xml:id="lem-11.6">calamitate</lem><rdg wit="#S">cada-</rdg></app>
+
+<app><lem xml:id="lem-11.6">flante</lem><rdg wit="#S">-ti</rdg></app>
+
+<app><lem xml:id="lem-11.6">onerarias</lem><rdg wit="#U">ho-</rdg></app>
+
+<app><lem xml:id="11.6">nauibus</lem><rdg wit="#S"/></app>
+
+ 
+<app><lem xml:id="lem-12.1">se</lem><rdg wit="#S">sed</rdg></app>
+
+<app><lem xml:id="lem-12.2">eas</lem><rdg wit="#U">eos</rdg></app>
+ 
+<app><lem xml:id="lem-12.3">deposuerunt</lem><rdg wit="#T">non -erant</rdg></app>
+ 
+<app><lem xml:id="lem-12.4">classem</lem><rdg wit="#M">cala-</rdg></app>
+ac
+ 
+<app><lem xml:id="lem-13.1">ostiis</lem><rdg wit="#V">ho-</rdg></app>
+
+<app><lem xml:id="lem-13.1">Nili</lem><rdg wit="#S">portorium nuli</rdg></app>
+
+<app><lem xml:id="lem-13.1">occultis</lem><rdg wit="#S">-i</rdg></app>
+
+<app><lem xml:id="13.1">usi</lem><rdg wit="#V"/></app>
+
+<app><lem xml:id="lem-13.2">naturalis</lem><rdg wit="#U">-i</rdg></app>
+
+<app><lem xml:id="13.4">diebus</lem><rdg wit="#S"/></app>
+
+<app><lem xml:id="lem-13.4">apertasque</lem><rdg wit="#S">apertas</rdg></app>
+ : apertasque apertasque M
+<app><lem xml:id="lem-13.4">seque</lem><rdg wit="#S">sedque</rdg></app>
+
+<app><lem xml:id="lem-13.5">Ponticas</lem><rdg wit="#S">-ias</rdg></app>
+
+<app><lem xml:id="lem-13.5">quadririmes decem</lem><rdg wit="#V">-dririmes et</rdg></app>
+ 
+<app><lem xml:id="lem-13.5">reliquae</lem><rdg wit="#S">-a</rdg></app>
+
+<app><lem xml:id="lem-13.6">confisus cognitis</lem><rdg wit="#S">consus cognitas</rdg></app>
+
+<app><lem xml:id="lem-13.6">se</lem><rdg wit="#S">sed</rdg></app>
+
+ 
+<app><lem xml:id="lem-14.1">postquam</lem><rdg wit="#S">postaquam</rdg></app>
+
+<app><lem xml:id="lem-14.1">spatium</lem><rdg wit="#T">ispatium</rdg></app>
+ 
+<app><lem xml:id="lem-14.2">distribuit</lem><rdg wit="#M">sdistribuit</rdg></app>
+
+<app><lem xml:id="lem-14.2">quamque</lem><rdg wit="#V">quamcumque</rdg></app>
+
+<app><lem xml:id="lem-14.3">instruunt</lem><rdg wit="#V">instituunt</rdg></app>
+
+<app><lem xml:id="lem-14.4">ipsa</lem><rdg wit="#S">-am</rdg></app>
+
+<app><lem xml:id="lem-14.5">transitu</lem><rdg wit="#S">-um</rdg></app>
+
+<app><lem xml:id="lem-14.5">ipsos est</lem><rdg wit="#T">ipso se</rdg></app>
+
+<app><lem xml:id="lem-14.5">transeundi</lem><rdg wit="#S">transecundi</rdg></app>
+
+<app><lem xml:id="14.5">fieret</lem><rdg wit="#T"/></app>
+ 
+<app><lem xml:id="lem-14.5">propterea</lem><rdg wit="#U">propam</rdg></app>
+
+ 
+<app><lem xml:id="lem-15.1">Rhodiis</lem><rdg wit="#V">Rodius</rdg></app>
+ 
+<app><lem xml:id="lem-15.2">ob notissimam</lem><rdg wit="#T">obtatissimam</rdg></app>
+ac
+<app><lem xml:id="15.2">est</lem><rdg wit="#S"/></app>
+ 
+<app><lem xml:id="15.3">mihi</lem><rdg wit="#U"/></app>
+ac
+<app><lem xml:id="lem-15.3">inquit</lem><rdg wit="#S">inquita</rdg></app>
+
+<app><lem xml:id="lem-15.4">magno</lem><rdg wit="#T">magna</rdg></app>
+
+<app><lem xml:id="lem-15.4">dedecori</lem><rdg wit="#S">-r</rdg></app>
+
+<app><lem xml:id="lem-15.4">dolori</lem><rdg wit="#S">-is</rdg></app>
+
+<app><lem xml:id="lem-15.5">impetum</lem><rdg wit="#S">-unt</rdg></app>
+
+<app><lem xml:id="lem-15.6">sustinent</lem><rdg wit="#S">-et</rdg></app>
+
+<app><lem xml:id="15.6">atque</lem><rdg wit="#M"/></app>
+ac
+<app><lem xml:id="lem-15.6">aduersae</lem><rdg wit="#M">ac se</rdg></app>
+ac 
+<app><lem xml:id="lem-15.7">reliquae</lem><rdg wit="#T">-a</rdg></app>
+
+<app><lem xml:id="lem-15.8">pugna occupatum animum haberent</lem><rdg wit="#M">p- h- o- a</rdg></app>
+ac
+15.8 atque … exposceret om. S (uerba 16)
+<app><lem xml:id="lem-15.8">prospectu locum spectaculo</lem><rdg wit="#M">prospectaculo cum s-</rdg></app>
+ac : prospectaculo s- Mc
+<app><lem xml:id="lem-15.8">spectaculo</lem><rdg wit="#T">-oque</rdg></app>
+ac 
+<app><lem xml:id="lem-15.8">caperet</lem><rdg wit="#V">pet-</rdg></app>
+
+ 
+<app><lem xml:id="lem-16.1">autem</lem><rdg wit="#M">enim</rdg></app>
+
+<app><lem xml:id="lem-16.1">periclitarentur</lem><rdg wit="#V">peritarentur</rdg></app>
+ac 
+<app><lem xml:id="lem-16.2">simul</lem><rdg wit="#S">simulli</rdg></app>
+
+<app><lem xml:id="lem-16.2">perpaucos de summa rerum ac de salute</lem><rdg wit="#T">p- a- d- su- sa-</rdg></app>
+ 
+<app><lem xml:id="16.4">falleret</lem><rdg wit="#M"/></app>
+
+<app><lem xml:id="lem-16.4">proficisceretur</lem><rdg wit="#S">profisceretur</rdg></app>
+
+<app><lem xml:id="lem-16.5">maritimis</lem><rdg wit="#S">matrimis</rdg></app>
+
+<app><lem xml:id="lem-16.5">numero</lem><rdg wit="#U">-rum</rdg></app>
+
+<app><lem xml:id="lem-16.5">multitudo</lem><rdg wit="#V">ita m-</rdg></app>
+
+<app><lem xml:id="lem-16.5">prodesset</lem><rdg wit="#M">nauium p-</rdg></app>
+ 
+<app><lem xml:id="lem-16.5">e</lem><rdg wit="#S">et</rdg></app>
+ 
+<app><lem xml:id="lem-16.6">cum defensoribus</lem><rdg wit="#V">condef-</rdg></app>
+ac
+<app><lem xml:id="lem-16.6">remigibusque</lem><rdg wit="#M">suis r-</rdg></app>
+
+<app><lem xml:id="lem-16.6">nostris</lem><rdg wit="#V">ex n-</rdg></app>
+ 
+<app><lem xml:id="lem-16.7">ex</lem><rdg wit="#M">et</rdg></app>
+
+<app><lem xml:id="lem-16.7">atque</lem><rdg wit="#V">et</rdg></app>
+
+<app><lem xml:id="lem-16.7">proprius</lem><rdg wit="#M">proprus</rdg></app>
+
+<app><lem xml:id="lem-17.1">molemque</lem><rdg wit="#M">molesque</rdg></app>
+
+<app><lem xml:id="17.1">ad insulam</lem><rdg wit="#M"/></app>
+
+<app><lem xml:id="lem-17.2">magna ex</lem><rdg wit="#V">e- m-</rdg></app>
+
+<app><lem xml:id="17.2">tempore</lem><rdg wit="#T"/></app>
+
+<app><lem xml:id="lem-17.3">leuis armaturae</lem><rdg wit="#S">leuisarum maturae</rdg></app>
+ 
+<app><lem xml:id="lem-17.3">constratis</lem><rdg wit="#V">contractis</rdg></app>
+
+<app><lem xml:id="lem-17.3">magnis</lem><rdg wit="#S">-sque</rdg></app>
+
+<app><lem xml:id="lem-17.3">cepisset</lem><rdg wit="#M">cepissent</rdg></app>
+ac           
+<app><lem xml:id="lem-17.4">primo</lem><rdg wit="#T">-mum</rdg></app>
+
+<app><lem xml:id="lem-17.4">nostrorum pariter sustinuerunt</lem><rdg wit="#M">n- s- p-</rdg></app>
+                            
+<app><lem xml:id="lem-17.4">enim</lem><rdg wit="#S">ex</rdg></app>
+
+<app><lem xml:id="lem-17.4">tempore</lem><rdg wit="#T">tempre</rdg></app>
+
+<app><lem xml:id="lem-17.4">quo</lem><rdg wit="#S">qua</rdg></app>
+                    
+<app><lem xml:id="lem-17.4">nauibusque longis</lem><rdg wit="#S">nauibus longius</rdg></app>
+
+<app><lem xml:id="lem-17.5">omnes</lem><rdg wit="#T">-ni</rdg></app>
+
+<app><lem xml:id="lem-17.5">Pharitae</lem><rdg wit="#T">inter p et rite</rdg></app>
+ non legitur
+
+<app><lem xml:id="lem-18.1">se</lem><rdg wit="#S">sed</rdg></app>
+
+<app><lem xml:id="lem-18.1">erat non dissimile</lem><rdg wit="#V">d- n- e-</rdg></app>
+
+<app><lem xml:id="18.1">cratibus aut</lem><rdg wit="#V"/></app>
+
+<app><lem xml:id="lem-18.3">aequo loco</lem><rdg wit="#V">l- a-</rdg></app>
+
+<app><lem xml:id="lem-18.3">passuum</lem><rdg wit="#U">passum</rdg></app>
+
+<app><lem xml:id="18.4">ex his</lem><rdg wit="#U"/></app>
+
+<app><lem xml:id="lem-18.4">interfectique</lem><rdg wit="#S">-ctaque</rdg></app>
+ac 
+ 
+<app><lem xml:id="lem-19.1">praeda militibus</lem><rdg wit="#U">m- p-</rdg></app>
+
+<app><lem xml:id="lem-19.1">propior</lem><rdg wit="#S">prior</rdg></app>
+
+<app><lem xml:id="lem-19.1">ibi praesidium</lem><rdg wit="#V">p- i-</rdg></app>
+
+<app><lem xml:id="lem-19.2">sed</lem><rdg wit="#S">si</rdg></app>
+                                                                             <app><lem xml:id="lem-19.2">optentis</lem><rdg wit="#S">optenas</rdg></app>
+  
+<app><lem xml:id="lem-19.3">depulerat</lem><rdg wit="#V">-ant</rdg></app>
+
+<app><lem xml:id="lem-19.4">aduersus hostem</lem><rdg wit="#V">h- a-</rdg></app>
+
+<app><lem xml:id="lem-19.5">altero</lem><rdg wit="#S">-ra</rdg></app>
+
+<app><lem xml:id="19.5">ut</lem><rdg wit="#M"/></app>
+ac
+<app><lem xml:id="lem-19.5">eiecerunt</lem><rdg wit="#S">iec-</rdg></app>
+        
+<app><lem xml:id="lem-19.5">eodemque</lem><rdg wit="#V">eodem</rdg></app>
+        
+19.6 pugnabatur … (24.2) ut ad om. S 
+ 
+<app><lem xml:id="lem-20.3">coeperunt</lem><rdg wit="#M">rec-</rdg></app>
+ 
+<app><lem xml:id="lem-20.6">quid</lem><rdg wit="#T">quod</rdg></app>
+
+<app><lem xml:id="lem-20.6">alleuatis</lem><rdg wit="#M">-i</rdg></app>
+
+ 
+<app><lem xml:id="lem-21.1">uniuersos</lem><rdg wit="#V">u- Cesar</rdg></app>
+
+<app><lem xml:id="lem-21.2">a terra</lem><rdg wit="#V">aeterna</rdg></app>
+
+<app><lem xml:id="lem-21.5">confirmarunt</lem><rdg wit="#U">-auerunt</rdg></app>
+
+<app><lem xml:id="lem-21.5">mittenda nauigia</lem><rdg wit="#V">n- m-</rdg></app>
+ 
+ 
+<app><lem xml:id="lem-22.2">hortatio</lem><rdg wit="#V">exhortacio</rdg></app>
+
+ 
+<app><lem xml:id="lem-23.1">alexandrini</lem><rdg wit="#T">-ri</rdg></app>
+
+<app><lem xml:id="23.2">omnem</lem><rdg wit="#T"/></app>
+
+<app><lem xml:id="23.2">regno</lem><rdg wit="#T"/></app>
+
+<app><lem xml:id="lem-23.2">facere id</lem><rdg wit="#V">i- f-</rdg></app>
+
+ 
+<app><lem xml:id="lem-24.1">esse statuit</lem><rdg wit="#M">constituit e-</rdg></app>
+ 
+<app><lem xml:id="lem-24.1">gerundum</lem><rdg wit="#V">gesturum</rdg></app>
+
+<app><lem xml:id="lem-24.2">reuocaret</lem><rdg wit="#M">-cante</rdg></app>
+
+<app><lem xml:id="24.3">sibi</lem><rdg wit="#V"/></app>
+
+<app><lem xml:id="lem-24.4">compressis</lem><rdg wit="#M">compressisque</rdg></app>
+
+<app><lem xml:id="lem-24.5">ex</lem><rdg wit="#M">e</rdg></app>
+
+ 
+<app><lem xml:id="lem-25.1">firmiores</lem><rdg wit="#S">infirm-</rdg></app>
+
+<app><lem xml:id="lem-25.1">animaduerterent</lem><rdg wit="#T">adu-</rdg></app>
+
+<app><lem xml:id="lem-25.1">aetatem</lem><rdg wit="#S">aetate</rdg></app>
+
+<app><lem xml:id="lem-25.2">dispositis</lem><rdg wit="#V">dispotis</rdg></app>
+
+<app><lem xml:id="lem-25.3">Neronem</lem><rdg wit="#S">Nerorem</rdg></app>
+ 
+<app><lem xml:id="lem-25.4">prosequebatur</lem><rdg wit="#V">pers-</rdg></app>
+
+<app><lem xml:id="25.5">cum</lem><rdg wit="#U"/></app>
+
+<app><lem xml:id="lem-25.5">conflixisset</lem><rdg wit="#S">esset c-</rdg></app>
+
+<app><lem xml:id="lem-25.6">sibi</lem><rdg wit="#M">sic</rdg></app>
+
+ 
+<app><lem xml:id="lem-26.1">scientiaeque</lem><rdg wit="#M">scientiae quae</rdg></app>
+ 
+<app><lem xml:id="26.1">Caesaris</lem><rdg wit="#M"/></app>
+
+<app><lem xml:id="lem-26.1">propensissima</lem><rdg wit="#M">impen-</rdg></app>
+ 
+<app><lem xml:id="lem-26.1">Aegyptus</lem><rdg wit="#U">-tos</rdg></app>
+
+<app><lem xml:id="lem-26.2">idque oppidum</lem><rdg wit="#S">i- quod o-</rdg></app>
+
+<app><lem xml:id="lem-26.2">claustris</lem><rdg wit="#S">castr-</rdg></app>
+
+<app><lem xml:id="lem-26.2">magnis circumdatum</lem><rdg wit="#V">c- m-</rdg></app>
+ 
+<app><lem xml:id="lem-26.3">contendit</lem><rdg wit="#M">conditendit</rdg></app>
+ac : contetendit Mc
+<app><lem xml:id="26.3">ea</lem><rdg wit="#V"/></app>
+
+<app><lem xml:id="lem-26.3">uictori</lem><rdg wit="#S">-riae</rdg></app>
+
+<app><lem xml:id="27.1">spatium</lem><rdg wit="#V"/></app>
+
+<app><lem xml:id="lem-27.1">relinquens</lem><rdg wit="#S">-quere</rdg></app>
+
+<app><lem xml:id="lem-27.2">uel superari delerique</lem><rdg wit="#V">uel s- uel d-</rdg></app>
+
+<app><lem xml:id="27.3">autem</lem><rdg wit="#V"/></app>
+
+27.4 a Delta] ad Δ delta V
+<app><lem xml:id="lem-27.4">commiserunt</lem><rdg wit="#T">commiser</rdg></app>
+
+<app><lem xml:id="27.5">Mithridates</lem><rdg wit="#V"/></app>
+
+<app><lem xml:id="lem-27.5">magna</lem><rdg wit="#V">-no</rdg></app>
+
+<app><lem xml:id="lem-27.5">atque</lem><rdg wit="#V">et</rdg></app>
+
+<app><lem xml:id="27.5">undique</lem><rdg wit="#M"/></app>
+
+<app><lem xml:id="lem-27.5">facta</lem><rdg wit="#S">stata</rdg></app>
+
+<app><lem xml:id="lem-27.6">reliqui se texissent</lem><rdg wit="#S">reliquisset exissent</rdg></app>
+
+<app><lem xml:id="lem-27.6">essent</lem><rdg wit="#M">-et</rdg></app>
+ac
+ 
+<app><lem xml:id="lem-28.1">rem</lem><rdg wit="#S">regem</rdg></app>
+ 
+<app><lem xml:id="lem-28.1">eadem haec</lem><rdg wit="#U">h- e-</rdg></app>
+
+<app><lem xml:id="lem-28.2">celeriore</lem><rdg wit="#V">-ori</rdg></app>
+
+<app><lem xml:id="lem-28.2">fluminis Nili</lem><rdg wit="#V">n- f-</rdg></app>
+
+<app><lem xml:id="28.2">ne</lem><rdg wit="#S"/></app>
+
+<app><lem xml:id="lem-28.2">circumuectus</lem><rdg wit="#S">circum euectus</rdg></app>
+ 
+<app><lem xml:id="lem-28.3">adiectum</lem><rdg wit="#M">abi-</rdg></app>
+
+ 
+<app><lem xml:id="lem-29.1">influebat</lem><rdg wit="#S">effl-</rdg></app>
+
+<app><lem xml:id="lem-29.1">ab</lem><rdg wit="#M">a</rdg></app>
+
+<app><lem xml:id="lem-29.2">equitatum</lem><rdg wit="#T">-atem</rdg></app>
+
+<app><lem xml:id="lem-29.3">dolore</lem><rdg wit="#S">-es</rdg></app>
+
+<app><lem xml:id="lem-29.3">equitesque</lem><rdg wit="#S">equentesque</rdg></app>
+
+<app><lem xml:id="29.4">itaque</lem><rdg wit="#V"/></app>
+ 
+<app><lem xml:id="lem-29.4">tranarunt</lem><rdg wit="#M">transn-</rdg></app>
+
+<app><lem xml:id="lem-29.4">legionarii</lem><rdg wit="#S">-riis</rdg></app>
+
+<app><lem xml:id="lem-29.4">excisis</lem><rdg wit="#V">absc-</rdg></app>
+
+<app><lem xml:id="lem-29.4">iniecto</lem><rdg wit="#V">proie-</rdg></app>
+
+<app><lem xml:id="lem-29.5">multitudine</lem><rdg wit="#M">multidine</rdg></app>
+
+ 
+<app><lem xml:id="lem-30.1">re praeclarissime</lem><rdg wit="#U">-issima re</rdg></app>
+ 
+<app><lem xml:id="lem-30.2">multitudinem</lem><rdg wit="#S">-e</rdg></app>
+
+<app><lem xml:id="lem-30.3">postero die</lem><rdg wit="#V">p- uero d-</rdg></app>
+ 
+<app><lem xml:id="lem-30.3">quo id</lem><rdg wit="#T">quod</rdg></app>
+    
+<app><lem xml:id="30.3">numero</lem><rdg wit="#U"/></app>
+ 
+<app><lem xml:id="lem-30.5">una</lem><rdg wit="#S">-am</rdg></app>
+ 
+<app><lem xml:id="lem-30.5">altera</lem><rdg wit="#S">-am</rdg></app>
+ 
+<app><lem xml:id="lem-30.6">proficiebant</lem><rdg wit="#S">-bat</rdg></app>
+
+<app><lem xml:id="lem-30.6">uulnerandisque</lem><rdg wit="#S">-atisque</rdg></app>
+
+<app><lem xml:id="lem-30.6">regione</lem><rdg wit="#S">-nem</rdg></app>
+
+<app><lem xml:id="lem-31.1">per se</lem><rdg wit="#V">ipse in</rdg></app>
+
+<app><lem xml:id="lem-31.1">studio partim pugnandi partim</lem><rdg wit="#M">pu- pa- s- pa-</rdg></app>
+
+<app><lem xml:id="lem-31.1">Carfulenum</lem><rdg wit="#V">carfunelum</rdg></app>
+ : calenum carfulenum Mac     
+<app><lem xml:id="31.1">uirum</lem><rdg wit="#S"/></app>
+   
+<app><lem xml:id="31.3">adeo</lem><rdg wit="#V"/></app>
+
+<app><lem xml:id="lem-31.4">praecipitarunt</lem><rdg wit="#M">praecipitauerunt</rdg></app>
+
+<app><lem xml:id="lem-31.5">ruina</lem><rdg wit="#S">ui</rdg></app>
+
+<app><lem xml:id="lem-31.6">nauem</lem><rdg wit="#S">n- et</rdg></app>
+ 
+ 
+<app><lem xml:id="lem-32.2">eum</lem><rdg wit="#V">enim</rdg></app>
+
+<app><lem xml:id="lem-32.2">eo proelio audito nihil</lem><rdg wit="#V">a- e- p- nil</rdg></app>
+
+<app><lem xml:id="lem-32.2">audito</lem><rdg wit="#U">-tu</rdg></app>
+
+<app><lem xml:id="lem-32.3">magnitudinis</lem><rdg wit="#T">multitudinis</rdg></app>
+
+<app><lem xml:id="lem-32.3">religione</lem><rdg wit="#U">releg-</rdg></app>
+
+<app><lem xml:id="lem-32.3">precari</lem><rdg wit="#U">-are</rdg></app>
+
+<app><lem xml:id="lem-32.4">ac</lem><rdg wit="#S">a</rdg></app>
+
+ 
+<app><lem xml:id="lem-33.2">maiorique</lem><rdg wit="#S">maiori</rdg></app>
+
+<app><lem xml:id="lem-33.2">filiis</lem><rdg wit="#V">filiabus</rdg></app>
+
+<app><lem xml:id="lem-33.2">impotenter Ganymeden</lem><rdg wit="#M">g- i-</rdg></app>
+
+<app><lem xml:id="33.2">rursus</lem><rdg wit="#V"/></app>
+           
+<app><lem xml:id="lem-33.3">quo</lem><rdg wit="#T">quod</rdg></app>
+
+<app><lem xml:id="lem-33.3">esset eorum</lem><rdg wit="#V">eo- es-</rdg></app>
+
+<app><lem xml:id="lem-33.4">eos nostris</lem><rdg wit="#M">nostros e-</rdg></app>
+
+<app><lem xml:id="lem-33.4">essent</lem><rdg wit="#T">-et</rdg></app>
+ 
+<app><lem xml:id="lem-33.4">coerceri</lem><rdg wit="#M">ceteri</rdg></app>
+
+ 
+ 
+ 
+ 
+
+
