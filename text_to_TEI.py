@@ -21,8 +21,8 @@ print('Gosh, that\'s a lot of unencoded text! We\'d better get started!')
 time.sleep(5)
 
 # Handle additive emendation, since it is indicated by < >, which would be swept up by other routines below.
-print('Okay, we\'ll handle editorial additions first, since their angle brackets might cause trouble later.')
-time.sleep(5)
+print('Okay, we\'ll handle editorial additions first, since their angle brackets\n might cause trouble later.')
+time.sleep(4)
 search_addition = re.compile(r'<([a-zA-Z]*)>')
 replace0 = search_addition.sub(r'<supplied reason="lost">\1</supplied>', source_text)
 
@@ -34,7 +34,7 @@ replace1 = search_paragraph.sub(r'<p n="\1">\2</p>',replace0)
 
 # Remove empty paragraphs.
 print('Done. Now let\'s kill any empty paragraphs caused by line breaks in the original document.')
-time.sleep(5)
+time.sleep(3)
 search_empty_paragraph = re.compile(r'<p n="">([\s]*)</p>')
 replace2 = search_empty_paragraph.sub(r'', replace1)
 
@@ -59,8 +59,6 @@ replace6 = search_remove_seg_space.sub(r'</seg> <seg n="\1">',replace5)
 # Handle crux.
 print('Now handling special symbols. First up: †crux†.')
 time.sleep(3)
-print('If you want to find a horcrux, you\'re on your own.')
-time.sleep(4)
 search_crux = re.compile(r'†([a-zA-Z]*)†')
 replace7 = search_crux.sub(r'<sic>\1</sic>',replace6)
 
@@ -152,6 +150,6 @@ print('Wow! That saved a lot of time!')
 time.sleep(3)
 
 print('Valid XML coming your way!')
-time.sleep(3)
+time.sleep(2)
 
 os.system("open "+ new_path)

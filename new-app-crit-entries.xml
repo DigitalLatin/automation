@@ -1,0 +1,38 @@
+<?xml-model
+href="https://digitallatin.github.io/guidelines/critical-editions.rng" type="application/xml" 
+  schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model
+href="https://digitallatin.github.io/guidelines/critical-editions.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+      <listApp>﻿<!-- App entry for Paragraph.Section: Lemma --><app><lem wit="#Lemma_Witnesses" source="#Lemma_Sources" xml:id="lem-Paragraph.Section-Lemma">Lemma</lem><note target="Paragraph.Section-Lemma">Lemma_Annotations</note><rdg wit="#Reading_1_Witnesses" source="#Reading_1_Sources" xml:id="rdg-Paragraph.Section-Reading_1"/><note target="rdgParagraph.Section-Lemma">Reading_1_Annotations</note><rdg wit="#Reading_2_Witnesses" source="#Reading_2_Sources" xml:id="rdg-Paragraph.Section-Reading_2"/><note target="rdgParagraph.Section-Lemma">Reading_2_Annotations</note></app>
+<!-- App entry for 1.2: †cotidie operibus† --><app><lem wit="#A #B #C" source="#Vettel #Hamilton #Bottas" xml:id="lem-1.2-cotidie-operibus-crux">"><sic>cotidie operibus</sic></lem><note target="1.2-cotidie-operibus-crux">Lemma annotation</note><rdg wit="#M" xml:id="rdg-1.2-cotidie"/><rdg source="#Castiglioni" xml:id="rdg-1.2-lacuna"><gap reason="lost"/></rdg></app>
+<!-- App entry for 1.2: aptantur --><app><lem wit="ω" xml:id="lem-1.2-aptantur">aptantur</lem><note target="1.2-aptantur">u. BC 3.112.7-9</note><rdg source="#Nipperdey" xml:id="rdg-1.2-temptantur"/></app>
+<!-- App entry for 1.2: per --><app><lem  xml:id="lem-1.2-per-surplus"><surplus>per</surplus></lem><rdg wit="#S #T #V" xml:id="rdg-1.2-om."/></app>
+<!-- App entry for 1.2: in(2) --><app><lem wit="#Vac #Tc" xml:id="lem-1.2-in(2)">in(2)</lem><rdg wit="#Schneider" xml:id="rdg-1.2-in-surplus"/><note target="rdg1.2-in(2)">coll. Hirt. 8.27.4</note></app>
+<!-- App entry for 1.3: <ab> --><app><lem source="#Müller" xml:id="lem-1.3-ab-addition">"><supplied reason="lost">ab</supplied></lem><note target="1.3-ab-addition">cf. 61.3</note></app>
+<!-- App entry for 1.3: et --><app><lem  xml:id="lem-1.3-et">et</lem><rdg wit="#M" xml:id="rdg-1.3-om."/></app>
+<!-- App entry for 1.3: ac(2) --><app><lem wit="#M #T #V" xml:id="lem-1.3-ac(2)">ac(2)</lem><rdg wit="#U" xml:id="rdg-1.3-et"/><rdg wit="#S" xml:id="rdg-1.3-a"/></app>
+<!-- App entry for 1.5: spectans --><app><lem source="#Vascosan" xml:id="lem-1.5-spectans">spectans</lem><note target="1.5-spectans">cf. BC 3.85.2</note><rdg wit="Ï‰" xml:id="rdg-1.5-expectans"/></app>
+<!-- App entry for 1.5: urbs --><app><lem wit="#U" xml:id="lem-1.5-urbs">urbs</lem><rdg wit="#M" xml:id="rdg-1.5-ubrs"/><rdg wit="#S #T #V" xml:id="rdg-1.5-urbis"/></app>
+<!-- App entry for 1.5: <sua> acies --><app><lem source="#Fleischer" xml:id="lem-1.5-sua-addition-acies">"><supplied reason="lost">sua</supplied> acies</lem></app>
+<!-- App entry for 1.5: 'rei copiam exiguam, alterius --><app><lem  xml:id="lem-1.5-'rei-copiam-exiguam,-alterius">'rei copiam exiguam, alterius</lem><rdg wit="#S" xml:id="rdg-1.5-om."/></app>
+<!-- App entry for 1.6: ante A. Gabinium --><app><lem source="#Schneider" xml:id="lem-1.6-ante-A.-Gabinium">ante A. Gabinium</lem><rdg wit="#M #U #S #Tc #Vac" xml:id="rdg-1.6-antea-gabinium"/><rdg wit="#Tac #Vc" xml:id="rdg-1.6-ante-gabinium"/></app>
+</listApp
+   </text>
+</TEI>
