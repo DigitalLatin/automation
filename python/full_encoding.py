@@ -3,6 +3,7 @@
 # current things to work on
 # encoding of new xml in UTF-8
 # some weird xmlns declarations showing up in the finished file.
+# THIS ISSUE HAS BEEN FIXED using ET.register_namespace('', 'http://www.tei-c.org/ns/1.0')
 # section 1.6? we have an annotation for a section that appears not to exist
 
 ##### BIG PROBLEM - ending up with XML/HTML entities where we want unicode '<' and '>'
@@ -22,6 +23,7 @@
 # options:
 # fix at the very end
 # escape < > in input string to tree.write()
+# how to get basetext.xml to screweduptext.txt?
 
 import re
 import os
@@ -29,6 +31,7 @@ import time
 import codecs  # This is important for reading files with Unicode characters.
 import csv
 import xml.etree.ElementTree as ET # used to parse XML to insert <app> tags
+from xml.sax.saxutils import unescape  # used to unescape some angle brackets
 
 
 # Create a variable for the path to the base text.
@@ -183,6 +186,7 @@ time.sleep(2)
 
 tree = ET.parse('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/basetext.xml')
 root = tree.getroot()
+ET.register_namespace('', 'http://www.tei-c.org/ns/1.0')
 
 with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/app-crit-test.csv', encoding='utf-8') as appFile:
     readApp = csv.reader(appFile, delimiter=',')
@@ -512,31 +516,29 @@ with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/app-crit-te
         pNum = row[0]
         segNum = row[1]
         print("Now encoding note for section " + pNum + "." + segNum)
-        print(new_entries)
+        print(new_entries + "\n")
 
         xpathstr = ".//tei:p[@n='" + str(pNum) + "']/tei:seg[@n='" + str(segNum) + "']"
         # possible issue: xml namespaces - default ns for this document is http://www.tei-c.org/ns/1.0
         # xpathstr = ".//p[@n='" + str(pNum) + "']/seg[@n='" + str(segNum) + "']"
         section = root.find(xpathstr,
                      namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})  # check this
-        print(section)
 
         if section is None:
             print("There seems to be a problem with section " + pNum + "." + segNum)
             print("We will skip this for now.")
             continue
 
-        print(section.text)
-
-        text = section.text
+        text = "".join(section.itertext())
 
         searchLemma = re.compile(lem + "\s | " + lem + "[.,;:!?] | " + lem + " ")
-
         newtext = searchLemma.sub(new_entries + " ", text)
-        print(newtext)
-        section.text = newtext
+
+        print(newtext + "\n")
         tree.write('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/basetext.xml',
                    encoding='utf-8', xml_declaration=True, default_namespace=None)
         # need to look at some of the parameters on this method ^^
+
+
 
 os.system("open "+ new_path)
