@@ -1,5 +1,28 @@
 #! /usr/bin/env python3
 
+# current things to work on
+# encoding of new xml in UTF-8
+# some weird xmlns declarations showing up in the finished file.
+# section 1.6? we have an annotation for a section that appears not to exist
+
+##### BIG PROBLEM - ending up with XML/HTML entities where we want unicode '<' and '>'
+#
+# 1.2 cotidie operibus not encoding properly - mismatch b/n basetext.txt and app-crit-test.csv
+# 1.2 have in(2) as a lemma - check this - from .csv.
+# use this to pick which in gets replaced
+# 1.3 section.text not returning full text - possibly section.contents idk
+# 1.3 ac(2) same as in(2) above
+# 1.5 extra ' in rei copiam exiguam - fixed by fixing app-crit-test.csv
+# 1.6 this part of text is missing
+#
+# clean up extraneous print statements
+# remove extraneous os.system("open...") statement
+
+# figure out how to escape angle brackets in tree.write()
+# options:
+# fix at the very end
+# escape < > in input string to tree.write()
+
 import re
 import os
 import time
@@ -9,7 +32,7 @@ import xml.etree.ElementTree as ET # used to parse XML to insert <app> tags
 
 
 # Create a variable for the path to the base text.
-path = '/Users/sjhuskey/Documents/Sam-Py/DLL-Scripts/basetext.txt'
+path = '/Volumes/data/katy/PycharmProjects/DLL/automation/sources/basetext.txt'
 
 # Open the file with utf-8 encoding.
 source_file = codecs.open(path,'r','utf-8')
@@ -131,7 +154,7 @@ TEI = header + replace10 + footer
 # Tell the script where to write the new file.
 print('Making a new file ...')
 time.sleep(2)
-new_path = '/Users/sjhuskey/Documents/Sam-Py/DLL-Scripts/basetext.xml'
+new_path = '/Volumes/data/katy/PycharmProjects/DLL/automation/sources/basetext.xml'
 
 # Open the new file.
 new_source = codecs.open(new_path,'w','utf-8')
@@ -145,8 +168,8 @@ new_source.write(str(TEI))
 print('Cleaning up our workspace...')
 time.sleep(2)
 source_file.close()
-new_source.close()
 
+os.system("open "+ new_path)
 
 print('Wow! That saved a lot of time!')
 time.sleep(3)
@@ -158,12 +181,15 @@ time.sleep(2)
 print('We\'re going to encode the notes one-by-one. <app> tags will appear as they are encoded.')
 time.sleep(2)
 
-tree = ET.parse('basetext.xml')
+tree = ET.parse('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/basetext.xml')
 root = tree.getroot()
 
-with open('/Users/sjhuskey/Dropbox/DLL/Technical/Automate/automation/app-crit-test.csv', encoding='utf-8') as appFile:
+with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/app-crit-test.csv', encoding='utf-8') as appFile:
     readApp = csv.reader(appFile, delimiter=',')
     for row in readApp:
+        if row[0] == "Paragraph":
+            continue
+            # skip the first row, which contains column labels
         # Defining the lemma.
         def lem():
             if not row[2]:
@@ -423,8 +449,6 @@ with open('/Users/sjhuskey/Dropbox/DLL/Technical/Automate/automation/app-crit-te
                   rdg2_note + \
                   '</app>\n'
 
-        print(entries)
-
         # Cleaning up some issues with the app. crit. entries.
         # Remove empty readings.
         search_no_ann = re.compile(r'<!-- NO ([A-Z]*) ANNOTATION -->')
@@ -485,21 +509,34 @@ with open('/Users/sjhuskey/Dropbox/DLL/Technical/Automate/automation/app-crit-te
 
         new_entries = replace_deletion2
 
-        ### XPath statment to navigate to proper section
-
-        pNum = row [0]
+        pNum = row[0]
         segNum = row[1]
-        section = root.findall(".//p[@n=pNum]*/seg[@n=segNum]")  # check this
+        print("Now encoding note for section " + pNum + "." + segNum)
+        print(new_entries)
 
-        ### replace lemma text with <app> tag
-        section.text.replace(lem + " ", new_entries + " ")
-        tree.write('basetext.xml')
+        xpathstr = ".//tei:p[@n='" + str(pNum) + "']/tei:seg[@n='" + str(segNum) + "']"
+        # possible issue: xml namespaces - default ns for this document is http://www.tei-c.org/ns/1.0
+        # xpathstr = ".//p[@n='" + str(pNum) + "']/seg[@n='" + str(segNum) + "']"
+        section = root.find(xpathstr,
+                     namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})  # check this
+        print(section)
 
-        ### handle multiple text instances
+        if section is None:
+            print("There seems to be a problem with section " + pNum + "." + segNum)
+            print("We will skip this for now.")
+            continue
 
+        print(section.text)
 
+        text = section.text
 
+        searchLemma = re.compile(lem + "\s | " + lem + "[.,;:!?] | " + lem + " ")
 
-
+        newtext = searchLemma.sub(new_entries + " ", text)
+        print(newtext)
+        section.text = newtext
+        tree.write('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/basetext.xml',
+                   encoding='utf-8', xml_declaration=True, default_namespace=None)
+        # need to look at some of the parameters on this method ^^
 
 os.system("open "+ new_path)
