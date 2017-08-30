@@ -7,6 +7,7 @@
 # section 1.6? we have an annotation for a section that appears not to exist
 
 ##### BIG PROBLEM - ending up with XML/HTML entities where we want unicode '<' and '>'
+##### this issue has been FIXED!cd
 #
 # 1.2 cotidie operibus not encoding properly - mismatch b/n basetext.txt and app-crit-test.csv
 # 1.2 have in(2) as a lemma - check this - from .csv.
@@ -24,6 +25,9 @@
 # fix at the very end
 # escape < > in input string to tree.write()
 # how to get basetext.xml to screweduptext.txt?
+
+# multiple occurences of lemma text
+#   how to iterate through matches?
 
 import re
 import os
@@ -184,6 +188,8 @@ time.sleep(2)
 print('We\'re going to encode the notes one-by-one. <app> tags will appear as they are encoded.')
 time.sleep(2)
 
+# tree is an instance of ElementTree
+# root is an instance of Element
 tree = ET.parse('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/basetext.xml')
 root = tree.getroot()
 ET.register_namespace('', 'http://www.tei-c.org/ns/1.0')
@@ -535,10 +541,18 @@ with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/app-crit-te
         newtext = searchLemma.sub(new_entries + " ", text)
 
         print(newtext + "\n")
-        tree.write('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/basetext.xml',
-                   encoding='utf-8', xml_declaration=True, default_namespace=None)
+        section.text = newtext
+
         # need to look at some of the parameters on this method ^^
 
+# we're done with the csv file now
+appFile.close()
+bigstr = ET.tostring(root, encoding="unicode").replace("&gt;", ">").replace("&lt;", "<")
+newRoot = ET.fromstring(bigstr)
+# had to use encoding="unicode" to avoid a type mismatch problem
+# could cause possible char set problems
+tree._setroot(newRoot)
+tree.write('/Volumes/data/katy/PycharmProjects/DLL/automation/results/finished-encoding.xml',
+           encoding='utf-8', xml_declaration=True, default_namespace=None)
 
-
-os.system("open "+ new_path)
+os.system("open /Volumes/data/katy/PycharmProjects/DLL/automation/results/finished-encoding.xml")
