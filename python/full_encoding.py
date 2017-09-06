@@ -1,33 +1,17 @@
 #! /usr/bin/env python3
-
-# current things to work on
-# encoding of new xml in UTF-8
-# some weird xmlns declarations showing up in the finished file.
-# THIS ISSUE HAS BEEN FIXED using ET.register_namespace('', 'http://www.tei-c.org/ns/1.0')
-# section 1.6? we have an annotation for a section that appears not to exist
-
-##### BIG PROBLEM - ending up with XML/HTML entities where we want unicode '<' and '>'
-##### this issue has been FIXED!cd
 #
-# 1.2 cotidie operibus not encoding properly - mismatch b/n basetext.txt and app-crit-test.csv
-# 1.2 have in(2) as a lemma - check this - from .csv.
-# use this to pick which in gets replaced
-# 1.3 section.text not returning full text - possibly section.contents idk
-# 1.3 ac(2) same as in(2) above
-# 1.5 extra ' in rei copiam exiguam - fixed by fixing app-crit-test.csv
+# 1.2 has an annotation that literally says "Lemma annotation"
+# 1.3 <ab> in the csv does not match anything in the text, because we remove the <> in the text.
+# for now, I have removed them in the csv as well.
+# 1.3 we are losing the <supplied> tags - thoughts?
+# I have done the same thing for <sua> acies in 1.5
+# 1.5 sua acies base text / lemma mismatch - no sua in base text leads to no match
+# 1.5 what is the actual lemma for sua acies? this is a text/csv agreement issue not a coding issue.
 # 1.6 this part of text is missing
 #
+
 # clean up extraneous print statements
 # remove extraneous os.system("open...") statement
-
-# figure out how to escape angle brackets in tree.write()
-# options:
-# fix at the very end
-# escape < > in input string to tree.write()
-# how to get basetext.xml to screweduptext.txt?
-
-# multiple occurences of lemma text
-#   how to iterate through matches?
 
 import re
 import os
@@ -35,7 +19,7 @@ import time
 import codecs  # This is important for reading files with Unicode characters.
 import csv
 import xml.etree.ElementTree as ET # used to parse XML to insert <app> tags
-from xml.sax.saxutils import unescape  # used to unescape some angle brackets
+
 
 
 # Create a variable for the path to the base text.
@@ -176,8 +160,6 @@ print('Cleaning up our workspace...')
 time.sleep(2)
 source_file.close()
 
-os.system("open "+ new_path)
-
 print('Wow! That saved a lot of time!')
 time.sleep(3)
 
@@ -192,6 +174,8 @@ time.sleep(2)
 # root is an instance of Element
 tree = ET.parse('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/basetext.xml')
 root = tree.getroot()
+# the following statement is necessary to avoid having 'ns0' as a prefix for every tag in the doc.
+# the TEI namespace (default ns for this doc) is found at: http://www.tei-c.org/ns/1.0
 ET.register_namespace('', 'http://www.tei-c.org/ns/1.0')
 
 with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/app-crit-test.csv', encoding='utf-8') as appFile:
@@ -289,7 +273,7 @@ with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/app-crit-te
             if not row[6]:
                 return '<!-- NO READING 1 -->'
             else:
-                return
+                return row[6]
 
 
         rdg1 = str(rdg1())
@@ -372,7 +356,7 @@ with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/app-crit-te
             if not row[10]:
                 return '<!-- NO READING 2 -->'
             else:
-                return
+                return row[10]
 
 
         rdg2 = str(rdg2())
@@ -449,6 +433,12 @@ with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/app-crit-te
 
         rdg2_note = str(rdg2_note())
 
+        # remove extraneous punctuation from xmlids so that they are valid
+        puncRE = re.compile('[,;\']')
+        lem_xmlid = puncRE.sub('', lem_xmlid)
+        rdg1_xmlid_xmlid = puncRE.sub('', rdg1_xmlid)
+        rdg2_xmlid = puncRE.sub('', rdg2_xmlid)
+
         entries = '<!-- App entry for ' + str(row[0]) + '.' + str(row[1]) + ': ' + lem + ' -->' + \
                   '<app><lem ' + lemwit + ' ' + lemsrc + ' ' + lem_xmlid + '>' \
                   + lem + '</lem>' + \
@@ -519,17 +509,21 @@ with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/app-crit-te
 
         new_entries = replace_deletion2
 
+        # code above this point written by Samuel Huskey with minor edits by Katy Felkner
+        # code below this point written by Katy Felkner
+
         pNum = row[0]
         segNum = row[1]
         print("Now encoding note for section " + pNum + "." + segNum)
-        print(new_entries + "\n")
+        time.sleep(2)
 
+        print("Using XPath to find the section!....")
+        time.sleep(2)
         xpathstr = ".//tei:p[@n='" + str(pNum) + "']/tei:seg[@n='" + str(segNum) + "']"
-        # possible issue: xml namespaces - default ns for this document is http://www.tei-c.org/ns/1.0
-        # xpathstr = ".//p[@n='" + str(pNum) + "']/seg[@n='" + str(segNum) + "']"
         section = root.find(xpathstr,
                      namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})  # check this
 
+        # workaround for section 1.6
         if section is None:
             print("There seems to be a problem with section " + pNum + "." + segNum)
             print("We will skip this for now.")
@@ -537,22 +531,66 @@ with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/app-crit-te
 
         text = "".join(section.itertext())
 
-        searchLemma = re.compile(lem + "\s | " + lem + "[.,;:!?] | " + lem + " ")
-        newtext = searchLemma.sub(new_entries + " ", text)
+        print("Replacing lemma instances with the proper <app> tag...")
+        time.sleep(2)
+        if re.search("\([0-9]+\)", lem):
+            # this lemma does not apply to the first instance of the lemma text
 
-        print(newtext + "\n")
+            # break up the lemma(#) thing
+            lemNum = lem.split('(')[1].replace(')', '')
+            lemNum = int(lemNum)  # we were having type mismatch problems
+            newLem = lem.split('(')[0]
+
+            # update the tag with the new lemma text
+            new_entries = new_entries.replace(lem, newLem)
+
+            lem = newLem  # for simplicity
+
+        else:
+            lemNum = 1
+
+        # go in a replace n occurences of lemma text
+        # uses negative lookahead and lookbehind assertions
+        # to avoid picking up the lemma text if it is part of another word
+        lemRE = re.compile("(?<![a-zA-Z])" + lem + "(?![a-zA-Z])")
+        text2 = lemRE.sub(new_entries, text, count=lemNum)
+
+        print("Cleaning up our XML......")
+        time.sleep(2)
+        # if necessary, change n -1 instances back to lemma text
+        if (lemNum > 1):
+            escapedTag = re.escape(new_entries)
+            # check that this works
+            tagRE = re.compile(escapedTag)
+            newtext = tagRE.sub(lem, text2, count=(lemNum - 1))
+        else:
+            newtext = text2  # just to keep naming consistent
+
+
         section.text = newtext
 
-        # need to look at some of the parameters on this method ^^
 
 # we're done with the csv file now
 appFile.close()
+
+print("Writing to a .xml file....")
+time.sleep(2)
+
+# this is a workaround to deal with automatic escaping of < and >
 bigstr = ET.tostring(root, encoding="unicode").replace("&gt;", ">").replace("&lt;", "<")
-newRoot = ET.fromstring(bigstr)
+with open("/Volumes/data/katy/PycharmProjects/DLL/automation/results/screweduptext.txt", "w") as text_file:
+    print(bigstr, file=text_file)
+
 # had to use encoding="unicode" to avoid a type mismatch problem
 # could cause possible char set problems
+
+newRoot = ET.fromstring(bigstr)
+
 tree._setroot(newRoot)
 tree.write('/Volumes/data/katy/PycharmProjects/DLL/automation/results/finished-encoding.xml',
            encoding='utf-8', xml_declaration=True, default_namespace=None)
+
+print("Valid XML coming your way!")
+time.sleep(2)
 
 os.system("open /Volumes/data/katy/PycharmProjects/DLL/automation/results/finished-encoding.xml")
