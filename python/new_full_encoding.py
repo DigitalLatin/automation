@@ -1,3 +1,7 @@
+#! /usr/bin/env python3
+
+# clean up extra print statements
+
 import re
 import os
 import time
@@ -6,43 +10,108 @@ import csv
 import lxml.etree as ET # used to parse XML to insert <app> tags
 # we are now using LXML in order to avoid the parser removing our comments
 
-def make_tag(row):
-    # Defining the lemma.
-    def lem():
-        if not row[2]:
-            return '<!-- NO LEMMA -->'
-        elif re.match("\(", row[2]):
-            return row[2].split("(")[0]
-            # we deal with the lemma instance number elsewhere
-        else:
-            return row[2]
+def replace_with_xml(text, pattern, new_entries, index):
+    print(text)
+    print(replacePattern)
+    # counter for how many non-replacable lemma instances we have
+    inc = 0
+    beg, end = [(x.start(), x.end()) for x in re.finditer(pattern, text, flags=re.IGNORECASE)][index]
+    # avoid replacing the ones that are in comments or xml:id attributes
+    if re.search("\<\!--(.)*" + pattern + "[\s\w]*--\>", text):
+        print ("found one in a comment")
+        inc += 1
+        if re.search("xml\:id\=\"(.)*-" + pattern + "-", text):
+            print("found one in an xml:id")
+            inc += 1
 
-    lem = str(lem())
+        beg, end = [(x.start(), x.end()) for x in re.finditer(pattern, text, flags=re.IGNORECASE)][index + inc]
+
+    return "{0}{1}{2}".format(text[:beg], new_entries, text[end:])
+
+
+def make_lem_tag(p, s, lem, wit, source, note):
+    if lem == '':
+           lem = '<!-- NO LEMMA -->'
+
+
+    # this block deals with editorial additions, which have <> in the lemma
+    # deal with lemmas of the form '<word> some other words'
+    # NB this won't work for <sua> acies right now because there's still a text/lem mismatch
+
+    if (re.match('<\w+>(\s)*\w+', lem)):
+        newLem = '<supplied reason="lost">' + lem.split('>')[0].replace('<', '') + '</supplied>' + \
+                 lem.split('>')[1]
+        # we use a separate variable to contain the lemma we want to search for
+        # because of the text-retrieval function we use
+        idLem = lem.replace('<', '').replace('>', '') + " addition"
+        searchLem = newLem
+        lem = newLem
+
+    # now deal with lemmas of the form '<word>'
+    elif (re.match('<\w+>', lem)):
+        searchLem = lem.replace('<', '').replace('>', '')
+        idLem = searchLem + " addition"
+        searchLem = '<supplied reason="lost">' + searchLem + '</supplied>'
+        # we use a separate variable to contain the lemma we want to search for
+        # because of the text-retrieval function we use
+        lem = searchLem
+
+    else:
+        searchLem = lem
+        idLem = lem
 
     # A function for creating the xml:id value like lem-1.1-vicit.
     def lem_xmlid():
         # Handle lemmas with multiple words so that they are joined with "-"
-        split = row[2].split(' ')
+        split = idLem.split(' ')
         joined = '-'.join(split)
+        joined = joined.replace("gap-reason=”lost”", "lacuna")
         return 'xml:id="lem-' + str(row[0]) + '.' + str(row[1]) + '-' + joined + '"'
 
     lem_xmlid = str(lem_xmlid())
+    puncRE = re.compile('[,;\'<>()/]')
+    lem_xmlid = puncRE.sub('', lem_xmlid)
 
     # A function for creating the xml:id as the value for @target.
     def lem_target():
-        split = row[2].split(' ')
+        split = idLem.split(' ')
         joined = '-'.join(split)
-        return str(row[0]) + '.' + str(row[1]) + '-' + joined
+        joined = joined.replace("gap-reason=”lost”", "lacuna")
+        return "lem-" + str(p) + '.' + str(s) + '-' + joined
 
     lem_target = str(lem_target())
 
     # A function for wrapping the witness(es) for a lemma in the correct XML.
-    def lemwit():
-        if not row[3]:
-            return 'wit="None"'
+    def lem_wit():
+        if wit == '':
+            return ['wit="None"', '']
         else:
+            # we need to iterate through wits and check if they are c/ac
+            # if they are we need to make witDetail tags for them
+            # TODO: figure out how tf to do this
             # List the sigla, putting # before each one. Space will be added below.
-            split = row[3].split(' ')
+            detailTags = ''
+            split = wit.split(' ')
+            for s in split:
+                # handle original corrections
+                if re.match('[A-Z]ac', s):  # TODO: does not work for omega rn?????
+                    # witDetail for correction-original
+                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + lem_target + "\" type=\"correction-original\"/>"
+
+                elif re.match('[A-Z]c', s):  # TODO: does not work for omega rn?????
+                    # witDetail for correction-altered
+                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + lem_target + "\" type=\"correction-altered\"/>"
+
+                elif re.match('[A-Z]spl', s):  # TODO: does not work for omega rn?????
+                    # witDetail for correction-altered
+                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + lem_target + "\">supra lineam</witDetail>"
+
+                elif re.match('[A-Z]sbl', s):  # TODO: does not work for omega rn?????
+                    # witDetail for correction-altered
+                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + lem_target + "\">sub lineam</witDetail>"
+                else:
+                    pass
+
             joined = '#'.join(split)
             # This produces A#B#C. We need some space:
             search_wit = re.compile(r'(#[a-zA-Z(a-z)?])')
@@ -50,18 +119,18 @@ def make_tag(row):
             # Now we have A #B #C. Let's put # on that first one.
             search_joined = re.compile(r'((?<!#)^[a-zA-Z(a-z)?\s])')
             first_wit = search_joined.sub(r'#\1', spaced_wit)
-            return 'wit="' + str(first_wit) + '"'
+            return ['wit="' + str(first_wit) + '"', detailTags]
 
-    lemwit = str(lemwit())
+    lemwit = lem_wit()
 
     # A function for wrapping the source(s) for a lemma in the correct XML.
     def lemsrc():
-        if not row[4]:
+        if not source:
             return 'source="None"'
         else:
             # return 'source="'+row[4]+'"'
             # List the sigla, putting # before each one. Space will be added below.
-            split = row[4].split(' ')
+            split = source.split(' ')
             joined = '#'.join(split)
             # This produces A#B#C. We need some space:
             search_wit = re.compile(r'(#[a-zA-Z(a-z)?])')
@@ -75,192 +144,209 @@ def make_tag(row):
 
     # A function for encoding any annotation on the lemma as a <note>.
     def lemnote():
-        if not row[5]:
+        witDets = ''
+        noteTags = ''
+        if not note:
             return '<!-- NO LEMMA ANNOTATION -->'
         else:
-            return '<note target="' + lem_target + '">' + row[5] + '</note>'
+            try:
+                split = note.split("/")
+
+                for s in split:
+                    if re.search("\[", s):
+                        # encode a wit detail
+                        s = s.replace("[", '').replace("]", '')
+                        wit = s.split(" ")[0]
+                        message = s.replace(wit, "")
+
+                        witDets += ("<witDetail wit=\"#" + wit + "\" target=\"#" + lem_target + \
+                                    "\">" + message + "</witDetail>")
+
+                    else:
+                        # this is a normal note not a wit detail
+                        noteTags += ('<note target="' + lem_target + '">' + note + '</note>')
+
+                return witDets + noteTags
+            except:
+                return '<note target="' + lem_target + '">' + note + '</note>'
 
     lemnote = str(lemnote())
 
-    # Handling the first reading
-    def rdg1():
-        if not row[6]:
-            return '<!-- NO READING 1 -->'
+    return [searchLem, '<lem ' + lemwit[0] + ' ' + lemsrc + ' ' + lem_xmlid + '>' \
+            + lem + '</lem>' + lemwit[1] + lemnote]
+
+
+def make_rdg_tag(p, s, reading, wit, source, note):
+# Handling a reading
+# TODO: witDetail support
+        def rdg():
+            if not reading:
+                return '<!-- NO READING -->'
+            else:
+                return reading
+
+
+        reading = str(rdg())
+        if reading == '<!-- NO READING -->':
+            return ''
         else:
-            return row[6]
+            pass
 
-    rdg1 = str(rdg1())
+        # this block deals with editorial additions, which have <> in the lemma
+        # deal with lemmas of the form '<word> some other words'
+        # NB this won't work for <sua> acies right now because there's still a text/lem mismatch
 
-    # Handling the witness(es) for the first reading
-    def rdg1wit():
-        if not row[7]:
-            return 'wit="None"'
+        print(reading)
+        if (re.search('\<\w+\s*\<gap reason=”lost”/>\s*\w+\>\w+', reading)):
+            print('MATCHED IT SUCCESSFULLY')
+            # deal with a lacuna in the middle of a word
+            # this was written to deal with 13.5 but can be generalized as necessary
+            reading = '<supplied reason="lost">' + reading.split('>')[0].replace('<', '', 1) + ">" +reading.split('>')[1] + '</supplied>' + reading.split('>')[2]
+            # we use a separate variable to contain the reading to use in xml:id
+            idRdg = reading.replace('<', '').replace('>', '').replace('supplied', '').replace('reason="lost"', '') + " addition"
+
+            print("### ID READING ###")
+            print(idRdg)
+        elif (re.search('\<\w+\>(\s)*\w+ | \w+(\s)*\<\w+\>', reading)):
+            reading = '<supplied reason="lost">' + reading.split('>')[0].replace('<', '') + '</supplied>' + \
+                        reading.split('>')[1]
+            # we use a separate variable to contain the reading to use in xml:id
+            idRdg = reading.replace('<', '').replace('>', '').replace('supplied', '').replace('reason="lost"', '') + " addition"
+
+            # now deal with lemmas of the form '<word>'
+        elif (re.search('<\w+>', reading)):
+            reading = reading.replace('<', '').replace('>', '')
+            idRdg = reading + " addition"
+            reading = '<supplied reason="lost">' + reading + '</supplied>'
+
         else:
-            # List the sigla, putting # before each one. Space will be added below.
-            split = row[7].split(' ')
-            joined = '#'.join(split)
-            # This produces A#B#C. We need some space:
-            search_wit = re.compile(r'(#[a-zA-Z(a-z)?])')
-            spaced_wit = search_wit.sub(r' \1', joined)
-            # Now we have A #B #C. Let's put # on that first one.
-            search_joined = re.compile(r'((?<!#)^[a-zA-Z(a-z)?\s])')
-            first_wit = search_joined.sub(r'#\1', spaced_wit)
-            return 'wit="' + str(first_wit) + '"'
+            idRdg = reading
 
-    rdg1wit = str(rdg1wit())
+        # Handling the source(s) for the first reading
+        def rdgsrc():
+            if not source:
+                return 'source="None"'
+            else:
+                # List the sigla, putting # before each one. Space will be added below.
+                split = source.split(' ')
+                joined = '#'.join(split)
+                # This produces A#B#C. We need some space:
+                search_wit = re.compile(r'(#[a-zA-Z(a-z)?])')
+                spaced_wit = search_wit.sub(r' \1', joined)
+                # Now we have A #B #C. Let's put # on that first one.
+                search_joined = re.compile(r'((?<!#)^[a-zA-Z(a-z)?\s])')
+                first_wit = search_joined.sub(r'#\1', spaced_wit)
+                return 'source="' + str(first_wit) + '"'
 
-    # Handling the source(s) for the first reading
-    def rdg1src():
-        if not row[8]:
-            return 'source="None"'
-        else:
-            # List the sigla, putting # before each one. Space will be added below.
-            split = row[8].split(' ')
-            joined = '#'.join(split)
-            # This produces A#B#C. We need some space:
-            search_wit = re.compile(r'(#[a-zA-Z(a-z)?])')
-            spaced_wit = search_wit.sub(r' \1', joined)
-            # Now we have A #B #C. Let's put # on that first one.
-            search_joined = re.compile(r'((?<!#)^[a-zA-Z(a-z)?\s])')
-            first_wit = search_joined.sub(r'#\1', spaced_wit)
-            return 'source="' + str(first_wit) + '"'
 
-    rdg1src = str(rdg1src())
+        source = str(rdgsrc())
 
-    # Handling the xml:id for the first reading
-    def rdg1_xmlid():
-        # Handle readings with multiple words so that they are joined with "-"
-        split = row[6].split(' ')
-        joined = '-'.join(split)
-        return 'xml:id="rdg-' + str(row[0]) + '.' + str(row[1]) + '-' + joined + '"'
 
-    rdg1_xmlid = str(rdg1_xmlid())
+        # Handling the xml:id for the reading
+        def rdg_xmlid():
+            # Handle readings with multiple words so that they are joined with "-"
+            split = idRdg.split(' ')
+            joined = '-'.join(split).replace("\"", '')
+            joined = joined.replace("gap-reason=”lost”", "lacuna")
+            return 'xml:id="rdg-' + str(p) + '.' + str(s) + '-' + joined + '"'
 
-    # Target for rdg1
-    def rdg1_target():
-        split = row[2].split(' ')
-        joined = '-'.join(split)
-        return 'rdg' + str(row[0]) + '.' + str(row[1]) + '-' + joined
+        # remove punctuation that would make @xml:id invalid
+        rdg_xmlid = str(rdg_xmlid())
+        puncRE = re.compile('[,;\'<>()/]')
+        rdg_xmlid = puncRE.sub('', rdg_xmlid)
 
-    rdg1_target = str(rdg1_target())
+        # Target for rdg
+        def rdg_target():
+            split = idRdg.split(' ')
+            joined = '-'.join(split)
+            joined = joined.replace("gap-reason=”lost”", "lacuna").replace("/", '')
+            return 'rdg-' + str(p) + '.' + str(s) + '-' + joined
 
-    # Note for rdg1
-    def rdg1_note():
-        if not row[9]:
-            return '<!-- NO READING ANNOTATION -->'
-        else:
-            return '<note target="' + rdg1_target + '">' + row[9] + '</note>'
 
-    rdg1_note = str(rdg1_note())
+        rdg_target = str(rdg_target())
 
-    # Handling the second reading
-    def rdg2():
-        if not row[10]:
-            return '<!-- NO READING 2 -->'
-        else:
-            return row[10]
+        # A function for wrapping the witness(es) for a lemma in the correct XML.
+        def rdg_wit():
+            if wit == '':
+                return ['wit="None"', '']
+            else:
+                # we need to iterate through wits and check if they are c/ac
+                # if they are we need to make witDetail tags for them
+                # TODO: figure out how tf to do this
+                # List the sigla, putting # before each one. Space will be added below.
+                detailTags = ''
+                split = wit.split(' ')
+                for s in split:
+                    # handle original corrections
+                    if re.match('[A-Z]ac', s):  # TODO: does not work for omega rn?????
+                        #witDetail for correction-original
+                        detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\" type=\"correction-original\"/>"
 
-    rdg2 = str(rdg2())
+                    elif re.match('[A-Z]c', s):  # TODO: does not work for omega rn?????
+                        #witDetail for correction-altered
+                        detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\" type=\"correction-altered\"/>"
 
-    # Handling the witness(es) for the second reading
-    def rdg2wit():
-        if not row[11]:
-            return 'wit="None"'
-        else:
-            # List the sigla, putting # before each one. Space will be added below.
-            split = row[11].split(' ')
-            joined = '#'.join(split)
-            # This produces A#B#C. We need some space:
-            search_wit = re.compile(r'(#[a-zA-Z(a-z)?])')
-            spaced_wit = search_wit.sub(r' \1', joined)
-            # Now we have A #B #C. Let's put # on that first one.
-            search_joined = re.compile(r'((?<!#)^[a-zA-Z(a-z)?\s])')
-            first_wit = search_joined.sub(r'#\1', spaced_wit)
-            return 'wit="' + str(first_wit) + '"'
+                    elif re.match('[A-Z]spl', s):  # TODO: does not work for omega rn?????
+                    # witDetail for correction-altered
+                        detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\">supra lineam</witDetail>"
 
-    rdg2wit = str(rdg2wit())
+                    elif re.match('[A-Z]sbl', s):  # TODO: does not work for omega rn?????
+                    # witDetail for correction-altered
+                        detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\">sub lineam</witDetail>"
+                    else:
+                        pass
 
-    # Handling the source(s) for the second reading
-    def rdg2src():
-        if not row[12]:
-            return 'source="None"'
-        else:
-            # List the sigla, putting # before each one. Space will be added below.
-            split = row[12].split(' ')
-            joined = '#'.join(split)
-            # This produces A#B#C. We need some space:
-            search_wit = re.compile(r'(#[a-zA-Z(a-z)?])')
-            spaced_wit = search_wit.sub(r' \1', joined)
-            # Now we have A #B #C. Let's put # on that first one.
-            search_joined = re.compile(r'((?<!#)^[a-zA-Z(a-z)?\s])')
-            first_wit = search_joined.sub(r'#\1', spaced_wit)
-            return 'source="' + str(first_wit) + '"'
+                joined = '#'.join(split)
+                # This produces A#B#C. We need some space:
+                search_wit = re.compile(r'(#[a-zA-Z(a-z)?])')
+                spaced_wit = search_wit.sub(r' \1', joined)
+                # Now we have A #B #C. Let's put # on that first one.
+                search_joined = re.compile(r'((?<!#)^[a-zA-Z(a-z)?\s])')
+                first_wit = search_joined.sub(r'#\1', spaced_wit)
+                return ['wit="' + str(first_wit) + '"', detailTags]
 
-    rdg2src = str(rdg2src())
+        wit = rdg_wit()
 
-    # Handling the xml:id for the second reading
-    def rdg2_xmlid():
-        # Handle readings with multiple words so that they are joined with "-"
-        split = row[10].split(' ')
-        joined = '-'.join(split)
-        return 'xml:id="rdg-' + str(row[0]) + '.' + str(row[1]) + '-' + joined + '"'
+        # Notes for rdg
+        def rdg_notes():
+            witDets = ''
+            noteTags = ''
+            beforeTags = ''
+            if not note:
+                return ['', '']
+            else:
+                try:
+                    split = note.split("/")
 
-    rdg2_xmlid = str(rdg2_xmlid())
+                    for s in split:
+                        if re.search("\[", s):
+                            # encode a wit detail
+                            s = s.replace("[", '').replace("]", '')
+                            wit = s.split(" ")[0]
+                            message = s.replace(wit, "")
 
-    # Target for rdg2
-    def rdg2_target():
-        split = row[10].split(' ')
-        joined = '-'.join(split)
-        return 'rdg-' + str(row[0]) + '.' + str(row[1]) + '-' + joined
+                            witDets += ("<witDetail wit=\"#" + wit + "\" target=\"#" + rdg_target + \
+                                        "\">" + message + "</witDetail>")
 
-    rdg2_target = str(rdg2_target())
+                        elif (s == "an" or s == "vel"):
+                            # this note goes before the reading (e.g. an or vel)
+                            beforeTags += ('<note target="' + rdg_target + '">' + s + '</note>')
 
-    # Note for rdg2
-    def rdg2_note():
-        if not row[13]:
-            return '<!-- NO READING ANNOTATION -->'
-        else:
-            return '<note target="' + rdg1_target + '">' + row[13] + '</note>'
+                        else:
+                            # this is a normal note not a wit detail
+                            noteTags += ('<note target="' + rdg_target + '">' + s + '</note>')
 
-    rdg2_note = str(rdg2_note())
+                    return [beforeTags, witDets + noteTags]
+                except:
+                    return [beforeTags, '<note target="' + rdg_target + '">' + note + '</note>']
 
-    # remove extraneous punctuation from xmlids so that they are valid
-    puncRE = re.compile('[,;\']')
-    lem_xmlid = puncRE.sub('', lem_xmlid)
-    rdg1_xmlid_xmlid = puncRE.sub('', rdg1_xmlid)
-    rdg2_xmlid = puncRE.sub('', rdg2_xmlid)
 
-    # this block deals with editorial additions, which have <> in the lemma
-    # deal with lemmas of the form '<word> some other words'
-    # NB this won't work for <sua> acies right now because there's still a text/lem mismatch
-    if (re.match('<\w+>\s\w+', lem)):
-        newLem = '<supplied reason="lost">' + lem.split('>')[0].replace('<', '') + '</supplied>' + lem.split('>')[1]
-        # we use a separate variable to contain the lemma we want to search for
-        # because of the text-retrieval function we use
-        searchLem = lem.replace('<', '').replace('>', '')
-        lem = newLem
-    # now deal with lemmas of the form '<word>'
 
-    elif (re.match('<\w+>', lem)):
-        searchLem = lem.replace('<', '').replace('>', '')
-        newLem = '<supplied reason="lost">' + searchLem + '</supplied>'
-        # we use a separate variable to contain the lemma we want to search for
-        # because of the text-retrieval function we use
-        lem = newLem
+        notes = rdg_notes()
+        return notes[0] + '<rdg ' + wit[0] + ' ' + source + ' ' \
+                + rdg_xmlid + '>' + reading + '</rdg>' + wit[1] + notes[1]
 
-    else:
-        searchLem = lem
-
-    entries = '<!-- App entry for ' + str(row[0]) + '.' + str(row[1]) + ': ' + searchLem + ' -->' + \
-              '<app><lem ' + lemwit + ' ' + lemsrc + ' ' + lem_xmlid + '>' \
-              + lem + '</lem>' + \
-              lemnote + \
-              '<rdg ' + rdg1wit + ' ' + rdg1src + ' ' + rdg1_xmlid + '>' + rdg1 + '</rdg>' + \
-              rdg1_note + \
-              '<rdg ' + rdg2wit + ' ' + rdg2src + ' ' + rdg2_xmlid + '>' + rdg2 + '</rdg>' + \
-              rdg2_note + \
-              '</app>\n'
-
+def cleanup_tag(entries):
     # Cleaning up some issues with the app. crit. entries.
     # Remove empty readings.
     search_no_ann = re.compile(r'<!-- NO ([A-Z]*) ANNOTATION -->')
@@ -270,9 +356,13 @@ def make_tag(row):
         r'<rdg wit="None" source="None" xml:id="rdg-([0-9]*).([0-9]*)-([.]*)"><!-- ([A-Z(\s)?]*([\d])?) --></rdg>')
     empty_readings_replace = search_empty_readings.sub('', no_ann_replace)
 
+    search_empty_readings2 = re.compile(
+        r'<rdg xml:id="rdg-([0-9]*).([0-9]*)-"></rdg>')
+    empty_readings_replace2 = search_empty_readings2.sub('', empty_readings_replace)
+
     # Remove empty witnesses
     search_wit = re.compile(r'wit="None"')
-    wit_replace = search_wit.sub(r'', empty_readings_replace)
+    wit_replace = search_wit.sub(r'', empty_readings_replace2)
 
     # Remove empty sources
     search_src = re.compile(r'source="None"')
@@ -322,30 +412,15 @@ def make_tag(row):
     # deal with <rdg>om.</rdg>
     search_omission = re.compile(r'>om\.</rdg>')
     replace_omission = search_omission.sub(r'/>', replace_deletion2)
-
-    # TODO: code to deal with <rdg>om.</rdg>
+    # pretty sure this works?
 
     new_entries = replace_omission
     return new_entries
 
-def replace_with_xml(text, pattern, new_entries, index):
-    print(pattern)
-    print(text)
-    beg, end = [(x.start(), x.end()) for x in re.finditer(pattern, text)][index]
-    return "{0}{1}{2}".format(text[:beg], new_entries, text[end:])
 
+
+# custom parser that won't remove comments
 parser = ET.XMLParser(remove_comments=False)
-
-# here's the main method
-
-# encode the base text per text_to_TEI.py
-
-# iterate through sections which have app crit entries
-        # iterate through the entries in each section
-
-# pros of this method - greatly simplifies getting the base text when <editorial additions> are involved
-# cons - i think this requires app crit entries in order?
-# maybe not requires but its significantly more efficient
 
 # Create a variable for the path to the base text.
 path = '/Volumes/data/katy/PycharmProjects/DLL/automation/sources/basetext.txt'
@@ -359,15 +434,15 @@ source_text = source_file.read()
 # Tell python what to search for (with thanks to https://stackoverflow.com/questions/13168761/python-use-regex-sub-multiple-times-in-1-pass).
 
 print('Gosh, that\'s a lot of unencoded text! We\'d better get started!')
-time.sleep(5)
+time.sleep(2)
 
 # Handle additive emendation, since it is indicated by < >, which would be swept up by other routines below.
 print('Okay, we\'ll handle editorial additions first, since their angle brackets\n might cause trouble later.')
-time.sleep(4)
+time.sleep(2)
 search_addition = re.compile(r'<([a-zA-Z]*)>')
-replace0 = source_text.replace("<", '').replace(">", '')
-# this is a change
-# editorial additions should have brackets in the csv and be dealt with there
+replace0 = search_addition.sub(r'&lt;supplied reason="lost"&gt;\1&lt;/supplied&gt;', source_text)
+# this will make allow us to retrieve section text without duplicating it.
+# the XML entities are replaced with <> at the very end.
 
 # Search for numbers at beginning of paragraphs, then wrap paragraph in <p n="[number]"> </p>/
 print('Done. Next up: encoding the paragraphs.')
@@ -403,19 +478,19 @@ replace6 = search_remove_seg_space.sub(r'</seg> <seg n="\1">',replace5)
 print('Now handling special symbols. First up: †crux†.')
 time.sleep(3)
 search_crux = re.compile(r'†([a-zA-Z]*)†')
-replace7 = search_crux.sub(r'<sic>\1</sic>',replace6)
+replace7 = search_crux.sub(r'&lt;sic&gt;\1&lt;/sic&gt;',replace6)
 
 # Handle lacuna.
 print('... now *** lacunae')
 time.sleep(3)
 search_lacuna = re.compile(r'\*\*\*')
-replace8 = search_lacuna.sub(r'<gap reason="lost"/>', replace7)
+replace8 = search_lacuna.sub(r'&lt;gap reason="lost"/&gt; ', replace7)
 
 # Handle editorial deletion.
 print('... now {editorial deletions}.')
 time.sleep(3)
 search_deletion = re.compile(r'\[([a-zA-Z]*)\]')
-replace9 = search_deletion.sub(r'<surplus>\1</surplus>',replace8)
+replace9 = search_deletion.sub(r'&lt;surplus&gt;\1&lt;/surplus&gt;',replace8)
 
 # Go back and fix the first paragraph, for some reason.
 search_first_p = re.compile(r'1<seg(.*)<p n="2"')
@@ -507,94 +582,107 @@ ET.register_namespace('tei', 'http://www.tei-c.org/ns/1.0')
 
 with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/app-crit-test.csv', encoding='utf-8') as appFile:
     readApp = csv.reader(appFile, delimiter=',')
+    for row in readApp:
+        if row[0] == "Paragraph":
+            continue
+            # skip the first row, which contains column labels
+        try:
+            pNum = row[0]
+            sNum = row[1]
+            l = len(row)
 
-    line = readApp.__next__()
-    hasNext = True
-    while hasNext:
-        print("THIS IS A BIG LOOP ITERATION")
-        # skip column headings
-        if line[0] == "Paragraph":
-            line = readApp.__next__()
+            # Defining the lemma.
+            lemReturn = make_lem_tag(pNum, sNum, row[2], row[3], row[4], row[5])
+            searchLem = lemReturn[0]
+            lemtag = lemReturn[1].strip()
 
-        tags = []
-        lemmas = []  # list of lemmas. for convenience.
-        p = line[0]
-        s = line[1]
-        while p == line[0] and s == line[1]:
-            tag = make_tag(line)
-            tags.append(tag)
-            lem = line[2]
-            lemmas.append(lem)
-            print(lem)
-            print("THIS IS A SMALL LOOP ITERATION")
+            # TODO: this probably needs an @target attribute
+            if row[6] == '':
+                commenttag = ''
+            else:
+                commenttag = "<note>" + row[6] + "</note>"
 
-            try:
-                line = readApp.__next__()
-            except StopIteration:
-                print("EXCEPTION FOUND")
-                hasNext = False # stop the outer loop
-                break
+                # TODO: implement a for loop for creating a theoretically limitless number of reading tags
+            i = 7
+            rdgTags = ''
+
+            while (i < (l - 1)):
+                rdgTags += make_rdg_tag(pNum, sNum, row[i], row[i + 1], row[i + 2], row[i + 3])
+                i += 4
+
+                # ideas: making 4-tuples first, then iterating through those
+                # pros: probably easier to avoid an infinite loop
+                # cons: lots of extra steps, potential for off by one errors
+
+                # other idea: iterating over col in row, removing extra tags as we go.
+                # use make_rdg_tag(p, s, row[n], row[n+1]...
+                # pros: no tedious tuple-making
+                # cons: syntactically challenging, higher probability of infinite loop
+
+            entries = '<!-- App entry for ' + str(row[0]) + '.' + str(row[1]) + ': ' + searchLem + ' -->' + \
+                      '<app>' + lemtag + rdgTags + commenttag + '</app>'
+
+            new_entries = cleanup_tag(entries)
+
+            # code above this point written by Samuel Huskey with minor edits by Katy Felkner
+            # code below this point written by Katy Felkner
 
 
+            print("Now encoding note for section " + pNum + "." + sNum)
 
-        print("Now encoding note for section " + p + "." + s)
-        time.sleep(2)
-        print("Using XPath to find the section!....")
-        xpathstr = ".//tei:p[@n='" + str(p) + "']/tei:seg[@n='" + str(s) + "']"
-        section = root.find(xpathstr,
-                            namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})
-                            # TODO: does this work with an lxml parser?
+            print("Using XPath to find the section!....")
+            xpathstr = ".//tei:p[@n='" + str(pNum) + "']/tei:seg[@n='" + str(sNum) + "']"
+            section = root.find(xpathstr,
+                                namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})  # check this
 
-        text = "".join(section.itertext())
-        # do the <ab> sorting out here
+            text = "".join(section.itertext())
 
-        lemCount = 0
-        for t in tags:
-            l = lemmas[lemCount]  # for convenience
-            # deal with lem(#)
-            if re.search("\([0-9]+\)", l):
+            print("Replacing lemma instances with the proper <app> tag...")
+            if re.search("\([0-9]+\)", searchLem):
                 # this lemma does not apply to the first instance of the lemma text
 
                 # break up the lemma(#) thing
-                lemNum = l.split('(')[1].replace(')', '')
+                lemNum = searchLem.split('(')[1].replace(')', '')
                 lemNum = int(lemNum)  # we were having type mismatch problems
-                newLem = l.split('(')[0]
+                newLem = searchLem.split('(')[0]
 
                 # update the tag with the new lemma text
-                t = t.replace(l, newLem)
+                new_entries = new_entries.replace(searchLem, newLem)
 
-                l = newLem  # for simplicity
+                searchLem = newLem  # for simplicity
 
             else:
                 lemNum = 1
 
-            # deal with editorial additions
-            if re.search("<[a-zA-Z]+>", l):
-                # remove the <> from the text we use to search
-                l = l.replace('<', '').replace('>', '')
-
-
-            replacePattern = "(?<![a-zA-Z])" + l + "(?![a-zA-Z])"
+                # currently excludes lemma instances within other words.
+                # need to exclude lemma occurences in comments and xml:id attributes
+            replacePattern = "(?<![a-zA-Z])" + searchLem + "(?![a-zA-Z])"
             # custom function defined above
-            text = replace_with_xml(text, replacePattern, t, (lemNum - 1))
+            newtext = replace_with_xml(text, replacePattern, new_entries, (lemNum - 1))
 
-            lemCount += 1
+            section.text = newtext
 
-        section.text = text
+        except:
+            print("**** problem with encoding section " + pNum + "." + sNum)
+            print("this is probably due to a text/csv mismatch")
+
+
 
 # we're done with the csv file now
 appFile.close()
 
-print("Writing to a .xml file....")
-time.sleep(2)
 
-# this is a workaround to deal with automatic escaping of < and >
-bigstr = ET.tostring(root, encoding="unicode").replace("&gt;", ">").replace("&lt;", "<")
+
+# this is a workaround to deal with automatic escaping of < and > and smart quotes?
+bigstr = ET.tostring(root, encoding="unicode").replace("&gt;", ">").replace("&lt;", "<").replace("”", "\"")
+
 
 # had to use encoding="unicode" to avoid a type mismatch problem
 # could cause possible char set problems
+print("Writing to a .xml file....")
+time.sleep(2)
 
-newRoot = ET.fromstring(bigstr, parser=parser)
+newRoot = ET.fromstring(bigstr)
 
 tree._setroot(newRoot)
 tree.write('/Volumes/data/katy/PycharmProjects/DLL/automation/results/finished-encoding.xml',
@@ -604,5 +692,3 @@ print("Valid XML coming your way!")
 time.sleep(2)
 
 os.system("open /Volumes/data/katy/PycharmProjects/DLL/automation/results/finished-encoding.xml")
-
-
