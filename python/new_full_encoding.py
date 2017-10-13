@@ -1,27 +1,24 @@
-#! /usr/bin/env python3
-
-# clean up extra print statements
-
 import re
 import os
 import time
 import codecs  # This is important for reading files with Unicode characters.
 import csv
 import lxml.etree as ET # used to parse XML to insert <app> tags
+
 # we are now using LXML in order to avoid the parser removing our comments
 
 def replace_with_xml(text, pattern, new_entries, index):
-    print(text)
-    print(replacePattern)
+
     # counter for how many non-replacable lemma instances we have
+    # e.g. we don't want to replace instances within attributes or comments
     inc = 0
     beg, end = [(x.start(), x.end()) for x in re.finditer(pattern, text, flags=re.IGNORECASE)][index]
-    # avoid replacing the ones that are in comments or xml:id attributes
+
+    # avoid replacing lemma instances that are in comments
     if re.search("\<\!--(.)*" + pattern + "[\s\w]*--\>", text):
-        print ("found one in a comment")
         inc += 1
+        # avoid replacing lemma instances in xml:id attributes
         if re.search("xml\:id\=\"(.)*-" + pattern + "-", text):
-            print("found one in an xml:id")
             inc += 1
 
         beg, end = [(x.start(), x.end()) for x in re.finditer(pattern, text, flags=re.IGNORECASE)][index + inc]
@@ -35,9 +32,8 @@ def make_lem_tag(p, s, lem, wit, source, note):
 
 
     # this block deals with editorial additions, which have <> in the lemma
-    # deal with lemmas of the form '<word> some other words'
-    # NB this won't work for <sua> acies right now because there's still a text/lem mismatch
 
+    # deal with lemmas of the form '<word> some other words'
     if (re.match('<\w+>(\s)*\w+', lem)):
         newLem = '<supplied reason="lost">' + lem.split('>')[0].replace('<', '') + '</supplied>' + \
                  lem.split('>')[1]
@@ -56,6 +52,7 @@ def make_lem_tag(p, s, lem, wit, source, note):
         # because of the text-retrieval function we use
         lem = searchLem
 
+    # initialize variables for all other lemmas
     else:
         searchLem = lem
         idLem = lem
@@ -68,6 +65,7 @@ def make_lem_tag(p, s, lem, wit, source, note):
         joined = joined.replace("gap-reason=”lost”", "lacuna")
         return 'xml:id="lem-' + str(row[0]) + '.' + str(row[1]) + '-' + joined + '"'
 
+    # clean punctuation out of xml:id so that it is valid
     lem_xmlid = str(lem_xmlid())
     puncRE = re.compile('[,;\'<>()/]')
     lem_xmlid = puncRE.sub('', lem_xmlid)
@@ -86,10 +84,6 @@ def make_lem_tag(p, s, lem, wit, source, note):
         if wit == '':
             return ['wit="None"', '']
         else:
-            # we need to iterate through wits and check if they are c/ac
-            # if they are we need to make witDetail tags for them
-            # TODO: figure out how tf to do this
-            # List the sigla, putting # before each one. Space will be added below.
             detailTags = ''
             split = wit.split(' ')
             for s in split:
@@ -102,12 +96,11 @@ def make_lem_tag(p, s, lem, wit, source, note):
                     # witDetail for correction-altered
                     detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + lem_target + "\" type=\"correction-altered\"/>"
 
+                # supra lineam
                 elif re.match('[A-Z]spl', s):  # TODO: does not work for omega rn?????
-                    # witDetail for correction-altered
                     detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + lem_target + "\">supra lineam</witDetail>"
-
+                # sub lineam
                 elif re.match('[A-Z]sbl', s):  # TODO: does not work for omega rn?????
-                    # witDetail for correction-altered
                     detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + lem_target + "\">sub lineam</witDetail>"
                 else:
                     pass
@@ -121,6 +114,7 @@ def make_lem_tag(p, s, lem, wit, source, note):
             first_wit = search_joined.sub(r'#\1', spaced_wit)
             return ['wit="' + str(first_wit) + '"', detailTags]
 
+    # n.b. this is a tuple not a string
     lemwit = lem_wit()
 
     # A function for wrapping the source(s) for a lemma in the correct XML.
@@ -172,13 +166,13 @@ def make_lem_tag(p, s, lem, wit, source, note):
 
     lemnote = str(lemnote())
 
+    # return a tuple with the cleaned up lemma for searching and the full tag as a string
     return [searchLem, '<lem ' + lemwit[0] + ' ' + lemsrc + ' ' + lem_xmlid + '>' \
             + lem + '</lem>' + lemwit[1] + lemnote]
 
 
 def make_rdg_tag(p, s, reading, wit, source, note):
 # Handling a reading
-# TODO: witDetail support
         def rdg():
             if not reading:
                 return '<!-- NO READING -->'
@@ -192,28 +186,24 @@ def make_rdg_tag(p, s, reading, wit, source, note):
         else:
             pass
 
-        # this block deals with editorial additions, which have <> in the lemma
-        # deal with lemmas of the form '<word> some other words'
-        # NB this won't work for <sua> acies right now because there's still a text/lem mismatch
+        # this block deals with editorial additions, which have <> in the reading
 
-        print(reading)
+        # deal with a <supplied> tag which only includes part of a word
         if (re.search('\<\w+\s*\<gap reason=”lost”/>\s*\w+\>\w+', reading)):
-            print('MATCHED IT SUCCESSFULLY')
             # deal with a lacuna in the middle of a word
             # this was written to deal with 13.5 but can be generalized as necessary
             reading = '<supplied reason="lost">' + reading.split('>')[0].replace('<', '', 1) + ">" +reading.split('>')[1] + '</supplied>' + reading.split('>')[2]
             # we use a separate variable to contain the reading to use in xml:id
             idRdg = reading.replace('<', '').replace('>', '').replace('supplied', '').replace('reason="lost"', '') + " addition"
 
-            print("### ID READING ###")
-            print(idRdg)
+        # deal with readings of the form <word> some other words or some words <word>
         elif (re.search('\<\w+\>(\s)*\w+ | \w+(\s)*\<\w+\>', reading)):
             reading = '<supplied reason="lost">' + reading.split('>')[0].replace('<', '') + '</supplied>' + \
                         reading.split('>')[1]
             # we use a separate variable to contain the reading to use in xml:id
             idRdg = reading.replace('<', '').replace('>', '').replace('supplied', '').replace('reason="lost"', '') + " addition"
 
-            # now deal with lemmas of the form '<word>'
+        # now deal with readings of the form '<word>'
         elif (re.search('<\w+>', reading)):
             reading = reading.replace('<', '').replace('>', '')
             idRdg = reading + " addition"
@@ -270,9 +260,6 @@ def make_rdg_tag(p, s, reading, wit, source, note):
             if wit == '':
                 return ['wit="None"', '']
             else:
-                # we need to iterate through wits and check if they are c/ac
-                # if they are we need to make witDetail tags for them
-                # TODO: figure out how tf to do this
                 # List the sigla, putting # before each one. Space will be added below.
                 detailTags = ''
                 split = wit.split(' ')
@@ -287,11 +274,11 @@ def make_rdg_tag(p, s, reading, wit, source, note):
                         detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\" type=\"correction-altered\"/>"
 
                     elif re.match('[A-Z]spl', s):  # TODO: does not work for omega rn?????
-                    # witDetail for correction-altered
+                    # witDetail for supra lineam
                         detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\">supra lineam</witDetail>"
 
                     elif re.match('[A-Z]sbl', s):  # TODO: does not work for omega rn?????
-                    # witDetail for correction-altered
+                    # witDetail for sub lineam
                         detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\">sub lineam</witDetail>"
                     else:
                         pass
@@ -316,6 +303,8 @@ def make_rdg_tag(p, s, reading, wit, source, note):
                 return ['', '']
             else:
                 try:
+                    # we are now using / as a delimiter for multiple notes
+                    # ; was causing things to be split across several cells
                     split = note.split("/")
 
                     for s in split:
@@ -416,8 +405,6 @@ def cleanup_tag(entries):
 
     new_entries = replace_omission
     return new_entries
-
-
 
 # custom parser that won't remove comments
 parser = ET.XMLParser(remove_comments=False)
@@ -602,29 +589,20 @@ with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/app-crit-te
             else:
                 commenttag = "<note>" + row[6] + "</note>"
 
-                # TODO: implement a for loop for creating a theoretically limitless number of reading tags
             i = 7
             rdgTags = ''
 
+            # can handle any number of readings
             while (i < (l - 1)):
                 rdgTags += make_rdg_tag(pNum, sNum, row[i], row[i + 1], row[i + 2], row[i + 3])
                 i += 4
-
-                # ideas: making 4-tuples first, then iterating through those
-                # pros: probably easier to avoid an infinite loop
-                # cons: lots of extra steps, potential for off by one errors
-
-                # other idea: iterating over col in row, removing extra tags as we go.
-                # use make_rdg_tag(p, s, row[n], row[n+1]...
-                # pros: no tedious tuple-making
-                # cons: syntactically challenging, higher probability of infinite loop
 
             entries = '<!-- App entry for ' + str(row[0]) + '.' + str(row[1]) + ': ' + searchLem + ' -->' + \
                       '<app>' + lemtag + rdgTags + commenttag + '</app>'
 
             new_entries = cleanup_tag(entries)
 
-            # code above this point written by Samuel Huskey with minor edits by Katy Felkner
+            # code above this point written by Samuel Huskey with edits by Katy Felkner
             # code below this point written by Katy Felkner
 
 
@@ -654,8 +632,7 @@ with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/app-crit-te
             else:
                 lemNum = 1
 
-                # currently excludes lemma instances within other words.
-                # need to exclude lemma occurences in comments and xml:id attributes
+            #exclude lemma instances within other words.
             replacePattern = "(?<![a-zA-Z])" + searchLem + "(?![a-zA-Z])"
             # custom function defined above
             newtext = replace_with_xml(text, replacePattern, new_entries, (lemNum - 1))
@@ -663,28 +640,27 @@ with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/app-crit-te
             section.text = newtext
 
         except:
+            # ususally due to text/csv matching issue
             print("**** problem with encoding section " + pNum + "." + sNum)
             print("this is probably due to a text/csv mismatch")
-
-
 
 # we're done with the csv file now
 appFile.close()
 
-
-
-# this is a workaround to deal with automatic escaping of < and > and smart quotes?
+# this is a workaround to deal with automatic escaping of < and >, and to clean up smart quotes
 bigstr = ET.tostring(root, encoding="unicode").replace("&gt;", ">").replace("&lt;", "<").replace("”", "\"")
-
 
 # had to use encoding="unicode" to avoid a type mismatch problem
 # could cause possible char set problems
+# seems to be fine, though
 print("Writing to a .xml file....")
 time.sleep(2)
 
+# parse the newly cleaned up XML
 newRoot = ET.fromstring(bigstr)
 
 tree._setroot(newRoot)
+# write the new XML to the appropriate file
 tree.write('/Volumes/data/katy/PycharmProjects/DLL/automation/results/finished-encoding.xml',
            encoding='utf-8', xml_declaration=True)
 
