@@ -7,7 +7,7 @@ import codecs # This is important for reading files with Unicode characters.
 
 
 # Create a variable for the path to the appendix critica.
-path = '/Users/sjhuskey/Documents/Sam-Py/DLL-Scripts/basetext.txt'
+path = '../sources/basetext.txt'
 
 # Open the file with utf-8 encoding.
 source_file = codecs.open(path,'r','utf-8')
@@ -18,29 +18,29 @@ source_text = source_file.read()
 # Tell python what to search for (with thanks to https://stackoverflow.com/questions/13168761/python-use-regex-sub-multiple-times-in-1-pass).
 
 print('Gosh, that\'s a lot of unencoded text! We\'d better get started!')
-time.sleep(5)
+time.sleep(2)
 
 # Handle additive emendation, since it is indicated by < >, which would be swept up by other routines below.
 print('Okay, we\'ll handle editorial additions first, since their angle brackets\n might cause trouble later.')
-time.sleep(4)
+time.sleep(2)
 search_addition = re.compile(r'<([a-zA-Z]*)>')
 replace0 = search_addition.sub(r'<supplied reason="lost">\1</supplied>', source_text)
 
 # Search for numbers at beginning of paragraphs, then wrap paragraph in <p n="[number]"> </p>/
 print('Done. Next up: encoding the paragraphs.')
-time.sleep(5)
+time.sleep(2)
 search_paragraph = re.compile(r'\n([0-9]*)(.*)')
 replace1 = search_paragraph.sub(r'<p n="\1">\2</p>',replace0)
 
 # Remove empty paragraphs.
 print('Done. Now let\'s kill any empty paragraphs caused by line breaks in the original document.')
-time.sleep(3)
+time.sleep(2)
 search_empty_paragraph = re.compile(r'<p n="">([\s]*)</p>')
 replace2 = search_empty_paragraph.sub(r'', replace1)
 
 # Search for (number) and reformat it as <seg n="number">(number).
 print('Empty paragraphs have been killed. Handling segments now.')
-time.sleep(5)
+time.sleep(2)
 search_segment = re.compile(r'\(([0-9]*)\)')
 replace3 = search_segment.sub(r'<seg n="\1">',replace2)
 
@@ -58,19 +58,19 @@ replace6 = search_remove_seg_space.sub(r'</seg> <seg n="\1">',replace5)
 
 # Handle crux.
 print('Now handling special symbols. First up: †crux†.')
-time.sleep(3)
+time.sleep(2)
 search_crux = re.compile(r'†([a-zA-Z]*)†')
 replace7 = search_crux.sub(r'<sic>\1</sic>',replace6)
 
 # Handle lacuna.
 print('... now *** lacunae')
-time.sleep(3)
+time.sleep(2)
 search_lacuna = re.compile(r'\*\*\*')
 replace8 = search_lacuna.sub(r'<gap reason="lost"/>', replace7)
 
 # Handle editorial deletion.
 print('... now {editorial deletions}.')
-time.sleep(3)
+time.sleep(2)
 search_deletion = re.compile(r'\[([a-zA-Z]*)\]')
 replace9 = search_deletion.sub(r'<surplus>\1</surplus>',replace8)
 
@@ -129,7 +129,7 @@ TEI = header + replace10 + footer
 # Tell the script where to write the new file.
 print('Making a new file ...')
 time.sleep(2)
-new_path = '/Users/sjhuskey/Documents/Sam-Py/DLL-Scripts/basetext.xml' 
+new_path = '../results/basetext.xml' 
 
 # Open the new file.
 new_source = codecs.open(new_path,'w','utf-8')
@@ -147,7 +147,7 @@ new_source.close()
 
 
 print('Wow! That saved a lot of time!')
-time.sleep(3)
+time.sleep(2)
 
 print('Valid XML coming your way!')
 time.sleep(2)
