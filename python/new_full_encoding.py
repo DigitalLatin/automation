@@ -487,7 +487,7 @@ def cleanup_tag(entries):
 parser = ET.XMLParser(remove_comments=False)
 
 # Create a variable for the path to the base text.
-path = '/Volumes/data/katy/PycharmProjects/DLL/automation/sources/basetext.txt'
+path = '../sources/basetext.txt'
 
 # Open the file with utf-8 encoding.
 source_file = codecs.open(path,'r','utf-8')
@@ -612,7 +612,7 @@ TEI = header + replace10 + footer
 print('Making a new file ...')
 time.sleep(2)
 # file path for intermediate XML file
-new_path = '/Volumes/data/katy/PycharmProjects/DLL/automation/sources/basetext.xml'
+new_path = '../sources/basetext.xml'
 
 # Open the new file.
 new_source = codecs.open(new_path,'w','utf-8')
@@ -634,7 +634,7 @@ root = tree.getroot()
 # the TEI namespace (default ns for this doc) is found at: http://www.tei-c.org/ns/1.0
 ET.register_namespace('tei', 'http://www.tei-c.org/ns/1.0')
 
-with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/app-crit-test.csv', encoding='utf-8') as appFile:
+with open('../sources/app-crit-test.csv', encoding='utf-8') as appFile:
     readApp = csv.reader(appFile, delimiter=',')
     for row in readApp:
         if row[0] == "Paragraph":
@@ -752,11 +752,11 @@ newRoot = ET.fromstring(bigstr)
 
 tree._setroot(newRoot)
 # write the new XML to the appropriate file
-tree.write('/Volumes/data/katy/PycharmProjects/DLL/automation/results/finished-encoding.xml',
+tree.write('../results/finished-encoding.xml',
            encoding='utf-8', xml_declaration=True)
 
 print("Valid XML coming your way!")
 time.sleep(2)
 
 # automatically open the finished XML file.
-os.system("open /Volumes/data/katy/PycharmProjects/DLL/automation/results/finished-encoding.xml")
+os.system("open ../results/finished-encoding.xml")
