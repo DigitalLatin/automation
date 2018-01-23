@@ -1,5 +1,7 @@
 #! /usr/bin/env python3
 #
+# this is a deprecated version of the prose encoding script - use prose_encoding.py instead
+
 # 1.2 has an annotation that literally says "Lemma annotation"
 # 1.3 <ab> in the csv does not match anything in the text, because we remove the <> in the text.
 # for now, I have removed them in the csv as well.

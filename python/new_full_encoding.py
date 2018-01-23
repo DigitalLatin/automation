@@ -5,8 +5,7 @@ import codecs  # This is important for reading files with Unicode characters.
 import csv  # used for processing CSV (comma separated values) input files containing app. crit. entries.
 import lxml.etree as ET # used to parse XML to insert <app> tags
 
-# start encoding calpurnius sicculus pg 31 and 32
-# check validity of tags after making them
+# this is a deprecated version of the prose encoding script - use prose_encoding.py instead
 
 def replace_with_xml(text, pattern, new_entries, index):
     """replaces a lemma instance within the text with its associated <app> tag.

@@ -622,7 +622,7 @@ TEI = header + replace10 + footer
 print('Making a new file ...')
 time.sleep(2)
 # file path for target XML file
-new_path = '../sources/finished-encoding.xml'
+new_path = '../results/finished-encoding.xml'
 
 # Open the new file.
 new_source = codecs.open(new_path,'w','utf-8')

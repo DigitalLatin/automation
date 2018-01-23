@@ -576,7 +576,7 @@ def cleanup_tag(entries):
 parser = ET.XMLParser(remove_comments=False)
 
 # Create a variable for the path to the base text.
-path = '/Volumes/data/katy/PycharmProjects/DLL/automation/sources/calp-sicc-carmen4.txt'
+path = '../sources/calp-sicc-carmen4.txt'
 
 # Open the file with utf-8 encoding.
 source_file = codecs.open(path,'r','utf-8')
@@ -725,7 +725,7 @@ TEI = header + replace4 + footer
 print('Making a new file ...')
 time.sleep(2)
 # file path for final XML file
-new_path = '/Volumes/data/katy/PycharmProjects/DLL/automation/sources/poetry-encoding.xml'
+new_path = '../results/poetry-encoding.xml'
 
 # Open the new file.
 new_source = codecs.open(new_path,'w','utf-8')
@@ -747,7 +747,7 @@ root = tree.getroot()
 # the TEI namespace (default ns for this doc) is found at: http://www.tei-c.org/ns/1.0
 ET.register_namespace('tei', 'http://www.tei-c.org/ns/1.0')
 
-with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/poetry-test.csv', encoding='utf-8') as appFile:
+with open('../sources/poetry-test.csv', encoding='utf-8') as appFile:
     readApp = csv.reader(appFile, delimiter=',')
     for row in readApp:
         if row[0] == "Poem":
@@ -982,7 +982,7 @@ newRoot = ET.fromstring(bigstr)
 
 tree._setroot(newRoot)
 # write the new XML to the appropriate file
-tree.write('/Volumes/data/katy/PycharmProjects/DLL/automation/results/poetry-encoding.xml',
+tree.write('../results/poetry-encoding.xml',
            encoding='utf-8', xml_declaration=True)
 
 print("Valid XML coming your way!")
