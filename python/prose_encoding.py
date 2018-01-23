@@ -395,7 +395,7 @@ def make_rdg_tag(p, s, reading, wit, source, note):
             try:
                 # throws an exception if no / in the string
                 # this is caught below
-                split = note.split("/")
+                split = re.split("(?<!\(\w)/(?!\w+\))")
 
                 for s in split:
                     if (s == "an" or s == "vel"):
