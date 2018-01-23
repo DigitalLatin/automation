@@ -621,12 +621,8 @@ TEI = header + replace10 + footer
 # write the xml-encoded base text to a new .xml file
 print('Making a new file ...')
 time.sleep(2)
-# file path for intermediate XML file
-<<<<<<< HEAD:python/prose_encoding.py
-new_path = '/Volumes/data/katy/PycharmProjects/DLL/automation/results/finished-encoding.xml'
-=======
-new_path = '../sources/basetext.xml'
->>>>>>> 45aa06e8b318509d7d1f3e3fdbec1e7dafc2c01d:python/new_full_encoding.py
+# file path for target XML file
+new_path = '../sources/finished-encoding.xml'
 
 # Open the new file.
 new_source = codecs.open(new_path,'w','utf-8')
