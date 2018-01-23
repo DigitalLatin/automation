@@ -5,14 +5,13 @@ import codecs  # This is important for reading files with Unicode characters.
 import csv  # used for processing CSV (comma separated values) input files containing app. crit. entries.
 import lxml.etree as ET # used to parse XML to insert <app> tags
 
-# this script written by Katy Felkner
+# this script was written by Katy Felkner (katy.felkner@ou.edu, GitHub: @katyfelkner)
 # advisor: Samuel Huskey
 
 def replace_with_xml(text, pattern, new_entries, index):
-    # TODO: this probably won't handle lemmas across multiple lines, idk
     """replaces a lemma instance within the text with its associated <app> tag.
 
-    Keyword Arguments:
+    Arguments:
         text - the section text before replacement
         pattern - the regex match pattern for finding the lemma
             - consists of the searchLem (lemma with markup to match the text)
@@ -30,28 +29,21 @@ def replace_with_xml(text, pattern, new_entries, index):
 
     #store whether the repeated text is in a lemma
     inLemma = False
-    print(text)
-    print(pattern)
 
     # avoid replacing lemma instances that are in comments
     if re.search("\<\!--(.)*" + pattern + "[\s\w\,]*--\>", text):
-        print("LEMMA IN COMMENT: " + pattern)
         inc += 1
     # avoid replacing lemma instances in lem @xml:id attributes
     if re.search("<lem[^<>]*?xml\:id\=\"[\w\-\.0-9]*?" + pattern + ".*?</lem>", text):
         inc += 1
         inLemma = True
-        print("reading in a lemma id")
     # avoid replacing lemma instances in rdg @xml:id attributes
     if re.search("<rdg[^<>]*?xml\:id\=\"[\w\-\.0-9]*?" + pattern + ".*?</rdg>", text):
         if (inLemma):
-            print("OH NO! IT'S IN THE LEMMA TOO")
-            # this is 2 b/c we need to skip both the instance
+            # this is 2 b/c we need to skip both the instance in the lemma id and the reading id
             inc += 2
         else:
             inc += 1
-        print("reading in a reading id")
-    print(inc)
 
     # find updated indices if necessary
     beg, end = [(x.start(), x.end()) for x in re.finditer(pattern, text, flags=re.IGNORECASE)][index + inc]
@@ -60,12 +52,12 @@ def replace_with_xml(text, pattern, new_entries, index):
     return "{0}{1}{2}".format(text[:beg], new_entries, text[end:])
 
 def checkXML(tag):
-    """checks a generated XML tag for validity
+    """checks a generated XML tag for correct syntax
 
-        Keyword Arguments:
+    Arguments:
             tag - the tag to be checked
 
-        returns True if valid, False otherwise
+    returns True if syntactically valid, False otherwise
         """
     try:
         ET.fromstring(tag)
@@ -76,39 +68,57 @@ def checkXML(tag):
 
 def xmlid(lr, input, p, s):
     """A function for creating the xml:id value like rdg-1.1-vicit.
-        this is defined outside of make_rdg_tag() because we need to use it to make @copyOf attributes"""
+        this is defined outside of make_rdg_tag() because we need to use it to make @copyOf attributes
+
+    Arguments:
+        lr - must be either "lem" or "rdg"
+        input -  the text from which to make an identifier
+        p - paragraph or poem number
+        l - sentence or line number
+        """
 
     # Handle readings with multiple words so that they are joined with "-"
     split = input.split(' ')
     joined = '-'.join(split)
+
+    # deal with lacunae
     lacunaRE = re.compile("<gap-reason=[”\"]lost[”\"].*?/>")
     joined = lacunaRE.sub("-lacuna-", joined).replace("\"", '')
-    joined = joined.replace("label", '').replace("-type=speaker", "speaker-label-")
+
     # remove punctuation that would make @xml:id invalid
     puncRE = re.compile('[,;\'<>()/]')
     xmlid = 'xml:id="' + lr + '-' + str(p) + '.' + str(s) + '-' + joined + '"'
+
+    # return the finished xml:id attribute
     return puncRE.sub('', xmlid)
 
 
 def make_lem_tag(p, s, lem, wit, source, note):
     """makes a <lem> tag for one lemma.
 
-        Keyword Arguments:
+        Arguments:
             p - paragraph number
             s - section number
             lem - the lemma as it appears in the spreadsheet
             wit - lemma witnesses as one string, separated by spaces (e.g. "A B Cac D")
             source - lemma source(s), separated by spaces (e.g. "Name OtherName ThirdName")
             note - lemma notes as one string. Multiple notes should be separated with the forward slash /
-                - e.g. "This is a note / (this is another note)"
+                - e.g. "This is a note / this is another note"
+                - forward slash / is used as a delimiter for multiple notes, because Unicode snowman ☃ was rejected
+
+    returns a <lem> tag with attributes properly formatted, and the correct text inside
     """
+
+    # idLem is a version of the lemma used to make the @xml:id attribute
+    # searchLem is a version of the lemma used to search the main text
 
     # deal with an empty lemma
     if lem == '':
            lem = '<!-- NO LEMMA -->'
+           searchLem = ''
 
     # deal with a lemma which is a speaker
-    if re.match("\(\w+\.*\)", lem):
+    elif re.match("\(\w+\.*\)", lem):
         searchLem = lem.replace("(", "").replace(")", "")
         idLem = searchLem + " speaker"
         lem = "<label type=\"speaker\">" + searchLem + "</label>"
@@ -138,36 +148,16 @@ def make_lem_tag(p, s, lem, wit, source, note):
         searchLem = '<supplied reason="lost">' + searchLem + '</supplied>'
         lem = searchLem
 
-    # initialize variables for all other lemmas (i.e. those that don't contain editorial additions)
+    # initialize searchLem and idLem for all other lemmas (i.e. those that don't contain editorial additions)
     else:
         searchLem = lem
         idLem = lem
 
+    # make the xml identifier for this lemma
+    lem_xmlid = xmlid("lem", idLem, p, s)
 
-    def lem_xmlid():
-        """A function for creating the xml:id value like lem-1.1-vicit."""
-
-        # Handle lemmas with multiple words so that they are joined with "-"
-        split = idLem.split(' ')
-        joined = '-'.join(split)
-
-        # clean out remaining markup to create a valid XML attribute
-        joined = joined.replace("gap-reason=”lost”", "lacuna")
-        return 'xml:id="lem-' + str(p) + '.' + str(s) + '-' + joined + '"'
-
-    # clean punctuation out of xml:id so that it is valid
-    lem_xmlid = str(lem_xmlid())
-    puncRE = re.compile('[,;\'<>()/]')
-    lem_xmlid = puncRE.sub('', lem_xmlid)
-
-    def lem_target():
-        """ A function for creating the xml:id as the value for @target."""
-        split = idLem.split(' ')
-        joined = '-'.join(split)
-        joined = joined.replace("gap-reason=”lost”", "lacuna")
-        return "lem-" + str(p) + '.' + str(s) + '-' + joined
-
-    lem_target = str(lem_target())
+    # modify the identifier to be used as an @target attribute
+    lem_target = str(lem_xmlid.replace('xml:id=', '').replace('"', ''))
 
     def lem_wit(wit):
         """A function for wrapping the witness(es) for a lemma in the correct XML.
@@ -185,40 +175,45 @@ def make_lem_tag(p, s, lem, wit, source, note):
             wit = wit.strip()
             split = wit.split(' ')
 
-            # iterate through witnesses and check if each has ac, c, spl, sbl
+            # iterate through witnesses and check if each has ac, c, spl, sbl, inmg, ir
             # could add other markup here as needed
-            # the regex used to match sigla will match uppercase Latin letters A-Z and upper and lowercase Greek letters
+            # the regex used to match sigla will match upper and lowercase Latin letters A-Z and upper and lowercase Greek letters
 
             # this holds the witness sigla with markup removed
             newsplit = []
             for s in split:
+                # avoid putting spreadsheet markup in witDetail tags
+                if '(' in s:
+                    strippedWit = s.split("(")[0]
+                else:
+                    strippedWit = s
                 # handle original corrections
-                if re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(ac\)', s):
+                if re.match(u'[A-Za-z\u0391-\u03A9\u03B1-\u03C9]\(ac\)', s):
                     # witDetail for correction-original
-                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + lem_target + "\" type=\"correction-original\"/>"
+                    detailTags += "<witDetail wit=\"#" + strippedWit + "\" target=\"#" + lem_target + "\" type=\"correction-original\"/>"
                     newsplit.append(s.replace("(ac)", ""))
                 # matches both c and pc to maintain backwards compatibility as much as possible
                 # only pc is correct. our guidelines and specs reflect this.
-                elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(c\)', s) or re.match(
-                        u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(pc\)', s):
+                elif re.match(u'[A-Za-z\u0391-\u03A9\u03B1-\u03C9]\(c\)', s) or re.match(
+                        u'[A-Za-z\u0391-\u03A9\u03B1-\u03C9]\(pc\)', s):
                     # witDetail for correction-altered
-                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + lem_target + "\" type=\"correction-altered\"/>"
+                    detailTags += "<witDetail wit=\"#" + strippedWit + "\" target=\"#" + lem_target + "\" type=\"correction-altered\"/>"
                     newsplit.append(s.replace("(c)", "").replace("(pc)", ""))
                 # supra lineam
-                elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(spl\)', s):
-                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + lem_target + "\">supra lineam</witDetail>"
+                elif re.match(u'[A-Za-z\u0391-\u03A9\u03B1-\u03C9]\(spl\)', s):
+                    detailTags += "<witDetail wit=\"#" + strippedWit + "\" target=\"#" + lem_target + "\">supra lineam</witDetail>"
                     newsplit.append(s.replace("(spl)", ""))
                 # sub lineam
-                elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(sbl\)', s):
-                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + lem_target + "\">sub lineam</witDetail>"
+                elif re.match(u'[A-Za-z\u0391-\u03A9\u03B1-\u03C9]\(sbl\)', s):
+                    detailTags += "<witDetail wit=\"#" + strippedWit + "\" target=\"#" + lem_target + "\">sub lineam</witDetail>"
                     newsplit.append(s.replace("(sbl)", ""))
                 # in margin
-                elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(inmg\)', s):
-                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + lem_target + "\">in margin</witDetail>"
+                elif re.match(u'[A-Za-z\u0391-\u03A9\u03B1-\u03C9]\(inmg\)', s):
+                    detailTags += "<witDetail wit=\"#" + strippedWit + "\" target=\"#" + lem_target + "\">in margin</witDetail>"
                     newsplit.append(s.replace("(inmg)", ""))
                 # in rasura
-                elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(ir\)', s):
-                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + lem_target + "\">in rasura</witDetail>"
+                elif re.match(u'[A-Za-z\u0391-\u03A9\u03B1-\u03C9]\(ir\)', s):
+                    detailTags += "<witDetail wit=\"#" + strippedWit + "\" target=\"#" + lem_target + "\">in rasura</witDetail>"
                     newsplit.append(s.replace("(ir)", ""))
                 # if the siglum doesn't have an annotation, it doesn't need a <witDetail>
                 else:
@@ -265,7 +260,7 @@ def make_lem_tag(p, s, lem, wit, source, note):
     def lemnote():
         """A function for encoding any annotation on the lemma as a <note>.
 
-        returns all note tags in a single string, e.g. "<note></note><note>this is another note</note>"
+        returns all note tags in a single string, e.g. "<note>this is a note</note><note>this is another note</note>"
 
         forward slash / is used as a delimiter for multiple notes, because Unicode snowman ☃ was rejected
         """
@@ -274,9 +269,8 @@ def make_lem_tag(p, s, lem, wit, source, note):
         if not note:
             return '<!-- NO LEMMA ANNOTATION -->'
         else:
-            try:
-                # throws an exception if no / in the string
-                # this is caught below
+            if "/" in note:
+                # there are multiple notes
                 split = note.split("/")
 
                 for s in split:
@@ -288,7 +282,7 @@ def make_lem_tag(p, s, lem, wit, source, note):
                         noteTags += ('<note target="' + lem_target + '">' + note + '</note>')
 
                 return noteTags
-            except:
+            else:
                 # if only one note, wrap it in a <note> tag and return
                 return '<note target="' + lem_target + '">' + note + '</note>'
 
@@ -302,14 +296,14 @@ def make_lem_tag(p, s, lem, wit, source, note):
 def make_rdg_tag(p, s, reading, wit, source, note):
     """makes a <rdg> tag for one reading.
 
-        Keyword Arguments:
+        Arguments:
             p - paragraph number
             s - section number
             reading - the reading as it appears in the spreadsheet
             wit - reading witnesses as one string, separated by spaces (e.g. "A B Cac D")
             source - reading source(s), separated by spaces (e.g. "Name OtherName ThirdName")
             note - reading notes as one string. Multiple notes should be separated with the forward slash /
-                - e.g. "This is a note / (this is another note)"
+                - e.g. "This is a note / this is another note"
     """
 
     # deal with an empty reading with no notes
@@ -319,7 +313,7 @@ def make_rdg_tag(p, s, reading, wit, source, note):
 
     elif reading == '' and re.match("copy\(", note):
         # this reading is a copyOf another reading
-        # syntax for that: copy("rdg"/"lem", the full reading its a copy of, poem, line)
+        # syntax for that: copy("rdg"/"lem", the full reading it's a copy of, poem number, line number)
         # if the reading in question is in this app. crit., we can process into an XML ID here
         r = note.split("(")[1].replace(")", "")
         split = r.split(",")
@@ -328,23 +322,24 @@ def make_rdg_tag(p, s, reading, wit, source, note):
 
     # deal with a reading which is a speaker
     if re.match("\(\w+\.*\)", reading):
-            reading = "<label type=\"speaker\">" + reading.replace("(", "").replace(")", "") + "</label>"
+        idRdg = reading + " speaker"
+        reading = "<label type=\"speaker\">" + reading.replace("(", "").replace(")", "") + "</label>"
 
     # this block deals with editorial additions, which have <> in the reading
 
     # deal with a <supplied> tag which only includes part of a word
-    if (re.search('\<\w+\s*\<gap reason=”lost”/>\s*\w+\>\w+', reading)):
+    elif (re.search('\<\w+\s*\<gap reason=”lost”/>\s*\w+\>\w+', reading)):
         # deal with a lacuna in the middle of a word
         # this was written to deal with 13.5 but can be generalized as necessary
         reading = '<supplied reason="lost">' + reading.split('>')[0].replace('<', '', 1) + ">" +reading.split('>')[1] + '</supplied>' + reading.split('>')[2]
-        # we use a separate variable to contain the reading to use in xml:id
+        # we use a separate variable to contain a version of the reading to use in xml:id
         idRdg = reading.replace('<', '').replace('>', '').replace('supplied', '').replace('reason="lost"', '') + " addition"
 
-    # deal with readings of the form <word> some other words or some words <word>
+    # deal with readings of the form '<word> some other words' or 'some words <word>'
     elif (re.search('\<\w+\>(\s)*\w+ | \w+(\s)*\<\w+\>', reading)):
         reading = '<supplied reason="lost">' + reading.split('>')[0].replace('<', '') + '</supplied>' + \
                         reading.split('>')[1]
-        # we use a separate variable to contain the reading to use in xml:id
+        # we use a separate variable to contain a version of the reading to use in xml:id
         idRdg = reading.replace('<', '').replace('>', '').replace('supplied', '').replace('reason="lost"', '') + " addition"
 
     # now deal with readings of the form '<word>'
@@ -380,11 +375,8 @@ def make_rdg_tag(p, s, reading, wit, source, note):
 
     source = str(rdgsrc(source))
 
-    # Handling the xml:id for the reading
-
+    # Handle the @xml:id and @target attributes for the reading
     rdg_xmlid = str(xmlid("rdg", idRdg, p, s))
-
-    # TODO: is this right?
     rdg_target = rdg_xmlid.replace("xml:id=", '').replace("\"", '')
 
     def rdg_wit(wit):
@@ -405,35 +397,40 @@ def make_rdg_tag(p, s, reading, wit, source, note):
             newsplit = []
             # iterate through witnesses and check if each has ac, c, spl, sbl
             # could add other markup here as needed
-            # the regex used to match sigla will match uppercase Latin letters A-Z and upper and lowercase Greek letters
+            # the regex used to match sigla will match upper and lowercase Latin letters A-Z and upper and lowercase Greek letters
             for s in split:
+                # avoid putting spreadsheet markup in witDetail tags
+                if '(' in s:
+                    strippedWit = s.split("(")[0]
+                else:
+                    strippedWit = s
                 # handle original corrections
-                if re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(ac\)', s):
+                if re.match(u'[A-Za-z\u0391-\u03A9\u03B1-\u03C9]\(ac\)', s):
                     # witDetail for correction-original
-                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\" type=\"correction-original\"/>"
+                    detailTags += "<witDetail wit=\"#" + strippedWit + "\" target=\"#" + rdg_target + "\" type=\"correction-original\"/>"
                     newsplit.append(s.replace("(ac)", ""))
                 # matches both c and pc to maintain backwards compatibility as much as possible
                 # only pc is correct. our guidelines and specs reflect this.
-                elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(c\)', s) or re.match(
-                        u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(pc\)', s):
+                elif re.match(u'[A-Za-z\u0391-\u03A9\u03B1-\u03C9]\(c\)', s) or re.match(
+                        u'[A-Za-z\u0391-\u03A9\u03B1-\u03C9]\(pc\)', s):
                     # witDetail for correction-altered
-                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\" type=\"correction-altered\"/>"
+                    detailTags += "<witDetail wit=\"#" + strippedWit + "\" target=\"#" + rdg_target + "\" type=\"correction-altered\"/>"
                     newsplit.append(s.replace("(c)", "").replace("(pc)", ""))
                 # supra lineam
-                elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(spl\)', s):
-                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\">supra lineam</witDetail>"
+                elif re.match(u'[A-Za-z\u0391-\u03A9\u03B1-\u03C9]\(spl\)', s):
+                    detailTags += "<witDetail wit=\"#" + strippedWit + "\" target=\"#" + rdg_target + "\">supra lineam</witDetail>"
                     newsplit.append(s.replace("(spl)", ""))
                 # sub lineam
-                elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(sbl\)', s):
-                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\">sub lineam</witDetail>"
+                elif re.match(u'[A-Za-z\u0391-\u03A9\u03B1-\u03C9]\(sbl\)', s):
+                    detailTags += "<witDetail wit=\"#" + strippedWit + "\" target=\"#" + rdg_target + "\">sub lineam</witDetail>"
                     newsplit.append(s.replace("(sbl)", ""))
                 # in margin
-                elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(inmg\)', s):
-                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\">in margin</witDetail>"
+                elif re.match(u'[A-Za-z\u0391-\u03A9\u03B1-\u03C9]\(inmg\)', s):
+                    detailTags += "<witDetail wit=\"#" + strippedWit + "\" target=\"#" + rdg_target + "\">in margin</witDetail>"
                     newsplit.append(s.replace("(inmg)", ""))
                 # in rasura
-                elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(ir\)', s):
-                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\">in rasura</witDetail>"
+                elif re.match(u'[A-Za-z\u0391-\u03A9\u03B1-\u03C9]\(ir\)', s):
+                    detailTags += "<witDetail wit=\"#" + strippedWit + "\" target=\"#" + rdg_target + "\">in rasura</witDetail>"
                     newsplit.append(s.replace("(ir)", ""))
                 # if the siglum doesn't have an annotation, it doesn't need a <witDetail>
                 else:
@@ -467,9 +464,8 @@ def make_rdg_tag(p, s, reading, wit, source, note):
         if not note:
             return ['', '']
         else:
-            try:
-                # throws an exception if no / in the string
-                # this is caught below
+            if "/" in note:
+                # multiple notes
                 split = note.split("/")
 
                 for s in split:
@@ -479,13 +475,13 @@ def make_rdg_tag(p, s, reading, wit, source, note):
                         beforeTags += ('<note target="' + rdg_target + '">' + s + '</note>')
                     elif (re.match("vulgo", s)):
                         # add the ad hoc <wit> tag for vulgo. as a witness
-                        noteTags += ('<wit target="' + rdg_target + '">' + s + '</wit>')
+                        noteTags += ('<wit>' + s + '</wit>')
                     else:
                         # this is a normal note (i.e. after the reading)
                         noteTags += ('<note target="' + rdg_target + '">' + s + '</note>')
 
                 return [beforeTags, noteTags]
-            except:
+            else:
                 # if there is only one note, wrap it in tags and return it
                 return ['', '<note target="' + rdg_target + '">' + note + '</note>']
 
@@ -498,12 +494,18 @@ def make_rdg_tag(p, s, reading, wit, source, note):
 
 
 def cleanup_tag(entries):
-    """a function for cleaning up an <app> tag"""
+    """a function for cleaning up an <app> tag. it encapsulates several cleanup tasks, including replacing editorial
+    symbols with the appropriate XML markup and removing or condensing the (valid but superfluous) XML generated from
+    empty columns in the CSV.
 
-    # Remove empty readings.
+    Argument:
+        - entries: an app tag that needs cleanup
+    """
+
     search_no_ann = re.compile(r'<!-- NO ([A-Z]*) ANNOTATION -->')
     no_ann_replace = search_no_ann.sub('', entries)
 
+    # Remove empty readings.
     search_empty_readings = re.compile(
         r'<rdg wit="None" source="None" xml:id="rdg-([0-9]*).([0-9]*)-([.]*)"><!-- ([A-Z(\s)?]*([\d])?) --></rdg>')
     empty_readings_replace = search_empty_readings.sub('', no_ann_replace)
@@ -574,7 +576,6 @@ def cleanup_tag(entries):
 parser = ET.XMLParser(remove_comments=False)
 
 # Create a variable for the path to the base text.
-# TODO: fix this file path
 path = '/Volumes/data/katy/PycharmProjects/DLL/automation/sources/calp-sicc-carmen4.txt'
 
 # Open the file with utf-8 encoding.
@@ -615,17 +616,17 @@ i = 0
 lCount = 0
 newlines = []
 # store the speaker of a lacuna
-# it's declared outside the loop because it needs to survive multiple loop iterations
+# this is declared outside the loop because it needs to survive multiple loop iterations
 lac_speaker = ''
-# use enumerate so we can also get the index easily
+# use enumerate() so we can also get the index easily
 for index, l in enumerate(lines):
-    print(l)
     if l == '':
         # empty line caused by line breaks in source text
         continue
     if re.search('[0-9]+$', l):
         numbersplit = l.split(" ")
-        i = int(numbersplit[len(numbersplit) - 1])
+        i = int(numbersplit[-1])
+        l = l.replace(" " + str(i), "")
     else:
         i += 1
     speaker_tag = ''
@@ -645,23 +646,21 @@ for index, l in enumerate(lines):
         if re.search("<label type=\"speaker\">", l):
             lac_speaker = speaker_tag
 
-        # if the next line is NOT a lacuna, replace with <gap>
-        # assumes that the last line is not lacuna
-        # TODO: fix this lazy bullshit
-        if re.search(r'&lt;gap reason="lost"/&gt;', lines[index + 1]):
-            continue
+        # if the next line is NOT a lacuna, or if we have reached end of the poem, replace with <gap>
         # otherwise, keep looking for the end of the lacuna
+        if re.search(r'&lt;gap reason="lost"/&gt;', lines[index + 1]) or index == len(lines) - 1:
+            continue
         else:
             l = "<ab>" + lac_speaker + "<gap reason = \"lost\" quantity = \"" + str(lCount) + "\" unit = \"lines\" resp = \"#Giarratano\"/></ab>"
             lCount = 0
+
     newlines.append(l)
 
 # put the list back into a string
 replace2 = "".join(newlines)
 
-# TODO: add support for line groups
-
 # Handle crux.
+print('Lines have been wrapped in numbered <l> tags')
 print('Now handling special symbols. First up: †crux†.')
 time.sleep(2)
 search_crux = re.compile(r'†([a-zA-Z]*)†')
@@ -725,7 +724,7 @@ TEI = header + replace4 + footer
 # write the xml-encoded base text to a new .xml file
 print('Making a new file ...')
 time.sleep(2)
-# file path for intermediate XML file
+# file path for final XML file
 new_path = '/Volumes/data/katy/PycharmProjects/DLL/automation/sources/poetry-encoding.xml'
 
 # Open the new file.
@@ -755,7 +754,6 @@ with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/poetry-test
             # skip the first row, which contains column labels
             continue
 
-        # try:
         # get paragraph and section number and row length
         pNum = row[0]
         lNum = row[1]
@@ -763,7 +761,9 @@ with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/poetry-test
 
         # make the lemma tag
         lemReturn = make_lem_tag(pNum, lNum, row[2], row[3], row[4], row[5])
+        # searchLem is the literal string we want to find in the text
         searchLem = lemReturn[0]
+        # lemtag is the tag we want to insert in place of searchLem
         lemtag = lemReturn[1].strip()
 
         # encode general annotations on this entry
@@ -789,48 +789,58 @@ with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/poetry-test
         # clean up the <app> tag
         new_entries = cleanup_tag(entries)
 
+        # we're going to check that the newly created lemma tag is valid XML
+        # if it is valid, we will insert it into the text
+        # if not, we will not insert it and will print an error message
+        # the goal of this measure is to prevent XMLParseErrors and XMLSyntaxErrors
+        # we want to guarantee that the output of this script is always a valid XML file.
+        # this will minimize runtime exceptions and errors.
+        if not checkXML(new_entries):
+            #  i.e. if invalid XML was generated
+            print("**** invalid XML was generated for poem " + pNum + ", line " + lNum + ", lemma: " + searchLem)
+            print(new_entries)
+            print("it was left unencoded for now.")
+            continue
+
+        # otherwise, valid XML was generated, so we find and replace
         print("Now encoding note for poem " + pNum + ", line " + lNum)
 
         print("Using XPath to find the section!....")
 
         # use Xpath to find the appropriate paragraph and section
         xpathstr = ".//tei:l[@n='" + str(lNum) + "']"
-        linetag = root.find(xpathstr,
-                                 namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})
+        linetag = root.find(xpathstr, namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})
 
 
         if (re.search("label", str(ET.tostring(linetag)))):
-            print("THE LABELTAG BLOCK IS EXECUTING")
-            if (re.match("\(\w+?\)", row[2])):
-                # line with an uncertain speaker
-                print(new_entries)
-                if (checkXML(new_entries)):
-                    xpathstr = ".//tei:label"
-                    labeltag = linetag.find(xpathstr,
-                                     namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})
-                    tailtext = labeltag.tail
-                    linetag.remove(labeltag)
-                    linetag.text = new_entries + tailtext
-                    # TODO does this work
+            # there is a label tag in the line
 
-                else:
-                    print("**** invalid XML was generated for poem " + pNum + ", line " + lNum + ", lemma: " + searchLem)
-                    print(new_entries)
-                    print("it was left unencoded for now.")
+            if (re.match("\(\w+?\)", row[2])):
+                # the lemma is an uncertain speaker
+                xpathstr = ".//tei:label"
+                labeltag = linetag.find(xpathstr, namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})
+                # store the text of the line
+                tailtext = labeltag.tail
+                # remove the existing label tag
+                linetag.remove(labeltag)
+                # insert the <app> tag (which contains at least 1 <label>) and the line text as the text of the <l> tag
+                # this will be changed from text to tags at the end.
+                linetag.text = new_entries + tailtext
 
             else:
-                print("WE ARE IN THE RIGHT ELSE BLOCK")
-                # normal lemma in a line with a speaker
-                if (re.search("app", str(ET.tostring(linetag)))):
-                    print("INTENDED CODE IS EXECUTING")
+                # normal lemma in a line with a (certain or uncertain) speaker
 
+                if (re.search("<app>\s*<lem .*?>\s*<label>", str(ET.tostring(linetag)))):
                     # we have an uncertain speaker
+
+                    #store line text
                     text = linetag.text
 
-                    # hacky workaround
+                    # hacky workaround to handle a line tag with no .text attribute
+                    # e.g. lacuna, all text in another tag, etc.
                     if text is None:
                         text = str(ET.tostring(linetag))
-                        text = re.sub("<l n=\"[0-9]+\">", text)
+                        text = re.sub("<l n=\"[0-9]+\">", "", text)
                         text = text.replace("</l>", "")
                         linetag.clear()
                         linetag.text = text
@@ -847,32 +857,40 @@ with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/poetry-test
                         # update the tag with the new lemma text (i.e. remove (#) from comments and IDs)
                         new_entries = new_entries.replace(searchLem, newLem)
 
-                        searchLem = newLem  # for simplicity
+                        searchLem = newLem  # for naming consistency
 
                     else:
                         # if no occurrence number is specified, assume it applies to the first instance
                         lemNum = 1
 
                     # exclude lemma instances within other words. uses negative lookahead and lookbehind assertion.
-                    # this will throw an exception (caught below) if the lemma is not found
                     replacePattern = "(?<![a-zA-Z])" + searchLem + "(?![a-zA-Z])"
 
-                    # insert the <app> tag into the text using a custom function defined above
-                    newtext = replace_with_xml(text, replacePattern, new_entries, (lemNum - 1))
-                    linetag.text = newtext
+                    try:
+                        # insert the <app> tag into the text using a custom function defined above
+                        # this will throw an exception (caught below) if the lemma is not found
+                        newtext = replace_with_xml(text, replacePattern, new_entries, (lemNum - 1))
+                        linetag.text = newtext
+                    except:
+                        # usually due to text/csv matching issue, meaning the script was unable to find the lemma in the base text
+                        print("**** lemma not found in poem " + pNum + ", line " + lNum)
+                        print("this is probably due to a text/csv mismatch")
 
                 else:
                     # speaker is not uncertain on this line
 
+                    # store the line text
                     text = linetag.text
 
-                    # hacky workaround
+                    # hacky workaround when there is no linetag.text attribute, but there are things in the line tag
+                    # that we need to capture
                     if text is None:
                         text = str(ET.tostring(linetag))
                         text = re.sub("b'<l xmlns=\"http://www.tei-c.org/ns/1.0\" n=\"[0-9]+\">", "", text)
                         text = text.replace("</l>'", "")
                         linetag.clear()
                         linetag.text = text
+                        # clear() destroys attributes, so we have to set line number again
                         linetag.set('n', str(lNum))
 
                     print("Replacing lemma instances with the proper <app> tag...")
@@ -894,17 +912,21 @@ with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/poetry-test
                         lemNum = 1
 
                     # exclude lemma instances within other words. uses negative lookahead and lookbehind assertion.
-                    # this will throw an exception (caught below) if the lemma is not found
                     replacePattern = "(?<![a-zA-Z])" + searchLem + "(?![a-zA-Z])"
 
-                    # insert the <app> tag into the text using a custom function defined above
-                    newtext = replace_with_xml(text, replacePattern, new_entries, (lemNum - 1))
-                    print(newtext)
-
-                    linetag.text = newtext
+                    try:
+                        # insert the <app> tag into the text using a custom function defined above
+                        # this will throw an exception (caught below) if the lemma is not found
+                        newtext = replace_with_xml(text, replacePattern, new_entries, (lemNum - 1))
+                        linetag.text = newtext
+                    except:
+                        # usually due to text/csv matching issue, meaning the script was unable to find the lemma in the base text
+                        print("**** lemma not found in poem " + pNum + ", line " + lNum)
+                        print("this is probably due to a text/csv mismatch")
 
         else:
             # no <label> tag on this line
+
             # use Xpath to find the appropriate paragraph and section
             xpathstr = ".//tei:l[@n='" + str(lNum) + "']"
             section = root.find(xpathstr,
@@ -925,52 +947,33 @@ with open('/Volumes/data/katy/PycharmProjects/DLL/automation/sources/poetry-test
                 # update the tag with the new lemma text (i.e. remove (#) from comments and IDs)
                 new_entries = new_entries.replace(searchLem, newLem)
 
-                searchLem = newLem  # for simplicity
+                searchLem = newLem  # for naming consistency
 
             else:
                 # if no occurrence number is specified, assume it applies to the first instance
                 lemNum = 1
 
             # exclude lemma instances within other words. uses negative lookahead and lookbehind assertion.
-            # this will throw an exception (caught below) if the lemma is not found
-            print(searchLem)
             replacePattern = "(?<![a-zA-Z])" + searchLem + "(?![a-zA-Z])"
 
-            # insert the <app> tag into the text using a custom function defined above
-            newtext = replace_with_xml(text, replacePattern, new_entries, (lemNum - 1))
+            try:
+                # insert the <app> tag into the text using a custom function defined above
+                # this will throw an exception (caught below) if the lemma is not found
+                newtext = replace_with_xml(text, replacePattern, new_entries, (lemNum - 1))
+                section.text = newtext
+            except:
+                # usually due to text/csv matching issue, meaning the script was unable to find the lemma in the base text
+                print("**** problem with encoding poem " + pNum + ", line " + lNum)
+                print("this is probably due to a text/csv mismatch")
 
-            # we're going to check that the newly created lemma tag is valid XML
-            # if it is valid, we will insert it into the text
-            # if not, we will not insert it and will print an error message
-            # the goal of this measure is to prevent XMLParseErrors and XMLSyntaxErrors
-            # we want to guarantee that the output of this script is always a valid XML file.
-            # this will minimize runtime exceptions and errors.
-
-        #try:
-            # this will throw an exception if new_entries (i.e. the new <app> tag) contains any invalid XML
-            #ET.fromstring(new_entries)
-
-            # if newtext contains only valid XML, we replace the section text
-            section.text = newtext
-
-        #except:
-            # catch the exception from possible invalid XML
-            #print("**** invalid XML was generated for poem " + pNum + ", line " + lNum + ", lemma: " + searchLem)
-            #print(new_entries)
-            #print("it was left unencoded for now.")
-
-        # except:
-            # usually due to text/csv matching issue, meaning the script was unable to find the lemma in the base text
-          #  print("**** problem with encoding poem " + pNum + ", line " + lNum)
-           # print("this is probably due to a text/csv mismatch")
 
 # we're done with the csv file now
 appFile.close()
 
 # this is a workaround to deal with automatic escaping of < and >, and to clean up smart quotes
 bigstr = ET.tostring(root, encoding="unicode").replace("&gt;", ">").replace("&lt;", "<").replace("”", "\"")
-
 # had to use encoding="unicode" to avoid a type mismatch problem
+
 print("Writing to a .xml file....")
 time.sleep(2)
 
