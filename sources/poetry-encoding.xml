@@ -1,0 +1,236 @@
+<?xml-model
+href="https://digitallatin.github.io/guidelines/critical-editions.rng" type="application/xml" 
+  schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model
+href="https://digitallatin.github.io/guidelines/critical-editions.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="edition" xml:id="edition-text">
+            <div type="textpart" n="4" xml:id="part4">
+               <l n="1"><label type="speaker">Meliboeus</label> Quid tacitus, Corydon, vultuque
+                  subinde minaci</l>
+               <l n="2">quidve sub hac platano, quam garrulus astrepit humor,</l>
+               <l n="3">insueta statione sedes? iuvat humida forsan</l>
+               <l n="4">ripa leuatque diem vicini spiritus amnis?</l>
+               <l n="5"><label type="speaker">Corydon</label> Carmina iam dudum, non quae nemorale
+                  resultent,</l>
+               <l n="6">uoluimus, o Meliboee; sed haec, quibus aurea possint</l>
+               <l n="7">saecula cantari, quibus et deus ipse canatur,</l>
+               <l n="8">qui populos urbesque regit pacemque togatam.</l>
+               <l n="9"><label type="speaker">Meliboeus</label> Dulce quidem resonas, nec te
+                  diuersus Apollo</l>
+               <l n="10">despicit, o iuvenis, sed magnae numina Romae</l>
+               <l n="11">non ita cantari debent, ut ovile Menalcae.</l>
+               <l n="12"><label type="speaker">Corydon</label> Quidquid id est, silvestre licet
+                  videatur acutis</l>
+               <l n="13">auribus et nostro tantum memorabile pago;</l>
+               <l n="14">nunc mea rusticitas, si non valet arte polita</l>
+               <l n="15">carminis, at certe valeat pietate probari.</l>
+               <l n="16">rupe sub hac, eadem quam maxima pinus obumbrat,</l>
+               <l n="17">haec eadem nobis frater meditatur Amyntas,</l>
+               <l n="18">quem vicina meis natalibus admovet aetas.</l>
+               <l n="19"><label type="speaker">Meliboeus</label> Iam puerum calamos et odorae
+                  vincula cerae</l>
+               <l n="20">iungere non cohibes, levibus quem saepe cicutis</l>
+               <l n="21">ludere conantem vetuisti fronte paterna?</l>
+               <l n="22">dicentem, Corydon, te non semel ista notavi:</l>
+               <l n="23">'frange, puer, calamos et inanes desere Musas;</l>
+               <l n="24">i, potius glandes rubicundaque collige corna,</l>
+               <l n="25">duc ad mulctra greges et lac venale per urbem</l>
+               <l n="26">non tacitus porta. quid enim tibi fistula reddet,</l>
+               <l n="27">quo tutere famem? certe mea carmina nemo</l>
+               <l n="28">praeter ab his scopulis ventosa remurmurat echo.'</l>
+               <l n="29"><label type="speaker">Corydon</label> Haec ego, confiteor, dixi, Meliboee,
+                  sed olim:</l>
+               <l n="30">non eadem nobis sunt tempora, non deus idem.</l>
+               <l n="31">spes magis arridet: certe ne fraga rubosque</l>
+               <l n="32">colligerem viridique famem solarer hibisco,</l>
+               <l n="33">tu facis et tua nos alit indulgentia farre;</l>
+               <l n="34">tu nostras miseratus opes docilemque iuventam</l>
+               <l n="35">hiberna prohibes ieiunia solvere fago.</l>
+               <l n="36">ecce nihil querulum per te, Meliboee, sonamus;</l>
+               <l n="37">per te secura saturi recubamus in umbra</l>
+               <l n="38">et fruimur silvis Amaryllidos, ultima nuper</l>
+               <l n="39">litora terrarum, nisi tu, Meliboee, fuisses,</l>
+               <l n="40">ultima visuri, trucibusque obnoxia Mauris</l>
+               <l n="41">pascua Geryonis, liquidis ubi cursibus ingens</l>
+               <l n="42">dicitur occiduas impellere Baetis harenas.</l>
+               <l n="43">scilicet extremo nunc vilis in orbe iacerem,</l>
+               <l n="44">a dolor! et pecudes inter conductus Hiberas</l>
+               <l n="45">irrita septena modularer sibila canna;</l>
+               <l n="46">nec quisquam nostras inter dumeta camenas</l>
+               <l n="47">respiceret; non ipse daret mihi forsitan aurem,</l>
+               <l n="48">ipse deus vacuam, longeque sonantia vota</l>
+               <l n="49">scilicet extremo non exaudiret in orbe.</l>
+               <l n="50">sed nisi forte tuas melior sonus advocat aures</l>
+               <l n="51">et nostris aliena magis tibi carmina rident,</l>
+               <l n="52">vis, hodierna tua subigatur pagina lima?</l>
+               <l n="53">nam tibi non tantum uenturos dicere nimbos</l>
+               <l n="54">agricolis qualemque ferat sol aureus ortum</l>
+               <l n="55">attribuere dei, sed dulcia carmina saepe</l>
+               <l n="56">concinis, et modo te Baccheis Musa corymbis</l>
+               <l n="57">munerat et lauro modo pulcher obumbrat Apollo.</l>
+               <l n="58">quod si tu faveas trepido mihi, forsitan illos</l>
+               <l n="59">experiar calamos, here quos mihi doctus Iollas</l>
+               <l n="60">donavit dixitque: 'truces haec fistula tauros</l>
+               <l n="61">conciliat nostroque sonat dulcissima Fauno.</l>
+               <l n="62">Tityrus hanc habuit, cecinit qui primus in istis</l>
+               <l n="63">montibus Hyblaea modulabile carmen auena.'</l>
+               <l n="64"><label type="speaker">Meliboeus</label> Magna petis, Corydon, si Tityrus
+                  esse laboras.</l>
+               <l n="65">ille fuit vates sacer et qui posset avena</l>
+               <l n="66">praesonuisse chelyn, blandae cui saepe canenti</l>
+               <l n="67">adlusere ferae, cui substitit advena quercus.</l>
+               <l n="68">quem modo cantantem rutilo spargebat acantho</l>
+               <l n="69">Nais et implicitos comebat pectine crines.</l>
+               <l n="70"><label type="speaker">Corydon</label> Est fateor, Meliboee, deus: sed nec
+                  mihi Phoebus</l>
+               <l n="71">forsitan abnuerit; tu tantum commodus audi:</l>
+               <l n="72">scimus enim, quam te non aspernetur Apollo.</l>
+               <l n="73"><label type="speaker">Meliboeus</label> Incipe, nam faveo; sed prospice, ne
+                  tibi forte</l>
+               <l n="74">tinnula tam fragili respiret fistula buxo,</l>
+               <l n="75">quam resonare solet, si quando laudat Alexin.</l>
+               <l n="76">hos potius, magis hos calamos sectare: canales</l>
+               <l n="77">exprime qui dignas cecinerunt consule silvas.</l>
+               <l n="78">incipe, ne dubita. venit en et frater Amyntas:</l>
+               <l n="79">cantibus iste tuis alterno succinet ore.</l>
+               <l n="80">ducite, nec mora sit, vicibusque reducite carmen;</l>
+               <l n="81">tuque prior, Corydon, tu proximus ibis, Amynta.</l>
+               <l n="82"><label type="speaker">Corydon</label> Ab Iove principium, si quis canit
+                  aethera, sumat,</l>
+               <l n="83">si quis Atlantiaci pondus molitur Olympi:</l>
+               <l n="84">at mihi, qui nostras praesenti numine terras</l>
+               <l n="85">perpetuamque regit iuvenili robore pacem,</l>
+               <l n="86">laetus et augusto felix arrideat ore.</l>
+               <l n="87"><label type="speaker">Amyntas</label> Me quoque facundo comitatus Apolline
+                  Caesar</l>
+               <l n="88">respiciat, montes neu dedignetur adire,</l>
+               <l n="89">quos et Phoebus amat, quos Iuppiter ipse tuetur:</l>
+               <l n="90">in quibus Augustos visuraque saepe triumphos</l>
+               <l n="91">laurus fructificat vicinaque nascitur arbos.</l>
+               <l n="92"><label type="speaker">Corydon</label> Ipse polos etiam qui temperat igne
+                  geluque,</l>
+               <l n="93">Iuppiter ipse parens, cui tu iam proximus, ecce,</l>
+               <l n="94">Caesar, abes, posito paulisper fulmine saepe</l>
+               <l n="95">Cresia rura petit viridique reclinis in antro</l>
+               <l n="96">carmina Dictaeis audit Curetica silvis.</l>
+               <ab><label type="speaker">Amyntas</label><gap reason="lost" quantity="5" unit="lines"
+                     resp="#Giarratano"/></ab>
+               <l n="97"><label type="speaker">Corydon</label> Aspicis, ut virides audito Caesare
+                  silvae</l>
+               <l n="98">conticeant? memini, quamvis urgente procella</l>
+               <l n="99">sic nemus immotis subito requiescere ramis,</l>
+               <l n="100">et dixi: 'deus hinc, certe deus expulit euros.'</l>
+               <l n="101">nec mora; Parrhasiae solverunt sibila cannae.</l>
+               <l n="102"><label type="speaker">Amyntas</label> Aspicis, ut teneros subitus vigor
+                  excitet agnos?</l>
+               <l n="103">utque superfuso magis ubera lacte graventur</l>
+               <l n="104">et nuper tonsis exundent vellera fetis?</l>
+               <l n="105">hoc ego iam, memini, semel hac in valle notavi</l>
+               <l n="106">et venisse Palen pecoris dixisse magistros.</l>
+               <l n="107"><label type="speaker">Corydon</label> Scilicet omnis eum tellus, gens
+                  omnis adorat,</l>
+               <l n="108">diligiturque deis, quem sic taciturna verentur</l>
+               <l n="109">arbuta, cuius iners audito nomine tellus</l>
+               <l n="110">incaluit floremque dedit; cui silva vocato;</l>
+               <l n="111">densat odore comas, stupefacta regerminat arbos.</l>
+               <l n="112"><label type="speaker">Amyntas</label> Illius ut primum senserunt numina
+                  terrae,</l>
+               <l n="113">coepit et uberior sulcis fallentibus olim</l>
+               <l n="114">luxuriare seges tandemque legumina plenis</l>
+               <l n="115">vix resonant siliquis; nec praefocata malignum</l>
+               <l n="116">messis habet lolium nec inertibus albet avenis.</l>
+               <l n="132"><label type="speaker">Corydon</label> Numine Caesareo securior ipse
+                  Lycaeus</l>
+               <l n="133">Pan recolit silvas et amoena Faunus in umbra</l>
+               <l n="134">securus recubat placidoque in fonte lavatur</l>
+               <l n="135">Nais et humanum non calcatura cruorem</l>
+               <l n="136">per iuga siccato velox pede currit Oreas.</l>
+               <l n="117"><label type="speaker">Amyntas</label> Iam neque damnatos metuit iactare
+                  ligones</l>
+               <l n="118">fossor et invento, si fors dedit, utitur auro;</l>
+               <l n="119">nec timet, ut nuper, dum iugera versat arator,</l>
+               <l n="120">ne sonet offenso contraria vomere massa,</l>
+               <l n="121">iamque palam presso magis et magis instat aratro.</l>
+               <l n="122"><label type="speaker">Corydon</label> Ille dat, ut primas Cereri dare
+                  cultor aristas</l>
+               <l n="123">possit et intacto Bromium perfundere vino,</l>
+               <l n="124">ut nudus ruptas saliat calcator in uvas</l>
+               <l n="125">utque bono plaudat paganica turba magistro,</l>
+               <l n="126">qui facit egregios ad pervia compita ludos.</l>
+               <l n="127"><label type="speaker">Amyntas</label> Ille meis pacem dat montibus: ecce
+                  per illum,</l>
+               <l n="128">seu cantare iuvat seu ter pede lenta ferire</l>
+               <l n="129">gramina, nullus obest: licet et cantare choreis</l>
+               <l n="130">et cantus viridante licet mihi condere libro,</l>
+               <l n="131">turbida nec calamos iam surdant classica nostros.</l>
+               <l n="137"><label type="speaker">Corydon</label> Di, precor, hunc iuvenem quem vos
+                  (neque fallor) ab ipso</l>
+               <l n="138">aethere misistis, post longa reducite vitae</l>
+               <l n="139">tempora vel potius mortale resolvite pensum</l>
+               <l n="140">et date perpetuo caelestia fila metallo:</l>
+               <l n="141">sit deus et nolit pensare palatia caelo!</l>
+               <l n="142"><label type="speaker">Amyntas</label> Tu quoque mutata seu Iuppiter ipse
+                  figura,</l>
+               <l n="143">Caesar, ades seu quis superum sub imagine falsa</l>
+               <l n="144">mortalique lates (es enim deus): hunc, precor, orbem,</l>
+               <l n="145">hos, precor, aeternus populos rege! sit tibi caeli</l>
+               <l n="146">vilis amor coeptamque, pater, ne desere pacem!</l>
+               <l n="147"><label type="speaker">Meliboeus</label> Rustica credebam nemorales carmina
+                  vobis</l>
+               <l n="148">concessisse deos et obesis auribus apta;</l>
+               <l n="149">verum, quae paribus modo concinuistis avenis,</l>
+               <l n="150">tam liquidum, tam dulce cadunt, ut non ego malim,</l>
+               <l n="151">quod Paeligna solent examina lambere nectar.</l>
+               <l n="152"><label type="speaker">Corydon</label> O mihi quae tereti decurrunt carmina
+                  versu</l>
+               <l n="153">tunc, Meliboee, sonent si quando montibus istis</l>
+               <l n="154">dicar habere Larem, si quando nostra videre</l>
+               <l n="155">pascua contingat! vellit nam saepius aurem</l>
+               <l n="156">invida Paupertas et dicit: 'ouilia cura!'</l>
+               <l n="157">at tu, si qua tamen non aspernanda putabis,</l>
+               <l n="158">fer, Meliboee, deo mea carmina: nam tibi fas est</l>
+               <l n="159">sacra Palatini penetralia visere Phoebi.</l>
+               <l n="160">tum mihi talis eris, qualis qui dulce sonantem</l>
+               <l n="161">Tityron e silvis dominam deduxit in urbem</l>
+               <l n="162">ostenditque deis et 'spreto' dixit 'ovili,</l>
+               <l n="163">Tityre, rura prius, sed post cantabimus arma.'</l>
+               <l n="164"><label type="speaker">Amyntas</label> Respiciat nostros utinam fortuna
+                  labores</l>
+               <l n="165">pulcrior et meritae faveat deus ipse iuventae!</l>
+               <l n="166">nos tamen interea tenerum mactabimus haedum</l>
+               <l n="167">et pariter subitae peragemus fercula cenae.</l>
+               <l n="168"><label type="speaker">Meliboeus</label> Nunc ad flumen oves deducite: iam
+                  fremit aestas,</l>
+               <l n="169">iam sol contractas pedibus magis admovet umbras.</l>
+            </div>
+         </div>
+      </body>
+      <back>
+         <!--
+The content of the back matter will be determined in consultation between
+        the editor and the staff of the DLL. Because LDLT editions are encoded, the
+        matter traditionally found in the back of a printed critical edition may be
+        generated by applications instead of having to be entered manually.
+        Nevertheless, there is space here for notes, indices, and other kinds of
+        information.
+-->
+      </back>
+   </text>
+</TEI>
