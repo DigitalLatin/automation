@@ -22,7 +22,7 @@
                      euocat; tormenta undique conquiri et frumentum mitti, auxilia adduci
                      iubet.</seg>
                   <seg n="2">Interim munitiones <!-- App entry for 1.2: cotidie operibus --><app>
-                        <lem wit="#A #B #C" xml:id="lem-1.2-cotidie-operibus">cotidie operibus</lem>
+                        <lem xml:id="lem-1.2-cotidie-operibus">cotidie operibus</lem>
                         <rdg wit="#M" xml:id="rdg-1.2-cotidie">cotidie</rdg>
                         <rdg source="#Castiglioni" xml:id="rdg-1.2-nouis-cotidie-operibus">nouis
                            cotidie operibus</rdg>
@@ -45,7 +45,7 @@
                         <note target="rdg-1.2-in-surplus">coll. Hirt. 8.27.4</note>
                      </app> tantum munitiones proferuntur.</seg>
                   <seg n="3">Nam <!-- App entry for 1.3: <supplied reason="lost">ab</supplied> --><app>
-                        <lem source="#Müller" xml:id="lem-1.3-ab-addition"><supplied reason="lost"
+                        <lem source="Μüller" xml:id="lem-1.3-ab-addition"><supplied reason="lost"
                               >ab</supplied></lem>
                         <note target="lem-1.3-ab-addition">cf. 61.3</note>
                      </app> incendio fere tuta est Alexandria, quod sine contignatione ac materia
@@ -63,7 +63,7 @@
                   <seg n="5">illud <!-- App entry for 1.5: spectans --><app>
                         <lem source="#Vascosan" xml:id="lem-1.5-spectans">spectans</lem>
                         <note target="lem-1.5-spectans">cf. BC 3.85.2</note>
-                        <rdg wit="ω" xml:id="rdg-1.5-expectans">expectans</rdg>
+                        <rdg wit="Ï‰" xml:id="rdg-1.5-expectans">expectans</rdg>
                      </app> primum ut, cum in duas partes esset <!-- App entry for 1.5: urbs --><app>
                         <lem wit="#U" xml:id="lem-1.5-urbs">urbs</lem>
                         <rdg wit="#M" xml:id="rdg-1.5-ubrs">ubrs</rdg>
@@ -103,7 +103,7 @@
                         <rdg wit="#S" xml:id="rdg-2.3-ha">ha</rdg>
                      </app> multitudine disposita munitiones <!-- App entry for 2.3: semotarum --><app>
                         <lem wit="#Mmr" xml:id="lem-2.3-semotarum">semotarum</lem>
-                        <rdg wit="ω" xml:id="rdg-2.3-semotorum">semotorum</rdg>
+                        <rdg wit="Ï‰" xml:id="rdg-2.3-semotorum">semotorum</rdg>
                      </app> partium tuebantur; ueteranas cohortes uacuas <!-- App entry for 2.3: in celeberrimis urbis locis --><app>
                         <lem xml:id="lem-2.3-in-celeberrimis-urbis-locis">in celeberrimis urbis
                            locis</lem>
@@ -136,11 +136,11 @@
                      suggerebat. Ipsi homines <!-- App entry for 3.1: ingeniosi --><app>
                         <lem xml:id="lem-3.1-ingeniosi">ingeniosi</lem>
                         <rdg source="#Klotz" xml:id="rdg-3.1-ingeniosissimi">ingeniosissimi</rdg>
-                        <note target="rdg-3.1-ingeniosissimi">Wölfflin teste </note>
+                        <note target="rdg-3.1-ingeniosissimi">WĂ¶lfflin teste </note>
                      </app> atque acutissimi quae a nobis fieri uiderant ea sollertia <!-- App entry for 3.1: efficiebant --><app>
-                        <lem wit="ω" xml:id="lem-3.1-efficiebant">efficiebant</lem>
+                        <lem wit="Ï‰" xml:id="lem-3.1-efficiebant">efficiebant</lem>
                         <note target="lem-3.1-efficiebant">cf. 19.5</note>
-                        <rdg source="#Kübler" xml:id="rdg-3.1-effingebant">effingebant</rdg>
+                        <rdg source="#KĂ¼bler" xml:id="rdg-3.1-effingebant">effingebant</rdg>
                         <note target="rdg-3.1-effingebant">cf. Cic. ND 3.23</note>
                      </app> ut nostri illorum opera imitati uiderentur, et sua sponte multa
                      reperiebant unoque tempore et nostras munitiones infestabant et suas
@@ -244,7 +244,7 @@
                <p n="7"><seg n="1">Quo facto dubitatione sublata tantus incessit timor ut ad
                      extremum casum <!-- App entry for 7.1: periculi --><app>
                         <lem xml:id="lem-7.1-periculi">periculi</lem>
-                        <rdg wit="Ϛ" xml:id="rdg-7.1-om."/>
+                        <rdg wit="Ï" xml:id="rdg-7.1-om."/>
                      </app> omnes deducti uiderentur atque alii morari Caesarem dicerent quin naues
                      conscendere <!-- App entry for 7.1: iuberet --><app>
                         <lem wit="#M #U" xml:id="lem-7.1-iuberet">iuberet</lem>
@@ -254,7 +254,7 @@
                         <rdg source="#Aldus" xml:id="rdg-7.1-grauiorem">grauiorem</rdg>
                         <note target="rdg-7.1-grauiorem">(cf. Cic. Ph. 1.13) </note>
                      </app> extimescerent <!-- App entry for 7.1: casum --><app>
-                        <lem wit="ω" xml:id="lem-7.1-casum2">casum</lem>
+                        <lem wit="Ï‰" xml:id="lem-7.1-casum2">casum</lem>
                         <note target="lem-7.1-casum">(cf. Cic. Att. 4.3.5) </note>
                         <rdg source="#Nipperdey" xml:id="rdg-7.1-casum-surplus"
                               ><surplus>casum</surplus></rdg>
@@ -301,12 +301,12 @@
                      omnia enim litora naturaliter aquae dulcis uenas habere.</seg>
                   <seg n="2">Quod si alia esset litoris Aegypti natura atque omnium reliquorum,
                      tamen, quoniam mare libere tenerent, neque hostes classem haberent, <!-- App entry for 8.2: prohiberi --><app>
-                        <lem wit="Ϛ" source="#Oudendorp" xml:id="lem-8.2-prohiberi">prohiberi</lem>
+                        <lem wit="Ï" source="#Oudendorp" xml:id="lem-8.2-prohiberi">prohiberi</lem>
                         <note target="lem-8.2-prohiberi">teste</note>
-                        <rdg wit="ω" xml:id="rdg-8.2-prohibere">prohibere</rdg>
+                        <rdg wit="Ï‰" xml:id="rdg-8.2-prohibere">prohibere</rdg>
                      </app> sese non <!-- App entry for 8.2: posse --><app>
                         <lem wit="#ed.pr." xml:id="lem-8.2-posse">posse</lem>
-                        <rdg wit="ω" xml:id="rdg-8.2-possent">possent</rdg>
+                        <rdg wit="Ï‰" xml:id="rdg-8.2-possent">possent</rdg>
                      </app> quo minus cotidie nauibus aquam <!-- App entry for 8.2: peterent --><app>
                         <lem wit="#M #U" xml:id="lem-8.2-peterent">peterent</lem>
                         <rdg wit="#S #T #V" xml:id="rdg-8.2-petere">petere</rdg>
@@ -314,11 +314,11 @@
                         <lem source="#Gaertner-Hausburg" xml:id="lem-8.2-Paraetonio"
                            >Paraetonio</lem>
                         <note target="lem-8.2-Paraetonio">78-79 n.16</note>
-                        <rdg wit="ω" xml:id="rdg-8.2-paratonio">paratonio</rdg>
+                        <rdg wit="Ï‰" xml:id="rdg-8.2-paratonio">paratonio</rdg>
                      </app>
                      <!-- App entry for 8.2: Uel --><app>
                         <lem xml:id="lem-8.2-Uel2">Uel</lem>
-                        <rdg wit="Ϛ" xml:id="rdg-8.2-uel-a-addition"><supplied reason="lost">uel
+                        <rdg wit="Ï" xml:id="rdg-8.2-uel-a-addition"><supplied reason="lost">uel
                               a</supplied></rdg>
                         <note target="rdg-8.2-uel-a-addition">(cf. 74.1)</note>
                      </app> dextra ab insula, quae diuersae nauigationes numquam uno tempore
@@ -369,7 +369,7 @@
                      impositis, quod, cum longius paulo discederet, munitiones nudare nolebat.</seg>
                   <seg n="2">Cumque ad eum locum <!-- App entry for 10.2: accessissent --><app>
                         <lem xml:id="lem-10.2-accessissent">accessissent</lem>
-                        <rdg wit="Ϛ" source="#Manutius" xml:id="rdg-10.2-accessisset"
+                        <rdg wit="Ï" source="#Manutius" xml:id="rdg-10.2-accessisset"
                            >accessisset</rdg>
                         <note target="rdg-10.2-accessisset">teste</note>
                      </app>, qui appellatur Chersonensus, aquandique causa remiges in terram <!-- App entry for 10.2: exposuissent --><app>
@@ -453,7 +453,7 @@
                         <rdg wit="#M" xml:id="rdg-12.1-nauigatorum">nauigatorum</rdg>
                      </app> se uictos uiderent, <gap reason="lost"/> quibus et superioribus <!-- App entry for 12.1: locis --><app>
                         <lem xml:id="lem-12.1-locis">locis</lem>
-                        <rdg source="#Kübler" xml:id="rdg-12.1-temporibus">temporibus</rdg>
+                        <rdg source="#KĂ¼bler" xml:id="rdg-12.1-temporibus">temporibus</rdg>
                         <note target="rdg-12.1-temporibus">dubitanter</note>
                      </app> subleuabantur, ut <!-- App entry for 12.1: ex --><app>
                         <lem xml:id="lem-12.1-ex">ex</lem>
@@ -483,9 +483,9 @@
                      studere atque inseruire instituerunt.</seg>
                   <seg n="3">Ac tametsi amplius <!-- App entry for 12.3: CX --><app>
                         <lem source="#Manutius" xml:id="lem-12.3-CX">CX</lem>
-                        <rdg wit="ω" xml:id="rdg-12.3-ex">ex</rdg>
+                        <rdg wit="Ï‰" xml:id="rdg-12.3-ex">ex</rdg>
                      </app> nauibus longis in portu naualibusque <!-- App entry for 12.3: miserant --><app>
-                        <lem wit="ω" xml:id="lem-12.3-miserant">miserant</lem>
+                        <lem wit="Ï‰" xml:id="lem-12.3-miserant">miserant</lem>
                         <note target="lem-12.3-miserant">(simplex post compositum)</note>
                         <rdg source="#Manutius" xml:id="rdg-12.3-amiserant">amiserant</rdg>
                      </app>, <!-- App entry for 12.3: non --><app>
@@ -493,11 +493,11 @@
                         <rdg wit="#S #T #V" xml:id="rdg-12.3-om."/>
                      </app> tamen reparandae classis cogitationem deposuerunt.</seg>
                   <seg n="4">Videbant enim non auxilia <!-- App entry for 12.4: Caesaris --><app>
-                        <lem wit="ω" xml:id="lem-12.4-Caesaris">Caesaris</lem>
+                        <lem wit="Ï‰" xml:id="lem-12.4-Caesaris">Caesaris</lem>
                         <note target="lem-12.4-Caesaris">(cf. BC 3.23.2)</note>
                         <rdg source="#Stephanus" xml:id="rdg-12.4-Caesari">Caesari</rdg>
                      </app>, non commeatus supportari posse, si classe ipsi ualerent; praeterea <!-- App entry for 12.4: nautici --><app>
-                        <lem wit="ω" xml:id="lem-12.4-nautici">nautici</lem>
+                        <lem wit="Ï‰" xml:id="lem-12.4-nautici">nautici</lem>
                         <note target="lem-12.4-nautici">(cf. 16.5) </note>
                         <rdg source="#Morus" xml:id="rdg-12.4-nautici-surplus"
                               ><surplus>nautici</surplus></rdg>
@@ -525,7 +525,7 @@
                      in portu periclitati remigio quid quaeque earum efficere posset idoneos milites
                      imposuerunt seque ad confligendum omnibus rebus parauerunt.</seg>
                   <seg n="5">Caesar Rhodias naues VIIII habebat—nam decem missis una in cursu <!-- App entry for 13.5: litore --><app>
-                        <lem wit="ω" xml:id="lem-13.5-litore">litore</lem>
+                        <lem wit="Ï‰" xml:id="lem-13.5-litore">litore</lem>
                         <note target="lem-13.5-litore">(cf. BG 4.23.6) </note>
                         <rdg source="#Nipperdey" xml:id="rdg-13.5-in-litore-addition"><supplied
                               reason="lost">in litore</supplied></rdg>
@@ -536,7 +536,7 @@
                         <rdg source="#Dinter" xml:id="rdg-13.5-litore-surplus"
                               ><surplus>litore</surplus></rdg>
                      </app> Aegyptio <!-- App entry for 13.5: defecerat --><app>
-                        <lem wit="ω" xml:id="lem-13.5-defecerat">defecerat</lem>
+                        <lem wit="Ï‰" xml:id="lem-13.5-defecerat">defecerat</lem>
                         <note target="lem-13.5-defecerat">(cf. Verg. Aen. 6.354) </note>
                         <rdg source="#Oudendorp" xml:id="rdg-13.5-decesserat">decesserat</rdg>
                         <note target="rdg-13.5-decesserat">Ciacconius teste coll. BC 3.112.3 (sed u.
@@ -556,7 +556,7 @@
                         <rdg wit="#T #V" xml:id="rdg-14.1-om."/>
                      </app> confideret, Caesar Pharon classe circumuehitur aduersasque naues
                      hostibus constituit: in dextro cornu <!-- App entry for 14.1: Rhodios collocat, in sinistro Ponticos. Inter hos --><app>
-                        <lem wit="ω"
+                        <lem wit="Ï‰"
                            xml:id="lem-14.1-Rhodios-collocat-in-sinistro-Ponticos.-Inter-hos"
                            >Rhodios collocat, in sinistro Ponticos. Inter hos</lem>
                         <note target="lem-14.1-Rhodios-collocat,-in-sinistro-Ponticos.-Inter-hos"
@@ -946,13 +946,13 @@
       </body>
       <back>
          <!--
-The content of the back matter will be determined in consultation between
-        the editor and the staff of the DLL. Because LDLT editions are encoded, the
-        matter traditionally found in the back of a printed critical edition may be
-        generated by applications instead of having to be entered manually.
-        Nevertheless, there is space here for notes, indices, and other kinds of
-        information.
--->
+    The content of the back matter will be determined in consultation between
+            the editor and the staff of the DLL. Because LDLT editions are encoded, the
+            matter traditionally found in the back of a printed critical edition may be
+            generated by applications instead of having to be entered manually.
+            Nevertheless, there is space here for notes, indices, and other kinds of
+            information.
+    -->
       </back>
    </text>
 </TEI>
