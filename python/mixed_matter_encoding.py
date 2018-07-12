@@ -17,9 +17,9 @@ dictLogConfig = {
             "class": "logging.FileHandler",
             "formatter": "myFormatter",
             "filename": "../results/mm-log-file.txt"
-            # TODO: rn we are overwriting the log file
+            # by default, we are overwriting the log file
             # this is done to keep output sensible to the user
-            # to disable this and keep all the output, comment this line:
+            # to disable this and keep all the output, comment out this line:
             ,"mode": "w"
         }
     },
@@ -89,13 +89,14 @@ def checkXML(tag):
         return False
 
 
-def xmlid(lr, input, p, s):
-    """A function for creating the xml:id value like rdg-1.1-vicit. this is defined outside of make_rdg_tag() because we need to use it to make @copyOf attributes
+def xmlid(lr, input, s, p, l):
+    """A function for creating the xml:id value like rdg-1.1-vicit.
 
     :param lr: must be either "lem" or "rdg"
-    :param input:  the text from which to make an identifier
+    :param input: the text from which to make an identifier
+    :param s: section number
     :param p: paragraph or poem number
-    :param s: sentence or line number
+    :param l: sentence or line number
 
     :return: the xml:id value for this bit of text
     """
@@ -109,18 +110,19 @@ def xmlid(lr, input, p, s):
     joined = lacunaRE.sub("-lacuna-", joined).replace("\"", '')
 
     # remove punctuation that would make @xml:id invalid
-    puncRE = re.compile('[,;\'<>()/]')
-    xmlid = 'xml:id="' + lr + '-' + str(p) + '.' + str(s) + '-' + joined + '"'
+    puncRE = re.compile('[,;\'<>()/?]')
+    xmlid = 'xml:id="' + lr + '-' + str(s) + '.' + str(p) + '.' + str(l) + '-' + joined + '"'
 
     # return the finished xml:id attribute
     return puncRE.sub('', xmlid)
 
 
-def make_lem_tag(p, s, lem, wit, source, note):
+def make_lem_tag(s, p, l, lem, wit, source, note):
     """makes a <lem> tag for one lemma.
 
+    :param s: section number
     :param p: paragraph or poem number
-    :param s: section or line number
+    :param l: line or sentence number
     :param lem: the lemma as it appears in the spreadsheet
     :param wit: lemma witnesses as one string, separated by spaces (e.g. "A B Cac D")
     :param source: lemma source(s), separated by spaces (e.g. "Name OtherName ThirdName")
@@ -144,6 +146,7 @@ def make_lem_tag(p, s, lem, wit, source, note):
         lem = "<label type=\"speaker\">" + searchLem + "</label>"
 
     # this block deals with editorial additions, which have <> in the lemma
+    # TODO: update this block to match the one in rdg_tag()
 
     # deal with lemmas of the form '<word> some other words'
     elif (re.match('<\w+>(\s)*\w+', lem)):
@@ -174,7 +177,7 @@ def make_lem_tag(p, s, lem, wit, source, note):
         idLem = lem
 
     # make the xml identifier for this lemma
-    lem_xmlid = xmlid("lem", idLem, p, s)
+    lem_xmlid = xmlid("lem", idLem, s, p, l)
 
     # modify the identifier to be used as an @target attribute
     lem_target = str(lem_xmlid.replace('xml:id=', '').replace('"', ''))
@@ -313,11 +316,12 @@ def make_lem_tag(p, s, lem, wit, source, note):
             + lem + '</lem>' + lemwit[1] + lemnote]
 
 
-def make_rdg_tag(p, s, reading, wit, source, note):
+def make_rdg_tag(s, p, l, reading, wit, source, note):
     """makes a <rdg> tag for one reading.
 
+    :param s: section number
     :param p: paragraph or poem number
-    :param s: section or line number
+    :param l: sentence or line number
     :param reading: the reading as it appears in the spreadsheet
     :param wit: reading witnesses as one string, separated by spaces (e.g. "A B Cac D")
     :param source: reading source(s), separated by spaces (e.g. "Name OtherName ThirdName")
@@ -368,7 +372,7 @@ def make_rdg_tag(p, s, reading, wit, source, note):
         idRdg = reading + " addition"
         reading = '<supplied reason="lost">' + reading + '</supplied>'
 
-    # if there are no editorial addtions, initialize idRdg
+    # if there are no editorial additions, initialize idRdg
     else:
         idRdg = reading
 
@@ -396,7 +400,7 @@ def make_rdg_tag(p, s, reading, wit, source, note):
     source = str(rdgsrc(source))
 
     # Handle the @xml:id and @target attributes for the reading
-    rdg_xmlid = str(xmlid("rdg", idRdg, p, s))
+    rdg_xmlid = str(xmlid("rdg", idRdg, s, p, l))
     rdg_target = rdg_xmlid.replace("xml:id=", '').replace("\"", '')
 
     def rdg_wit(wit):
@@ -642,7 +646,6 @@ def prose_chunk(chunk, i, logger):
     # check for a section number at the beginning of the paragraph.
     # if it's there, wrap it in a div tag
     mTag = ''
-    mEnd = ''
     if re.match("[0-9]+\s", chunk):
         mNum = chunk.split(" ")[0]
         if int(mNum) == 1:
@@ -652,7 +655,6 @@ def prose_chunk(chunk, i, logger):
         chunk = chunk.replace(mNum + " ", '')
 
     # wrap the paragraph in <p>
-    # TODO: number paragraphs from beginning or by section?
     pChunk = mTag + "<div type=\"textpart\" subtype=\"paragraph\" n=\"" +str(i) + "\"><p n=\"" + \
              str(i) + "\">" + chunk + "</p></div>"
 
@@ -700,7 +702,7 @@ def poetry_chunk(chunk, n, logger):
     print("Now we'll add the <l> tags.")
     logger.info(" Adding structural tags.")
     # check for a section number at the beginning of the poem.
-    # if it's there, wrap it in a milestone tag
+    # if it's there, wrap it in a div tag
     mTag = ''
     if re.match("[0-9]+\s", chunk):
         mNum = chunk.split(" ")[0]
@@ -769,17 +771,18 @@ def poetry_chunk(chunk, n, logger):
     logger.info(" Finished with that poetry section.\n")
 
     # wrap the poem in <div type="textpart" subtype="poem" n = (i)>
-    # TODO: number poems from beginning or by section?
     pChunk = mTag + "<div type=\"textpart\" subtype=\"poem\" n=\"" + str(n) + "\">" + retChunk + "</div>"
     return pChunk
 
 # main function begins here
 def main():
-    # TODO: write some documentation for this
+    '''process a mixed-matter text.
+
+    This script should work on any text: prose, poetry, drama, or mixed-matter.'''
     parser = ET.XMLParser(remove_comments=False)
 
     # Create a variable for the path to the base text.
-    path = '../sources/mixed-matter-base-text.txt'
+    path = '../sources/basetext.txt'
 
     # Open the file with utf-8 encoding.
     source_file = codecs.open(path, 'r', 'utf-8')
@@ -802,18 +805,17 @@ def main():
 
     # Here, we split the text into chunks for base text processing.
     # The script assumes a blank line between chunks.
-    text_chunks = source_text.split("\n\n")
-
+    text_chunks = re.split("\n\s*\n", source_text)
     # we'll put the encoded text here
     encoded_text = ''
 
     # now, iterate over the chunks.
     for c in text_chunks:
         # decide if each chunk is prose or poetry.
-        # this test assumes no line breaks within prose chunks.\
-        # TODO: is this a reasonable assumption?????
-        if '\n' in c:
+        # this test assumes no line breaks within prose chunks.
+        if 'POEM' in c:
             # there are line breaks, so it's poetry.
+            c = c.replace("POEM\n", "")
             encoded_chunk = poetry_chunk(c, poCount, logger)
             poCount += 1
         else:
@@ -877,7 +879,7 @@ def main():
     print('Making a new file ...')
     time.sleep(2)
     # file path for target XML file
-    new_path = '../results/mm-encoding.xml'
+    new_path = '../results/mm-prose-test.xml'
 
     # Open the new file.
     new_source = codecs.open(new_path, 'w', 'utf-8')
@@ -888,12 +890,11 @@ def main():
     time.sleep(2)
     new_source.write(str(TEI))
     source_file.close()
-
     new_source.close()
 
-    # logger.info("Now encoding the critical apparatus. \nEncoding errors will be shown below. \n\n")
-    # print('Now that the base text is encoded, we\'ll start on the app. crit.')
-    # time.sleep(2)
+    logger.info("Now encoding the critical apparatus. \nEncoding errors will be shown below. \n\n")
+    print('Now that the base text is encoded, we\'ll start on the app. crit.')
+    time.sleep(2)
 
     # This next bit is preliminary setup that will allow us to use XPath.
 
@@ -905,127 +906,27 @@ def main():
     # the TEI namespace (default ns for this doc) is found at: http://www.tei-c.org/ns/1.0
     ET.register_namespace('tei', 'http://www.tei-c.org/ns/1.0')
 
-    # ***************************************
-    #
-    #           CSV PROCESSING HERE
-    #
-    # ***************************************
-
-    with open('../sources/mixed-matter-app-crit.csv', encoding='utf-8') as appFile:
+    # start processing the critical apparatus line by line
+    with open('../sources/app-crit-test.csv', encoding='utf-8') as appFile:
         readApp = csv.reader(appFile, delimiter=',')
         for row in readApp:
             if row[0] == "Section":
                 # skip the first row, which contains column labels
                 continue
-            secNum = row[0]
+            sNum = row[0]
             if row[1].strip() != '':
                 # it has a paragraph number, i.e. it's prose
-                try:
-                    # get paragraph and section number and row length
-
-                    pNum = row[1]
-                    sNum = row[2]
-                    l = len(row)
-
-                    # make the lemma tag
-                    lemReturn = make_lem_tag(pNum, sNum, row[5], row[6], row[7], row[8])
-                    searchLem = lemReturn[0]
-                    lemtag = lemReturn[1].strip()
-
-                    # encode general annotations on this entry
-                    if row[9] == '':
-                        commenttag = ''
-                    else:
-                        commenttag = "<note>" + row[9] + "</note>"
-
-                    # counter for loop that makes <rdg> tags. Starts at 7 because readings start in column 7 of the CSV.
-                    i = 10
-                    rdgTags = ''
-
-                    # this loop can handle any number of readings
-                    while (i < (l - 1)):
-                        rdgTags += make_rdg_tag(pNum, sNum, row[i], row[i + 1], row[i + 2], row[i + 3])
-                        # each reading has four columns of data
-                        i += 4
-
-                    # combine everything into one <app> tag
-                    entries = '<!-- App entry for section' + str(row[0]) + ', paragraph '+ str(row[1]) + '.' + str(row[2]) + ': ' + searchLem + ' -->' + \
-                              '<app>' + lemtag + rdgTags + commenttag + '</app>'
-
-                    # clean up the <app> tag
-                    new_entries = cleanup_tag(entries)
-
-                    # we're going to check that the newly created lemma tag is valid XML
-                    # if it is valid, we will insert it into the text
-                    # if not, we will not insert it and will print an error message
-                    # the goal of this measure is to prevent XMLParseErrors and XMLSyntaxErrors
-                    # we want to guarantee that the output of this script is always a valid XML file.
-                    # this will minimize runtime exceptions and errors.
-                    if (not checkXML(new_entries)):
-                        # we produced an invalid app tag
-                        print("**** invalid XML was generated for section " + secNum + ", paragraph " + pNum + "." + sNum + ", lemma: " + searchLem)
-                        print("it was left unencoded for now.")
-                        logger.error("invalid XML was generated for section " + secNum + ", paragraph " + pNum + "." + sNum + ", lemma: " + searchLem + "\n\n")
-                        continue
-
-                    print("Now encoding note for section " + secNum + ", paragraph " + pNum + "." + sNum)
-
-                    print("Using XPath to find the section!....")
-                    # use Xpath to find the appropriate paragraph and section
-                    xpathstr = ".//tei:div[type=\"textpart\" and subtype=\"section\" and n=\"" + str(secNum) +"\"]//tei:p[@n='" + str(pNum) + "']/tei:seg[@n='" + str(sNum) + "']"
-                    section = root.find(xpathstr,
-                                        namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})  # check this
-
-                    # get the section text
-                    text = "".join(section.itertext())
-
-                    print("Replacing lemma instances with the proper <app> tag...")
-                    if re.search("\([0-9]+\)", searchLem):
-                        # this lemma does not apply to the first instance of the lemma text. of the form "lemma(#)"
-
-                        # break up the lemma(#) thing
-                        lemNum = searchLem.split('(')[1].replace(')', '')
-                        lemNum = int(lemNum)  # to avoid possible type mismatch problems
-                        newLem = searchLem.split('(')[0]
-
-                        # update the tag with the new lemma text (i.e. remove (#) from comments and IDs)
-                        new_entries = new_entries.replace(searchLem, newLem)
-
-                        searchLem = newLem  # for simplicity
-
-                    else:
-                        # if no occurrence number is specified, assume it applies to the first instance
-                        lemNum = 1
-
-                    # exclude lemma instances within other words. uses negative lookahead and lookbehind assertion.
-                    # this will throw an exception (caught below) if the lemma is not found
-                    replacePattern = "(?<![a-zA-Z])" + searchLem + "(?![a-zA-Z])"
-
-                    # insert the <app> tag into the text using a custom function defined above
-                    newtext = replace_with_xml(text, replacePattern, new_entries, (lemNum - 1))
-                    section.text = newtext
-
-                except:
-                    # usually due to text/csv matching issue, meaning the script was unable to find the lemma in the base text
-                    print("**** problem with encoding section " + pNum + "." + sNum)
-                    print("this is probably due to a text/csv mismatch")
-
-                    logger.error("problem finding lemma for section " + pNum + "." + sNum + ", lemma: " + searchLem + "\n\n")
-            else:
 
                 # get paragraph and section number and row length
-                sNum = row[3]
-                lNum = row[4]
+
+                pNum = row[1]
+                lNum = row[2]
                 l = len(row)
 
                 # make the lemma tag
-                lemReturn = make_lem_tag(sNum, lNum, row[5], row[6], row[7], row[8])
-                # searchLem is the literal string we want to find in the text
+                lemReturn = make_lem_tag(sNum, pNum, lNum, row[5], row[6], row[7], row[8])
                 searchLem = lemReturn[0]
-                # using this to make the comment
-                idLem = lemReturn[1]
-                # lemtag is the tag we want to insert in place of searchLem
-                lemtag = lemReturn[2].strip()
+                lemtag = lemReturn[1].strip()
 
                 # encode general annotations on this entry
                 if row[9] == '':
@@ -1039,12 +940,112 @@ def main():
 
                 # this loop can handle any number of readings
                 while (i < (l - 1)):
-                    rdgTags += make_rdg_tag(aNum, sNum, lNum, row[i], row[i + 1], row[i + 2], row[i + 3])
+                    rdgTags += make_rdg_tag(sNum, pNum, lNum, row[i], row[i + 1], row[i + 2], row[i + 3])
                     # each reading has four columns of data
                     i += 4
 
                 # combine everything into one <app> tag
-                entries = '<!-- App entry for ' + str(secNum) + '.' + str(sNum) + '.' + str(lNum) + ': ' + idLem + ' -->' + \
+                entries = '<!-- App entry for ' + str(sNum) + '.' + str(pNum) + '.' + str(lNum) + ': ' + searchLem + ' -->' + \
+                          '<app>' + lemtag + rdgTags + commenttag + '</app>'
+
+                # clean up the <app> tag
+                new_entries = cleanup_tag(entries)
+
+                # we're going to check that the newly created lemma tag is valid XML
+                # if it is valid, we will insert it into the text
+                # if not, we will not insert it and will print an error message
+                # the goal of this measure is to prevent XMLParseErrors and XMLSyntaxErrors
+                # we want to guarantee that the output of this script is always a valid XML file.
+                # this will minimize runtime exceptions and errors.
+                if (not checkXML(new_entries)):
+                    # we produced an invalid app tag
+                    print(
+                        "**** invalid XML was generated for section " + sNum + ", paragraph " + pNum + "." + lNum + ", lemma: " + searchLem)
+                    print("it was left unencoded for now.")
+                    logger.error(
+                        "invalid XML was generated for section " + sNum + ", paragraph " + pNum + "." + lNum + ", lemma: " + searchLem + "\n\n")
+                    continue
+
+                print("Now encoding note for section " + sNum + ", paragraph " + pNum + "." + lNum)
+
+                print("Using XPath to find the section!....")
+                # use Xpath to find the appropriate paragraph and section
+                xpathstr = ".//tei:div[@type=\"textpart\"][@subtype=\"section\"][@n=\"" + \
+                           str(sNum) + "\"]//tei:p[@n=\"" + str(pNum) + "\"]/tei:seg[@n=\"" + str(lNum) + "\"]"
+
+                section = root.find(xpathstr,
+                                    namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})
+
+                # get the section text
+                text = "".join(section.itertext())
+
+                print("Replacing lemma instances with the proper <app> tag...")
+                if re.search("\([0-9]+\)", searchLem):
+                    # this lemma does not apply to the first instance of the lemma text. of the form "lemma(#)"
+
+                    # break up the lemma(#) thing
+                    lemNum = searchLem.split('(')[1].replace(')', '')
+                    lemNum = int(lemNum)  # to avoid possible type mismatch problems
+                    newLem = searchLem.split('(')[0]
+
+                    # update the tag with the new lemma text (i.e. remove (#) from comments and IDs)
+                    new_entries = new_entries.replace(searchLem, newLem)
+
+                    searchLem = newLem  # for simplicity
+
+                else:
+                    # if no occurrence number is specified, assume it applies to the first instance
+                    lemNum = 1
+
+                # exclude lemma instances within other words. uses negative lookahead and lookbehind assertion.
+                # this will throw an exception (caught below) if the lemma is not found
+                replacePattern = "(?<![a-zA-Z])" + searchLem + "(?![a-zA-Z])"
+
+                try:
+                    # insert the <app> tag into the text using a custom function defined above
+                    newtext = replace_with_xml(text, replacePattern, new_entries, (lemNum - 1))
+                    section.text = newtext
+
+                except:
+                    # usually due to text/csv matching issue, meaning the script was unable to find the lemma in the base text
+                    print("**** problem with encoding section " + sNum +"." + pNum + "." + lNum)
+                    print("this is probably due to a text/csv mismatch")
+
+                    logger.error("problem finding lemma for section " + sNum +"." + pNum + "." + lNum + ", lemma: " + searchLem + "\n\n")
+            else:
+
+                # get poem and line number and row length
+                pNum = row[3]
+                lNum = row[4]
+                l = len(row)
+
+                # make the lemma tag
+                lemReturn = make_lem_tag(sNum, pNum, lNum, row[5], row[6], row[7], row[8])
+                # searchLem is the literal string we want to find in the text
+                searchLem = lemReturn[0]
+                # using this to make the comment
+                idLem = searchLem
+                # lemtag is the tag we want to insert in place of searchLem
+                lemtag = lemReturn[1].strip()
+
+                # encode general annotations on this entry
+                if row[9] == '':
+                    commenttag = ''
+                else:
+                    commenttag = "<note>" + row[9] + "</note>"
+
+                # counter for loop that makes <rdg> tags. Starts at 7 because readings start in column 7 of the CSV.
+                i = 10
+                rdgTags = ''
+
+                # this loop can handle any number of readings
+                while (i < (l - 1)):
+                    rdgTags += make_rdg_tag(sNum, pNum, lNum, row[i], row[i + 1], row[i + 2], row[i + 3])
+                    # each reading has four columns of data
+                    i += 4
+
+                # combine everything into one <app> tag
+                entries = '<!-- App entry for ' + str(sNum) + '.' + str(pNum) + '.' + str(lNum) + ': ' + idLem + ' -->' + \
                           '<app>' + lemtag + rdgTags + commenttag + '</app>'
 
                 # clean up the <app> tag
@@ -1058,26 +1059,21 @@ def main():
                 if not checkXML(new_entries):
                     #  i.e. if invalid XML was generated
                     print(
-                        "**** invalid XML was generated for section " + secNum + ", poem " + sNum + ", line " + lNum + ", lemma: " + searchLem)
+                        "**** invalid XML was generated for section " + sNum + ", poem " + pNum + ", line " + lNum + ", lemma: " + searchLem)
                     print("it was left unencoded for now.")
 
-                    logger.error(" invalid XML was generated for section " + secNum + ", poem " + sNum + ", line " + lNum + ", lemma: " + searchLem)
+                    logger.error(" invalid XML was generated for section " + sNum + ", poem " + pNum + ", line " + lNum + ", lemma: " + searchLem)
                     continue
 
                 # otherwise, valid XML was generated, so we find and replace
-                print("Now encoding note for section " + secNum + ", scene " + sNum + ", line " + lNum)
+                print("Now encoding note for section " + sNum + ", poem " + pNum + ", line " + lNum)
 
                 print("Using XPath to find the section!....")
 
-                # use Xpath to find the appropriate paragraph and section
-                # ***********************************************************
-                # TODO: clean up the XPath and start here
-                # ***********************************************************
                 # TODO: fix this XPath
-                # if we are using line numbers for the whole work, this may get much easier
-                xpathstr = ".//tei:l[@n='" + str(lNum) + "']"
+                xpathstr = ".//tei:div[@type=\"textpart\"][@subtype=\"section\"][@n=\"" + str(sNum) + "\"]//tei:div[@type=\"textpart\"][@subtype=\"poem\"][@n=\"" + str(pNum) + "\"]//tei:l[@n=\"" + str(lNum) + "\"]"
                 linetag = root.find(xpathstr, namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})
-
+                print(linetag)
                 if (re.search("label", str(ET.tostring(linetag)))):
                     # there is a label tag in the line
 
@@ -1118,7 +1114,6 @@ def main():
 
                             # store line text
                             text = linetag.text
-                            print("TEXT BEFORE WORKAROUND: " + text)
                             # hacky workaround to handle a line tag with no .text attribute
                             # e.g. lacuna, all text in another tag, etc.
                             if text is None:
@@ -1127,7 +1122,6 @@ def main():
                                 text = text.replace("</l>", "")
                                 linetag.clear()
                                 linetag.text = text
-                            print("TEXT AFTER WORKAROUND: " + text)
 
                             print("Replacing lemma instances with the proper <app> tag...")
                             if re.search("\([0-9]+\)", searchLem):
@@ -1158,11 +1152,11 @@ def main():
                             except:
                                 # usually due to text/csv matching issue, meaning the script was unable to find the lemma in the base text
                                 print(
-                                    "**** lemma not found in act " + aNum + ", scene " + sNum + ", line " + lNum + ", lemma: " + searchLem)
+                                    "**** lemma not found in section " + sNum + ", poem " + pNum + ", line " + lNum + ", lemma: " + searchLem)
                                 print("this is probably due to a text/csv mismatch")
 
                                 logger.error(
-                                    " lemma not found in act " + aNum + ", scene " + sNum + ", line " + lNum + ", lemma: " + searchLem)
+                                    " lemma not found in section " + sNum + ", poem " + pNum + ", line " + lNum + ", lemma: " + searchLem)
 
                         else:
                             # speaker is not uncertain on this line
@@ -1209,11 +1203,11 @@ def main():
                                 linetag.text = newtext
                             except:
                                 # usually due to text/csv matching issue, meaning the script was unable to find the lemma in the base text
-                                print("**** lemma not found in act " + aNum + ", scene " + sNum + ", line " + lNum)
+                                print("**** lemma not found in section " + sNum + ", poem " + pNum + ", line " + lNum, + ", lemma: " + searchLem)
                                 print("this is probably due to a text/csv mismatch")
 
                                 logger.error(
-                                    " lemma not found in act " + aNum + ", scene " + sNum + ", line " + lNum + ", lemma: " + searchLem)
+                                    " lemma not found in section " + sNum + ", poem " + sNum + ", line " + lNum + ", lemma: " + searchLem)
 
                 else:
                     # no <label> tag on this line
@@ -1253,61 +1247,30 @@ def main():
                         section.text = newtext
                     except:
                         # usually due to text/csv matching issue, meaning the script was unable to find the lemma in the base text
-                        print("**** lemma not found in act " + aNum + ", scene " + sNum + ", line " + lNum)
+                        print("**** lemma not found in section " + sNum + ", poem " + pNum + ", line " + lNum, + ", lemma: " + searchLem)
                         print("this is probably due to a text/csv mismatch")
 
                     logger.error(
-                        " lemma not found in act " + aNum + ", scene " + sNum + ", line " + lNum + ", lemma: " + searchLem)
-
-                    # it's poetry/drama/etc.
-                # go get all the speaker logic from drama encoding.
-
-            # TODO: make the lem and rdg tags include a section number
-            # two separate try/excepts for poetry/prose?
+                        " lemma not found in act " + sNum + ", poem " + pNum + ", line " + lNum + ", lemma: " + searchLem)
 
 
-    """if (paragraph not none)
-
-        use prose procedure
-
-    else
-        use poetry procedure
-
-    similarities
-        nearly same (or same?????) tag making functions
-        nearly same replace fn
-
-    differences
-        poetry has a bunch of complicated logic for handling speakers
-        xpath statement
-
-
-    conclusion:
-
-    make the tags
-    if (prose)
-        prose Xpath
-        call replace
-    else
-        poetry Xpath
-        poetry decision logic"""
-
-    # we're done with the csv file now, so close it
-    # appFile.close()
-    # logger.info(" Finished encoding the critical apparatus.\n")
+    #we're done with the csv file now, so close it
+    appFile.close()
+    logger.info(" Finished encoding the critical apparatus.\n")
 
     logger.info(" Finishing up the XML.")
     print("We've finished encoding critical apparatus entries.")
     print("Writing to a .xml file....")
     time.sleep(2)
+
     # this is a workaround to deal with automatic escaping of < and >, and to clean up smart quotes
     bigstr = ET.tostring(root, encoding="unicode").replace("&gt;", ">").replace("&lt;", "<").replace("”", "\"")
     # had to use encoding="unicode" to avoid a type mismatch problem
 
     # parse the newly cleaned up XML
     newRoot = ET.fromstring(bigstr)
-
     tree._setroot(newRoot)
+
     # write the new XML to the appropriate file
     tree.write(new_path, encoding='utf-8', xml_declaration=True)
 
@@ -1319,26 +1282,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-# numbering scheme???????
-# number poems sequentially, number lines within poems
-# number prose paragraphs, number sentences within paragraphs
-# is it always a new paragraph after a poem??
-
-
-
-# tentative algorithm
-    # break the text into chunks - HOW?????????
-        # split on \n\n, i.e. blank lines!!!!!!
-    # for chunk in chunks:
-    # identify each chunk as prose or poetry - count words b/n new lines?
-    # call the appropriate function to encode the base text
-
-    # for row in csv
-    # pretty much the normal thing but will have to be very careful with the XPath
-
-
-
-
-

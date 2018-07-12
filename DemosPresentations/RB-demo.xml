@@ -15,11 +15,162 @@
    </teiHeader>
    <text>
       <body>
-      <div type="edition" xml:id="edition-text">
-            <div type="textpart" n="1" xml:id="part1"><p n="1"><seg n="1">Bello Alexandrino conflato Caesar Rhodo atque ex Syria Ciliciaque omnem classem arcessit; Creta sagittarios, equites ab rege Nabataeorum Malcho euocat; tormenta undique conquiri et frumentum mitti, auxilia adduci iubet.</seg> <seg n="2">Interim munitiones <!-- App entry for 1.2: cotidie operibus --><app><lem xml:id="lem-1.2-cotidie-operibus">cotidie operibus</lem><rdg wit="#M" xml:id="rdg-1.2-cotidie">cotidie</rdg><rdg source="#Castiglioni" xml:id="rdg-1.2-nouis-cotidie-operibus">nouis cotidie operibus</rdg></app> augentur atque omnes oppidi partes, quae minus esse firmae uidentur, testudinibus ac musculis <!-- App entry for 1.2: aptantur --><app><lem wit="ω" xml:id="lem-1.2-aptantur">aptantur</lem><note target="lem-1.2-aptantur">u. BC 3.112.7-9</note><rdg source="#Nipperdey" xml:id="rdg-1.2-temptantur">temptantur</rdg><note>alii alia (u. Gaertner-Hausburg 48 n.87)</note></app>; ex aedificiis autem <!-- App entry for 1.2: per --><app><lem xml:id="lem-1.2-per">per</lem><rdg wit="#S #T #V" xml:id="rdg-1.2-om."/></app> foramina in proxima aedificia arietes immittuntur, quantumque aut ruinis deicitur aut per uim recipitur loci, <!-- App entry for 1.2: in --><app><lem wit="#Vac #Tc" xml:id="lem-1.2-in2">in</lem><witDetail wit="#Vac" target="#lem-1.2-in" type="correction-original"/><witDetail wit="#Tc" target="#lem-1.2-in" type="correction-altered"/><rdg source="#Schneider" xml:id="rdg-1.2-in-surplus"><surplus>in</surplus></rdg><note target="rdg-1.2-in-surplus">coll. Hirt. 8.27.4</note></app> tantum munitiones proferuntur.</seg> <seg n="3">Nam <!-- App entry for 1.3: <supplied reason="lost">ab</supplied> --><app><lem source="#Müller" xml:id="lem-1.3-ab-addition"><supplied reason="lost">ab</supplied></lem><note target="lem-1.3-ab-addition">cf. 61.3</note></app> incendio fere tuta est Alexandria, quod sine contignatione ac materia sunt aedificia <!-- App entry for 1.3: et --><app><lem xml:id="lem-1.3-et">et</lem><rdg wit="#M" xml:id="rdg-1.3-om."/></app> structuris <!-- App entry for 1.3: ac --><app><lem wit="#M #T #V" xml:id="lem-1.3-ac2">ac</lem><rdg wit="#U" xml:id="rdg-1.3-et">et</rdg><rdg wit="#S" xml:id="rdg-1.3-a">a</rdg></app> fornicibus continentur tectaque sunt rudere aut pauimentis.</seg> <seg n="4">Caesar maxime studebat ut quam angustissimam partem oppidi palus a meridie interiecta efficiebat, hanc operibus uineisque agendis ab reliqua parte urbis excluderet,</seg> <seg n="5">illud <!-- App entry for 1.5: spectans --><app><lem source="#Vascosan" xml:id="lem-1.5-spectans">spectans</lem><note target="lem-1.5-spectans">cf. BC 3.85.2</note><rdg wit="ω" xml:id="rdg-1.5-expectans">expectans</rdg></app> primum ut, cum in duas partes esset <!-- App entry for 1.5: urbs --><app><lem wit="#U" xml:id="lem-1.5-urbs">urbs</lem><rdg wit="#M" xml:id="rdg-1.5-ubrs">ubrs</rdg><rdg wit="#S #T #V" xml:id="rdg-1.5-urbis">urbis</rdg></app> diuisa, <!-- App entry for 1.5: <supplied reason="lost">sua</supplied> acies --><app><lem source="#Fleischer" xml:id="lem-1.5-sua-acies-addition"><supplied reason="lost">sua</supplied> acies</lem></app> uno consilio atque imperio administraretur, deinde ut laborantibus succurri atque ex altera oppidi parte auxilium ferri posset, in primis uero ut aqua pabuloque abundaret, quarum alterius <!-- App entry for 1.5: rei copiam exiguam, alterius --><app><lem xml:id="lem-1.5-rei-copiam-exiguam-alterius">rei copiam exiguam, alterius</lem><rdg wit="#S" xml:id="rdg-1.5-om."/></app> nullam omnino facultatem habebat; quod utrumque large palus praebere poterat.
-</seg></p><p n="2"><seg n="1">Neque uero Alexandrinis in gerendis negotiis cunctatio ulla aut mora inferebatur. Nam in omnes partes, per quas fines Aegypti regnumque pertinet, legatos conquisitoresque dilectus habendi causa miserant <!-- App entry for 2.1: magnumque numerum in oppidum telorum atque tormentorum conuexerant et innumerabilem multitudinem adduxerant --><app><lem xml:id="lem-2.1-magnumque-numerum-in-oppidum-telorum-atque-tormentorum-conuexerant-et-innumerabilem-multitudinem-adduxerant">magnumque numerum in oppidum telorum atque tormentorum conuexerant et innumerabilem <!-- App entry for 2.1: multitudinem --><app><lem xml:id="lem-2.1-multitudinem">multitudinem</lem><rdg source="#Fischer" xml:id="rdg-2.1-multitudinem-armatorum">multitudinem armatorum</rdg><note target="rdg-2.1-multitudinem-armatorum">cf. 30.2</note></app> adduxerant</lem><rdg wit="#S" xml:id="rdg-2.1-om."/><note target="rdg-2.1-om.">uerba 12</note></app>.</seg> <seg n="2">Nec minus in urbe maximae armorum erant institutae officinae. Seruos praeterea puberes armauerant; quibus domini locupletiores uictum cotidianum stipendiumque praebebant.</seg> <seg n="3"><!-- App entry for 2.3: Hac --><app><lem wit="#U #T #V" xml:id="lem-2.3-Hac">Hac</lem><rdg wit="#M" xml:id="rdg-2.3-huc">huc</rdg><rdg wit="#S" xml:id="rdg-2.3-ha">ha</rdg></app> multitudine disposita munitiones <!-- App entry for 2.3: semotarum --><app><lem wit="#Mmr" xml:id="lem-2.3-semotarum">semotarum</lem><rdg wit="ω" xml:id="rdg-2.3-semotorum">semotorum</rdg></app> partium tuebantur; ueteranas cohortes uacuas <!-- App entry for 2.3: in celeberrimis urbis locis --><app><lem xml:id="lem-2.3-in-celeberrimis-urbis-locis">in celeberrimis urbis locis</lem><rdg wit="#M" xml:id="rdg-2.3-om."/><note target="rdg-2.3-om.">Uerba 4</note></app> habebant, ut quacumque regione pugnaretur integris uiribus ad auxilium ferendum opponi possent.</seg> <seg n="4">Omnibus uiis atque angiportis triplicem uallum obduxerant — erat autem quadrato extructus saxo neque minus XL pedes altitudinis habebat — quaeque partes urbis inferiores erant, has altissimis turribus denorum tabulatorum munierant.</seg> <seg n="5">Praeterea alias ambulatorias totidem tabulatorum confixerant subiectisque eas rotis funibus iumentisque <sic><!-- App entry for 2.5: obiectis --><app><lem xml:id="lem-2.5-obiectis">obiectis</lem><rdg source="#Scaliger" xml:id="rdg-2.5-obiectis-surplus"><surplus>obiectis</surplus></rdg><rdg source="#Cornelissen" xml:id="rdg-2.5-subiunctis">subiunctis</rdg><note target="rdg-2.5-subiunctis">coll. Col. 6.2.8</note><rdg source="#Castiglioni" xml:id="rdg-2.5-adiectis">adiectis</rdg><note target="rdg-2.5-adiectis">cf. 28.3</note><rdg source="#Klotz" xml:id="rdg-2.5-obtectis">obtectis</rdg><note target="rdg-2.5-obtectis">dubitanter (cf. BC 3.19.7)</note><rdg xml:id="rdg-2.5-iunctis">iunctis</rdg><note target="rdg-2.5-iunctis">an,  (cf. Vitr. 10.2.14)</note><rdg xml:id="rdg-2.5-adiunctis">adiunctis</rdg><note target="rdg-2.5-adiunctis">vel, (cf. 27.7 et Gel. 20.1.28)?</note></app></sic> derectis plateis in quamcumque erat uisum partem mouebant.
-</seg></p><p n="3"><seg n="1">Urbs fertilissima et copiosissima omnium rerum apparatus suggerebat. Ipsi homines <!-- App entry for 3.1: ingeniosi --><app><lem xml:id="lem-3.1-ingeniosi">ingeniosi</lem><rdg source="#Klotz" xml:id="rdg-3.1-ingeniosissimi">ingeniosissimi</rdg><note target="rdg-3.1-ingeniosissimi">Wölfflin teste </note></app> atque acutissimi quae a nobis fieri uiderant ea sollertia <!-- App entry for 3.1: efficiebant --><app><lem wit="ω" xml:id="lem-3.1-efficiebant">efficiebant</lem><note target="lem-3.1-efficiebant">cf. 19.5</note><rdg source="#Kübler" xml:id="rdg-3.1-effingebant">effingebant</rdg><note target="rdg-3.1-effingebant">cf. Cic. ND 3.23</note></app> ut nostri illorum opera imitati uiderentur, et sua sponte multa reperiebant unoque tempore et nostras munitiones infestabant et suas defendebant.</seg> <seg n="2">Atque haec principes in consiliis contionibusque agitabant: populum Romanum paulatim in consuetudinem eius regni occupandi uenire.</seg> <seg n="3">Paucis annis <!-- App entry for 3.3: ante A. Gabinium --><app><lem source="#Schneider" xml:id="lem-3.3-ante-A.-Gabinium">ante A. Gabinium</lem><rdg wit="#M #U #S #Tc #Vac" xml:id="rdg-3.3-antea-gabinium-vel-ante-agabinium">antea gabinium vel ante agabinium</rdg><witDetail wit="#Tc" target="#rdg-3.3-antea-gabinium-vel-ante-agabinium" type="correction-altered"/><witDetail wit="#Vac" target="#rdg-3.3-antea-gabinium-vel-ante-agabinium" type="correction-original"/><rdg wit="#Tac #Vc" xml:id="rdg-3.3-ante-Gabinium">ante Gabinium</rdg><witDetail wit="#Tac" target="#rdg-3.3-ante-Gabinium" type="correction-original"/><witDetail wit="#Vc" target="#rdg-3.3-ante-Gabinium" type="correction-altered"/></app> cum exercitu fuisse in Aegypto; Pompeium se ex fuga eodem recepisse; Caesarem uenisse cum copiis, neque morte Pompei quicquam profectum quo minus apud se Caesar commoraretur.</seg> <seg n="4">Quem si non expulissent, futuram ex regno prouinciam; idque agendum mature: namque eum interclusum tempestatibus propter anni tempus recipere transmarina auxilia non posse.
-</seg></p></div></div></body>
+         <div type="edition" xml:id="edition-text">
+            <div type="textpart" n="1" xml:id="part1">
+               <p n="1"><seg n="1">Bello Alexandrino conflato Caesar Rhodo atque ex Syria Ciliciaque
+                     omnem classem arcessit; Creta sagittarios, equites ab rege Nabataeorum Malcho
+                     euocat; tormenta undique conquiri et frumentum mitti, auxilia adduci
+                     iubet.</seg>
+                  <seg n="2">Interim munitiones <!-- App entry for 1.2: cotidie operibus --><app>
+                        <lem xml:id="lem-1.2-cotidie-operibus">cotidie operibus</lem>
+                        <rdg wit="#M" xml:id="rdg-1.2-cotidie">cotidie</rdg>
+                        <rdg source="#Castiglioni" xml:id="rdg-1.2-nouis-cotidie-operibus">nouis
+                           cotidie operibus</rdg>
+                     </app> augentur atque omnes oppidi partes, quae minus esse firmae uidentur,
+                     testudinibus ac musculis <!-- App entry for 1.2: aptantur --><app>
+                        <lem wit="ω" xml:id="lem-1.2-aptantur">aptantur</lem>
+                        <note target="lem-1.2-aptantur">u. BC 3.112.7-9</note>
+                        <rdg source="#Nipperdey" xml:id="rdg-1.2-temptantur">temptantur</rdg>
+                        <note>alii alia (u. Gaertner-Hausburg 48 n.87)</note>
+                     </app>; ex aedificiis autem <!-- App entry for 1.2: per --><app>
+                        <lem xml:id="lem-1.2-per">per</lem>
+                        <rdg wit="#S #T #V" xml:id="rdg-1.2-om."/>
+                     </app> foramina in proxima aedificia arietes immittuntur, quantumque aut ruinis
+                     deicitur aut per uim recipitur loci, <!-- App entry for 1.2: in --><app>
+                        <lem wit="#Vac #Tc" xml:id="lem-1.2-in2">in</lem>
+                        <witDetail wit="#Vac" target="#lem-1.2-in" type="correction-original"/>
+                        <witDetail wit="#Tc" target="#lem-1.2-in" type="correction-altered"/>
+                        <rdg source="#Schneider" xml:id="rdg-1.2-in-surplus"
+                           ><surplus>in</surplus></rdg>
+                        <note target="rdg-1.2-in-surplus">coll. Hirt. 8.27.4</note>
+                     </app> tantum munitiones proferuntur.</seg>
+                  <seg n="3">Nam <!-- App entry for 1.3: <supplied reason="lost">ab</supplied> --><app>
+                        <lem source="#Müller" xml:id="lem-1.3-ab-addition"><supplied reason="lost"
+                              >ab</supplied></lem>
+                        <note target="lem-1.3-ab-addition">cf. 61.3</note>
+                     </app> incendio fere tuta est Alexandria, quod sine contignatione ac materia
+                     sunt aedificia <!-- App entry for 1.3: et --><app>
+                        <lem xml:id="lem-1.3-et">et</lem>
+                        <rdg wit="#M" xml:id="rdg-1.3-om."/>
+                     </app> structuris <!-- App entry for 1.3: ac --><app>
+                        <lem wit="#M #T #V" xml:id="lem-1.3-ac2">ac</lem>
+                        <rdg wit="#U" xml:id="rdg-1.3-et">et</rdg>
+                        <rdg wit="#S" xml:id="rdg-1.3-a">a</rdg>
+                     </app> fornicibus continentur tectaque sunt rudere aut pauimentis.</seg>
+                  <seg n="4">Caesar maxime studebat ut quam angustissimam partem oppidi palus a
+                     meridie interiecta efficiebat, hanc operibus uineisque agendis ab reliqua parte
+                     urbis excluderet,</seg>
+                  <seg n="5">illud <!-- App entry for 1.5: spectans --><app>
+                        <lem source="#Vascosan" xml:id="lem-1.5-spectans">spectans</lem>
+                        <note target="lem-1.5-spectans">cf. BC 3.85.2</note>
+                        <rdg wit="ω" xml:id="rdg-1.5-expectans">expectans</rdg>
+                     </app> primum ut, cum in duas partes esset <!-- App entry for 1.5: urbs --><app>
+                        <lem wit="#U" xml:id="lem-1.5-urbs">urbs</lem>
+                        <rdg wit="#M" xml:id="rdg-1.5-ubrs">ubrs</rdg>
+                        <rdg wit="#S #T #V" xml:id="rdg-1.5-urbis">urbis</rdg>
+                     </app> diuisa, <!-- App entry for 1.5: <supplied reason="lost">sua</supplied> acies --><app>
+                        <lem source="#Fleischer" xml:id="lem-1.5-sua-acies-addition"><supplied
+                              reason="lost">sua</supplied> acies</lem>
+                     </app> uno consilio atque imperio administraretur, deinde ut laborantibus
+                     succurri atque ex altera oppidi parte auxilium ferri posset, in primis uero ut
+                     aqua pabuloque abundaret, quarum alterius <!-- App entry for 1.5: rei copiam exiguam, alterius --><app>
+                        <lem xml:id="lem-1.5-rei-copiam-exiguam-alterius">rei copiam exiguam,
+                           alterius</lem>
+                        <rdg wit="#S" xml:id="rdg-1.5-om."/>
+                     </app> nullam omnino facultatem habebat; quod utrumque large palus praebere
+                     poterat. </seg></p>
+               <p n="2"><seg n="1">Neque uero Alexandrinis in gerendis negotiis cunctatio ulla aut
+                     mora inferebatur. Nam in omnes partes, per quas fines Aegypti regnumque
+                     pertinet, legatos conquisitoresque dilectus habendi causa miserant <!-- App entry for 2.1: magnumque numerum in oppidum telorum atque tormentorum conuexerant et innumerabilem multitudinem adduxerant --><app>
+                        <lem
+                           xml:id="lem-2.1-magnumque-numerum-in-oppidum-telorum-atque-tormentorum-conuexerant-et-innumerabilem-multitudinem-adduxerant"
+                           >magnumque numerum in oppidum telorum atque tormentorum conuexerant et
+                           innumerabilem <!-- App entry for 2.1: multitudinem --><app>
+                              <lem xml:id="lem-2.1-multitudinem">multitudinem</lem>
+                              <rdg source="#Fischer" xml:id="rdg-2.1-multitudinem-armatorum"
+                                 >multitudinem armatorum</rdg>
+                              <note target="rdg-2.1-multitudinem-armatorum">cf. 30.2</note>
+                           </app> adduxerant</lem>
+                        <rdg wit="#S" xml:id="rdg-2.1-om."/>
+                        <note target="rdg-2.1-om.">uerba 12</note>
+                     </app>.</seg>
+                  <seg n="2">Nec minus in urbe maximae armorum erant institutae officinae. Seruos
+                     praeterea puberes armauerant; quibus domini locupletiores uictum cotidianum
+                     stipendiumque praebebant.</seg>
+                  <seg n="3"><!-- App entry for 2.3: Hac --><app>
+                        <lem wit="#U #T #V" xml:id="lem-2.3-Hac">Hac</lem>
+                        <rdg wit="#M" xml:id="rdg-2.3-huc">huc</rdg>
+                        <rdg wit="#S" xml:id="rdg-2.3-ha">ha</rdg>
+                     </app> multitudine disposita munitiones <!-- App entry for 2.3: semotarum --><app>
+                        <lem wit="#Mmr" xml:id="lem-2.3-semotarum">semotarum</lem>
+                        <rdg wit="ω" xml:id="rdg-2.3-semotorum">semotorum</rdg>
+                     </app> partium tuebantur; ueteranas cohortes uacuas <!-- App entry for 2.3: in celeberrimis urbis locis --><app>
+                        <lem xml:id="lem-2.3-in-celeberrimis-urbis-locis">in celeberrimis urbis
+                           locis</lem>
+                        <rdg wit="#M" xml:id="rdg-2.3-om."/>
+                        <note target="rdg-2.3-om.">Uerba 4</note>
+                     </app> habebant, ut quacumque regione pugnaretur integris uiribus ad auxilium
+                     ferendum opponi possent.</seg>
+                  <seg n="4">Omnibus uiis atque angiportis triplicem uallum obduxerant — erat autem
+                     quadrato extructus saxo neque minus XL pedes altitudinis habebat — quaeque
+                     partes urbis inferiores erant, has altissimis turribus denorum tabulatorum
+                     munierant.</seg>
+                  <seg n="5">Praeterea alias ambulatorias totidem tabulatorum confixerant
+                     subiectisque eas rotis funibus iumentisque <sic><!-- App entry for 2.5: obiectis --><app>
+                           <lem xml:id="lem-2.5-obiectis">obiectis</lem>
+                           <rdg source="#Scaliger" xml:id="rdg-2.5-obiectis-surplus"
+                                 ><surplus>obiectis</surplus></rdg>
+                           <rdg source="#Cornelissen" xml:id="rdg-2.5-subiunctis">subiunctis</rdg>
+                           <note target="rdg-2.5-subiunctis">coll. Col. 6.2.8</note>
+                           <rdg source="#Castiglioni" xml:id="rdg-2.5-adiectis">adiectis</rdg>
+                           <note target="rdg-2.5-adiectis">cf. 28.3</note>
+                           <rdg source="#Klotz" xml:id="rdg-2.5-obtectis">obtectis</rdg>
+                           <note target="rdg-2.5-obtectis">dubitanter (cf. BC 3.19.7)</note>
+                           <rdg xml:id="rdg-2.5-iunctis">iunctis</rdg>
+                           <note target="rdg-2.5-iunctis">an, (cf. Vitr. 10.2.14)</note>
+                           <rdg xml:id="rdg-2.5-adiunctis">adiunctis</rdg>
+                           <note target="rdg-2.5-adiunctis">vel, (cf. 27.7 et Gel. 20.1.28)?</note>
+                        </app></sic> derectis plateis in quamcumque erat uisum partem mouebant.
+                  </seg></p>
+               <p n="3"><seg n="1">Urbs fertilissima et copiosissima omnium rerum apparatus
+                     suggerebat. Ipsi homines <!-- App entry for 3.1: ingeniosi --><app>
+                        <lem xml:id="lem-3.1-ingeniosi">ingeniosi</lem>
+                        <rdg source="#Klotz" xml:id="rdg-3.1-ingeniosissimi">ingeniosissimi</rdg>
+                        <note target="rdg-3.1-ingeniosissimi">Wölfflin teste </note>
+                     </app> atque acutissimi quae a nobis fieri uiderant ea sollertia <!-- App entry for 3.1: efficiebant --><app>
+                        <lem wit="ω" xml:id="lem-3.1-efficiebant">efficiebant</lem>
+                        <note target="lem-3.1-efficiebant">cf. 19.5</note>
+                        <rdg source="#Kübler" xml:id="rdg-3.1-effingebant">effingebant</rdg>
+                        <note target="rdg-3.1-effingebant">cf. Cic. ND 3.23</note>
+                     </app> ut nostri illorum opera imitati uiderentur, et sua sponte multa
+                     reperiebant unoque tempore et nostras munitiones infestabant et suas
+                     defendebant.</seg>
+                  <seg n="2">Atque haec principes in consiliis contionibusque agitabant: populum
+                     Romanum paulatim in consuetudinem eius regni occupandi uenire.</seg>
+                  <seg n="3">Paucis annis <!-- App entry for 3.3: ante A. Gabinium --><app>
+                        <lem source="#Schneider" xml:id="lem-3.3-ante-A.-Gabinium">ante A.
+                           Gabinium</lem>
+                        <rdg wit="#M #U #S #Tc #Vac"
+                           xml:id="rdg-3.3-antea-gabinium-vel-ante-agabinium">antea gabinium vel
+                           ante agabinium</rdg>
+                        <witDetail wit="#Tc" target="#rdg-3.3-antea-gabinium-vel-ante-agabinium"
+                           type="correction-altered"/>
+                        <witDetail wit="#Vac" target="#rdg-3.3-antea-gabinium-vel-ante-agabinium"
+                           type="correction-original"/>
+                        <rdg wit="#Tac #Vc" xml:id="rdg-3.3-ante-Gabinium">ante Gabinium</rdg>
+                        <witDetail wit="#Tac" target="#rdg-3.3-ante-Gabinium"
+                           type="correction-original"/>
+                        <witDetail wit="#Vc" target="#rdg-3.3-ante-Gabinium"
+                           type="correction-altered"/>
+                     </app> cum exercitu fuisse in Aegypto; Pompeium se ex fuga eodem recepisse;
+                     Caesarem uenisse cum copiis, neque morte Pompei quicquam profectum quo minus
+                     apud se Caesar commoraretur.</seg>
+                  <seg n="4">Quem si non expulissent, futuram ex regno prouinciam; idque agendum
+                     mature: namque eum interclusum tempestatibus propter anni tempus recipere
+                     transmarina auxilia non posse. </seg></p>
+            </div>
+         </div>
+      </body>
       <back>
          <!--
 The content of the back matter will be determined in consultation between
