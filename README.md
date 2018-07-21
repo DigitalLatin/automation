@@ -12,4 +12,4 @@ This repository contains five directories:
 
 # License
 This work is licensed under a 
-[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+[GNU Affero General Public License (Version 3, 19 November 2007)] (https://www.gnu.org/licenses/agpl-3.0.en.html).
