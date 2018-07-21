@@ -1,0 +1,1577 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.13.1: http://docutils.sourceforge.net/" />
+<title></title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+.subscript {
+  vertical-align: sub;
+  font-size: smaller }
+
+.superscript {
+  vertical-align: super;
+  font-size: smaller }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left, table.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right, table.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: grey; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document">
+
+
+<p>import re  # operations for regular expressions, i.e. very powerful text matching
+import os  # 'operating system' - used for file input/output and automatically opening the finished file
+import time  # used to add time between output statements
+import codecs  # This is important for reading files with Unicode characters.
+import csv  # used for processing CSV (comma separated values) input files containing app. crit. entries.
+import lxml.etree as ET # used to parse XML to insert &lt;app&gt; tags
+import logging # support error logging to an external file
+import logging.config # support for our logger configuration</p>
+<p># this dict contains configuration info for logging errors.
+# I chose to use a dict in order to avoid having a separate config file.
+# This was done to keep this script as portable as possible.
+dictLogConfig = {</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 14)</p>
+Unexpected indentation.</div>
+<blockquote>
+<p>&quot;version&quot;: 1,
+&quot;handlers&quot;: {</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 16)</p>
+Unexpected indentation.</div>
+<blockquote>
+<dl class="docutils">
+<dt>&quot;fileHandler&quot;: {</dt>
+<dd>&quot;class&quot;: &quot;logging.FileHandler&quot;,
+&quot;formatter&quot;: &quot;myFormatter&quot;,
+&quot;filename&quot;: &quot;../results/prose-log-file.txt&quot;
+# this is done to keep output sensible to the user
+# to disable this and keep all the output, comment this line:
+,&quot;mode&quot;: &quot;w&quot;</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 23)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>}</p>
+</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 24)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p>},
+&quot;loggers&quot;: {</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 26)</p>
+Unexpected indentation.</div>
+<blockquote>
+<dl class="docutils">
+<dt>&quot;exampleApp&quot;: {</dt>
+<dd>&quot;handlers&quot;: [&quot;fileHandler&quot;],
+&quot;level&quot;: &quot;INFO&quot;,</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 29)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>}</p>
+</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 30)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p>},</p>
+<dl class="docutils">
+<dt>&quot;formatters&quot;: {</dt>
+<dd><dl class="first docutils">
+<dt>&quot;myFormatter&quot;: {</dt>
+<dd>&quot;format&quot;: &quot;%(message)s&quot;</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 35)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p class="last">}</p>
+</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 36)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>}</p>
+</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 37)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p>}</p>
+<dl class="docutils">
+<dt>def checkXML(tag):</dt>
+<dd><p class="first">&quot;&quot;&quot;checks a generated XML tag for correct syntax</p>
+<dl class="last docutils">
+<dt>Arguments:</dt>
+<dd>tag - the tag to be checked</dd>
+<dt>returns True if syntactically valid, False otherwise</dt>
+<dd>&quot;&quot;&quot;</dd>
+<dt>try:</dt>
+<dd>ET.fromstring(tag)
+return True</dd>
+<dt>except:</dt>
+<dd>return False</dd>
+</dl>
+</dd>
+<dt>def replace_with_xml(text, pattern, new_entries, index):</dt>
+<dd><p class="first">&quot;&quot;&quot;replaces a lemma instance within the text with its associated &lt;app&gt; tag.</p>
+<dl class="docutils">
+<dt>Keyword Arguments:</dt>
+<dd><p class="first">text - the section text before replacement
+pattern - the regex match pattern for finding the lemma</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 59)</p>
+Unexpected indentation.</div>
+<blockquote>
+<ul class="simple">
+<li>consists of the searchLem (lemma with markup to match the text)</li>
+<li>and negative lookbehind/lookahead statements to make sure the lemma is not appearing in another word</li>
+</ul>
+</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 61)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p>new_entries - the &lt;app&gt; tag with which to replace the lemma
+index - the number of the lemma instance we are trying to replace</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 63)</p>
+Unexpected indentation.</div>
+<blockquote class="last">
+<ul class="simple">
+<li>defaults to 0 (first instance) unless otherwise specified</li>
+</ul>
+</blockquote>
+</dd>
+</dl>
+<p>returns a string containing the text with &lt;app&gt; inserted
+&quot;&quot;&quot;</p>
+<p># counter for how many non-replacable lemma instances we have
+# i.e. we don't want to replace instances appearing within attributes or comments
+inc = 0</p>
+<p>#find indices of lemma match
+beg, end = [(x.start(), x.end()) for x in re.finditer(pattern, text, flags=re.IGNORECASE)][index]</p>
+<p># avoid replacing lemma instances that are in comments
+if re.search(&quot;&lt;!--(.)*&quot; + pattern + &quot;[sw]*--&gt;&quot;, text):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 77)</p>
+Unexpected indentation.</div>
+<blockquote>
+<p>inc += 1
+# avoid replacing lemma instances in xml:id attributes
+if re.search(&quot;xml:id=&quot;(.)*-&quot; + pattern + &quot;-&quot;, text):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 80)</p>
+Unexpected indentation.</div>
+<blockquote>
+inc += 1</blockquote>
+<p># find updated indices if necessary
+beg, end = [(x.start(), x.end()) for x in re.finditer(pattern, text, flags=re.IGNORECASE)][index + inc]</p>
+</blockquote>
+<p class="last"># return the text with the &lt;app&gt; tag inserted in the proper place
+return &quot;{0}{1}{2}&quot;.format(text[:beg], new_entries, text[end:])</p>
+</dd>
+<dt>def make_lem_tag(p, s, lem, wit, source, note):</dt>
+<dd><p class="first">&quot;&quot;&quot;makes a &lt;lem&gt; tag for one lemma.</p>
+<blockquote>
+<dl class="docutils">
+<dt>Keyword Arguments:</dt>
+<dd><p class="first">p - paragraph number
+s - section number
+lem - the lemma as it appears in the spreadsheet
+wit - lemma witnesses as one string, separated by spaces (e.g. &quot;A B Cac D&quot;)
+source - lemma source(s), separated by spaces (e.g. &quot;Name OtherName ThirdName&quot;)
+note - lemma notes as one string. Multiple notes should be separated with the forward slash /</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 99)</p>
+Unexpected indentation.</div>
+<blockquote class="last">
+<ul class="simple">
+<li>e.g. &quot;This is a note / (this is another note)&quot;</li>
+</ul>
+</blockquote>
+</dd>
+</dl>
+</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 100)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p>&quot;&quot;&quot;</p>
+<p># deal with an empty lemma
+if lem == '':</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 104)</p>
+Unexpected indentation.</div>
+<blockquote>
+lem = '&lt;!-- NO LEMMA --&gt;'</blockquote>
+<p># this block deals with editorial additions, which have &lt;&gt; in the lemma</p>
+<p># deal with lemmas of the form '&lt;word&gt; some other words'
+if (re.match('&lt;w+&gt;(s)*w+', lem)):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 111)</p>
+Unexpected indentation.</div>
+<blockquote>
+<dl class="docutils">
+<dt>newLem = '&lt;supplied reason=&quot;lost&quot;&gt;' + lem.split('&gt;')[0].replace('&lt;', '') + '&lt;/supplied&gt;' + </dt>
+<dd>lem.split('&gt;')[1]</dd>
+</dl>
+<p># a copy of the lemma with &lt;&gt; removed to use in xml:id attributes
+idLem = lem.replace('&lt;', '').replace('&gt;', '') + &quot; addition&quot;</p>
+<p># in this case, the searchLem (used to match the base text) is the same as the marked up lemma
+searchLem = newLem
+lem = newLem</p>
+</blockquote>
+<p># now deal with lemmas of the form '&lt;word&gt;'
+elif (re.match('&lt;w+&gt;', lem)):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 123)</p>
+Unexpected indentation.</div>
+<blockquote>
+<p>searchLem = lem.replace('&lt;', '').replace('&gt;', '')</p>
+<p># a copy of the lemma with &lt;&gt; removed to use in xml:id attributes
+idLem = searchLem + &quot; addition&quot;</p>
+<p># add &lt;supplied&gt; tags and set searchLem
+searchLem = '&lt;supplied reason=&quot;lost&quot;&gt;' + searchLem + '&lt;/supplied&gt;'
+lem = searchLem</p>
+</blockquote>
+<p># initialize variables for all other lemmas (i.e. those that don't contain editorial additions)
+else:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 134)</p>
+Unexpected indentation.</div>
+<blockquote>
+searchLem = lem
+idLem = lem</blockquote>
+<dl class="docutils">
+<dt>def lem_xmlid():</dt>
+<dd><p class="first">&quot;&quot;&quot;A function for creating the xml:id value like lem-1.1-vicit.&quot;&quot;&quot;</p>
+<p># Handle lemmas with multiple words so that they are joined with &quot;-&quot;
+split = idLem.split(' ')
+joined = '-'.join(split)</p>
+<p class="last"># clean out remaining markup to create a valid XML attribute
+joined = joined.replace(&quot;gap-reason=”lost”&quot;, &quot;lacuna&quot;)
+return 'xml:id=&quot;lem-' + str(p) + '.' + str(s) + '-' + joined + '&quot;'</p>
+</dd>
+</dl>
+<p># clean punctuation out of xml:id so that it is valid
+lem_xmlid = str(lem_xmlid())
+puncRE = re.compile('[,;'&lt;&gt;()/]')
+lem_xmlid = puncRE.sub('', lem_xmlid)</p>
+<dl class="docutils">
+<dt>def lem_target():</dt>
+<dd>&quot;&quot;&quot; A function for creating the xml:id as the value for &#64;target.&quot;&quot;&quot;
+split = idLem.split(' ')
+joined = '-'.join(split)
+joined = joined.replace(&quot;gap-reason=”lost”&quot;, &quot;lacuna&quot;)
+return &quot;lem-&quot; + str(p) + '.' + str(s) + '-' + joined</dd>
+</dl>
+<p>lem_target = str(lem_target())</p>
+<dl class="docutils">
+<dt>def lem_wit(wit):</dt>
+<dd><p class="first">&quot;&quot;&quot;A function for wrapping the witness(es) for a lemma in the correct XML.</p>
+<blockquote>
+this function returns a tuple containing:
+at index 0 - the &#64;wit attribute of the &lt;lem&gt; tag
+at index 1 - a string containing relevant &lt;witDetail&gt; tags</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 169)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p>&quot;&quot;&quot;</p>
+<dl class="last docutils">
+<dt>if wit == '':</dt>
+<dd># if no witnesses, return wit=None (will be cleaned up later) and no &lt;witDetail&gt; tags
+return ['wit=&quot;None&quot;', '']</dd>
+<dt>else:</dt>
+<dd><p class="first">detailTags = ''
+wit = wit.strip()
+split = wit.split(' ')</p>
+<p># iterate through witnesses and check if each has ac, c, spl, sbl
+# could add other markup here as needed
+# the regex used to match sigla will match uppercase Latin letters A-Z and upper and lowercase Greek letters
+for s in split:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 183)</p>
+Unexpected indentation.</div>
+<blockquote>
+<p># handle original corrections
+if re.match(u'[A-Zu0391-u03A9u03B1-u03C9](ac)', s):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 185)</p>
+Unexpected indentation.</div>
+<blockquote>
+# witDetail for correction-original
+detailTags += &quot;&lt;witDetail wit=&quot;#&quot; + s + &quot;&quot; target=&quot;#&quot; + lem_target + &quot;&quot; type=&quot;correction-original&quot;/&gt;&quot;</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 187)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p># matches both c and pc to maintain backwards compatibility as much as possible
+# only pc is correct. our guidelines and specs reflect this.
+elif re.match(u'[A-Zu0391-u03A9u03B1-u03C9](c)', s) or re.match(u'[A-Zu0391-u03A9u03B1-u03C9](pc)', s):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 190)</p>
+Unexpected indentation.</div>
+<blockquote>
+# witDetail for correction-altered
+detailTags += &quot;&lt;witDetail wit=&quot;#&quot; + s + &quot;&quot; target=&quot;#&quot; + lem_target + &quot;&quot; type=&quot;correction-altered&quot;/&gt;&quot;</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 192)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p># supra lineam
+elif re.match(u'[A-Zu0391-u03A9u03B1-u03C9](spl)', s):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 194)</p>
+Unexpected indentation.</div>
+<blockquote>
+detailTags += &quot;&lt;witDetail wit=&quot;#&quot; + s + &quot;&quot; target=&quot;#&quot; + lem_target + &quot;&quot;&gt;supra lineam&lt;/witDetail&gt;&quot;</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 195)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p># sub lineam
+elif re.match(u'[A-Zu0391-u03A9u03B1-u03C9](sbl)', s):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 197)</p>
+Unexpected indentation.</div>
+<blockquote>
+detailTags += &quot;&lt;witDetail wit=&quot;#&quot; + s + &quot;&quot; target=&quot;#&quot; + lem_target + &quot;&quot;&gt;sub lineam&lt;/witDetail&gt;&quot;</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 198)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p># in margin
+elif re.match(u'[A-Zu0391-u03A9u03B1-u03C9](inmg)', s):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 200)</p>
+Unexpected indentation.</div>
+<blockquote>
+detailTags += &quot;&lt;witDetail wit=&quot;#&quot; + s + &quot;&quot; target=&quot;#&quot; + lem_target + &quot;&quot;&gt;in margin&lt;/witDetail&gt;&quot;</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 201)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p># if the sigla doesn't have an annotation, it doesn't need a &lt;witDetail&gt;
+else:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 203)</p>
+Unexpected indentation.</div>
+<blockquote>
+pass</blockquote>
+</blockquote>
+<p>joined = '#'.join(split)
+# This produces A#B#C. We need some space:
+search_wit = re.compile(r'(#[a-zA-Z(a-z)?])')
+spaced_wit = search_wit.sub(r' 1', joined)
+# Now we have A #B #C. Let's put # on that first one.
+search_joined = re.compile(r'((?&lt;!#)^[a-zA-Z(a-z)?s])')
+first_wit = search_joined.sub(r'#1', spaced_wit)</p>
+<p class="last"># return a tuple containing: [the &#64;wit of the &lt;lem&gt; tag as a str, str containing relevant &lt;witDetail&gt; tags]
+return ['wit=&quot;' + str(first_wit) + '&quot;', detailTags]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p># n.b. lemwit is a tuple not a string
+lemwit = lem_wit(wit)</p>
+<dl class="docutils">
+<dt>def lemsrc(source):</dt>
+<dd><p class="first">&quot;&quot;&quot;A function for wrapping the source(s) for a lemma in the correct XML.</p>
+<p>returns a str containing the &#64;source attribute of the &lt;lem&gt; tag
+&quot;&quot;&quot;
+if not source:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 227)</p>
+Unexpected indentation.</div>
+<blockquote>
+return 'source=&quot;None&quot;'</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 228)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<dl class="last docutils">
+<dt>else:</dt>
+<dd># List the sigla, putting # before each one. Space will be added below.
+source = source.strip()
+split = source.split(' ')
+joined = '#'.join(split)
+# This produces A#B#C. We need some space:
+search_src = re.compile(r'(#[a-zA-Z(a-z)?])')
+spaced_src = search_src.sub(r' 1', joined)
+# Now we have A #B #C. Let's put # on that first one.
+search_joined = re.compile(r'((?&lt;!#)^[a-zA-Z(a-z)?s])')
+first_src = search_joined.sub(r'#1', spaced_src)
+return 'source=&quot;' + str(first_src) + '&quot;'</dd>
+</dl>
+</dd>
+</dl>
+<p>lemsrc = str(lemsrc(source))</p>
+<dl class="docutils">
+<dt>def lemnote():</dt>
+<dd><p class="first">&quot;&quot;&quot;A function for encoding any annotation on the lemma as a &lt;note&gt;.</p>
+<p>returns all note tags in a single string, e.g. &quot;&lt;note&gt;&lt;/note&gt;&lt;note&gt;this is another note&lt;/note&gt;&quot;</p>
+<p>forward slash / is used as a delimiter for multiple notes, because Unicode snowman ☃ was rejected
+&quot;&quot;&quot;</p>
+<p>noteTags = ''
+if not note:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 253)</p>
+Unexpected indentation.</div>
+<blockquote>
+return '&lt;!-- NO LEMMA ANNOTATION --&gt;'</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 254)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<dl class="last docutils">
+<dt>else:</dt>
+<dd><dl class="first last docutils">
+<dt>try:</dt>
+<dd><p class="first"># throws an exception if no / in the string
+# this is caught below
+split = note.split(&quot;/&quot;)</p>
+<dl class="docutils">
+<dt>for s in split:</dt>
+<dd># wrap each note in a tag
+noteTags += ('&lt;note target=&quot;' + lem_target + '&quot;&gt;' + note + '&lt;/note&gt;')</dd>
+</dl>
+<p class="last">return noteTags</p>
+</dd>
+<dt>except:</dt>
+<dd># if only one note, wrap it in a &lt;note&gt; tag and return
+return '&lt;note target=&quot;' + lem_target + '&quot;&gt;' + note + '&lt;/note&gt;'</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>lemnote = str(lemnote())</p>
+<p># return a tuple with the cleaned up lemma for searching and the full &lt;lem&gt; tag as a string
+return [searchLem, '&lt;lem ' + lemwit[0] + ' ' + lemsrc + ' ' + lem_xmlid + '&gt;' </p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 273)</p>
+Unexpected indentation.</div>
+<blockquote class="last">
+<ul class="simple">
+<li>lem + '&lt;/lem&gt;' + lemwit[1] + lemnote]</li>
+</ul>
+</blockquote>
+</dd>
+<dt>def make_rdg_tag(p, s, reading, wit, source, note):</dt>
+<dd><p class="first">&quot;&quot;&quot;makes a &lt;rdg&gt; tag for one reading.</p>
+<blockquote>
+<dl class="docutils">
+<dt>Keyword Arguments:</dt>
+<dd><p class="first">p - paragraph number
+s - section number
+reading - the reading as it appears in the spreadsheet
+wit - reading witnesses as one string, separated by spaces (e.g. &quot;A B Cac D&quot;)
+source - reading source(s), separated by spaces (e.g. &quot;Name OtherName ThirdName&quot;)
+note - reading notes as one string. Multiple notes should be separated with the forward slash /</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 286)</p>
+Unexpected indentation.</div>
+<blockquote class="last">
+<ul class="simple">
+<li>e.g. &quot;This is a note / (this is another note)&quot;</li>
+</ul>
+</blockquote>
+</dd>
+</dl>
+</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 287)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p>&quot;&quot;&quot;</p>
+<p># deal with an empty reading
+if reading == '':</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 291)</p>
+Unexpected indentation.</div>
+<blockquote>
+return ''</blockquote>
+<p># this block deals with editorial additions, which have &lt;&gt; in the reading</p>
+<p># deal with a &lt;supplied&gt; tag which only includes part of a word
+if (re.search('&lt;w+s*&lt;gap reason=”lost”/&gt;s*w+&gt;w+', reading)):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 297)</p>
+Unexpected indentation.</div>
+<blockquote>
+# deal with a lacuna in the middle of a word
+# this was written to deal with 13.5 but can be generalized as necessary
+reading = '&lt;supplied reason=&quot;lost&quot;&gt;' + reading.split('&gt;')[0].replace('&lt;', '', 1) + &quot;&gt;&quot; +reading.split('&gt;')[1] + '&lt;/supplied&gt;' + reading.split('&gt;')[2]
+# we use a separate variable to contain the reading to use in xml:id
+idRdg = reading.replace('&lt;', '').replace('&gt;', '').replace('supplied', '').replace('reason=&quot;lost&quot;', '') + &quot; addition&quot;</blockquote>
+<p># deal with readings of the form &lt;word&gt; some other words or some words &lt;word&gt;
+elif (re.search('&lt;w+&gt;(s)*w+ | w+(s)*&lt;w+&gt;', reading)):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 305)</p>
+Unexpected indentation.</div>
+<blockquote>
+<dl class="docutils">
+<dt>reading = '&lt;supplied reason=&quot;lost&quot;&gt;' + reading.split('&gt;')[0].replace('&lt;', '') + '&lt;/supplied&gt;' + </dt>
+<dd>reading.split('&gt;')[1]</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 307)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p># we use a separate variable to contain the reading to use in xml:id
+idRdg = reading.replace('&lt;', '').replace('&gt;', '').replace('supplied', '').replace('reason=&quot;lost&quot;', '') + &quot; addition&quot;</p>
+</blockquote>
+<p># now deal with readings of the form '&lt;word&gt;'
+elif (re.search('&lt;w+&gt;', reading)):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 312)</p>
+Unexpected indentation.</div>
+<blockquote>
+reading = reading.replace('&lt;', '').replace('&gt;', '')
+idRdg = reading + &quot; addition&quot;
+reading = '&lt;supplied reason=&quot;lost&quot;&gt;' + reading + '&lt;/supplied&gt;'</blockquote>
+<p># if there are no editorial addtions, initialize idRdg
+else:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 318)</p>
+Unexpected indentation.</div>
+<blockquote>
+idRdg = reading</blockquote>
+<p># Handling the source(s) for the first reading
+def rdgsrc(source):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 322)</p>
+Unexpected indentation.</div>
+<blockquote>
+<p>&quot;&quot;&quot;A function for wrapping the source(s) for a reading in the correct XML.</p>
+<p>returns a str containing the &#64;source attribute of the &lt;rdg&gt; tag
+&quot;&quot;&quot;
+if not source:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 327)</p>
+Unexpected indentation.</div>
+<blockquote>
+return 'source=&quot;None&quot;'</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 328)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<dl class="docutils">
+<dt>else:</dt>
+<dd># List the sigla, putting # before each one. Space will be added below.
+source = source.strip()
+split = source.split(' ')
+joined = '#'.join(split)
+# This produces A#B#C. We need some space:
+search_wit = re.compile(r'(#[a-zA-Z(a-z)?])')
+spaced_wit = search_wit.sub(r' 1', joined)
+# Now we have A #B #C. Let's put # on that first one.
+search_joined = re.compile(r'((?&lt;!#)^[a-zA-Z(a-z)?s])')
+first_wit = search_joined.sub(r'#1', spaced_wit)
+return 'source=&quot;' + str(first_wit) + '&quot;'</dd>
+</dl>
+</blockquote>
+<p>source = str(rdgsrc(source))</p>
+<p># Handling the xml:id for the reading
+def rdg_xmlid():</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 345)</p>
+Unexpected indentation.</div>
+<blockquote>
+<p>&quot;&quot;&quot;A function for creating the xml:id value like rdg-1.1-vicit.&quot;&quot;&quot;</p>
+<p># Handle readings with multiple words so that they are joined with &quot;-&quot;
+split = idRdg.split(' ')
+joined = '-'.join(split).replace(&quot;&quot;&quot;, '')
+joined = joined.replace(&quot;gap-reason=”lost”&quot;, &quot;lacuna&quot;)
+return 'xml:id=&quot;rdg-' + str(p) + '.' + str(s) + '-' + joined + '&quot;'</p>
+</blockquote>
+<p># remove punctuation that would make &#64;xml:id invalid
+rdg_xmlid = str(rdg_xmlid())
+puncRE = re.compile('[,;'&lt;&gt;()/]')
+rdg_xmlid = puncRE.sub('', rdg_xmlid)</p>
+<dl class="docutils">
+<dt>def rdg_target():</dt>
+<dd>&quot;&quot;&quot; A function for creating the xml:id as the value for &#64;target.&quot;&quot;&quot;
+split = idRdg.split(' ')
+joined = '-'.join(split)
+joined = joined.replace(&quot;gap-reason=”lost”&quot;, &quot;lacuna&quot;).replace(&quot;/&quot;, '')
+return 'rdg-' + str(p) + '.' + str(s) + '-' + joined</dd>
+</dl>
+<p>rdg_target = str(rdg_target())</p>
+<dl class="docutils">
+<dt>def rdg_wit(wit):</dt>
+<dd><p class="first">&quot;&quot;&quot;A function for wrapping the witness(es) for a reading in the correct XML.</p>
+<p>this function returns a tuple containing:
+at index 0 - the &#64;wit attribute of the &lt;rdg&gt; tag
+at index 1 - a string containing relevant &lt;witDetail&gt; tags
+&quot;&quot;&quot;</p>
+<dl class="last docutils">
+<dt>if wit == '':</dt>
+<dd>return ['wit=&quot;None&quot;', '']</dd>
+<dt>else:</dt>
+<dd><p class="first"># List the sigla, putting # before each one. Space will be added below.
+detailTags = ''
+wit = wit.strip()
+split = wit.split(' ')
+for s in split:</p>
+<blockquote>
+<p># iterate through witnesses and check if each has ac, c, spl, sbl
+# could add other markup here as needed
+# the regex used to match sigla will match uppercase Latin letters A-Z and upper and lowercase Greek letters
+for s in split:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 388)</p>
+Unexpected indentation.</div>
+<blockquote>
+<p># handle original corrections
+if re.match(u'[A-Zu0391-u03A9u03B1-u03C9](ac)', s):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 390)</p>
+Unexpected indentation.</div>
+<blockquote>
+# witDetail for correction-original
+detailTags += &quot;&lt;witDetail wit=&quot;#&quot; + s + &quot;&quot; target=&quot;#&quot; + rdg_target + &quot;&quot; type=&quot;correction-original&quot;/&gt;&quot;</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 392)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p># matches both c and pc to maintain backwards compatibility as much as possible
+# only pc is correct. our guidelines and specs reflect this.
+elif re.match(u'[A-Zu0391-u03A9u03B1-u03C9](c)', s) or re.match(</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 395)</p>
+Unexpected indentation.</div>
+<blockquote>
+<blockquote>
+u'[A-Zu0391-u03A9u03B1-u03C9](pc)', s):</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 396)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p># witDetail for correction-altered
+detailTags += &quot;&lt;witDetail wit=&quot;#&quot; + s + &quot;&quot; target=&quot;#&quot; + rdg_target + &quot;&quot; type=&quot;correction-altered&quot;/&gt;&quot;</p>
+</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 398)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p># supra lineam
+elif re.match(u'[A-Zu0391-u03A9u03B1-u03C9](spl)', s):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 400)</p>
+Unexpected indentation.</div>
+<blockquote>
+detailTags += &quot;&lt;witDetail wit=&quot;#&quot; + s + &quot;&quot; target=&quot;#&quot; + rdg_target + &quot;&quot;&gt;supra lineam&lt;/witDetail&gt;&quot;</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 401)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p># sub lineam
+elif re.match(u'[A-Zu0391-u03A9u03B1-u03C9](sbl)', s):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 403)</p>
+Unexpected indentation.</div>
+<blockquote>
+detailTags += &quot;&lt;witDetail wit=&quot;#&quot; + s + &quot;&quot; target=&quot;#&quot; + rdg_target + &quot;&quot;&gt;sub lineam&lt;/witDetail&gt;&quot;</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 404)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p># in margin
+elif re.match(u'[A-Zu0391-u03A9u03B1-u03C9](inmg)', s):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 406)</p>
+Unexpected indentation.</div>
+<blockquote>
+detailTags += &quot;&lt;witDetail wit=&quot;#&quot; + s + &quot;&quot; target=&quot;#&quot; + rdg_target + &quot;&quot;&gt;in margin&lt;/witDetail&gt;&quot;</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 407)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p># if the sigla doesn't have an annotation, it doesn't need a &lt;witDetail&gt;
+else:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 409)</p>
+Unexpected indentation.</div>
+<blockquote>
+pass</blockquote>
+</blockquote>
+</blockquote>
+<p class="last">joined = '#'.join(split)
+# This produces A#B#C. We need some space:
+search_wit = re.compile(r'(#[a-zA-Z(a-z)?])')
+spaced_wit = search_wit.sub(r' 1', joined)
+# Now we have A #B #C. Let's put # on that first one.
+search_joined = re.compile(r'((?&lt;!#)^[a-zA-Z(a-z)?s])')
+first_wit = search_joined.sub(r'#1', spaced_wit)
+return ['wit=&quot;' + str(first_wit) + '&quot;', detailTags]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p># n.b. wit is a tuple not a string
+wit = rdg_wit(wit)</p>
+<p># Notes for rdg
+def rdg_notes():</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 425)</p>
+Unexpected indentation.</div>
+<blockquote>
+<p>&quot;&quot;&quot;A function for encoding any annotation on the reading as a &lt;note&gt;.</p>
+<p>returns a tuple containing:
+at index 0 - a string containing all &lt;note&gt; tags that should go before the reading
+at index 1 - a string containing all &lt;note&gt; tags that should go after the reading</p>
+<p>forward slash / is used as a delimiter for multiple notes, because Unicode snowman ☃ was rejected
+&quot;&quot;&quot;
+noteTags = ''
+# notes that should go before the reading
+beforeTags = ''
+if not note:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 437)</p>
+Unexpected indentation.</div>
+<blockquote>
+return ['', '']</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 438)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<dl class="docutils">
+<dt>else:</dt>
+<dd><dl class="first last docutils">
+<dt>try:</dt>
+<dd><p class="first"># throws an exception if no / in the string
+# this is caught below
+split = re.split(&quot;(?&lt;!(w)/(?!w+))&quot;)</p>
+<dl class="docutils">
+<dt>for s in split:</dt>
+<dd><dl class="first last docutils">
+<dt>if (s == &quot;an&quot; or s == &quot;vel&quot;):</dt>
+<dd># this note goes before the reading (e.g. an or vel)
+# easily generalized to catch other &quot;before reading&quot; notes
+beforeTags += ('&lt;note target=&quot;' + rdg_target + '&quot;&gt;' + s + '&lt;/note&gt;')</dd>
+<dt>else:</dt>
+<dd># this is a normal note (i.e. after the reading)
+noteTags += ('&lt;note target=&quot;' + rdg_target + '&quot;&gt;' + s + '&lt;/note&gt;')</dd>
+</dl>
+</dd>
+</dl>
+<p class="last">return [beforeTags, noteTags]</p>
+</dd>
+<dt>except:</dt>
+<dd># if there is only one note, wrap it in tags and return it
+return ['', '&lt;note target=&quot;' + rdg_target + '&quot;&gt;' + note + '&lt;/note&gt;']</dd>
+</dl>
+</dd>
+</dl>
+</blockquote>
+<p># n.b. this is a tuple not a string
+notes = rdg_notes()</p>
+<p># combine parts of the tag and return the finished &lt;rdg&gt; tag
+return notes[0] + '&lt;rdg ' + wit[0] + ' ' + source + ' ' </p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 464)</p>
+Unexpected indentation.</div>
+<blockquote class="last">
+<ul class="simple">
+<li>rdg_xmlid + '&gt;' + reading + '&lt;/rdg&gt;' + wit[1] + notes[1]</li>
+</ul>
+</blockquote>
+</dd>
+<dt>def cleanup_tag(entries):</dt>
+<dd><p class="first">&quot;&quot;&quot;a function for cleaning up an &lt;app&gt; tag&quot;&quot;&quot;</p>
+<p># Remove empty readings.
+search_no_ann = re.compile(r'&lt;!-- NO ([A-Z]*) ANNOTATION --&gt;')
+no_ann_replace = search_no_ann.sub('', entries)</p>
+<dl class="docutils">
+<dt>search_empty_readings = re.compile(</dt>
+<dd>r'&lt;rdg wit=&quot;None&quot; source=&quot;None&quot; xml:id=&quot;rdg-([0-9]*).([0-9]*)-([.]*)&quot;&gt;&lt;!-- ([A-Z(s)?]*([d])?) --&gt;&lt;/rdg&gt;')</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 476)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>empty_readings_replace = search_empty_readings.sub('', no_ann_replace)</p>
+<dl class="docutils">
+<dt>search_empty_readings2 = re.compile(</dt>
+<dd>r'&lt;rdg xml:id=&quot;rdg-([0-9]*).([0-9]*)-&quot;&gt;&lt;/rdg&gt;')</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 480)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>empty_readings_replace2 = search_empty_readings2.sub('', empty_readings_replace)</p>
+<p># Remove empty witnesses
+search_wit = re.compile(r'wit=&quot;None&quot;')
+wit_replace = search_wit.sub(r'', empty_readings_replace2)</p>
+<p># Remove empty sources
+search_src = re.compile(r'source=&quot;None&quot;')
+src_replace = search_src.sub(r'', wit_replace)</p>
+<p># Turn empty readings into self-closing tags.
+search_none_rdg = re.compile(r'&gt;None&lt;/rdg&gt;')
+none_rdg_replace = search_none_rdg.sub('/&gt;', src_replace)</p>
+<p># Remove extra white space between attributes.
+search_ws = re.compile(r'ss')
+ws_replace = search_ws.sub(r' ', none_rdg_replace)</p>
+<p># Dealing with conventional symbols in critical editions.
+# Brackets for an addtion, first as a value of &lt;lem&gt; or &lt;rdg&gt;
+search_addition = re.compile(r'&lt;([a-zA-Z]*)&gt;([sa-zA-Z]*)?(&lt;/rdg&gt;|&lt;/lem&gt;)')
+replace_addition1 = search_addition.sub(r'&quot;&gt;&lt;supplied reason=&quot;lost&quot;&gt;1&lt;/supplied&gt;23', ws_replace)</p>
+<p># Now as part of an xml:id, where &lt;&gt; are not allowed.
+search_addition1 = re.compile(r'(?&lt;=-)&lt;([a-zA-Z]*(-[a-zA-Z])?)&gt;')
+replace_addition2 = search_addition1.sub(r'1-addition', replace_addition1)</p>
+<p># †Crux†, first as a value of an element.
+search_crux1 = re.compile(r'†([a-zA-Z(s)?]*)†([sa-zA-Z]*)?(&lt;/rdg&gt;|&lt;/lem&gt;)')
+replace_crux1 = search_crux1.sub(r'&quot;&gt;&lt;sic&gt;1&lt;/sic&gt;23', replace_addition2)</p>
+<p># Now a crux as a value of an attribute, which is not allowed.
+search_crux2 = re.compile(r'(?&lt;=-)†([a-zA-Z(-)?]*)†')
+replace_crux2 = search_crux2.sub(r'1-crux', replace_crux1)</p>
+<p># Lacuna <a href="#id1"><span class="problematic" id="id2">**</span></a>* as a value of an element.
+search_lacuna1 = re.compile(r'***([sa-zA-Z]*)?(&lt;/rdg&gt;|&lt;/lem&gt;)')
+replace_lacuna1 = search_lacuna1.sub(r'&lt;gap reason=&quot;lost&quot;/&gt;12', replace_crux2)</p>
+<div class="system-message" id="id1">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 515); <em><a href="#id2">backlink</a></em></p>
+Inline strong start-string without end-string.</div>
+<p># Lacuna <a href="#id3"><span class="problematic" id="id4">**</span></a>* as a value of an attribute.
+search_lacuna2 = re.compile(r'(?&lt;=-)***([sa-zA-Z]*)?')
+replace_lacuna2 = search_lacuna2.sub(r'lacuna1', replace_lacuna1)</p>
+<div class="system-message" id="id3">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 519); <em><a href="#id4">backlink</a></em></p>
+Inline strong start-string without end-string.</div>
+<p># Editorial deletion with brackets [] as a value of an element
+search_deletion1 = re.compile(r'[([a-zA-Z]*)]?(&lt;/rdg&gt;|&lt;/lem&gt;)')
+replace_deletion1 = search_deletion1.sub(r'&lt;surplus&gt;1&lt;/surplus&gt;2', replace_lacuna2)</p>
+<p># Editorial deletion with brackets [] as a value of an attribute
+search_deletion2 = re.compile(r'(?&lt;=-)[([a-zA-Z]*)]')
+replace_deletion2 = search_deletion2.sub(r'1-surplus', replace_deletion1)</p>
+<p># turn omissions in to self-closing reading tags
+search_omission = re.compile(r'&gt;om.&lt;/rdg&gt;')
+replace_omission = search_omission.sub(r'/&gt;', replace_deletion2)</p>
+<p class="last">return replace_omission</p>
+</dd>
+</dl>
+<p># main function starts here</p>
+<p># we are now using LXML because it allows us to use a custom XML parser
+# custom LMXL parser that won't remove comments
+parser = ET.XMLParser(remove_comments=False)</p>
+<p># Create a variable for the path to the base text.
+path = '../sources/basetext.txt'</p>
+<p># Open the file with utf-8 encoding.
+source_file = codecs.open(path,'r','utf-8')</p>
+<p># Read the file.
+source_text = source_file.read()</p>
+<p># Open a log file. We will write errors improperly generated XML to this file.
+logging.basicConfig(filename=&quot;../results/prose-log-file.txt&quot;, level=logging.INFO)
+logging.config.dictConfig(dictLogConfig)
+logger = logging.getLogger(&quot;Prose&quot;)
+logger.info(&quot; Now encoding a prose text!&quot;)</p>
+<p># Tell python what to search for (with thanks to <a class="reference external" href="https://stackoverflow.com/questions/13168761/python-use-regex-sub-multiple-times-in-1-pass">https://stackoverflow.com/questions/13168761/python-use-regex-sub-multiple-times-in-1-pass</a>).
+print('Gosh, that's a lot of unencoded text! We'd better get started!')
+time.sleep(2)</p>
+<p># Handle additive emendation, since it is indicated by &lt; &gt;, which would be swept up by other routines below.
+print('Okay, we'll handle editorial additions first, since their angle bracketsn might cause trouble later.')
+time.sleep(2)
+search_addition = re.compile(r'&lt;([a-zA-Z]*)&gt;')
+replace0 = search_addition.sub(r'&amp;lt;supplied reason=&quot;lost&quot;&amp;gt;1&amp;lt;/supplied&amp;gt;', source_text)
+# this will make allow us to retrieve section text without duplicating it.
+# the XML entities are replaced with &lt;&gt; at the very end.</p>
+<p># Search for numbers at beginning of paragraphs, then wrap paragraph in &lt;p n=&quot;[number]&quot;&gt; &lt;/p&gt;/
+print('Done. Next up: encoding the paragraphs.')
+time.sleep(2)
+search_paragraph = re.compile(r'n([0-9]*)(.*)')
+replace1 = search_paragraph.sub(r'&lt;p n=&quot;1&quot;&gt;2&lt;/p&gt;',replace0)</p>
+<p># Remove empty paragraphs.
+print('Done. Now let's kill any empty paragraphs caused by line breaks in the original document.')
+time.sleep(2)
+search_empty_paragraph = re.compile(r'&lt;p n=&quot;&quot;&gt;([s]*)&lt;/p&gt;')
+replace2 = search_empty_paragraph.sub(r'', replace1)
+logger.info(&quot; Paragraphs have been encoded.&quot;)</p>
+<p># Search for (number) and reformat it as &lt;seg n=&quot;number&quot;&gt;(number).
+print('Empty paragraphs have been killed. Handling segments now.')
+time.sleep(2)
+search_segment = re.compile(r'(([0-9]*))')
+replace3 = search_segment.sub(r'&lt;seg n=&quot;1&quot;&gt;',replace2)</p>
+<p># Add the closing &lt;/seg&gt;.
+search_add_close_seg = re.compile(r'(&lt;seg|&lt;/p&gt;)')
+replace4 = search_add_close_seg.sub(r'&lt;/seg&gt;1',replace3)</p>
+<p># Remove the orphan &lt;/seg&gt; at the beginning of the paragraph.
+search_remove_orphan_seg = re.compile(r's&lt;/seg&gt;(&lt;seg n=&quot;1&quot;&gt;)s')
+replace5 = search_remove_orphan_seg.sub(r'1',replace4)</p>
+<p># Remove space before and after &lt;seg&gt; markers.
+search_remove_seg_space = re.compile(r's&lt;/seg&gt;&lt;seg n=&quot;([0-9]*)&quot;&gt;s')
+replace6 = search_remove_seg_space.sub(r'&lt;/seg&gt; &lt;seg n=&quot;1&quot;&gt;',replace5)
+logger.info(&quot; Segments have been encoded.&quot;)</p>
+<p># Handle crux.
+print('Now handling special symbols. First up: †crux†.')
+time.sleep(2)
+search_crux = re.compile(r'†([a-zA-Z]*)†')
+replace7 = search_crux.sub(r'&amp;lt;sic&amp;gt;1&amp;lt;/sic&amp;gt;',replace6)</p>
+<p># Handle lacuna.
+print('... now <a href="#id5"><span class="problematic" id="id6">**</span></a>* lacunae')
+time.sleep(2)
+search_lacuna = re.compile(r'***')
+replace8 = search_lacuna.sub(r'&amp;lt;gap reason=&quot;lost&quot;/&amp;gt; ', replace7)</p>
+<div class="system-message" id="id5">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 608); <em><a href="#id6">backlink</a></em></p>
+Inline strong start-string without end-string.</div>
+<p># Handle editorial deletion.
+print('... now {editorial deletions}.')
+time.sleep(2)
+search_deletion = re.compile(r'[([a-zA-Z]*)]')
+replace9 = search_deletion.sub(r'&amp;lt;surplus&amp;gt;1&amp;lt;/surplus&amp;gt;',replace8)</p>
+<p># Go back and fix the first paragraph, for some reason.
+search_first_p = re.compile(r'1&lt;seg(.*)&lt;p n=&quot;2&quot;')
+replace10 = search_first_p.sub(r'&lt;p n=&quot;1&quot;&gt;&lt;seg1&lt;/seg&gt;&lt;/p&gt;nn&lt;p n=&quot;2&quot;',replace9)
+logger.info(&quot; Editorial symbols have been encoded.&quot;)</p>
+<p>logger.info(&quot; Base text wrapped in XML.&quot;)</p>
+<p># Write the TEI header.
+print('Now we'll add the TEI header and footer.')
+logger.info(' Adding the TEI header and footer.')
+time.sleep(2)</p>
+<p>header = '''&lt;?xml-model
+href=&quot;<a class="reference external" href="https://digitallatin.github.io/guidelines/critical-editions.rng">https://digitallatin.github.io/guidelines/critical-editions.rng</a>&quot; type=&quot;application/xml&quot;</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 634)</p>
+Unexpected indentation.</div>
+<blockquote>
+schematypens=&quot;<a class="reference external" href="http://relaxng.org/ns/structure/1.0">http://relaxng.org/ns/structure/1.0</a>&quot;?&gt;</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 635)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p>&lt;?xml-model
+href=&quot;<a class="reference external" href="https://digitallatin.github.io/guidelines/critical-editions.rng">https://digitallatin.github.io/guidelines/critical-editions.rng</a>&quot; type=&quot;application/xml&quot;</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 637)</p>
+Unexpected indentation.</div>
+<blockquote>
+schematypens=&quot;<a class="reference external" href="http://purl.oclc.org/dsdl/schematron">http://purl.oclc.org/dsdl/schematron</a>&quot;?&gt;</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 638)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<dl class="docutils">
+<dt>&lt;TEI xmlns=&quot;<a class="reference external" href="http://www.tei-c.org/ns/1.0">http://www.tei-c.org/ns/1.0</a>&quot;&gt;</dt>
+<dd><dl class="first docutils">
+<dt>&lt;teiHeader&gt;</dt>
+<dd><dl class="first docutils">
+<dt>&lt;fileDesc&gt;</dt>
+<dd><dl class="first docutils">
+<dt>&lt;titleStmt&gt;</dt>
+<dd>&lt;title&gt;Title&lt;/title&gt;</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 643)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>&lt;/titleStmt&gt;
+&lt;publicationStmt&gt;</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 645)</p>
+Unexpected indentation.</div>
+<blockquote>
+&lt;p&gt;Publication Information&lt;/p&gt;</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 646)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p>&lt;/publicationStmt&gt;
+&lt;sourceDesc&gt;</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 648)</p>
+Unexpected indentation.</div>
+<blockquote>
+&lt;p&gt;Information about the source&lt;/p&gt;</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 649)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p class="last">&lt;/sourceDesc&gt;</p>
+</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 650)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p class="last">&lt;/fileDesc&gt;</p>
+</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 651)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>&lt;/teiHeader&gt;
+&lt;text&gt;</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 653)</p>
+Unexpected indentation.</div>
+<blockquote class="last">
+<p>&lt;body&gt;
+&lt;div type=&quot;edition&quot; xml:id=&quot;edition-text&quot;&gt;</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 655)</p>
+Unexpected indentation.</div>
+<blockquote>
+&lt;div type=&quot;textpart&quot; n=&quot;1&quot; xml:id=&quot;part1&quot;&gt;'''</blockquote>
+</blockquote>
+</dd>
+</dl>
+<p># Write the footer
+footer = '''&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 659)</p>
+Unexpected indentation.</div>
+<blockquote>
+<dl class="docutils">
+<dt>&lt;back&gt;</dt>
+<dd>&lt;!--</dd>
+</dl>
+</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 661)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<dl class="docutils">
+<dt>The content of the back matter will be determined in consultation between</dt>
+<dd>the editor and the staff of the DLL. Because LDLT editions are encoded, the
+matter traditionally found in the back of a printed critical edition may be
+generated by applications instead of having to be entered manually.
+Nevertheless, there is space here for notes, indices, and other kinds of
+information.</dd>
+<dt>--&gt;</dt>
+<dd><blockquote class="first">
+&lt;/back&gt;</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 669)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p class="last">&lt;/text&gt;</p>
+</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 670)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>&lt;/TEI&gt;'''</p>
+<p># Combine the header, text, and footer
+TEI = header + replace10 + footer</p>
+<p># write the xml-encoded base text to a new .xml file
+print('Making a new file ...')
+time.sleep(2)
+# file path for target XML file
+new_path = '../results/finished-encoding.xml'</p>
+<p># Open the new file.
+new_source = codecs.open(new_path,'w','utf-8')</p>
+<p># Write the contents of altered source_text to new_source.
+print('Writing the XML base text to the new file ...')
+logger.info(&quot; The encoded base text has been written to: &quot; + new_path)
+time.sleep(2)
+new_source.write(str(TEI))
+source_file.close()</p>
+<p>logger.info(&quot; Now encoding the critical apparatus. nEncoding errors will be shown below. nn&quot;)
+print('Now that the base text is encoded, we'll start on the app. crit.')
+time.sleep(2)</p>
+<p># tree is an instance of ElementTree
+# root is an instance of Element
+tree = ET.parse(new_path, parser=parser)
+root = tree.getroot()
+# the following statement is necessary to avoid having 'ns0' as a prefix for every tag in the doc.
+# the TEI namespace (default ns for this doc) is found at: <a class="reference external" href="http://www.tei-c.org/ns/1.0">http://www.tei-c.org/ns/1.0</a>
+ET.register_namespace('tei', '<a class="reference external" href="http://www.tei-c.org/ns/1.0">http://www.tei-c.org/ns/1.0</a>')</p>
+<dl class="docutils">
+<dt>with open('../sources/app-crit-test.csv', encoding='utf-8') as appFile:</dt>
+<dd><p class="first">readApp = csv.reader(appFile, delimiter=',')
+for row in readApp:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 707)</p>
+Unexpected indentation.</div>
+<blockquote class="last">
+<dl class="docutils">
+<dt>if row[0] == &quot;Paragraph&quot;:</dt>
+<dd># skip the first row, which contains column labels
+continue</dd>
+<dt>try:</dt>
+<dd><p class="first"># get paragraph and section number and row length
+pNum = row[0]
+sNum = row[1]
+l = len(row)</p>
+<p># make the lemma tag
+lemReturn = make_lem_tag(pNum, sNum, row[2], row[3], row[4], row[5])
+searchLem = lemReturn[0]
+lemtag = lemReturn[1].strip()</p>
+<p># encode general annotations on this entry
+if row[6] == '':</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 724)</p>
+Unexpected indentation.</div>
+<blockquote>
+commenttag = ''</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 725)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<dl class="docutils">
+<dt>else:</dt>
+<dd>commenttag = &quot;&lt;note&gt;&quot; + row[6] + &quot;&lt;/note&gt;&quot;</dd>
+</dl>
+<p># counter for loop that makes &lt;rdg&gt; tags. Starts at 7 because readings start in column 7 of the CSV.
+i = 7
+rdgTags = ''</p>
+<p># this loop can handle any number of readings
+while (i &lt; (l - 1)):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 734)</p>
+Unexpected indentation.</div>
+<blockquote>
+rdgTags += make_rdg_tag(pNum, sNum, row[i], row[i + 1], row[i + 2], row[i + 3])
+# each reading has four columns of data
+i += 4</blockquote>
+<p># combine everything into one &lt;app&gt; tag
+entries = '&lt;!-- App entry for ' + str(row[0]) + '.' + str(row[1]) + ': ' + searchLem + ' --&gt;' + </p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 740)</p>
+Unexpected indentation.</div>
+<blockquote>
+'&lt;app&gt;' + lemtag + rdgTags + commenttag + '&lt;/app&gt;'</blockquote>
+<p># clean up the &lt;app&gt; tag
+new_entries = cleanup_tag(entries)</p>
+<p># we're going to check that the newly created tag is valid XML
+# if it is valid, we will insert it into the text
+# if not, we will not insert it and will print an error message
+# the goal of this measure is to prevent XMLParseErrors and XMLSyntaxErrors
+# we want to guarantee that the output of this script is always a valid XML file.
+# this will minimize runtime exceptions and errors.
+if not checkXML(new_entries):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 752)</p>
+Unexpected indentation.</div>
+<blockquote>
+<p>#  i.e. if invalid XML was generated
+print(&quot;<a href="#id7"><span class="problematic" id="id8">**</span></a>** invalid XML was generated for section &quot; + pNum + &quot;.&quot; + sNum + &quot;, lemma: &quot; + searchLem)
+print(new_entries)
+print(&quot;it was left unencoded for now.&quot;)</p>
+<div class="system-message" id="id7">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 752); <em><a href="#id8">backlink</a></em></p>
+Inline strong start-string without end-string.</div>
+<dl class="docutils">
+<dt>logger.error(</dt>
+<dd>&quot; invalid XML was generated for section &quot; + pNum + &quot;.&quot; + sNum + &quot;, lemma: &quot; + searchLem + &quot;n&quot;)</dd>
+</dl>
+<p>continue</p>
+</blockquote>
+<p># code above this point written by Samuel Huskey with edits by Katy Felkner
+# code below this point written by Katy Felkner</p>
+<p>print(&quot;Now encoding note for section &quot; + pNum + &quot;.&quot; + sNum)</p>
+<p>print(&quot;Using XPath to find the section!....&quot;)
+# use Xpath to find the appropriate paragraph and section
+xpathstr = &quot;.//tei:p[&#64;n='&quot; + str(pNum) + &quot;']/tei:seg[&#64;n='&quot; + str(sNum) + &quot;']&quot;
+section = root.find(xpathstr,</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 771)</p>
+Unexpected indentation.</div>
+<blockquote>
+namespaces={'tei': '<a class="reference external" href="http://www.tei-c.org/ns/1.0">http://www.tei-c.org/ns/1.0</a>'})  # check this</blockquote>
+<p># get the section text
+text = &quot;&quot;.join(section.itertext())</p>
+<p>print(&quot;Replacing lemma instances with the proper &lt;app&gt; tag...&quot;)
+if re.search(&quot;([0-9]+)&quot;, searchLem):</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 778)</p>
+Unexpected indentation.</div>
+<blockquote>
+<p># this lemma does not apply to the first instance of the lemma text. of the form &quot;lemma(#)&quot;</p>
+<p># break up the lemma(#) thing
+lemNum = searchLem.split('(')[1].replace(')', '')
+lemNum = int(lemNum)  # to avoid possible type mismatch problems
+newLem = searchLem.split('(')[0]</p>
+<p># update the tag with the new lemma text (i.e. remove (#) from comments and IDs)
+new_entries = new_entries.replace(searchLem, newLem)</p>
+<p>searchLem = newLem  # for simplicity</p>
+</blockquote>
+<dl class="docutils">
+<dt>else:</dt>
+<dd># if no occurrence number is specified, assume it applies to the first instance
+lemNum = 1</dd>
+</dl>
+<p># exclude lemma instances within other words. uses negative lookahead and lookbehind assertion.
+# this will throw an exception (caught below) if the lemma is not found
+replacePattern = &quot;(?&lt;![a-zA-Z])&quot; + searchLem + &quot;(?![a-zA-Z])&quot;</p>
+<p># insert the &lt;app&gt; tag into the text using a custom function defined above
+newtext = replace_with_xml(text, replacePattern, new_entries, (lemNum - 1))</p>
+<p># we're going to check that the newly created lemma tag is valid XML
+# if it is valid, we will insert it into the text
+# if not, we will not insert it and will print an error message
+# the goal of this measure is to prevent XMLParseErrors and XMLSyntaxErrors
+# we want to guarantee that the output of this script is always a valid XML file.
+# this will minimize runtime exceptions and errors.</p>
+<dl class="last docutils">
+<dt>try:</dt>
+<dd><p class="first"># this will throw an exception if new_entries (i.e. the new &lt;app&gt; tag) contains any invalid XML
+ET.fromstring(new_entries)</p>
+<p class="last"># if newtext contains only valid XML, we replace the section text
+section.text = newtext</p>
+</dd>
+<dt>except:</dt>
+<dd><p class="first"># catch the exception from possible invalid XML
+print(&quot;<a href="#id9"><span class="problematic" id="id10">**</span></a>** invalid XML was generated for section &quot; + pNum + &quot;.&quot; + sNum + &quot;, lemma: &quot; + searchLem)
+print(&quot;it was left unencoded for now.&quot;)</p>
+<div class="system-message" id="id9">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 815); <em><a href="#id10">backlink</a></em></p>
+Inline strong start-string without end-string.</div>
+<p class="last">logger.error(&quot; invalid XML was generated for section &quot; + pNum + &quot;.&quot; + sNum + &quot;, lemma: &quot; + searchLem + &quot;n&quot;)</p>
+</dd>
+</dl>
+</dd>
+<dt>except:</dt>
+<dd><p class="first"># usually due to text/csv matching issue, meaning the script was unable to find the lemma in the base text
+print(&quot;<a href="#id11"><span class="problematic" id="id12">**</span></a>** problem with encoding section &quot; + pNum + &quot;.&quot; + sNum)
+print(&quot;this is probably due to a text/csv mismatch&quot;)</p>
+<div class="system-message" id="id11">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 822); <em><a href="#id12">backlink</a></em></p>
+Inline strong start-string without end-string.</div>
+<p class="last">logger.error(&quot; problem finding lemma for section &quot; + pNum + &quot;.&quot; + sNum + &quot;, lemma: &quot; + searchLem + &quot;n&quot;)</p>
+</dd>
+</dl>
+</blockquote>
+</dd>
+</dl>
+<p># we're done with the csv file now
+appFile.close()
+logger.info(&quot;Finished encoding app. crit.&quot;)</p>
+<p># this is a workaround to deal with automatic escaping of &lt; and &gt;, and to clean up smart quotes
+bigstr = ET.tostring(root, encoding=&quot;unicode&quot;).replace(&quot;&amp;gt;&quot;, &quot;&gt;&quot;).replace(&quot;&amp;lt;&quot;, &quot;&lt;&quot;).replace(&quot;”&quot;, &quot;&quot;&quot;)</p>
+<p># had to use encoding=&quot;unicode&quot; to avoid a type mismatch problem
+print(&quot;Writing to a .xml file....&quot;)
+logger.info(&quot; Finishing up the XML.&quot;)
+time.sleep(2)</p>
+<p># parse the newly cleaned up XML
+newRoot = ET.fromstring(bigstr)</p>
+<p>tree._setroot(newRoot)
+# write the new XML to the appropriate file
+tree.write('../results/finished-encoding.xml',</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Volumes/data/katy/PycharmProjects/DLL/automation/python/prose_encoding.py</tt>, line 846)</p>
+Unexpected indentation.</div>
+<blockquote>
+encoding='utf-8', xml_declaration=True)</blockquote>
+<p>print(&quot;Valid XML coming your way!&quot;)
+logger.info(&quot; Valid XML generated, encoding is complete.&quot;)
+time.sleep(2)</p>
+<p># automatically open the finished XML file.
+os.system(&quot;open ../results/finished-encoding.xml&quot;)</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+INFO:Drama: Now encoding a drama text!
+INFO:Drama: Base text wrapped in XML.
+INFO:Drama: The encoded base text has been written to: ../results/drama-encoding.xml
+ERROR:Drama: lemma not found in act 1, scene 1, line 31, lemma: ars efficere
+ERROR:Drama: lemma not found in act 1, scene 1, line 33, lemma: eis
+ERROR:Drama: lemma not found in act 1, scene 1, line 33, lemma: in te intellexi
+ERROR:Drama: lemma not found in act 1, scene 1, line 42, lemma: advorsum
+ERROR:Drama: lemma not found in act 1, scene 1, line 44, lemma: inmemoris
+ERROR:Drama: lemma not found in act 1, scene 1, line 45, lemma: dic quid est
+ERROR:Drama: lemma not found in act 1, scene 1, line 45, lemma: quod me
+ERROR:Drama: lemma not found in act 1, scene 1, line 47, lemma: esse has
+ERROR:Drama: lemma not found in act 1, scene 1, line 47, lemma: et gnati
+ERROR:Drama: lemma not found in act 1, scene 1, line 48, lemma: quid
+ERROR:Drama: lemma not found in act 1, scene 1, line 48, lemma: in hac re te
+ERROR:Drama: invalid XML was generated for act 1, scene 1, line 49, lemma: Sosia, <et> † liberius vivendi fuit potestas † 
+INFO:Drama: Finished encoding app. crit.
+INFO:Drama: Finishing up the XML.
+INFO:Drama: Valid XML generated, encoding is complete.
+INFO:Drama: Now encoding a drama text!
+INFO:Drama: Base text wrapped in XML.
+INFO:Drama: The encoded base text has been written to: ../results/drama-encoding.xml
+ERROR:Drama: lemma not found in act 1, scene 1, line 31, lemma: ars efficere
+ERROR:Drama: lemma not found in act 1, scene 1, line 47, lemma: et gnati
+ERROR:Drama: lemma not found in act 1, scene 1, line 48, lemma: quid
+ERROR:Drama: lemma not found in act 1, scene 1, line 48, lemma: in hac re te
+ERROR:Drama: invalid XML was generated for act 1, scene 1, line 49, lemma: Sosia, <et> † liberius vivendi fuit potestas † 
+INFO:Drama: Finished encoding app. crit.
+INFO:Drama: Finishing up the XML.
+INFO:Drama: Valid XML generated, encoding is complete.
+INFO:Drama: Now encoding a drama text!
+INFO:Drama: Base text wrapped in XML.
+INFO:Drama: The encoded base text has been written to: ../results/drama-encoding.xml
+ERROR:Drama: lemma not found in act 1, scene 1, line 31, lemma: ars efficere
+ERROR:Drama: lemma not found in act 1, scene 1, line 47, lemma: et gnati
+ERROR:Drama: lemma not found in act 1, scene 1, line 48, lemma: quid
+ERROR:Drama: lemma not found in act 1, scene 1, line 48, lemma: in hac re te
+ERROR:Drama: invalid XML was generated for act 1, scene 1, line 49, lemma: Sosia, <et> † liberius vivendi fuit potestas † 
+INFO:Drama: Finished encoding app. crit.
+INFO:Drama: Finishing up the XML.
+INFO:Drama: Valid XML generated, encoding is complete.
+INFO:Drama: Now encoding a drama text!
+INFO:Drama: Base text wrapped in XML.
+INFO:Drama: The encoded base text has been written to: ../results/drama-encoding.xml
+ERROR:Drama: invalid XML was generated for act 1, scene 1, line 51, lemma: Sosia, <et> † liberius vivendi fuit potestas † 
+INFO:Drama: Finished encoding app. crit.
+INFO:Drama: Finishing up the XML.
+INFO:Drama: Valid XML generated, encoding is complete.

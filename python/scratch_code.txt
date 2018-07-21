@@ -1,0 +1,40 @@
+<!-- App entry for 1.1.40: muto --><app><lem  xml:id="lem-1.1.40-muto">muto</lem><rdg wit="#Don." xml:id="rdg-1.1.40-multo">multo</rdg><note target="rdg-1.1.40-multo">('damno, reprehendo')</note></app>
+Now encoding note for act 1, scene 1, line 40
+Using XPath to find the section!....
+Replacing lemma instances with the proper <app> tag...
+<!-- App entry for 1.1.40: factum. (Sosia) gaudeo --><app><lem  xml:id="lem-1.1.40-factum.-Sosia-gaudeo">factum. (Sosia) gaudeo</lem><rdg source="#Paumier" xml:id="rdg-1.1.40-Sosia-factum-gaudeo-speaker"><label type="speaker">Sosia factum gaudeo</label></rdg></app>
+Now encoding note for act 1, scene 1, line 40
+Using XPath to find the section!....
+Replacing lemma instances with the proper <app> tag...
+**** lemma not found in act 1, scene 1, line 40
+this is probably due to a text/csv mismatch
+
+
+<!-- App entry for 1.1.40: muto --><app><lem  xml:id="lem-1.1.40-muto">muto</lem><rdg wit="#Don." xml:id="rdg-1.1.40-multo">multo</rdg><note target="rdg-1.1.40-multo">('damno, reprehendo')</note></app>
+Now encoding note for act 1, scene 1, line 40
+Using XPath to find the section!....
+Replacing lemma instances with the proper <app> tag...
+<label type="speaker">Sosia</label> in memoria habeo. <label type="speaker">Simo</label> haud <!-- App entry for 1.1.40: muto --><app><lem  xml:id="lem-1.1.40-muto">muto</lem><rdg wit="#Don." xml:id="rdg-1.1.40-multo">multo</rdg><note target="rdg-1.1.40-multo">('damno, reprehendo')</note></app> factum. <label type="speaker">Sosia</label> gaudeo</l>\n'
+<!-- App entry for 1.1.40: factum. (Sosia) gaudeo --><app><lem  xml:id="lem-1.1.40-factum.-Sosia-gaudeo">factum. (Sosia) gaudeo</lem><rdg source="#Paumier" xml:id="rdg-1.1.40-Sosia-factum-gaudeo-speaker"><label type="speaker">Sosia factum gaudeo</label></rdg></app>
+Now encoding note for act 1, scene 1, line 40
+Using XPath to find the section!....
+Replacing lemma instances with the proper <app> tag...
+**** lemma not found in act 1, scene 1, line 40
+this is probably due to a text/csv mismatch
+
+
+<!-- App entry for 1.1.40: muto --><app><lem  xml:id="lem-1.1.40-muto">muto</lem><rdg wit="#Don." xml:id="rdg-1.1.40-multo">multo</rdg><note target="rdg-1.1.40-multo">('damno, reprehendo')</note></app>
+Now encoding note for act 1, scene 1, line 40
+Using XPath to find the section!....
+Replacing lemma instances with the proper <app> tag...
+<label type="speaker">Sosia</label> in memoria habeo. <label type="speaker">Simo</label> haud muto factum. <label type="speaker">Sosia</label> gaudeo</l>\n'
+<label type="speaker">Sosia</label> in memoria habeo. <label type="speaker">Simo</label> haud <!-- App entry for 1.1.40: muto --><app><lem  xml:id="lem-1.1.40-muto">muto</lem><rdg wit="#Don." xml:id="rdg-1.1.40-multo">multo</rdg><note target="rdg-1.1.40-multo">('damno, reprehendo')</note></app> factum. <label type="speaker">Sosia</label> gaudeo</l>\n'
+<!-- App entry for 1.1.40: factum. (Sosia) gaudeo --><app><lem  xml:id="lem-1.1.40-factum.-Sosia-gaudeo">factum. (Sosia) gaudeo</lem><rdg source="#Paumier" xml:id="rdg-1.1.40-Sosia-factum-gaudeo-speaker"><label type="speaker">Sosia factum gaudeo</label></rdg></app>
+Now encoding note for act 1, scene 1, line 40
+Using XPath to find the section!....
+Replacing lemma instances with the proper <app> tag...
+**** lemma not found in act 1, scene 1, line 40
+this is probably due to a text/csv mismatch
+
+<!-- App entry for 1.1.40: factum. <label type="speaker">Sosia</label> gaudeo --><app><lem  xml:id="lem-1.1.40-factum.-label-type=speakerSosialabel-gaudeo">factum. <label type="speaker">Sosia</label> gaudeo</lem><rdg source="#Paumier" xml:id="rdg-1.1.40-Sosia-factum-gaudeo-speaker"><label type="speaker">Sosia factum gaudeo</label></rdg></app>
+it was left unencoded for now.

@@ -1,0 +1,12 @@
+INFO:Poetry: Now encoding a poetry text!
+INFO:Poetry: Lines have been wrapped in numbered <l> tags.
+INFO:Poetry: Editorial symbols have been encoded.
+INFO:Poetry: Adding the TEI header and footer.
+INFO:Poetry: Base text wrapped in XML.
+INFO:Poetry: The encoded base text has been written to: ../results/poetry-encoding.xml
+INFO:Poetry: Now encoding the critical apparatus.
+ Encoding errors will be shown below.
+
+INFO:Poetry: Finished encoding app. crit.
+INFO:Poetry: Finishing up the XML.
+INFO:Poetry:Valid XML generated, encoding is complete.

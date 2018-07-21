@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="edition" xml:id="edition-text">
+            <div type="textpart" subtype="section" n="1">
+               <div type="textpart" subtype="paragraph" n="1">
+                  <p n="1"><seg n="1">Quid actum sit in caelo ante diem III idus Octobris anno novo,
+                        initio saeculi felicissimi, volo memoriae tradere.</seg>
+                     <seg n="2">Nihil nec offensae nec gratiae dabitur.</seg>
+                     <seg n="3">Haec ita vera si quis quaesiverit unde sciam, primum, si noluero,
+                        non respondebo.</seg>
+                     <seg n="4">Quis coacturus est?</seg>
+                     <seg n="5">Ego scio me liberum factum, ex quo suum diem obiit ille, <!-- App entry for 1.1.5: qui --><app>
+                           <lem xml:id="lem-1.1.5-qui">qui</lem>
+                           <rdg source="#Mommsen" xml:id="rdg-1.1.5-qui-bis">qui bis</rdg>
+                           <note target="rdg-1.1.5-qui-bis">After qui Mommsen suggested adding bis.
+                           </note>
+                        </app> verum proverbium fecerat, aut regem aut fatuum nasci oportere.</seg>
+                     <seg n="6">Si libuerit respondere, dicam quod mihi in buccam venerit.</seg>
+                     <seg n="7">Quis unquam ab historico iuratores exegit?</seg>
+                     <seg n="8">Tamen si necesse fuerit auctorem producere, quaerito ab eo qui
+                        Drusillam euntem in caelum vidit: idem Claudium vidisse se dicet iter
+                        facientem “non passibus aequis."</seg>
+                     <seg n="9">Velit nolit, necesse est illi omnia videre, quae in caelo aguntur:
+                        Appiae viae curator est, qua scis et divum Augustum et Tiberium Caesarem ad
+                        deos isse. </seg></p>
+               </div>
+               <div type="textpart" subtype="paragraph" n="2">
+                  <p n="2"><seg n="1">Hunc si interrogaveris, soli narrabit: coram pluribus nunquam
+                        verbum faciet.</seg>
+                     <seg n="2">Nam ex quo in senatu iuravit se Drusillam vidisse caelum ascendentem
+                        er illi pro tam bono nuntio nemo credidit, <!-- App entry for 1.2.2: quod viderit --><app>
+                           <lem xml:id="lem-1.2.2-quod-viderit">quod viderit</lem>
+                           <rdg source="#Gruter" xml:id="rdg-1.2.2-secl.">secl.</rdg>
+                           <note target="rdg-1.2.2-secl.">Gruter advised deleting quod or quid
+                              viderit because inferior tradition omits the words.</note>
+                           <rdg source="#Gertz" xml:id="rdg-1.2.2-quod-viderat">quod viderat</rdg>
+                           <note target="rdg-1.2.2-quod-viderat">Gertz reads quod viderat.</note>
+                        </app>, verbis conceptis affirmavit se non indicaturum, etiam si in medio
+                        foro hominem occisum vidisset.</seg>
+                     <seg n="3">Ab hoc ego quae tum audivi, certa clara affero, ita illum salvum et
+                        felicem habeam.</seg></p>
+               </div>
+            </div>
+            <div type="textpart" subtype="section" n="2">
+               <div type="textpart" subtype="poem" n="1">
+                  <l n="1">Iam Phoebus breviore via contraxerat <!-- App entry for 2.1.1: arcum --><app>
+                        <lem source="#P. #Eden" xml:id="lem-2.1.1-arcum">arcum</lem>
+                        <rdg source="#Fromond" xml:id="rdg-2.1.1-orbem">orbem</rdg>
+                        <rdg xml:id="rdg-2.1.1-ortum">ortum</rdg>
+                     </app></l>
+                  <l n="2">lucis et obscuri crescebant tempora somni,</l>
+                  <l n="3">iamque suum victrix augebat Cynthia regnum,</l>
+                  <l n="4">et deformis hiemps grats <!-- App entry for 2.1.4: carpebat --><app>
+                        <lem xml:id="lem-2.1.4-carpebat">carpebat</lem>
+                        <rdg source="#Haupt" xml:id="rdg-2.1.4-turpabat">turpabat</rdg>
+                        <note>Because of carpebat again two lines below several alerations have been
+                           suggested.</note>
+                     </app> honores</l>
+                  <l n="5">divitis autumni, <!-- App entry for 2.1.5: iussoque --><app>
+                        <lem xml:id="lem-2.1.5-iussoque">iussoque</lem>
+                        <rdg xml:id="rdg-2.1.5-visoque">visoque</rdg>
+                        <note target="rdg-2.1.5-visoque">inferior tradition</note>
+                     </app> senescere Baccho</l>
+                  <l n="6">carpebat raras serus vindemitor uvas.</l>
+               </div>
+               <div type="textpart" subtype="paragraph" n="3">
+                  <p n="3"><seg n="1">Puto magis intellegi, si dixero: mensis erat October, dies III
+                        idus Octobris.</seg>
+                     <seg n="2">Horam non possum certam tibi dicere, facilius inter philosophos quam
+                        inter horologia conveniet, tamen inter sextam et septimam erat.</seg>
+                     <seg n="3">Nimis rustice!</seg>
+                     <seg n="4"><!-- App entry for 2.3.4: Adquiescunt omnes poetae, non contenti ortus et occasus describere ut etiam medium diem inquietent, tu sic transibis horam tamen bonam? --><app>
+                           <lem
+                              xml:id="lem-2.3.4-Adquiescunt-omnes-poetae-non-contenti-ortus-et-occasus-describere-ut-etiam-medium-diem-inquietent-tu-sic-transibis-horam-tamen-bonam"
+                              >Adquiescunt omnes poetae, non contenti ortus et occasus describere ut
+                              etiam medium diem inquietent, tu sic transibis horam tamen
+                              bonam?</lem>
+                           <note>this sentence has been variously altered by scholars</note>
+                        </app>?</seg></p>
+               </div>
+               <div type="textpart" subtype="poem" n="2">
+                  <l n="1">Iam medium curru Phoebus diviserat orbem</l>
+                  <l n="2">et propior nocti fessas quatiebat habenas</l>
+                  <l n="3">obliquo flexam deducens tramite lucem:</l>
+               </div>
+            </div>
+            <div type="textpart" subtype="section" n="3">
+               <div type="textpart" subtype="paragraph" n="4">
+                  <p n="4"><seg n="1">Claudius animam agere coepit nec invenire exitum
+                        poterat.</seg>
+                     <seg n="2">Tum Mercurius, qui semper ingenio eius delectatus esset, unam e
+                        tribus Partis secudit et ait: “Quid, femina crudelissima, hominem miserum
+                        torqueri pateris?</seg>
+                     <seg n="3">Nec unquam tam diu cruciatus <!-- App entry for 3.4.3: cesset --><app>
+                           <lem source="#Iunius" xml:id="lem-3.4.3-cesset">cesset</lem>
+                           <rdg source="#Haase" xml:id="rdg-3.4.3-exiet">exiet</rdg>
+                           <rdg source="#Birt" xml:id="rdg-3.4.3-quiescet">quiescet</rdg>
+                           <rdg xml:id="rdg-3.4.3-esset">esset</rdg>
+                        </app>?</seg>
+                     <seg n="4">Annus sexagesimus <supplied reason="lost"><!-- App entry for 3.4.4: et --><app>
+                              <lem xml:id="lem-3.4.4-et">et</lem>
+                              <rdg xml:id="rdg-3.4.4-om."/>
+                              <note target="rdg-3.4.4-om.">ommitted by inferior tradition,
+                                 rightly?</note>
+                           </app></supplied> quartus est, ex quo cum anima luctatur.</seg>
+                     <seg n="5">Quid hinc et rei publicae invides?</seg>
+                     <seg n="6">Patere matematico aliquando verum dicere, qui illum, ex quo princeps
+                        factus est, omnibus annis, omnibus mesnibus efferunt.</seg>
+                     <seg n="7">Et tamen non est mirum si errant et horam eius nemo novit; nemo enim
+                        unquam illum natum putavit.</seg>
+                     <seg n="8">Fac quod faciendum est:</seg></p>
+               </div>
+               <div type="textpart" subtype="poem" n="3">
+                  <l n="1">‘Dede neci, melior vacua sine regnet in aula.’"</l>
+               </div>
+               <div type="textpart" subtype="paragraph" n="5">
+                  <p n="5"><seg n="1">Sed Clotho “ego mehercules" inquit “pusillum temporis adicere
+                        illi volebam, dum hos pauculos, qui supersunt, civitate donaret (consituerat
+                        enim omnes Graecos, Gallos, Hispanos, Britannos togatos videre), sed quoniam
+                        placet aliquos peregrinos in semen relinqui et tu iubes fieri, fiat."</seg>
+                     <seg n="2">Aperit tum capsulam et tres fusos profert: unus erat Augurini, alter <!-- App entry for 3.5.2: Babae --><app>
+                           <lem source="#Muret" xml:id="lem-3.5.2-Babae">Babae</lem>
+                           <rdg xml:id="rdg-3.5.2-badae">badae</rdg>
+                        </app>, tertius Claudii.</seg><seg n="3"> “Hos" inquit “trees uno anno
+                        exiguis intervallis temporum divisos mori iubebo, <!-- App entry for 3.5.3: nec --><app>
+                           <lem xml:id="lem-3.5.3-nec">nec</lem>
+                           <rdg source="#Wehle" xml:id="rdg-3.5.3-ne">ne</rdg>
+                        </app> illum incomitatum dimittam.</seg>
+                     <seg n="4">Non oportet enim eum, qui modo se tot milia hominim sequentia
+                        videbat, tot praecedentia, tot circumfusa, subito solum destitui.</seg>
+                     <seg n="5">Contentus erit his interim convictoribus."</seg></p>
+               </div>
+            </div>
+            <div type="textpart" subtype="section" n="4">
+               <div type="textpart" subtype="poem" n="4">
+                  <l n="1">Haec ait et turpi convolens stamina fuso</l>
+                  <l n="2">abrupit stolidae regalia tempora vitae.</l>
+                  <l n="3">At Lachesis redimita comas, ornata capillos,</l>
+                  <l n="4">Pieria crinem lauro frontemque coronans,</l>
+                  <l n="5">candida de niveo subtemina vellere sumit</l>
+                  <l n="6">felici moderanda manu, quae ducta colorem</l>
+                  <l n="7">assumpsere novum. Mirantur pensa sorores:</l>
+                  <l n="8">mutatur vilis pretioso lana metallo,</l>
+                  <l n="9">aurea formoso descendunt saecula filo.</l>
+                  <l n="10">Ned modus est illis, felicia vellera ducunt</l>
+                  <l n="11">et gaudent implere manus, sunt dulcia pensa.</l>
+                  <l n="12">Sponte sua festinat opus nulloque labore</l>
+                  <l n="13">mollia contorto descendunt stamina fuso. </l>
+                  <l n="14">Vincunt Tithoni, vincunt et Nestoris annos. </l>
+                  <l n="15">Phoebus adest cantuque iuvat gaudetque futuris,</l>
+                  <l n="16">et laetus nunc plectra movet, nunc pensa ministrat.</l>
+                  <l n="17">Detinet intentas <!-- App entry for 4.4.17: cantus --><app>
+                        <lem source="#Gertz" xml:id="lem-4.4.17-cantus">cantus</lem>
+                        <rdg xml:id="rdg-4.4.17-cantu">cantu</rdg>
+                        <rdg xml:id="rdg-4.4.17-carmen">carmen</rdg>
+                        <note target="rdg-4.4.17-carmen">Perhaps</note>
+                     </app> fallitque laborem.</l>
+                  <l n="18">Dumque nimis citharam fraternaque carmina laudant,</l>
+                  <l n="19">plus solito nevere manus, humanaque fata</l>
+                  <l n="20">laudatum transcendit opus. “Ne demite, Parcae"</l>
+                  <l n="21">Phoebus ait “vincat mortalis tempora vitae</l>
+                  <l n="22">ille mihi similis vultu similisque decore</l>
+                  <l n="23">nec cantu nec voce minor. Felicia lassis</l>
+                  <l n="24">saecula praestabit legumque silentia rumpet.</l>
+                  <l n="25">Qualis discutiens fugentia Lucifer astra</l>
+                  <l n="26">aut qualis surgit redeuntibus Hesperus astris,</l>
+                  <l n="27">qualis cum primum tenebris Aurora solutis</l>
+                  <l n="28">induxit rubicunda diem, Sol aspicit orbem</l>
+                  <l n="29">lucidus, et primos a carcere concitat axes:</l>
+                  <l n="30">talis Caesar adest, talem iam Roma Neronem</l>
+                  <l n="31">apsiciet. Flagrat nitidus fulgore remisso</l>
+                  <l n="32">vultus, et adfuso cervis formosa capillo."</l>
+               </div>
+               <div type="textpart" subtype="paragraph" n="6">
+                  <p n="6"><seg n="1">Haec Apollo.</seg>
+                     <seg n="2">At Lachesis, quae et ipsa homini formosissimo faveret, fecit <!-- App entry for 4.6.2: illud --><app>
+                           <lem xml:id="lem-4.6.2-illud">illud</lem>
+                           <rdg source="#Gertz" xml:id="rdg-4.6.2-illico">illico</rdg>
+                           <rdg source="#Wehle" xml:id="rdg-4.6.2-filum">filum</rdg>
+                        </app> plena manu, et Neroni multos annos de suo donat.</seg>
+                     <seg n="3">Claudium autem iubent omnes</seg></p>
+               </div>
+               <div type="textpart" subtype="poem" n="5">
+                  <l n="1">χαιροντας, ευφημουντας εκπεμπειν δομων.</l>
+               </div>
+               <div type="textpart" subtype="paragraph" n="7">
+                  <p n="7"><seg n="1">Et ille quidem animam ebullit, et ex eo desiit vivere
+                        videri.</seg>
+                     <seg n="2">Exspiravit autem dum comoedos audit, ut scias me non sine causa
+                        illos timere.</seg>
+                     <seg n="3">Ultima vox eius haec inter homines audita est, cum maiorem sonitum
+                        emisisset illa parte, qua facilius loquebatur: “vae me, puto, concacavi
+                        me."</seg>
+                     <seg n="4">Quod an fecerit, nescio: omnia certe concacavit. </seg></p>
+               </div>
+            </div>
+         </div>
+      </body>
+      <back>
+         <!--
+    The content of the back matter will be determined in consultation between
+            the editor and the staff of the DLL. Because LDLT editions are encoded, the
+            matter traditionally found in the back of a printed critical edition may be
+            generated by applications instead of having to be entered manually.
+            Nevertheless, there is space here for notes, indices, and other kinds of
+            information.
+    -->
+      </back>
+   </text>
+</TEI>
