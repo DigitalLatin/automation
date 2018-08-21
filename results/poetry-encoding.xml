@@ -16,7 +16,7 @@
    <text>
       <body>
          <div type="edition" xml:id="edition-text">
-            <div type="textpart" n="4" xml:id="part4">
+            <div type="textpart" subtype="poem" xml:id="poem4" n="4">
                <l n="1"><label type="speaker">Meliboeus</label> Quid tacitus, Corydon, vultuque
                   subinde minaci</l>
                <l n="2">quidve sub hac platano, quam garrulus astrepit humor,</l>

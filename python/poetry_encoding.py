@@ -637,7 +637,7 @@ def main():
     time.sleep(2)
     # get all of the lines as a list
     lines = replace1.split("\n")
-    # counter for total lines
+    # counter for total lines in poem
     i = 0
     # counter for multiline lacunae
     lCount = 0
@@ -650,6 +650,16 @@ def main():
         if l == '':
             # empty line caused by line breaks in source text
             continue
+        linenum = ''
+        if re.match("[0-9]+", l):
+            # this is a new poem
+            # create the new div tag
+            linenum = str(l.split(" ")[0])
+            divtag = "<div type='textpart' subtype='poem' xml:id='poem" + linenum + "' n='" + linenum + "'>"
+            l = l.replace(linenum, "", 1).strip()
+            i = 0
+            # will be inserted after we handle speakers/lacunae
+
         if re.search('[0-9]+$', l):
             numbersplit = l.split(" ")
             i = int(numbersplit[-1])
@@ -682,10 +692,17 @@ def main():
                     lCount) + "\" unit = \"lines\" resp = \"#Giarratano\"/></ab>"
                 lCount = 0
 
+        if linenum != '':
+            l = "</div>" + divtag + l
+
         newlines.append(l)
 
     # put the list back into a string
     replace2 = "".join(newlines)
+
+    # remove an extra "</div>"
+
+    replace2 = replace2.replace("</div>", "", 1)
 
     # Handle crux.
     print('Lines have been wrapped in numbered <l> tags')
@@ -729,10 +746,7 @@ def main():
        </teiHeader>
        <text>
           <body>
-          <div type="edition" xml:id="edition-text">
-                <div type="textpart" n="4" xml:id="part4">'''
-    # text part n = 4 is hardcoded in for now :/
-
+          <div type="edition" xml:id="edition-text">'''
     # Write the footer
     footer = '''</div></div></body>
           <back>
