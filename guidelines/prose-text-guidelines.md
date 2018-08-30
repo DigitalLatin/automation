@@ -10,17 +10,15 @@ Prose texts are divided into paragraphs and sentences. Paragraphs should be numb
 >1 (1) This is a sentence. (2) This is another sentence.
 
 3.  Editorial Markup
-    * Editorial additions 
-    Editorial additions should be enclosed in angle brackets <>, e.g. "these are some <added> words."
-
-    * Lacunae 
+    1. Editorial additions 
+    Editorial additions should be enclosed in angle brackets <>, e.g.
+> these are some <added> words.
+    2. Lacunae 
     Lacunae (i.e. places where the editor believes there is text missing) should be marked with three asterisks, e.g. 
-> there is probably some \*\*\* here".
-
-    * Crux
+> there is probably some \*\*\* here.
+    3. Crux
     Sections which the editor believes are corrupted but chooses not to emend should be enclosed in daggers † †, e.g.
-> here is some †confusing text corrupted maybe †"
-
-    * Editorial deletions
+> here is some †confusing text corrupted maybe†.
+    4. Editorial deletions
     Editorial deletions should be enclosed in curly braces {} e.g. 
 > these are some \{deleted\} words.
