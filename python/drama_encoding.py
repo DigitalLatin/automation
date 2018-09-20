@@ -6,6 +6,7 @@ import csv  # used for processing CSV (comma separated values) input files conta
 import lxml.etree as ET  # used to parse XML to insert <app> tags
 import logging  # support error logging to an external file
 import logging.config  # support for our logger configuration
+import sys # command line arguments
 
 # this script was written by Katy Felkner (katy.felkner@ou.edu, GitHub: @katyfelkner)
 # advisor: Samuel Huskey @sjhuskey
@@ -76,8 +77,6 @@ def replace_with_xml(text, pattern, new_entries, index):
     # find updated indices if necessary
     beg, end = [(x.start(), x.end()) for x in re.finditer(pattern, text, flags=re.IGNORECASE)][index + inc]
 
-    print(text)
-    print("{0}{1}{2}".format(text[:beg], new_entries, text[end:]))
     # return the text with the <app> tag inserted in the proper place
     return "{0}{1}{2}".format(text[:beg], new_entries, text[end:])
 
@@ -604,13 +603,12 @@ def cleanup_tag(entries):
 # main function starts here
 
 def main():
-    # TODO: write the damn documentation for this
     # we are now using LXML because it allows us to use a custom XML parser
     # custom LMXL parser that won't remove comments
     parser = ET.XMLParser(remove_comments=False)
 
     # Create a variable for the path to the base text.
-    path = '../sources/drama-base-text.txt'
+    path = sys.argv[1]
 
     # Open the file with utf-8 encoding.
     source_file = codecs.open(path, 'r', 'utf-8')
@@ -619,7 +617,43 @@ def main():
     source_text = source_file.read()
 
     # Open a log file. We will write errors improperly generated XML to this file.
-    logging.basicConfig(filename="../results/drama-log-file.txt", level=logging.INFO)
+    if len(sys.argv) > 4:
+        # i.e. a log file is specified
+        log_file = sys.argv[4]
+    else:
+        log_file = sys.argv[3].replace(sys.argv[3].split("/")[-1], "") + "drama-log-file.txt"
+
+    # this dict contains configuration info for logging errors.
+    # I chose to use a dict in order to avoid having a separate config file.
+    # This was done to keep this script as portable as possible.
+    dictLogConfig = {
+        "version": 1,
+        "handlers": {
+            "fileHandler": {
+                "class": "logging.FileHandler",
+                "formatter": "myFormatter",
+                "filename": log_file
+                # this is done to keep output sensible to the user
+                # to disable this and keep all the output, comment this line:
+                , "mode": "w"
+            }
+        },
+        "loggers": {
+            "exampleApp": {
+                "handlers": ["fileHandler"],
+                "level": "INFO",
+            }
+        },
+
+        "formatters": {
+            "myFormatter": {
+                "format": "%(message)s"
+            }
+        }
+    }
+
+    # Open a log file. We will write errors improperly generated XML to this file.
+    logging.basicConfig(filename=log_file, level=logging.INFO)
     logging.config.dictConfig(dictLogConfig)
     logger = logging.getLogger("Drama")
     logger.info(" Now encoding a drama text!")
@@ -676,7 +710,6 @@ def main():
                 l = '</div></div><div type="textpart" subtype="act" n="' + str(actCount) + '" xml:id="act' + str(
                     actCount) + '">'
         elif re.match("SCENE", l):
-            print("found a scene")
             sceneCount += 1
             # this line is an scene header
             if re.match("SCENE 1", l):
@@ -715,7 +748,6 @@ def main():
                 i -= 1
                 if re.search("<label type=\"speaker\">", l):
                     lac_speaker = speaker_tag
-                    # TODO: this is not gonna work if we have >1 speaker on a line with a lacuna
 
                 # if the next line is NOT a lacuna, or if we have reached end of the scene, replace with <gap>
                 # otherwise, keep looking for the end of the lacuna
@@ -726,7 +758,6 @@ def main():
                         lCount) + "\" unit = \"lines\" /></ab>"
                     lCount = 0
 
-        print(l)
         newlines.append(l)
 
     # put the list back into a string
@@ -800,7 +831,7 @@ def main():
     print('Making a new file ...')
     time.sleep(2)
     # file path for final XML file
-    new_path = "../results/drama-encoding.xml"
+    new_path = sys.argv[3]
 
     # Open the new file.
     new_source = codecs.open(new_path, 'w', 'utf-8')
@@ -824,7 +855,7 @@ def main():
     # the TEI namespace (default ns for this doc) is found at: http://www.tei-c.org/ns/1.0
     ET.register_namespace('tei', 'http://www.tei-c.org/ns/1.0')
 
-    with open('../sources/drama-test.csv', encoding='utf-8') as appFile:
+    with open(sys.argv[2], encoding='utf-8') as appFile:
         readApp = csv.reader(appFile, delimiter=',')
         for row in readApp:
             if row[0] == "Act":
@@ -877,8 +908,7 @@ def main():
             # this will minimize runtime exceptions and errors.
             if not checkXML(new_entries):
                 #  i.e. if invalid XML was generated
-                print(
-                    "**** invalid XML was generated for act " + aNum + ", scene " + sNum + ", line " + lNum + ", lemma: " + searchLem)
+                print("**** invalid XML was generated for act " + aNum + ", scene " + sNum + ", line " + lNum + ", lemma: " + searchLem)
                 print("it was left unencoded for now.")
 
                 logger.error(
@@ -891,7 +921,6 @@ def main():
             print("Using XPath to find the section!....")
 
             # use Xpath to find the appropriate paragraph and section
-            # TODO: fix this XPath
             # if we are using line numbers for the whole work, this may get much easier
             xpathstr = ".//tei:l[@n='" + str(lNum) + "']"
             linetag = root.find(xpathstr, namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})
@@ -906,11 +935,6 @@ def main():
                     # basically, convert () to <label></label> so we can have a viable replacePattern
                     # this function was moved out of make_lem_tag() to this location
                     # I am not sure if this is the most elegant solution, and it may need to be moved back.
-
-
-
-
-
 
                     # remove the existing label tag
                     xpathstr = ".//tei:label"
@@ -941,7 +965,6 @@ def main():
 
                         # store line text
                         text = linetag.text
-                        print("TEXT BEFORE WORKAROUND: " + text)
                         # hacky workaround to handle a line tag with no .text attribute
                         # e.g. lacuna, all text in another tag, etc.
                         if text is None:
@@ -950,7 +973,6 @@ def main():
                             text = text.replace("</l>", "")
                             linetag.clear()
                             linetag.text = text
-                        print("TEXT AFTER WORKAROUND: " + text)
 
                         print("Replacing lemma instances with the proper <app> tag...")
                         if re.search("\([0-9]+\)", searchLem):
@@ -980,8 +1002,7 @@ def main():
                             linetag.text = newtext
                         except:
                             # usually due to text/csv matching issue, meaning the script was unable to find the lemma in the base text
-                            print(
-                                "**** lemma not found in act " + aNum + ", scene " + sNum + ", line " + lNum + ", lemma: " + searchLem)
+                            print("**** lemma not found in act " + aNum + ", scene " + sNum + ", line " + lNum + ", lemma: " + searchLem)
                             print("this is probably due to a text/csv mismatch")
 
                             logger.error(
@@ -1088,7 +1109,6 @@ def main():
     # this is a workaround to deal with automatic escaping of < and >, and to clean up smart quotes
     bigstr = ET.tostring(root, encoding="unicode").replace("&gt;", ">").replace("&lt;", "<").replace("”", "\"")
     # had to use encoding="unicode" to avoid a type mismatch problem
-    print(bigstr)
 
     print("Writing to a .xml file....")
     logger.info(" Finishing up the XML.")
@@ -1100,15 +1120,14 @@ def main():
 
     tree._setroot(newRoot)
     # write the new XML to the appropriate file
-    tree.write('../results/drama-encoding.xml',
-               encoding='utf-8', xml_declaration=True)
+    tree.write(sys.argv[3], encoding='utf-8', xml_declaration=True)
 
     print("Valid XML coming your way!")
     logger.info(" Valid XML generated, encoding is complete.")
     time.sleep(2)
 
     # automatically open the finished XML file.
-    os.system("open ../results/drama-encoding.xml")
+    os.system("open " + sys.argv[3])
 
 
 if __name__ == '__main__':

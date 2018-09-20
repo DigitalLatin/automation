@@ -6,38 +6,10 @@ import csv  # used for processing CSV (comma separated values) input files conta
 import lxml.etree as ET # used to parse XML to insert <app> tags
 import logging # support error logging to an external file
 import logging.config # support for our logger configuration
+import sys # command line arguments
 
 # this script was written by Katy Felkner (katy.felkner@ou.edu, GitHub: @katyfelkner)
 # advisor: Samuel Huskey @sjhuskey
-
-# this dict contains configuration info for logging errors.
-# I chose to use a dict in order to avoid having a separate config file.
-# This was done to keep this script as portable as possible.
-dictLogConfig = {
-    "version": 1,
-    "handlers": {
-        "fileHandler": {
-            "class": "logging.FileHandler",
-            "formatter": "myFormatter",
-            "filename": "../results/poetry-log-file.txt"
-            # this is done to keep output sensible to the user
-            # to disable this and keep all the output, comment this line:
-            ,"mode": "w"
-        }
-    },
-    "loggers": {
-        "exampleApp": {
-            "handlers": ["fileHandler"],
-            "level": "INFO",
-        }
-    },
-
-    "formatters": {
-        "myFormatter": {
-            "format": "%(message)s"
-        }
-    }
-}
 
 def replace_with_xml(text, pattern, new_entries, index):
     """replaces a lemma instance within the text with its associated <app> tag.
@@ -593,13 +565,13 @@ def cleanup_tag(entries):
 # main function starts here
 
 def main():
-    #TODO: write the doc for this function
+
     # we are now using LXML because it allows us to use a custom XML parser
     # custom LMXL parser that won't remove comments
     parser = ET.XMLParser(remove_comments=False)
 
     # Create a variable for the path to the base text.
-    path = '../sources/calp-sicc-carmen4.txt'
+    path = sys.argv[1]
 
     # Open the file with utf-8 encoding.
     source_file = codecs.open(path, 'r', 'utf-8')
@@ -608,7 +580,44 @@ def main():
     source_text = source_file.read()
 
     # Open a log file. We will write errors improperly generated XML to this file.
-    logging.basicConfig(filename="../results/poetry-log-file.txt", level=logging.INFO)
+    if len(sys.argv) > 4:
+        # i.e. a log file is specified
+        log_file = sys.argv[4]
+    else:
+        log_file = sys.argv[3].replace(sys.argv[3].split("/")[-1], "") + "poetry-log-file.txt"
+
+    print(log_file)
+
+    # this dict contains configuration info for logging errors.
+    # I chose to use a dict in order to avoid having a separate config file.
+    # This was done to keep this script as portable as possible.
+    dictLogConfig = {
+        "version": 1,
+        "handlers": {
+            "fileHandler": {
+                "class": "logging.FileHandler",
+                "formatter": "myFormatter",
+                "filename": log_file
+                # this is done to keep output sensible to the user
+                # to disable this and keep all the output, comment this line:
+                , "mode": "w"
+            }
+        },
+        "loggers": {
+            "exampleApp": {
+                "handlers": ["fileHandler"],
+                "level": "INFO",
+            }
+        },
+
+        "formatters": {
+            "myFormatter": {
+                "format": "%(message)s"
+            }
+        }
+    }
+    # Open a log file. We will write errors improperly generated XML to this file.
+    logging.basicConfig(filename=log_file, level=logging.INFO)
     logging.config.dictConfig(dictLogConfig)
     logger = logging.getLogger("Poetry")
     logger.info(" Now encoding a poetry text!")
@@ -770,7 +779,7 @@ def main():
     print('Making a new file ...')
     time.sleep(2)
     # file path for final XML file
-    new_path = '../results/poetry-encoding.xml'
+    new_path = sys.argv[3]
 
     # Open the new file.
     new_source = codecs.open(new_path, 'w', 'utf-8')
@@ -794,7 +803,7 @@ def main():
     # the TEI namespace (default ns for this doc) is found at: http://www.tei-c.org/ns/1.0
     ET.register_namespace('tei', 'http://www.tei-c.org/ns/1.0')
 
-    with open('../sources/poetry-test.csv', encoding='utf-8') as appFile:
+    with open(sys.argv[2], encoding='utf-8') as appFile:
         readApp = csv.reader(appFile, delimiter=',')
         for row in readApp:
             if row[0] == "Poem":
@@ -1042,15 +1051,14 @@ def main():
 
     tree._setroot(newRoot)
     # write the new XML to the appropriate file
-    tree.write('../results/poetry-encoding.xml',
-               encoding='utf-8', xml_declaration=True)
+    tree.write(sys.argv[3], encoding='utf-8', xml_declaration=True)
 
     print("Valid XML coming your way!")
     logger.info("Valid XML generated, encoding is complete.")
     time.sleep(2)
 
     # automatically open the finished XML file.
-    os.system("open ../results/poetry-encoding.xml")
+    os.system("open " + sys.argv[3])
 
 if __name__ == '__main__':
     main()

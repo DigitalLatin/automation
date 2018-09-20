@@ -6,36 +6,8 @@ import csv  # used for processing CSV (comma separated values) input files conta
 import lxml.etree as ET # used to parse XML to insert <app> tags
 import logging # support error logging to an external file
 import logging.config # support for our logger configuration
+import sys # for command line arguments
 
-# this dict contains configuration info for logging errors.
-# I chose to use a dict in order to avoid having a separate config file.
-# This was done to keep this script as portable as possible.
-dictLogConfig = {
-    "version": 1,
-    "handlers": {
-        "fileHandler": {
-            "class": "logging.FileHandler",
-            "formatter": "myFormatter",
-            "filename": "../results/mm-log-file.txt"
-            # by default, we are overwriting the log file
-            # this is done to keep output sensible to the user
-            # to disable this and keep all the output, comment out this line:
-            ,"mode": "w"
-        }
-    },
-    "loggers": {
-        "exampleApp": {
-            "handlers": ["fileHandler"],
-            "level": "INFO",
-        }
-    },
-
-    "formatters": {
-        "myFormatter": {
-            "format": " %(message)s"
-        }
-    }
-}
 
 def replace_with_xml(text, pattern, new_entries, index):
     """replaces a lemma instance within the text with its associated <app> tag.
@@ -146,7 +118,6 @@ def make_lem_tag(s, p, l, lem, wit, source, note):
         lem = "<label type=\"speaker\">" + searchLem + "</label>"
 
     # this block deals with editorial additions, which have <> in the lemma
-    # TODO: update this block to match the one in rdg_tag()
 
     # deal with lemmas of the form '<word> some other words'
     elif (re.match('<\w+>(\s)*\w+', lem)):
@@ -682,7 +653,6 @@ def prose_chunk(chunk, i, logger):
 
 # good to go for plain poetry.
 # good to go for speakers and transposed line numbers.
-# TODO: need to check for multiple speakers on line, multiline lacunae
 def poetry_chunk(chunk, n, logger):
     """ encode a poetry chunk
 
@@ -782,7 +752,7 @@ def main():
     parser = ET.XMLParser(remove_comments=False)
 
     # Create a variable for the path to the base text.
-    path = '../sources/basetext.txt'
+    path = sys.argv[1]
 
     # Open the file with utf-8 encoding.
     source_file = codecs.open(path, 'r', 'utf-8')
@@ -790,8 +760,44 @@ def main():
     # Read the file.
     source_text = source_file.read()
 
+    # Open a log file. We will write errors improperly generated XML to this file.
+    if len(sys.argv) > 4:
+        # i.e. a log file is specified
+        log_file = sys.argv[4]
+    else:
+        log_file = sys.argv[3].replace(sys.argv[3].split("/")[-1], "") + "mm-log-file.txt"
+
+    # this dict contains configuration info for logging errors.
+    # I chose to use a dict in order to avoid having a separate config file.
+    # This was done to keep this script as portable as possible.
+    dictLogConfig = {
+        "version": 1,
+        "handlers": {
+            "fileHandler": {
+                "class": "logging.FileHandler",
+                "formatter": "myFormatter",
+                "filename": log_file
+                # by default, we are overwriting the log file
+                # this is done to keep output sensible to the user
+                # to disable this and keep all the output, comment out this line:
+                , "mode": "w"
+            }
+        },
+        "loggers": {
+            "exampleApp": {
+                "handlers": ["fileHandler"],
+                "level": "INFO",
+            }
+        },
+
+        "formatters": {
+            "myFormatter": {
+                "format": " %(message)s"
+            }
+        }
+    }
     # Open a log file. We will write a record of encoding errors to this file
-    logging.basicConfig(filename="../results/mm-log-file.txt", level=logging.INFO)
+    logging.basicConfig(filename=log_file, level=logging.INFO)
     logging.config.dictConfig(dictLogConfig)
     logger = logging.getLogger("Mixed Matter")
     logger.info(" Now encoding a mixed text!\n")
@@ -879,7 +885,7 @@ def main():
     print('Making a new file ...')
     time.sleep(2)
     # file path for target XML file
-    new_path = '../results/mm-prose-test.xml'
+    new_path = sys.argv[3]
 
     # Open the new file.
     new_source = codecs.open(new_path, 'w', 'utf-8')
@@ -907,7 +913,7 @@ def main():
     ET.register_namespace('tei', 'http://www.tei-c.org/ns/1.0')
 
     # start processing the critical apparatus line by line
-    with open('../sources/app-crit-test.csv', encoding='utf-8') as appFile:
+    with open(sys.argv[2], encoding='utf-8') as appFile:
         readApp = csv.reader(appFile, delimiter=',')
         for row in readApp:
             if row[0] == "Section":
@@ -1070,10 +1076,8 @@ def main():
 
                 print("Using XPath to find the section!....")
 
-                # TODO: fix this XPath
                 xpathstr = ".//tei:div[@type=\"textpart\"][@subtype=\"section\"][@n=\"" + str(sNum) + "\"]//tei:div[@type=\"textpart\"][@subtype=\"poem\"][@n=\"" + str(pNum) + "\"]//tei:l[@n=\"" + str(lNum) + "\"]"
                 linetag = root.find(xpathstr, namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})
-                print(linetag)
                 if (re.search("label", str(ET.tostring(linetag)))):
                     # there is a label tag in the line
 

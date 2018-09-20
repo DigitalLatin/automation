@@ -528,8 +528,6 @@ def main():
     else:
         log_file = sys.argv[3].replace(sys.argv[3].split("/")[-1], "") + "prose-log-file.txt"
 
-    print(log_file)
-
     # this dict contains configuration info for logging errors.
     # I chose to use a dict in order to avoid having a separate config file.
     # This was done to keep this script as portable as possible.
