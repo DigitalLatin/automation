@@ -1,0 +1,3 @@
+1 (1) This is the first sentence of the paragraph. (2) Here’s the second sentence.
+
+2 (1) This is my second paragraph. (2) Here some <added> words. (3) and these are {deleted} words. 
