@@ -852,7 +852,6 @@ def main():
 
     print("Valid XML coming your way!")
     logger.info(" Valid XML generated, encoding is complete.")
-    time.sleep(2)
 
     # automatically open the finished XML file.
     os.system("open " + sys.argv[3])

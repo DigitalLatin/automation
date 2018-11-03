@@ -21,7 +21,7 @@ class Type(Enum):
 # builtin methods of this class defined with a lot of help from Chapter 9 of Fluent Python by Ramalho
 # a ServThing instance is analogous to either a <seg> or two <seg>s inside a <choice>
 class ServThing():
-    # properties: type, SA, servius
+    # properties: type, SA, servius, xml
     # methods: constructor, accessors and mutators
     # some ouptut methods, iter, maybe comparison methods, maybe a pretty-print method
     # look at Fluent Python and figure out how the heck to define this class
@@ -128,7 +128,38 @@ class ServThing():
         # clean up stray single newlines
         text = text.replace("\n", " ")
 
+        # handle _italics_
+        # handle closing paren ) that was accidentally italicized
+        text = text.replace("_) ", ") _")
+        # handle potential refs/targets
+        ref = ""
+        target = ""
+        ref_match = re.findall('(\([0-9]+\)|\([0-9]+\.[0-9]+\)|(\([A-Za-z]*\.*\s*[0-9]+\.*[0-9]*\)))\s(?=_([a-zA-Z,\'.][a-zA-Z()0-9:;.,\'\s.\-?]*)_)', text)
+        if ref_match:
+            for r in ref_match:
+                # now check for the different types of reference and do stuff for them
+                if (re.match('\([0-9]+\)', r[0])):
+                    # its a direct reference to a line in this book, so let's put it in target!
+                    target = ' target="l' + r[0].replace("(", "").replace(")", "") + '"'
+                elif (re.match('\([0-9]+\.[0-9]+\)', r[0])):
+                    # its a direct reference to a line in another book of Servius
+                    # it's just going in ref for now, but that could be changed!
+                    ref = ' ref="Serv. ' + r[0].replace("(", "").replace(")", "") + '"'
+                else:
+                    # it's a reference to some other text
+                    ref = ' ref="' + r[0].replace("(", "").replace(")", "") + '"'
 
+                #TODO: i think this line is the problem
+                quote_ref_re = '&lt;quote' + target + ref + '&gt;\g<1>&lt;/quote&gt;'
+                # print(quote_ref_re)
+                text = text.replace(r[0], "")
+
+                search_ital = re.compile(r'_([a-zA-Z,\'.][a-zA-Z()0-9:;.,\'\s.\-?]*)_')
+                text = search_ital.sub(quote_ref_re, text, 1)
+
+        # get italic text that doesnt have a reference
+        search_ital = re.compile(r'_([a-zA-Z,\'.][a-zA-Z()0-9:;.,\'\s.\-?]*)_')
+        text = search_ital.sub(r'&lt;quote&gt;\1&lt;/quote&gt;', text)
 
         # Handle crux.
         search_crux = re.compile(r'†([a-zA-Z]*)†')
@@ -142,7 +173,7 @@ class ServThing():
         search_deletion = re.compile(r'\[([a-zA-Z]*)\]')
         text = search_deletion.sub(r'&lt;surplus&gt;\1&lt;/surplus&gt;', text)
 
-        print("THIS IS WHAT XMLHELP GAVE US: " + text)
+        # print("THIS IS WHAT XMLHELP GAVE US: " + text)
         return text
 
 
@@ -160,7 +191,7 @@ class ServThing():
         else: # i.e. text is the same
             self.__xml = "<seg source=\"#Σ #DS\">" + self.__XMheLp(self.servius) + "</seg>"
 
-        print("MY XML IS: " + self.xml)
+        #print("MY XML IS: " + self.xml)
 
 def checkXML(tag):
     """checks a generated XML tag for correct syntax
@@ -215,6 +246,7 @@ def replace_with_xml(text, pattern, new_entries, index):
     inc = 0
 
     # find indices of lemma match
+    print("index for lem matches: " + str(index))
     beg, end = [(x.start(), x.end()) for x in re.finditer(pattern, text, flags=re.IGNORECASE)][index]
 
     # avoid replacing lemma instances that are in comments
@@ -225,6 +257,7 @@ def replace_with_xml(text, pattern, new_entries, index):
             inc += 1
 
         # find updated indices if necessary
+        print("updated index for lem matches: " + index)
         beg, end = [(x.start(), x.end()) for x in re.finditer(pattern, text, flags=re.IGNORECASE)][index + inc]
 
      # return the text with the <app> tag inserted in the proper place
@@ -287,7 +320,7 @@ def make_lem_tag(p, s, lem, wit, source, note):
         """A function for creating the xml:id value like lem-1.1-vicit."""
 
         # Handle lemmas with multiple words so that they are joined with "-"
-        split = idLem.split(' ')
+        split = idLem.replace('_', '').split(' ')
         joined = '-'.join(split)
 
         # clean out remaining markup to create a valid XML attribute
@@ -321,7 +354,7 @@ def make_lem_tag(p, s, lem, wit, source, note):
             return ['wit="None"', '']
         else:
             detailTags = ''
-            wit = wit.strip()
+            wit = wit.replace('_', '').strip()
             split = wit.split(' ')
 
             # iterate through witnesses and check if each has ac, c, spl, sbl
@@ -346,21 +379,26 @@ def make_lem_tag(p, s, lem, wit, source, note):
                 # in margin
                 elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(inmg\)', s):
                     detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + lem_target + "\">in margin</witDetail>"
-                # if the sigla doesn't have an annotation, it doesn't need a <witDetail>
+
+
+                # now start checking for bold or []
+                if re.match(u'\[[A-Z\u0391-\u03A9\u03B1-\u03C9_]+\]', s):
+                    # tradition specified
+                    s = s.replace('[','').replace(']','')
+                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + lem_target + "\" type=\"tradition\"/>"
+
+                # if the siglum doesn't have an annotation, it doesn't need a <witDetail>
                 else:
                     pass
 
-
-            joined = '#'.join(split)
-            # This produces A#B#C. We need some space:
-            search_wit = re.compile(r'(#[a-zA-Z(a-z)?])')
-            spaced_wit = search_wit.sub(r' \1', joined)
-            # Now we have A #B #C. Let's put # on that first one.
-            search_joined = re.compile(r'((?<!#)^[a-zA-Z(a-z)?\s])')
-            first_wit = search_joined.sub(r'#\1', spaced_wit)
+            # new way of doing this b/c the regexes would be convoluted for the Servius wits
+            # probably a little slower but n is small enough that it doesnt really matter that much
+            wit_str = ""
+            for sp in split:
+                wit_str = wit_str + "#" + sp.replace('[','').replace(']','') + " "
 
             # return a tuple containing: [the @wit of the <lem> tag as a str, str containing relevant <witDetail> tags]
-            return ['wit="' + str(first_wit) + '"', detailTags]
+            return ['wit="' + wit_str.strip() + '"', detailTags]
 
     # n.b. lemwit is a tuple not a string
     lemwit = lem_wit(wit)
@@ -493,7 +531,7 @@ def make_rdg_tag(p, s, reading, wit, source, note):
         """A function for creating the xml:id value like rdg-1.1-vicit."""
 
         # Handle readings with multiple words so that they are joined with "-"
-        split = idRdg.split(' ')
+        split = idRdg.replace('_', '').split(' ')
         joined = '-'.join(split).replace("\"", '')
         joined = joined.replace("gap-reason=”lost”", "lacuna")
         return 'xml:id="rdg-' + str(p) + '.' + str(s) + '-' + joined + '"'
@@ -525,45 +563,52 @@ def make_rdg_tag(p, s, reading, wit, source, note):
         else:
             # List the sigla, putting # before each one. Space will be added below.
             detailTags = ''
-            wit = wit.strip()
+            wit = wit.replace('_', '').strip()
             split = wit.split(' ')
+
+            # iterate through witnesses and check if each has ac, c, spl, sbl
+            # could add other markup here as needed
+            # the regex used to match sigla will match uppercase Latin letters A-Z and upper and lowercase Greek letters
             for s in split:
+                # handle original corrections
+                if re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(ac\)', s):
+                    # witDetail for correction-original
+                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\" type=\"correction-original\"/>"
+                # matches both c and pc to maintain backwards compatibility as much as possible
+                # only pc is correct. our guidelines and specs reflect this.
+                elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(c\)', s) or re.match(
+                        u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(pc\)', s):
+                    # witDetail for correction-altered
+                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\" type=\"correction-altered\"/>"
+                # supra lineam
+                elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(spl\)', s):
+                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\">supra lineam</witDetail>"
+                # sub lineam
+                elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(sbl\)', s):
+                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\">sub lineam</witDetail>"
+                # in margin
+                elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(inmg\)', s):
+                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\">in margin</witDetail>"
 
-                # iterate through witnesses and check if each has ac, c, spl, sbl
-                # could add other markup here as needed
-                # the regex used to match sigla will match uppercase Latin letters A-Z and upper and lowercase Greek letters
-                for s in split:
-                    # handle original corrections
-                    if re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(ac\)', s):
-                        # witDetail for correction-original
-                        detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\" type=\"correction-original\"/>"
-                    # matches both c and pc to maintain backwards compatibility as much as possible
-                    # only pc is correct. our guidelines and specs reflect this.
-                    elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(c\)', s) or re.match(
-                            u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(pc\)', s):
-                        # witDetail for correction-altered
-                        detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\" type=\"correction-altered\"/>"
-                    # supra lineam
-                    elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(spl\)', s):
-                        detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\">supra lineam</witDetail>"
-                    # sub lineam
-                    elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(sbl\)', s):
-                        detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\">sub lineam</witDetail>"
-                    # in margin
-                    elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(inmg\)', s):
-                        detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\">in margin</witDetail>"
-                    # if the sigla doesn't have an annotation, it doesn't need a <witDetail>
-                    else:
-                        pass
+                # now start checking for bold or []
+                print("made it to the [] check")
+                if re.match(u'\[[*A-Z\u0391-\u03A9\u03B1-\u03C9_]+?\]', s):
+                    print("MATCHED A SIGLUM IN []")
+                    # tradition specified
+                    s = s.replace('[', '').replace(']', '')
+                    detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\" type=\"tradition\"/>"
 
-            joined = '#'.join(split)
-            # This produces A#B#C. We need some space:
-            search_wit = re.compile(r'(#[a-zA-Z(a-z)?])')
-            spaced_wit = search_wit.sub(r' \1', joined)
-            # Now we have A #B #C. Let's put # on that first one.
-            search_joined = re.compile(r'((?<!#)^[a-zA-Z(a-z)?\s])')
-            first_wit = search_joined.sub(r'#\1', spaced_wit)
-            return ['wit="' + str(first_wit) + '"', detailTags]
+                # if the siglum doesn't have an annotation, it doesn't need a <witDetail>
+                else:
+                    pass
+
+            # new way of doing this b/c the regexes would be convoluted for the Servius wits
+            #  probably a little slower but n is small enough that it doesnt really matter that much
+            wit_str = ""
+            for sp in split:
+                wit_str = wit_str + "#" + sp.replace('[', '').replace(']', '') + " "
+            # return a tuple containing: [the @wit of the <lem> tag as a str, str containing relevant <witDetail> tags]
+            return ['wit="' + wit_str.strip() + '"', detailTags]
 
     # n.b. wit is a tuple not a string
     wit = rdg_wit(wit)
@@ -683,7 +728,7 @@ def cleanup_tag(entries):
     replace_deletion2 = search_deletion2.sub(r'\1-surplus', replace_deletion1)
 
     # turn omissions in to self-closing reading tags
-    search_omission = re.compile(r'>om\.</rdg>')
+    search_omission = re.compile(r'>_?om\._?</rdg>') # allow optional italicized _om._
     replace_omission = search_omission.sub(r'/>', replace_deletion2)
 
     return replace_omission
@@ -698,7 +743,7 @@ def main():
     parser = ET.XMLParser(remove_comments=False)
 
     # Create a variable for the path to the base text.
-    path = sys.argv[1]
+    path = "../kaster/bk9.txt"
 
     # Open the file with utf-8 encoding.
     source_file = codecs.open(path, 'r', 'utf-8')
@@ -711,7 +756,7 @@ def main():
         # i.e. a log file is specified
         log_file = sys.argv[4]
     else:
-        log_file = sys.argv[3].replace(sys.argv[3].split("/")[-1], "") + "servius-log-file.txt"
+        log_file = "servius-log.txt" #sys.argv[3].replace(sys.argv[3].split("/")[-1], "") + "servius-log-file.txt"
 
     # this dict contains configuration info for logging errors.
     # I chose to use a dict in order to avoid having a separate config file.
@@ -745,16 +790,8 @@ def main():
     logging.config.dictConfig(dictLogConfig)
     logger = logging.getLogger("Servius")
     logger.info(" Now encoding a some Servius!")
-
-
-    # ######### plain text encoding steps #########
-    # preprocessing
-
-
-    
-
-
-
+    print("Let's encode some Servius!")
+    # decided to deal with _italics_ in the ServThing.__XMheLp() function
     # chunking: <div> elements
     # current problem: splitting on "#. " while preserving the preceding | where applicable
     # possible solution: re.split to split on an "or" pattern
@@ -763,7 +800,7 @@ def main():
     # presumes numbers are ASCII digits only. Should be fine.
     div_chunks = re.split("(\d+\.\s)|(\|\s\d+\.\s)", text, flags=re.ASCII)
 
-    print(div_chunks)
+    #print(div_chunks)
 
     i = 0
     divs = []  # put the finished div chunks here
@@ -772,8 +809,8 @@ def main():
             i = i + 1
             continue
 
-        print("loop iteration: " + str(int(i / 3) + 1))
-        print(div_chunks[i], div_chunks[i + 1], div_chunks[i + 2])
+        #print("loop iteration: " + str(int(i / 3) + 1))
+        #print(div_chunks[i], div_chunks[i + 1], div_chunks[i + 2])
 
         # second element is None
         if div_chunks[i + 1] is None:
@@ -790,21 +827,21 @@ def main():
         caps_pattern = re.compile("\n\n(?=((\|\s)*(\s{2})*[A-Z]+(?![a-z]|\s*[0-9])))")
         anon_blocks = re.split(caps_pattern, text)
 
-        print(anon_blocks)
+        #print(anon_blocks)
 
         finished_blocks = []
         ### LOOP TO PROCESS THE ANON BLOCKS
         for a in anon_blocks:
-            print("ANONYMOUS BLOCK LOOP EXECUTION")
+            #print("ANONYMOUS BLOCK LOOP EXECUTION")
             # skip unneeded match captures
             if a is None or a == "" or not re.search("\w*\s\w", a):
-                print("skipped processing: " + str(a))
+                #print("skipped processing: " + str(a))
                 continue
 
-            print("did not skip processing: " + a)
+            # print("did not skip processing: " + a)
             things = a.split("\n\n")
-            print("****** these are the things******")
-            print(things)
+            #print("****** these are the things******")
+            #print(things)
             prevType = -1
             thisType = -1
             ab_things = []
@@ -817,48 +854,294 @@ def main():
                     prevType = thisType
                     thisType = thing_type(t)
 
-                print("Loop iteration: " + str(index))
+                # print("Loop iteration: " + str(index))
 
                 if prevType == thisType:
                     # we need to combine this thing with the last one
-                    print("FOUND THE SAME TYPE")
+                    #print("FOUND THE SAME TYPE")
                     ab_things[abIndex - 1].addtext(t)
                 elif prevType == Type.PARALLEL and (thisType == Type.SERVIUS or thisType == Type.SERVIUS_AUCTUS):
                     # TARAHUMARA PROBLEM
                     # when we find a parallel chunk immediately followed by an SA chunk (or S chunk?),
                     # append the text of the second chunk to the SA (or S, as appropriate) text of the first chunk
                     # then remove the second chunk from the list.
-                    print("FOUND THE LINE 547 THING")
+                    #print("FOUND THE LINE 547 THING")
                     ab_things[abIndex - 1].addtext(t)
                 else:
                     # otherwise, make a new thing
                     ab_things.append(ServThing(thisType, t))
                     abIndex = abIndex + 1
+                    #print("made an anonymous block, i.e. a discrete comment on one section of Vergil!")
 
-            print("###### here are the generated <seg> tags #####")
-            print(ab_things)
+            #print("###### here are the generated <seg> tags #####")
+            #print(ab_things)
             # combine the things and wrap them in an <ab>
             a = "<ab>"
             for ab in ab_things:
                 a = a + ab.xml
 
             a = a + "</ab>"
-            print(a)
+            #print(a)
             finished_blocks.append(a)
 
-        text = '<div type="textpart" n="' + str(n) + '">' + "\n".join(finished_blocks) + "</div>"
+        text = '<div type="textpart" subtype= "verse" n="' + str(n) + '" xml:id="l' + str(n) + '">' + "\n".join(finished_blocks) + "</div>"
+        print("finished <div> number", n)
+
 
         divs.append(text)
         i = i + 3
 
-    print(divs)
+    # Write the TEI header.
+    print('Now we\'ll add the TEI header and footer.')
+    logger.info(' Adding the TEI header and footer.')
+    time.sleep(2)
 
-    # let's output some shit to an xml file
-    new_path = "./test-output.xml"
+    header = '''<?xml-model
+            href="https://digitallatin.github.io/guidelines/critical-editions.rng" type="application/xml" 
+              schematypens="http://relaxng.org/ns/structure/1.0"?>
+            <?xml-model
+            href="https://digitallatin.github.io/guidelines/critical-editions.rng" type="application/xml"
+            	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+            <TEI xmlns="http://www.tei-c.org/ns/1.0">
+               <teiHeader>
+                  <fileDesc>
+                     <titleStmt>
+                        <title>Title</title>
+                     </titleStmt>
+                     <publicationStmt>
+                        <p>Publication Information</p>
+                     </publicationStmt>
+                     <sourceDesc>
+                        <p>Information about the source</p>
+                     </sourceDesc>
+                  </fileDesc>
+               </teiHeader>
+               <text>
+                  <body>
+                  <div type="edition" xml:id="edition-text">
+                        <div type="textpart" n="1" xml:id="part1">'''
+
+    # Write the footer
+    footer = '''</div></div></body>
+                  <back>
+                     <!--
+            The content of the back matter will be determined in consultation between
+                    the editor and the staff of the DLL. Because LDLT editions are encoded, the
+                    matter traditionally found in the back of a printed critical edition may be
+                    generated by applications instead of having to be entered manually.
+                    Nevertheless, there is space here for notes, indices, and other kinds of
+                    information.
+            -->
+                  </back>
+               </text>
+            </TEI>'''
+
+    # Combine the header, text, and footer
+    TEI = header + "\n".join(divs) + footer
+
+
+    # let's output some stuff to an xml file
+    new_path = "../kaster/test-output.xml"
     out_file = codecs.open(new_path, 'w', 'utf-8')
-    big_str = "<root>" + "\n".join(divs).replace("&gt;", ">").replace("&lt;", "<").strip() + "</root>"
-    out_file.write(big_str)
-    os.system("open ./test-output.xml")
+    out_file.write(TEI)
+    print('Writing the XML base text to the new file ...')
+    logger.info(" The encoded base text has been written to: " + new_path)
+
+    logger.info(" Now encoding the critical apparatus. \nEncoding errors will be shown below. \n\n")
+    print('Now that the base text is encoded, we\'ll start on the app. crit.')
+    time.sleep(2)
+
+    # set up XML parsing/lxml tree
+    # tree is an instance of ElementTree
+    # root is an instance of Element
+    tree = ET.parse(new_path, parser=parser)
+    root = tree.getroot()
+    # the following statement is necessary to avoid having 'ns0' as a prefix for every tag in the doc.
+    # the TEI namespace (default ns for this doc) is found at: http://www.tei-c.org/ns/1.0
+    ET.register_namespace('tei', 'http://www.tei-c.org/ns/1.0')
+
+    with open("../kaster/bk9prototype.csv", encoding='utf-8') as appFile:
+        readApp = csv.reader(appFile, delimiter=',')
+        for row in readApp:
+            if row[0] == "Book":
+                # skip the first row, which contains column labels
+                continue
+
+                # get paragraph and section number and row length
+            bNum = row[0]  # book number
+            vNum = row[1]  # verse (in Vergil) number
+            l = len(row)
+
+            # TODO: need a feature for dealing with ellipses ... in lemma
+            # basic structure
+            # detect ellipsis
+            # expand ellipsis using a procedure similar to the seg-finding one
+                # we could try to combine this with seg-finding to save some searching
+                # TODO: would this be a big-O reduction or just a runtime optimization?
+            # use a non-greedy regex to match the smallest possible (hopefully correct) section of text
+            # make the <app> tag w the full lemma in it.
+
+            # make the lemma tag
+            lemReturn = make_lem_tag(bNum, vNum, row[2], row[3], row[4], row[5])
+            searchLem = lemReturn[0]
+            lemtag = lemReturn[1].strip()
+
+            print("\n\nLEMMA: " + searchLem)
+
+            # encode general annotations on this entry
+            if row[6] == '':
+                commenttag = ''
+            else:
+                commenttag = "<note>" + row[6] + "</note>"
+
+            # counter for loop that makes <rdg> tags. Starts at 7 because readings start in column 7 of the CSV.
+            i = 7
+            rdgTags = ''
+
+            # this loop can handle any number of readings
+            while (i < (l - 1)):
+                rdgTags += make_rdg_tag(bNum, vNum, row[i], row[i + 1], row[i + 2], row[i + 3])
+                # each reading has four columns of data
+                i += 4
+
+            # combine everything into one <app> tag
+            entries = '\n<!-- App entry for ' + str(row[0]) + '.' + str(row[1]) + ': ' + searchLem + ' -->' + \
+                      '<app>' + lemtag + rdgTags + commenttag + '</app>\n'
+
+            # clean up the <app> tag
+            new_entries = cleanup_tag(entries)
+
+            # we're going to check that the newly created tag is valid XML
+            # if it is valid, we will insert it into the text
+            # if not, we will not insert it and will print an error message
+            # the goal of this measure is to prevent XMLParseErrors and XMLSyntaxErrors
+            # we want to guarantee that the output of this script is always a valid XML file.
+            # this will minimize runtime exceptions and errors.
+            if not checkXML(new_entries):
+                #  i.e. if invalid XML was generated
+                print("**** invalid XML was generated for section " + bNum + "." + vNum + ", lemma: " + searchLem)
+                print(new_entries)
+                print("it was left unencoded for now.")
+
+                logger.error(
+                    " invalid XML was generated for section " + bNum + "." + vNum + ", lemma: " + searchLem + "\n")
+
+                continue
+
+            print("Now encoding note for section " + bNum + "." + vNum)
+
+            print("Using XPath to find the section!....")
+            # use Xpath to find the appropriate paragraph and section
+            xpathstr = ".//tei:div[@n='" + str(vNum) + "'][@subtype=\"verse\"]"
+            section = root.find(xpathstr,
+                                namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})  # check this
+
+
+            print("Replacing lemma instances with the proper <app> tag...")
+            if re.search("\([0-9]+\)", searchLem):
+                # this lemma does not apply to the first instance of the lemma text. of the form "lemma(#)"
+
+                # break up the lemma(#) thing
+                lemNum = searchLem.split('(')[1].replace(')', '')
+                lemNum = int(lemNum)  # to avoid possible type mismatch problems
+                newLem = searchLem.split('(')[0]
+
+                print("HERE IS MY NEW LEMMA: " + newLem)
+                print("APP TAG BEFORE UPDATING XMLID OF LEMMA: " + new_entries)
+                # update the tag with the new lemma text (i.e. remove (#) from comments and IDs)
+                new_entries = new_entries.replace(searchLem, newLem)
+                # fix a trailing digit for some reason
+                new_entries = new_entries.replace(searchLem.replace('(', '').replace(')',''), newLem)
+
+                searchLem = newLem  # for simplicity
+
+            else:
+                # if no occurrence number is specified, assume it applies to the first instance
+                lemNum = 1
+
+            # exclude lemma instances within other words. uses negative lookahead and lookbehind assertion.
+            # this will throw an exception (caught below) if the lemma is not found
+            replacePattern = "(?<![a-zA-Z])" + searchLem + "(?![a-zA-Z])"
+
+            # store count of lem instances found
+            foundCount = 0
+            # store count of lemma instances before this section
+            prevFound = 0
+            # index of seg tag in div
+            index = -1
+
+            # start iterating over <seg>s to find lemma instances
+            segtags = section.findall(".//tei:seg", namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})
+            while foundCount < lemNum and index < len(segtags) - 1:
+                prevFound = foundCount
+                index = index + 1
+                matches = re.findall(replacePattern, "".join(segtags[index].itertext()))
+                print(matches)
+                for f in matches:
+                    foundCount = foundCount + 1
+
+            text = "".join(segtags[index].itertext())
+            print("HERE IS THE TEXT WE ARE SEARCHING: " + text)
+            # insert the <app> tag into the text using a custom function defined above
+            try:
+                newtext = replace_with_xml(text, replacePattern, new_entries, (lemNum - prevFound - 1))
+
+            except:
+                # usually due to text/csv matching issue, meaning the script was unable to find the lemma in the base text
+                print("**** problem with finding lemma in section " + bNum + "." + vNum)
+                print("this is probably due to a text/csv mismatch")
+                logger.error(" problem finding lemma for section " + bNum + "." + vNum + ", lemma: " + searchLem + "\n")
+                continue
+            # we're going to check that the newly created lemma tag is valid XML
+            # if it is valid, we will insert it into the text
+            # if not, we will not insert it and will print an error message
+            # the goal of this measure is to prevent XMLParseErrors and XMLSyntaxErrors
+            # we want to guarantee that the output of this script is always a valid XML file.
+            # this will minimize runtime exceptions and errors.
+
+            try:
+                # this will throw an exception if new_entries (i.e. the new <app> tag) contains any invalid XML
+                ET.fromstring(new_entries)
+
+                # if newtext contains only valid XML, we replace the section text
+                segtags[index].text = newtext
+
+                print("HERE IS NEW TEXT: " + segtags[index].text)
+
+            except:
+                # catch the exception from possible invalid XML
+                print("**** invalid XML was generated for section " + bNum + "." + vNum + ", lemma: " + searchLem)
+                print("it was left unencoded for now.")
+
+                logger.error(
+                    " invalid XML was generated for section " + bNum + "." + vNum + ", lemma: " + searchLem + "\n")
+
+            print("HERE IS THE WHOLE SECTION: " + "".join(section.itertext()))
+
+    # we're done with the csv file now
+    appFile.close()
+    logger.info("Finished encoding app. crit.")
+    # this is a workaround to deal with automatic escaping of < and >, and to clean up smart quotes
+    bigstr = ET.tostring(root, encoding="unicode").replace("&gt;", ">").replace("&lt;", "<").replace("”","\"")
+
+    print("Writing to a .xml file....")
+    logger.info(" Finishing up the XML.")
+    time.sleep(2)
+
+    open("../kaster/str-output.txt", 'w', encoding='utf-8').write(bigstr)
+
+    # parse the newly cleaned up XML
+    newRoot = ET.fromstring(bigstr)
+
+    tree._setroot(newRoot)
+    # write the new XML to the appropriate file
+    tree.write("../kaster/test-output.xml", encoding='utf-8', xml_declaration=True)
+
+    print("Valid XML coming your way!")
+    logger.info(" Valid XML generated, encoding is complete.")
+
+    # automatically open the finished XML file.
+    os.system("open ../kaster/test-output.xml")
 
 if __name__ == '__main__':
     main()
