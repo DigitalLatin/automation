@@ -1,6 +1,10 @@
 # automation
 This is a repository for materials related to scripts we're developing to facilitate the encoding of LDLT editions.
 
+# Developers
+- Virginia K. Felkner (University of Oklahoma)
+- Samuel J. Huskey (University of Oklahoma)
+
 # Contents and Structure
 This repository contains five directories:
 
