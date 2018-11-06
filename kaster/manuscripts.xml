@@ -1,0 +1,238 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<?xml-model href="https://digitallatin.github.io/guidelines/critical-editions.rng"
+            type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://digitallatin.github.io/guidelines/critical-editions.rng"
+            type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <listWit>
+            <head>Sigla</head>
+            <!-- DS -->
+            <witness xml:id="DS"><abbr type="siglum">DS</abbr> Servius Auctus <listWit>
+                  <!-- Individual DS witnesses -->
+                  <witness xml:id="F"><abbr type="siglum">F</abbr>
+                     <name>Bern. Burgerbibl. 172 (A. 1-5) + Paris. lat. 7929 (A. 6-12)</name>,
+                        <date>s. IX</date></witness>
+                  <witness xml:id="G"><abbr type="siglum">G</abbr>
+                     <name>Bern. Burgerbibl. 167</name>, <date>s. IX<hi rend="superscript"
+                        >2</hi></date></witness>
+                  <witness xml:id="T"><abbr type="siglum">T</abbr><name>Bern. Burgerbibl.
+                     165</name>, <date>s. IX<hi rend="superscript">1</hi></date></witness>
+                  <witness xml:id="v"><abbr type="siglum">v</abbr>
+                     <name>Vat. BAV lat. 1570</name>, <date>s. X<hi rend="superscript"
+                     >1</hi></date></witness>
+                  <witness xml:id="M3"><abbr type="siglum">M<hi rend="superscript">3</hi></abbr>
+                     corrector cod. M</witness>
+               </listWit><!-- End of individual DS witnesses -->
+            </witness>
+            <!-- End of DS -->
+            <!-- ΔΓ -->
+            <witness xml:id="ΔΓ"><abbr>Σ</abbr> Servius<listWit>
+                  <witness xml:id="Δ">
+                     <!-- Individual Δ witnesses -->
+                     <listWit>
+                        <witness xml:id="J"><abbr type="siglum">J</abbr>
+                           <name>Metens. Bibl. mun. 292</name>, <date>s. IX</date></witness>
+                        <witness xml:id="L"><abbr type="siglum">L</abbr>
+                           <name>Leid. Bibl. der Rijksuniv. B.P.L. 52</name>, <date>s. VIII /
+                              IX</date></witness>
+                     </listWit>
+                  </witness>
+                  <!-- End of Δ -->
+                  <!-- Γ -->
+                  <witness xml:id="Γ">
+                     <!-- Individual Γ witnesses -->
+                     <listWit>
+                        <witness xml:id="θ">
+                           <!-- Individual θ witnesses -->
+                           <listWit>
+                              <witness xml:id="A"><abbr type="siglum">A</abbr>
+                                 <name>Caroliruh. Bad. Landesbibl. Aug. CXVI</name>, <date>s. IX<hi
+                                       rend="superscript">2</hi> (Reichenau)</date>; <listWit>
+                                    <!-- Witnesses derived from A -->
+                                    <head>de codice A derivati:</head>
+                                    <witness xml:id="S"><abbr type="siglum">S</abbr>
+                                       <name>Sangall. Stiftsbibl. 861 + 862</name>, <date>s. IX /
+                                          X</date></witness>
+                                    <witness xml:id="Guelf."><abbr type="siglum">Guelf.</abbr>
+                                       <name>Guelf. HAB 2546 (44.23 Aug. fol.)</name>, <date>s.
+                                          XV</date></witness>
+                                 </listWit>
+                              </witness>
+                              <witness xml:id="O"><abbr type="siglum">O</abbr>
+                                 <name>Oxon. Bodl. Laud lat. 117</name>, <date>s. XI<hi
+                                       rend="superscript">2</hi></date></witness>
+                           </listWit>
+                        </witness>
+                        <!-- End of θ -->
+                        <witness xml:id="τ">
+                           <listWit>
+                              <witness xml:id="Pa"><abbr type="siglum">Pa</abbr>
+                                 <name>Paris. BnF lat. 7959</name>, <date>s. IX
+                                 (Tours)</date></witness>
+                              <witness xml:id="Pc"><abbr type="siglum">Pc</abbr>
+                                 <name>Paris. BnF lat. 7961</name>, <date>s. X / XI</date></witness>
+                              <witness xml:id="Q"><abbr type="sigulum">Q</abbr>
+                                 <name>Flor. BML Plut. 45.14</name>, <date>s. IX<hi
+                                       rend="superscript">1</hi></date></witness>
+                              <witness xml:id="Lb"><abbr type="siglum">Lb</abbr>
+                                 <name>corrector cod. L (sup.)</name></witness>
+                           </listWit>
+                        </witness>
+                        <witness xml:id="γ">
+                           <listWit>
+                              <witness xml:id="E"><abbr type="siglum">E</abbr>
+                                 <name>Escorial. Bibl. S. Lorenzo T.II.17</name>, <date>s. IX<hi
+                                       rend="superscript">2</hi> (Ital.
+                                 septentrion.)</date></witness>
+                              <witness xml:id="Pb"><abbr type="siglum">Pb</abbr>
+                                 <name>Paris. BnF lat. 16236</name>, <date>s. X /
+                                 XI</date></witness>
+                              <witness xml:id="Y"><abbr type="siglum">Y</abbr>
+                                 <name>Trident. Bib. com. 3388 (olim Vind. 72)</name>, <date>s.
+                                       IX<hi rend="superscript">2</hi></date></witness>
+                              <witness xml:id="M"><abbr type="siglum">M</abbr>
+                                 <name>Monac. Bay. Staatsbibl. Clm 6394</name>, <date>s.
+                                 XI</date></witness>
+                           </listWit>
+                        </witness>
+                        <witness xml:id="σ">
+                           <listWit>
+                              <witness xml:id="W"><abbr type="siglum">W</abbr>
+                                 <name>Guelf. HAB 2091</name>, <date>s. XIII<hi rend="superscript"
+                                       >ex.</hi></date></witness>
+                              <witness xml:id="N"><abbr type="siglum">N</abbr>
+                                 <name>Neap. Bibl. naz. lat. 5 (olim Vind. 27)</name>, <date>s. X<hi
+                                       rend="superscript">1</hi></date></witness>
+                              <witness xml:id="U"><abbr type="siglum">U</abbr>
+                                 <name>Berolin. Staatsbibl. lat. quart. 219</name>, <date>s.
+                                    XII</date></witness>
+                           </listWit>
+                        </witness>
+                        <witness xml:id="o"><abbr type="siglum">º</abbr> classis codicum de <ref
+                              target="#Γ">Γ</ref> defluentium quibus lectiones faciliores in
+                           contextum contaminatione inferre valde placuit (= <ref target="#Pa"
+                              >Pa</ref><ref target="#Pc">Pc</ref><ref target="#γ">γ</ref><ref
+                              target="#σ">σ</ref> in <hi rend="italic">A</hi>. 9.1-10.190,
+                           10.397-12.162; <ref target="#Pa">Pa</ref><ref target="#Pc">Pc</ref><ref
+                              target="#γ">γ</ref><ref target="#U">U</ref> in <hi rend="italic"
+                              >A</hi>. 12.162-320; <ref target="#Pa">Pa</ref><ref target="#Pc"
+                              >Pc</ref><ref target="#γ">γ</ref> in <hi rend="italic">A</hi>.
+                           12.320-522); cf. <!-- TODO: Reference to note in preface. -->praef. n.
+                           30.</witness>
+                     </listWit><!-- End of Γ witnesses -->
+                  </witness>
+                  <!-- End of Γ -->
+               </listWit><!-- End of ΔΓ witnesses -->
+            </witness>
+            <!-- End of ΔΓ -->
+            <listWit>
+               <head>sunt alii qui lectiones vel bonas vel pensitando dignas hic illic
+                  praestent</head>
+               <witness xml:id="Ambros">
+                  <abbr type="siglum">Ambros.</abbr>
+                  <name>Mediol. Ambros. S. 83. part. Sup.</name>, <date>s. XVI2 </date> (cf. <ref
+                     target="#Savage1932">Savage 1932</ref>, 115, <ref target="#Murgia1975">Murgia
+                     1975</ref>, 15-19)</witness>
+               <witness xml:id="Bas">
+                  <abbr type="siglum">Bas.</abbr>
+                  <name>Basil. Öffent. bibl. d. Univ. F. V. 32</name>, <date>an. 1368</date> (cf.
+                     <ref target="#Murgia1975">Murgia 1975</ref>, 66)</witness>
+               <witness xml:id="Bod">
+                  <abbr type="siglum">Bod.</abbr>
+                  <name>Oxon. Bodl. Auct. F. 1. 16</name>, <date>s. XI</date> (cf. <ref
+                     target="#Savage1934">Savage 1934</ref>, 185-7, <ref target="#Murgia1975">Murgia
+                     1975</ref>, 148-51, <ref target="#MunkOlsen1985">Munk Olsen 1985</ref> 748-9,
+                     <ref target="#Ramires1996">Ramires 1996</ref>, xxxviii, xliii)</witness>
+               <witness xml:id="Bu">
+                  <abbr type="siglum">Bu.</abbr>
+                  <name>Budapest. Orzágos Széchényi Könyvtar 7 (olim 199)</name>, <date>s. X</date>
+                  (cf. <ref target="#Savage1934">Savage 1934</ref>, 204, <ref target="#Murgia1975"
+                     >Murgia 1975</ref>, 122-4, 132-4, <ref target="#MunkOlsen1985">Munk Olsen
+                     1985</ref> 711, <ref target="#Ramires1996">Ramires 1996</ref>, xlii) </witness>
+               <witness xml:id="Da">
+                  <abbr type="siglum">Da.</abbr>
+                  <name>Davent. Athen.-Bibl. II.F.5</name>, <date>s. XI (cf. Thilo 1:xc, <ref
+                        target="#Savage1934">Savage 1934</ref>, 204, <ref target="#Murgia1975"
+                        >Murgia 1975</ref>, 133 n. 138, <ref target="#MunkOlsen1985">Munk Olsen
+                        1985</ref> 801, <ref target="#Ramires1996">Ramires 1996</ref>,
+                     xxxviii)</date>
+               </witness>
+               <witness xml:id="Darmst2">
+                  <abbr type="siglum">Darmst.2</abbr>
+                  <name>corrector (s. X1) cod. Darmstadt. Hess. Land. und Hochschulbibl.
+                  3245</name>, <date>s. IX2</date> (cf. <ref target="#Murgia1975">Murgia 1975</ref>,
+                  134-5, <ref target="#MunkOlsen1985">Munk Olsen 1985</ref> 801, <ref
+                     target="#Ramires1996">Ramires 1996</ref>, xxxvi)</witness>
+               <witness xml:id="Lips">
+                  <abbr type="siglum">Lips.</abbr>
+                  <name>Lips. Stadtbibl. Rep. I n. 36b</name>, <date>s. IXex. or IX / X</date> (cf.
+                     <ref target="#Savage1934">Savage 1934</ref>, 180-1, <ref target="#Murgia1975"
+                     >Murgia 1975</ref>, 37, <ref target="#MunkOlsen1985">Munk Olsen 1985</ref> 809,
+                     <ref target="#Ramires1996">Ramires 1996</ref>, xxxix)</witness>
+               <witness xml:id="Lips2">
+                  <abbr type="siglum">Lips.2</abbr>
+                  <name>corrector eiusdem</name>, <date/>
+               </witness>
+               <witness xml:id="Ma">
+                  <abbr type="siglum">Ma.</abbr>
+                  <name>Matrit. Bibl. Nac. 3520</name>, <date>s. XV</date> (cf. <ref
+                     target="#Murgia1975">Murgia 1975</ref>, 127)</witness>
+               <witness xml:id="Mon">
+                  <abbr type="siglum">Mon.</abbr>
+                  <name>Monac. Bay. Staatsbibl. Clm 28349</name>, <date>an. 1467 </date> (cf. <ref
+                     target="#Murgia1975">Murgia 1975</ref>, 53)</witness>
+               <witness xml:id="Paris2059">
+                  <abbr type="siglum">Paris. 2059</abbr>
+                  <name>Paris. BnF n. a. lat. 2059</name>, <date>s. XI</date> (cf. <ref
+                     target="#Murgia1975">Murgia 1975</ref>, 141-7, <ref target="#MunkOlsen1985"
+                     >Munk Olsen 1985</ref> 770)</witness>
+               <witness xml:id="Paris7930">
+                  <abbr type="siglum">Paris. 7930</abbr>
+                  <name>Paris. BnF lat. 7930</name>, <date>s. Xex.</date> (cf. <ref target="#Thil"
+                     >Thilo</ref> 1:lxv-lxvi, <ref target="#Savage1925b">Savage 1925b</ref>, <ref
+                     target="#Funaioli1930">Funaioli 1930</ref>, 31, <ref target="#Savage1932"
+                     >Savage 1932</ref>, 111-15, <ref target="#Murgia1975">Murgia 1975</ref>, 20-2,
+                  141-7, 156-8, <ref target="#MunkOlsen1985">Munk Olsen 1985</ref> 756-7, <ref
+                     target="#Ramires1996">Ramires 1996</ref>, xxix)</witness>
+               <witness xml:id="Ot">
+                  <abbr type="siglum">Ot.</abbr>
+                  <name>corrector cod. Vat. BAV Ottob. Lat. 2838</name>, <date>s. XV</date> (cf.
+                     <ref target="#Murgia1975">Murgia 1975</ref>, 137-40, 152-6, <ref
+                     target="#Pellegrin1975">Pellegrin 1975</ref>, 797-8)</witness>
+               <witness xml:id="Ottob">
+                  <abbr type="siglum">Ottob.</abbr>
+                  <name>Vat. BAV Ottob. Lat. 1290</name>, <date>s. XV</date> (cf. <ref
+                     target="#Murgia1975">Murgia 1975</ref>, 61, <ref target="#Pellegrin1975"
+                     >Pellegrin 1975</ref>, 511)</witness>
+               <witness xml:id="V">
+                  <abbr type="siglum">V</abbr>
+                  <name>Vat. Lat. 3317</name>, <date>s. X2</date> (cf. <ref target="#Murgia1975"
+                     >Murgia 1975</ref>, 139-41, <ref target="#MunkOlsen1985">Munk Olsen 1985</ref>
+                  825, <ref target="#Gilles-Raynal2010">Gilles-Raynal and Pellegrin 2010</ref>,
+                  250-1)</witness>
+               <witness xml:id="X">
+                  <abbr type="siglum">X</abbr>
+                  <name>Paris. BnF lat. 7964</name>, <date>s. XIV ex.</date> (cf. <ref
+                     target="#Savage1934">Savage 1934</ref>, 203, <ref target="#Murgia1975">Murgia
+                     1975</ref>, 131-3)</witness>
+            </listWit>
+         </listWit>
+         <!-- End of manuscripts -->
+      </body>
+   </text>
+</TEI>
