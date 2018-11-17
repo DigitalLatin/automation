@@ -857,8 +857,9 @@ def main():
                 print(new_entries)
                 print("it was left unencoded for now.")
 
-                logger.error(
-                    " invalid XML was generated for poem " + pNum + ", line " + lNum + ", lemma: " + searchLem + "\n\n")
+
+                logmsg = " invalid XML was generated for poem " + pNum + ", line " + lNum + ", lemma: " + searchLem + "\n\n"
+                logger.error(logmsg.encode(encoding='utf-8'))
 
                 continue
 
@@ -935,8 +936,8 @@ def main():
                             print("**** lemma not found in poem " + pNum + ", line " + lNum)
                             print("this is probably due to a text/csv mismatch")
 
-                            logger.error(
-                                "problem finding lemma for poem " + pNum + ", line " + lNum + ", lemma: " + searchLem + "\n\n")
+                            logmsg = "problem finding lemma for poem " + pNum + ", line " + lNum + ", lemma: " + searchLem + "\n\n"
+                            logger.error(logmsg.encode(encoding='utf-8'))
 
                     else:
                         # speaker is not uncertain on this line
@@ -986,8 +987,8 @@ def main():
                             print("**** lemma not found in poem " + pNum + ", line " + lNum)
                             print("this is probably due to a text/csv mismatch")
 
-                            logger.error(
-                                "problem finding lemma for poem " + pNum + ", line " + lNum + ", lemma: " + searchLem + "\n\n")
+                            logmsg = "problem finding lemma for poem " + pNum + ", line " + lNum + ", lemma: " + searchLem + "\n\n"
+                            logger.error(logmsg.encode(encoding='utf-8'))
 
             else:
                 # no <label> tag on this line
@@ -1031,8 +1032,8 @@ def main():
                     print("**** problem with encoding poem " + pNum + ", line " + lNum)
                     print("this is probably due to a text/csv mismatch")
 
-                    logger.error(
-                        "problem finding lemma for poem " + pNum + ", line " + lNum + ", lemma: " + searchLem + "\n\n")
+                    logmsg = "problem finding lemma for poem " + pNum + ", line " + lNum + ", lemma: " + searchLem + "\n\n"
+                    logger.error(logmsg.encode(encoding='utf-8'))
 
     # we're done with the csv file now
     appFile.close()

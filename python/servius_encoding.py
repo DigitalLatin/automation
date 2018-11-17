@@ -108,14 +108,6 @@ class ServThing():
     # helper method for XMLify()
     def __XMheLp(self, text):
 
-        # editorial additions <>
-        # process each angle bracket individually to allow for
-        search_addition = re.compile(r'<')
-        text = search_addition.sub(r'&lt;supplied reason="lost"&gt;', text)
-        search_addition = re.compile(r'>')
-        text = search_addition.sub(r'&lt;/supplied&gt;', text)
-        # this will make allow us to retrieve section text without duplicating it.
-        # the XML entities are replaced with <> at the very end.
 
         # assume there is only one ALL CAPS LEMMA in the text
         # if there's more than one, we have bigger problems
@@ -124,6 +116,15 @@ class ServThing():
             # TODO: for now, we are using Kaster's <quote type=lemma> syntax. Check this.
             quote_tag = '&lt;quote type="lemma"&gt;' + match[0] + '&lt;/quote&gt;'
             text = text.replace(match[0], quote_tag).strip()
+
+        # editorial additions <>
+        # process each angle bracket individually to allow for
+        search_addition = re.compile(r'<')
+        text = search_addition.sub(r'&lt;supplied reason="lost"&gt;', text)
+        search_addition = re.compile(r'>')
+        text = search_addition.sub(r'&lt;/supplied&gt;', text)
+        # this will make allow us to retrieve section text without duplicating it.
+        # the XML entities are replaced with <> at the very end.
 
         # clean up stray single newlines
         text = text.replace("\n", " ")
@@ -137,6 +138,7 @@ class ServThing():
         ref_match = re.findall('(\([0-9]+\)|\([0-9]+\.[0-9]+\)|(\([A-Za-z]*\.*\s*[0-9]+\.*[0-9]*\)))\s(?=_([a-zA-Z,\'.][a-zA-Z()0-9:;.,\'\s.\-?]*)_)', text)
         if ref_match:
             for r in ref_match:
+                # TODO: go from <quote ref=> to <quote><ref target =>
                 # now check for the different types of reference and do stuff for them
                 if (re.match('\([0-9]+\)', r[0])):
                     # its a direct reference to a line in this book, so let's put it in target!
@@ -149,7 +151,6 @@ class ServThing():
                     # it's a reference to some other text
                     ref = ' ref="' + r[0].replace("(", "").replace(")", "") + '"'
 
-                #TODO: i think this line is the problem
                 quote_ref_re = '&lt;quote' + target + ref + '&gt;\g<1>&lt;/quote&gt;'
                 # print(quote_ref_re)
                 text = text.replace(r[0], "")
@@ -310,6 +311,18 @@ def make_lem_tag(p, s, lem, wit, source, note):
         searchLem = '<supplied reason="lost">' + searchLem + '</supplied>'
         lem = searchLem
 
+    # now deal with lemmas of the form 'w<ord>'
+    elif (re.match('\w*<\w+>', lem)):
+        newLem = lem.split('<')[0] + '<supplied reason="lost">' + lem.split('<')[1].split('>')[0] + '</supplied>' + \
+                    lem.split('<')[1].split('>')[1]
+
+        # a copy of the lemma with <> removed to use in xml:id attributes
+        idLem = lem.replace('<', '').replace('>', '') + " addition"
+
+        # in this case, the searchLem (used to match the base text) is the same as the marked up lemma
+        searchLem = newLem
+        lem = newLem
+
     # initialize variables for all other lemmas (i.e. those that don't contain editorial additions)
     else:
         searchLem = lem
@@ -413,7 +426,7 @@ def make_lem_tag(p, s, lem, wit, source, note):
             return 'source="None"'
         else:
             # List the sigla, putting # before each one. Space will be added below.
-            source = source.strip()
+            source = source.replace('_', '').strip()
             split = source.split(' ')
             joined = '#'.join(split)
             # This produces A#B#C. We need some space:
@@ -513,7 +526,7 @@ def make_rdg_tag(p, s, reading, wit, source, note):
             return 'source="None"'
         else:
             # List the sigla, putting # before each one. Space will be added below.
-            source = source.strip()
+            source = source.replace('_', '').strip()
             split = source.split(' ')
             joined = '#'.join(split)
             # This produces A#B#C. We need some space:
@@ -767,7 +780,8 @@ def main():
             "fileHandler": {
                 "class": "logging.FileHandler",
                 "formatter": "myFormatter",
-                "filename": log_file
+                "filename": log_file,
+                "encoding": 'utf-8'
                 # this is done to keep output sensible to the user
                 # to disable this and keep all the output, comment this line:
                 , "mode": "w"
@@ -1023,8 +1037,8 @@ def main():
                 print(new_entries)
                 print("it was left unencoded for now.")
 
-                logger.error(
-                    " invalid XML was generated for section " + bNum + "." + vNum + ", lemma: " + searchLem + "\n")
+                logmsg = " invalid XML was generated for section " + bNum + "." + vNum + ", lemma: " + searchLem + "\n"
+                logger.error(logmsg.encode(encoding='utf-8'))
 
                 continue
 
@@ -1090,7 +1104,8 @@ def main():
                 # usually due to text/csv matching issue, meaning the script was unable to find the lemma in the base text
                 print("**** problem with finding lemma in section " + bNum + "." + vNum)
                 print("this is probably due to a text/csv mismatch")
-                logger.error(" problem finding lemma for section " + bNum + "." + vNum + ", lemma: " + searchLem + "\n")
+                logmsg = " problem finding lemma for section " + bNum + "." + vNum + ", lemma: " + searchLem + "\n"
+                logger.error(logmsg.encode(encoding='utf-8'))
                 continue
             # we're going to check that the newly created lemma tag is valid XML
             # if it is valid, we will insert it into the text

@@ -968,8 +968,8 @@ def main():
                     print(
                         "**** invalid XML was generated for section " + sNum + ", paragraph " + pNum + "." + lNum + ", lemma: " + searchLem)
                     print("it was left unencoded for now.")
-                    logger.error(
-                        "invalid XML was generated for section " + sNum + ", paragraph " + pNum + "." + lNum + ", lemma: " + searchLem + "\n\n")
+                    logmsg = "invalid XML was generated for section " + sNum + ", paragraph " + pNum + "." + lNum + ", lemma: " + searchLem + "\n\n"
+                    logger.error(logmsg.encode(encoding='utf-8'))
                     continue
 
                 print("Now encoding note for section " + sNum + ", paragraph " + pNum + "." + lNum)
@@ -1017,7 +1017,8 @@ def main():
                     print("**** problem with encoding section " + sNum +"." + pNum + "." + lNum)
                     print("this is probably due to a text/csv mismatch")
 
-                    logger.error("problem finding lemma for section " + sNum +"." + pNum + "." + lNum + ", lemma: " + searchLem + "\n\n")
+                    logmsg = "problem finding lemma for section " + sNum +"." + pNum + "." + lNum + ", lemma: " + searchLem + "\n\n"
+                    logger.error(logmsg.encode(encoding='utf-8'))
             else:
 
                 # get poem and line number and row length
@@ -1068,7 +1069,9 @@ def main():
                         "**** invalid XML was generated for section " + sNum + ", poem " + pNum + ", line " + lNum + ", lemma: " + searchLem)
                     print("it was left unencoded for now.")
 
-                    logger.error(" invalid XML was generated for section " + sNum + ", poem " + pNum + ", line " + lNum + ", lemma: " + searchLem)
+
+                    logmsg = " invalid XML was generated for section " + sNum + ", poem " + pNum + ", line " + lNum + ", lemma: " + searchLem
+                    logger.error(logmsg.encode(encoding='utf-8'))
                     continue
 
                 # otherwise, valid XML was generated, so we find and replace
@@ -1159,8 +1162,8 @@ def main():
                                     "**** lemma not found in section " + sNum + ", poem " + pNum + ", line " + lNum + ", lemma: " + searchLem)
                                 print("this is probably due to a text/csv mismatch")
 
-                                logger.error(
-                                    " lemma not found in section " + sNum + ", poem " + pNum + ", line " + lNum + ", lemma: " + searchLem)
+                                logmsg = " lemma not found in section " + sNum + ", poem " + pNum + ", line " + lNum + ", lemma: " + searchLem
+                                logger.error(logmsg.encode(encoding='utf-8'))
 
                         else:
                             # speaker is not uncertain on this line
@@ -1210,8 +1213,8 @@ def main():
                                 print("**** lemma not found in section " + sNum + ", poem " + pNum + ", line " + lNum, + ", lemma: " + searchLem)
                                 print("this is probably due to a text/csv mismatch")
 
-                                logger.error(
-                                    " lemma not found in section " + sNum + ", poem " + sNum + ", line " + lNum + ", lemma: " + searchLem)
+                                logmsg = " lemma not found in section " + sNum + ", poem " + sNum + ", line " + lNum + ", lemma: " + searchLem
+                                logger.error(logmsg.encode(encoding='utf-8'))
 
                 else:
                     # no <label> tag on this line
@@ -1254,8 +1257,8 @@ def main():
                         print("**** lemma not found in section " + sNum + ", poem " + pNum + ", line " + lNum, + ", lemma: " + searchLem)
                         print("this is probably due to a text/csv mismatch")
 
-                    logger.error(
-                        " lemma not found in act " + sNum + ", poem " + pNum + ", line " + lNum + ", lemma: " + searchLem)
+                    logmsg = " lemma not found in act " + sNum + ", poem " + pNum + ", line " + lNum + ", lemma: " + searchLem
+                    logger.error(logmsg.encode(encoding='utf-8'))
 
 
     #we're done with the csv file now, so close it

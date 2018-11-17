@@ -759,8 +759,8 @@ def main():
                     print(new_entries)
                     print("it was left unencoded for now.")
 
-                    logger.error(
-                        " invalid XML was generated for section " + pNum + "." + sNum + ", lemma: " + searchLem + "\n")
+                    logmsg = " invalid XML was generated for section " + pNum + "." + sNum + ", lemma: " + searchLem + "\n"
+                    logger.error(logmsg.encode(encoding='utf-8'))
 
                     continue
 
@@ -821,15 +821,16 @@ def main():
                     print("**** invalid XML was generated for section " + pNum + "." + sNum + ", lemma: " + searchLem)
                     print("it was left unencoded for now.")
 
-                    logger.error(
-                        " invalid XML was generated for section " + pNum + "." + sNum + ", lemma: " + searchLem + "\n")
+                    logmsg = " invalid XML was generated for section " + pNum + "." + sNum + ", lemma: " + searchLem + "\n"
+                    logger.error(logmsg.encode(encoding='utf-8'))
 
             except:
                 # usually due to text/csv matching issue, meaning the script was unable to find the lemma in the base text
                 print("**** problem with encoding section " + pNum + "." + sNum)
                 print("this is probably due to a text/csv mismatch")
 
-                logger.error(" problem finding lemma for section " + pNum + "." + sNum + ", lemma: " + searchLem + "\n")
+                logmsg = " problem finding lemma for section " + pNum + "." + sNum + ", lemma: " + searchLem + "\n"
+                logger.error(logmsg.encode(encoding='utf-8'))
 
     # we're done with the csv file now
     appFile.close()
