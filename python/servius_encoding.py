@@ -17,7 +17,6 @@ class Type(Enum):
     PARALLEL = 3
     SAME = 4
 
-# TODO: SOME OF THESE BUILT-INS need work
 # builtin methods of this class defined with a lot of help from Chapter 9 of Fluent Python by Ramalho
 # a ServThing instance is analogous to either a <seg> or two <seg>s inside a <choice>
 class ServThing():
@@ -91,19 +90,20 @@ class ServThing():
         return self.__xml
 
     # these are some methods to make our object behave "Pythonically"
+
     def __iter__(self):
-        pass
-        # TODO: decide what we want the iterable representation to be
+        # allow unpacking
+        return (i for i in (self.textType, self.servius, self.auctus, self.xml))
 
     def __repr__(self):
-        # this is temporary
-        # TODO: make this prettier
-        return "type: " + str(self.textType) + "\n" + self.xml
+        ret = "type: " + str(self.textType) + "\n"
+        ret = ret + "Servius Text: " + str(self.servius) + "\n"
+        ret = ret + "Auctus Text: " + str(self.auctus) + "\n"
+        ret = ret + "XML representation:" + str(self.xml) + "\n"
+        return ret
 
     def __str__(self):
-        # this is temporary
-        # TODO: make this prettier
-        return "type: " + str(self.textType) + "\n" + self.xml
+        return "type: " + str(self.textType) + "\n" + str(self.xml)
 
     # helper method for XMLify()
     def __XMheLp(self, text):
@@ -113,7 +113,6 @@ class ServThing():
         # if there's more than one, we have bigger problems
         match = re.match("^([A-Z][A-Z[\]() &<>'.,;:?!_*]+)(?![a-z])", text)
         if match:
-            # TODO: for now, we are using Kaster's <quote type=lemma> syntax. Check this.
             quote_tag = '&lt;quote type="lemma"&gt;' + match[0] + '&lt;/quote&gt;'
             text = text.replace(match[0], quote_tag).strip()
 
@@ -135,32 +134,38 @@ class ServThing():
         # handle potential refs/targets
         ref = ""
         target = ""
+        ptr = ""
         ref_match = re.findall('(\([0-9]+\)|\([0-9]+\.[0-9]+\)|(\([A-Za-z]*\.*\s*[0-9]+\.*[0-9]*\)))\s(?=_([a-zA-Z,\'.][a-zA-Z()0-9:;.,\'\s.\-?]*)_)', text)
         if ref_match:
             for r in ref_match:
                 # TODO: go from <quote ref=> to <quote><ref target =>
+                # TODO: add a user input line to get which book we are encoding
                 # now check for the different types of reference and do stuff for them
                 if (re.match('\([0-9]+\)', r[0])):
                     # its a direct reference to a line in this book, so let's put it in target!
-                    target = ' target="l' + r[0].replace("(", "").replace(")", "") + '"'
+                    ptr = '&lt;ptr target="urn:cts:latinLit:phi0690.phi003:9.' + r[0].replace("(", "").replace(")", "") + '"/&gt;'
                 elif (re.match('\([0-9]+\.[0-9]+\)', r[0])):
                     # its a direct reference to a line in another book of Servius
                     # it's just going in ref for now, but that could be changed!
-                    ref = ' ref="Serv. ' + r[0].replace("(", "").replace(")", "") + '"'
+                    ptr = '&lt;ptr target="urn:cts:latinLit:phi0690.phi003:' + r[0].replace("(", "").replace(")", "") + '"/&gt;'
                 else:
                     # it's a reference to some other text
-                    ref = ' ref="' + r[0].replace("(", "").replace(")", "") + '"'
+                    ref = '&lt;ref target="' + r[0].replace("(", "").replace(")", "") + '"/&gt;'
 
-                quote_ref_re = '&lt;quote' + target + ref + '&gt;\g<1>&lt;/quote&gt;'
-                # print(quote_ref_re)
+                quote_ref_re = '&lt;note type="testium"&gt;' + target + ref + '\g<1>&lt;/note&gt;'
+                quote_ref_re = ptr + ' ' + quote_ref_re
+                print("QUOTE_REF_RE: " + quote_ref_re)
+
+                # TODO: these lines are the problem - we are replacing the wrong things - need to update search_ital
+                search_quote = re.compile(r'\([A-Za-z]*\.*\s*[0-9]+\.*[0-9]*\)\s*_([a-zA-Z,\'.][a-zA-Z()0-9:;.,\'\s.\-?]*)_')
+                print(re.findall(search_quote, text))
+                print("text searched is:", text)
+                text = search_quote.sub(quote_ref_re, text, 1)
                 text = text.replace(r[0], "")
-
-                search_ital = re.compile(r'_([a-zA-Z,\'.][a-zA-Z()0-9:;.,\'\s.\-?]*)_')
-                text = search_ital.sub(quote_ref_re, text, 1)
 
         # get italic text that doesnt have a reference
         search_ital = re.compile(r'_([a-zA-Z,\'.][a-zA-Z()0-9:;.,\'\s.\-?]*)_')
-        text = search_ital.sub(r'&lt;quote&gt;\1&lt;/quote&gt;', text)
+        text = search_ital.sub(r'&lt;hi rend="italic"&gt;\1&lt;/hi&gt;', text)
 
         # Handle crux.
         search_crux = re.compile(r'†([a-zA-Z]*)†')
@@ -756,7 +761,7 @@ def main():
     parser = ET.XMLParser(remove_comments=False)
 
     # Create a variable for the path to the base text.
-    path = "../kaster/bk9.txt"
+    path = "../DemosPresentations/bk9demo.txt"
 
     # Open the file with utf-8 encoding.
     source_file = codecs.open(path, 'r', 'utf-8')
@@ -886,6 +891,8 @@ def main():
                     ab_things.append(ServThing(thisType, t))
                     abIndex = abIndex + 1
                     #print("made an anonymous block, i.e. a discrete comment on one section of Vergil!")
+                print(ab_things[abIndex - 1].__repr__())
+                print(ab_things[abIndex - 1].__str__())
 
             #print("###### here are the generated <seg> tags #####")
             #print(ab_things)
@@ -953,6 +960,9 @@ def main():
     # Combine the header, text, and footer
     TEI = header + "\n".join(divs) + footer
 
+    # this line makes find_iter() insufficient for finding and replacing text
+    # if we want to produce valid XML at the intermediate step, we need to figure something else out.
+    #TEI = TEI.replace("&gt;", ">").replace("&lt;", "<").replace("”","\"")
 
     # let's output some stuff to an xml file
     new_path = "../kaster/test-output.xml"
@@ -1039,7 +1049,6 @@ def main():
 
                 logmsg = " invalid XML was generated for section " + bNum + "." + vNum + ", lemma: " + searchLem + "\n"
                 logger.error(logmsg.encode(encoding='utf-8'))
-
                 continue
 
             print("Now encoding note for section " + bNum + "." + vNum)
@@ -1106,6 +1115,7 @@ def main():
                 print("this is probably due to a text/csv mismatch")
                 logmsg = " problem finding lemma for section " + bNum + "." + vNum + ", lemma: " + searchLem + "\n"
                 logger.error(logmsg.encode(encoding='utf-8'))
+                prevDiv = row[1]
                 continue
             # we're going to check that the newly created lemma tag is valid XML
             # if it is valid, we will insert it into the text
