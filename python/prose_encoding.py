@@ -371,6 +371,9 @@ def make_rdg_tag(p, s, reading, wit, source, note):
                     # in margin
                     elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(inmg\)', s):
                         detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\">in margin</witDetail>"
+                    # in rasura
+                    elif re.match(u'[A-Za-z\u0391-\u03A9\u03B1-\u03C9]\(ir\)', s):
+                        detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\">in rasura</witDetail>"
                     # if the sigla doesn't have an annotation, it doesn't need a <witDetail>
                     else:
                         pass
