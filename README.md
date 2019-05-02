@@ -17,3 +17,6 @@ This repository contains five directories:
 # License
 This work is licensed under a
 [GNU Affero General Public License (Version 3, 19 November 2007)](https://www.gnu.org/licenses/agpl-3.0.en.html).
+
+
+[![DOI](https://zenodo.org/badge/92619186.svg)](https://zenodo.org/badge/latestdoi/92619186)
