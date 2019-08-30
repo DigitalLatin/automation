@@ -1,0 +1,7 @@
+INFO:Drama: Now encoding a drama text!
+INFO:Drama: Base text wrapped in XML.
+INFO:Drama: The encoded base text has been written to: results/drama-encoding.xml
+ERROR:Drama: invalid XML was generated for act 1, scene 1, line 51, lemma: Sosia, <et> † liberius vivendi fuit potestas † 
+INFO:Drama: Finished encoding app. crit.
+INFO:Drama: Finishing up the XML.
+INFO:Drama: Valid XML generated, encoding is complete.

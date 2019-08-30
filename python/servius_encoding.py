@@ -9,6 +9,20 @@ import logging # support error logging to an external file
 import logging.config # support for our logger configuration
 import sys # command line arguments
 
+# these are some counters for testing purposes
+count_refs = 0
+count_lookups = 0
+count_match = 0
+count_2_match = 0
+count_no_match = 0
+
+# putting this in a global variable is lazy and bad
+# this path is local and may not be portable
+ET.register_namespace('tei', 'http://www.tei-c.org/ns/1.0')
+ET.register_namespace('xml', 'http://www.w3.org/XML/1998/namespace')
+preftree = ET.parse('/Volumes/data/katy/PycharmProjects/DLL/servius/servius-edition-new.xml')
+xpathstr = ".//tei:text/tei:front/tei:div/tei:div/tei:table"
+table = preftree.find(xpathstr, namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})
 
 # enum for types of <ab>
 class Type(Enum):
@@ -27,7 +41,7 @@ class ServThing():
 
     # the constructor
     # we're gonna punt the responsibility of checking the type to the caller for now
-    def __init__(self, type, text):
+    def __init__(self, type, text, logger=None):
         self.__xml = ""
         if isinstance(type, Type):
             self.__textType = type
@@ -53,6 +67,9 @@ class ServThing():
         else: # i.e. __textType == Type.SERVIUS_AUCTUS
             self.auctus = text.replace("|", "").strip()
             self.servius = None
+
+        # optional logger
+        self.__logger = logger
 
         # make XML text
         self.XMLify()
@@ -133,39 +150,83 @@ class ServThing():
         text = text.replace("_) ", ") _")
         # handle potential refs/targets
         ref = ""
-        target = ""
-        ptr = ""
-        ref_match = re.findall('(\([0-9]+\)|\([0-9]+\.[0-9]+\)|(\([A-Za-z]*\.*\s*[0-9]+\.*[0-9]*\)))\s(?=_([a-zA-Z,\'.][a-zA-Z()0-9:;.,\'\s.\-?]*)_)', text)
+        # TODONE: match refs that aren't immediately next to the ital text, or next to any text at all
+        # refRE1 matches (##) _italic text_ works
+        # (##.##) _italic text_ works
+        # (work name ##.##) _italic text_ works
+        # (work name ##.##) up to 5 words _italic text_ works
+        # (work name ##.##) without italic text - works
+        refRE = re.compile('(\([0-9]+\)|\([0-9]+\.[0-9]+[a-z]?\)|(\([A-Za-z]*\.*\s*[0-9]+\.*[0-9]*[a-z]?\)))\s((?=\*([a-zA-Z,\'.][a-zA-Z()0-9:;.,\'\s.\-?]*)\*)?=|(\w*\s){0,5}\*([a-zA-Z,\'.][a-zA-Z()0-9:;.,\'\s.\-?]*)\*)|(\([0-9]+[a-z]?\)|\([0-9]+\.[0-9]+[a-z]?\)|(\([A-Za-z]*\.*\s*[0-9]+\.*[0-9]*[a-z]?\)))')
+        ref_match = []
+        ref_match.extend(re.findall(refRE, text))
         if ref_match:
             for r in ref_match:
-                # TODO: go from <quote ref=> to <quote><ref target =>
+                global count_refs
+                count_refs += 1
                 # TODO: add a user input line to get which book we are encoding
                 # now check for the different types of reference and do stuff for them
-                if (re.match('\([0-9]+\)', r[0])):
+                if re.match('\([0-9]+\)', r[0]) or re.match('\([0-9]+\)', r[6]):
+                    if r[0] == '': refstripped = r[6].replace("(", "").replace(")", "")
+                    else: refstripped = r[0].replace("(", "").replace(")", "")
                     # its a direct reference to a line in this book, so let's put it in target!
-                    ptr = '&lt;ptr target="urn:cts:latinLit:phi0690.phi003:9.' + r[0].replace("(", "").replace(")", "") + '"/&gt;'
-                elif (re.match('\([0-9]+\.[0-9]+\)', r[0])):
+                    ref = '&lt;ref target="urn:cts:latinLit:phi0690.phi003:9.' + refstripped + '"&gt;' + refstripped + '&lt;/ref&gt;'
+                    # do this to get a sensible identifier
+                    refstripped = "aeneid-9." + refstripped
+                    print("%%% refstripped:", refstripped)
+                elif re.match('\([0-9]+\.[0-9]+\)', r[0]) or re.match('\([0-9]+\.[0-9]+\)', r[6]):
+                    if r[0] == '': refstripped = r[6].replace("(", "").replace(")", "")
+                    else: refstripped = r[0].replace("(", "").replace(")", "")
                     # its a direct reference to a line in another book of Servius
                     # it's just going in ref for now, but that could be changed!
-                    ptr = '&lt;ptr target="urn:cts:latinLit:phi0690.phi003:' + r[0].replace("(", "").replace(")", "") + '"/&gt;'
+                    ref = '&lt;ref target="urn:cts:latinLit:phi0690.phi003:' + refstripped + '"&gt;' + refstripped + '&lt;/ref&gt;'
+                    # do this to get a sensible identifier
+                    refstripped = "aeneid-" + refstripped
+                    print("%%% refstripped:", refstripped)
+                elif r[5] == '':
+                    # ref without an italicized quote
+                    refstripped = r[6].replace("(", "").replace(")", "")
+                    refID = self.__tableLookup(refstripped)
+                    if refID is None:
+                        ref = '&lt;ref target="MATCHNOTFOUND"&gt;' + refstripped.replace("(", "").replace(")", "") + '&lt;/ref&gt;'
+                    else:
+                        ref = '&lt;ref target="' + refID + '"&gt;' + refstripped.replace("(", "").replace(")", "") + '&lt;/ref&gt;'
+                    refstripped = refstripped.replace(" ", "")
+                    # use current ref count as a differentiator for anchors
+                    anchor = '&lt;anchor xml:id="anchor-' + refstripped + '-' + str(count_refs) + '" corresp="note-' + refstripped + '"/&gt;'
+                    note_str = anchor + '&lt;note type="commentary" xml:id="note-' + refstripped + '-' + str(count_refs) + '" target="anchor-' + refstripped + '"&gt;' + ref + '&lt;/note&gt;'
+
+                    text = text.replace(r[6], note_str)
+                    continue # skip the rest of quote processing for this one
                 else:
                     # it's a reference to some other text
-                    ref = '&lt;ref target="' + r[0].replace("(", "").replace(")", "") + '"/&gt;'
+                    refID = self.__tableLookup(r[0].replace("(", "").replace(")", ""))
+                    if refID is None:
+                        ref = '&lt;ref target="MATCHNOTFOUND"&gt;' + r[0].replace("(", "").replace(")", "") + '&lt;/ref&gt;'
+                    else:
+                        ref = '&lt;ref target="' + refID + '"&gt;' + r[0].replace("(", "").replace(")", "") + '&lt;/ref&gt;'
+                    refstripped = r[0].replace("(", "").replace(")", "").replace(" ", "")
 
-                quote_ref_re = '&lt;note type="testium"&gt;' + target + ref + '\g<1>&lt;/note&gt;'
-                quote_ref_re = ptr + ' ' + quote_ref_re
-                print("QUOTE_REF_RE: " + quote_ref_re)
+                # TODO: better way of coming up with unique identifiers
 
-                # TODO: these lines are the problem - we are replacing the wrong things - need to update search_ital
-                search_quote = re.compile(r'\([A-Za-z]*\.*\s*[0-9]+\.*[0-9]*\)\s*_([a-zA-Z,\'.][a-zA-Z()0-9:;.,\'\s.\-?]*)_')
-                print(re.findall(search_quote, text))
-                print("text searched is:", text)
-                text = search_quote.sub(quote_ref_re, text, 1)
-                text = text.replace(r[0], "")
+
+                anchor = '&lt;anchor xml:id="anchor-' + refstripped + '-' + str(count_refs) +'" corresp="note-' + refstripped + '"/&gt;'
+                quote_ref_re = anchor + '&lt;note type="commentary" xml:id="note-' + refstripped + '-' + str(count_refs) + '" target="anchor-' + refstripped + '"&gt;' + ref +'&lt;/note&gt;'
+
+                # wrap the quote in <quote>
+                text = text.replace("_" + r[5] + "_", "&lt;quote&gt;" + r[5] + "&lt;/quote&gt;")
+                print("text before replacement:", text)
+                print("about to replace")
+                if r[0] == '':
+                    text = text.replace(r[6], quote_ref_re)
+                else:
+                    text = text.replace(r[0], quote_ref_re)
+
+                print("text after replacement:", text)
 
         # get italic text that doesnt have a reference
         search_ital = re.compile(r'_([a-zA-Z,\'.][a-zA-Z()0-9:;.,\'\s.\-?]*)_')
         text = search_ital.sub(r'&lt;hi rend="italic"&gt;\1&lt;/hi&gt;', text)
+        # TODO: should there be some semantic markup on the notes?
 
         # Handle crux.
         search_crux = re.compile(r'†([a-zA-Z]*)†')
@@ -181,6 +242,65 @@ class ServThing():
 
         # print("THIS IS WHAT XMLHELP GAVE US: " + text)
         return text
+
+    def __tableLookup(self, ref_string):
+        # looks up ref_string in the table of sources in the preface.
+        # returns the XML:ID for the appropriate target, or None
+        # also prints out how many matches were found, and what they were.
+        # TODO: find a reliable-ish way of using an author name to disambiguate
+
+        # now the individual refernce lookup
+        # looking for /row/cell text contains ref_string
+        # or potentially row[xml:id] contains ref_string
+
+        matches = []
+        global count_lookups
+        count_lookups += 1
+
+        for row in table.findall("./tei:row", namespaces={'tei': 'http://www.tei-c.org/ns/1.0'}):
+            cell = row.find('./tei:cell', namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})
+            #print(cell.text)
+            # TODO: find potential "almost matches" and figure out a way to deal with them
+            # idea: Fuzzy Wuzzy library?
+            if ref_string in cell.text or "".join(ref_string.split(" ")[:-1]) in cell.text: # TODO: this line is probably an issue
+                matches.append(row)
+            # TODO: see if we need to also check another cell in the row
+
+        if len(matches) == 0:
+            global count_no_match
+            count_no_match +=1
+            # oof we didnt find anything
+            print("NO TABLE MATCH FOUND FOR REF:", ref_string)
+            if self.__logger is not None:
+                # user specified a logger for this ServThing to use
+                self.__logger.error("no matching table reference found for: " + ref_string)
+            return None
+
+        if len(matches) == 1:
+            global count_match
+            count_match += 1
+            print("ONE MATCH FOUND FOR REF:", ref_string)
+            print("\t" + matches[0].items()[0][1]) # half-assed workaround because I don't know how namespaces work
+            if self.__logger is not None:
+                # user specified a logger for this ServThing to use
+                self.__logger.info("matching table reference found for: " + ref_string + ", " + row.items()[0][1])
+            return matches[0].items()[0][1]
+
+        if len(matches) >= 2:
+            global count_2_match
+            count_2_match += 1
+            # found more than one candidate match.
+            # For now, just print this out and write to log file.
+            print("MULTIPLE TABLE MATCHES FOUND FOR REF:", ref_string)
+            if self.__logger is not None:
+                self.__logger.error("multiple possible matches found for: " + ref_string)
+            for m in matches:
+                print("\t" + m.items()[0][1])
+                if self.__logger is not None:
+                    self.__logger.error("\t" + m.items()[0][1])
+            # TODO: find a way to use an author name to help on this
+            return None # may end up returning a list to deal with elsewhere
+
 
 
     # the main XMLify() method
@@ -252,7 +372,7 @@ def replace_with_xml(text, pattern, new_entries, index):
     inc = 0
 
     # find indices of lemma match
-    print("index for lem matches: " + str(index))
+   # print("index for lem matches: " + str(index))
     beg, end = [(x.start(), x.end()) for x in re.finditer(pattern, text, flags=re.IGNORECASE)][index]
 
     # avoid replacing lemma instances that are in comments
@@ -263,7 +383,7 @@ def replace_with_xml(text, pattern, new_entries, index):
             inc += 1
 
         # find updated indices if necessary
-        print("updated index for lem matches: " + index)
+        #print("updated index for lem matches: " + index)
         beg, end = [(x.start(), x.end()) for x in re.finditer(pattern, text, flags=re.IGNORECASE)][index + inc]
 
      # return the text with the <app> tag inserted in the proper place
@@ -286,6 +406,12 @@ def make_lem_tag(p, s, lem, wit, source, note):
     :return: a list containing the searchLem at index 0 and the complete lemma tag at index 1
     """
 
+    # strip everything - it comes out of pandoc with a lot of stray whitespace
+    lem = lem.strip()
+    wit = wit.strip()
+    source = source.strip()
+    note = note.strip()
+
     # deal with an empty lemma
     if lem == '':
            lem = '<!-- NO LEMMA -->'
@@ -293,6 +419,7 @@ def make_lem_tag(p, s, lem, wit, source, note):
 
     # this block deals with editorial additions, which have <> in the lemma
 
+    # TODO: use regexes to come up with a better, more generalized way of doing this
     # deal with lemmas of the form '<word> some other words'
     if (re.match('<\w+>(\s)*\w+', lem)):
         newLem = '<supplied reason="lost">' + lem.split('>')[0].replace('<', '') + '</supplied>' + \
@@ -320,6 +447,21 @@ def make_lem_tag(p, s, lem, wit, source, note):
     elif (re.match('\w*<\w+>', lem)):
         newLem = lem.split('<')[0] + '<supplied reason="lost">' + lem.split('<')[1].split('>')[0] + '</supplied>' + \
                     lem.split('<')[1].split('>')[1]
+
+        # a copy of the lemma with <> removed to use in xml:id attributes
+        idLem = lem.replace('<', '').replace('>', '') + " addition"
+
+        # in this case, the searchLem (used to match the base text) is the same as the marked up lemma
+        searchLem = newLem
+        lem = newLem
+
+    # now deal with lemmas of the form words w<ord> w<ord> words
+    elif (re.match('(\w+(\s)*)*(\w*<\w+>(\s))+(\w+(\s)*)*', lem)):
+        # TODO: this is a temporary stopgap. The following regex can probably be generalized to handle most if not all cases
+        newLem = lem
+        for m in re.findall('((\w*)<(\w+)>)', lem):
+            replaceStr = m[1] + '<supplied reason="lost">' + m[2] + '</supplied>'
+            newLem = newLem.replace(m[0], replaceStr)
 
         # a copy of the lemma with <> removed to use in xml:id attributes
         idLem = lem.replace('<', '').replace('>', '') + " addition"
@@ -372,7 +514,29 @@ def make_lem_tag(p, s, lem, wit, source, note):
             return ['wit="None"', '']
         else:
             detailTags = ''
-            wit = wit.replace('_', '').strip()
+            # remove single asterisks (i.e. italics) which has no meaning for wits - just a typographical convention
+            wit = re.sub("(?<!\*)\*(?!\*)", "", wit).strip()
+            # fix the string so that every bold witness is surrounded by **A**, to solve the wacky trailing space issue
+            s = re.search("(\*\*.*\*\*)", wit)
+            new_bold = ""
+            if s:
+                bold_split = s[0].replace("*", "").split(' ')
+                for b in bold_split:
+                    if b != "" and b != " ":
+                        basterisks = "**" + b + "**"
+                        new_bold += basterisks + " "
+                wit = wit.replace(s[0], new_bold.strip())
+            # Maybe overkill because there is probably only one so trailing space is the only issue, but better safe than sorry.
+            s = re.search("(\[.*\])", wit)
+            new_bracket = ""
+            if s:
+                bracket_split = s[0].replace("[", "").replace("]", "").split(' ')
+                for b in bracket_split:
+                    if b != "" and b != " ":
+                        bbrackets = "[" + b + "]"
+                        new_bracket += bbrackets + " "
+                wit = wit.replace(s[0], new_bracket.strip())
+            print("after bold and bracket processing:", wit)
             split = wit.split(' ')
 
             # iterate through witnesses and check if each has ac, c, spl, sbl
@@ -400,9 +564,9 @@ def make_lem_tag(p, s, lem, wit, source, note):
 
 
                 # now start checking for bold or []
-                if re.match(u'\[[A-Z\u0391-\u03A9\u03B1-\u03C9_]+\]', s):
+                if re.match(u'\[[A-Z\u0391-\u03A9\u03B1-\u03C9_]+\s*\]', s):
                     # tradition specified
-                    s = s.replace('[','').replace(']','')
+                    s = s.replace('[','').replace(']','').strip()
                     detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + lem_target + "\" type=\"tradition\"/>"
 
                 # if the siglum doesn't have an annotation, it doesn't need a <witDetail>
@@ -453,7 +617,7 @@ def make_lem_tag(p, s, lem, wit, source, note):
         """
 
         noteTags = ''
-        if not note:
+        if not note or note == "" or note.isspace():
             return '<!-- NO LEMMA ANNOTATION -->'
         else:
             try:
@@ -463,12 +627,13 @@ def make_lem_tag(p, s, lem, wit, source, note):
 
                 for s in split:
                     # wrap each note in a tag
-                    noteTags += ('<note target="' + lem_target + '">' + note + '</note>')
+                    if s != "" and not s.isspace():
+                        noteTags += ('<note target="' + lem_target + '">' + s.strip() + '</note>')
 
                 return noteTags
             except:
                 # if only one note, wrap it in a <note> tag and return
-                return '<note target="' + lem_target + '">' + note + '</note>'
+                return '<note target="' + lem_target + '">' + note.strip() + '</note>'
 
     lemnote = str(lemnote())
 
@@ -489,6 +654,12 @@ def make_rdg_tag(p, s, reading, wit, source, note):
 
     :return: the entire reading tag as a str
     """
+
+    # strip everything - it comes out of pandoc with a lot of stray whitespace
+    reading = reading.strip()
+    wit = wit.strip()
+    source = source.strip()
+    note = note.strip()
 
     # deal with an empty reading
     if reading == '':
@@ -549,8 +720,9 @@ def make_rdg_tag(p, s, reading, wit, source, note):
         """A function for creating the xml:id value like rdg-1.1-vicit."""
 
         # Handle readings with multiple words so that they are joined with "-"
+        # also remove * * for italics
         split = idRdg.replace('_', '').split(' ')
-        joined = '-'.join(split).replace("\"", '')
+        joined = '-'.join(split).replace("\"", '').replace("*", "")
         joined = joined.replace("gap-reason=”lost”", "lacuna")
         return 'xml:id="rdg-' + str(p) + '.' + str(s) + '-' + joined + '"'
 
@@ -581,7 +753,29 @@ def make_rdg_tag(p, s, reading, wit, source, note):
         else:
             # List the sigla, putting # before each one. Space will be added below.
             detailTags = ''
-            wit = wit.replace('_', '').strip()
+            # remove single asterisks (i.e. italics) which has no meaning for wits - just a typographical convention
+            wit = re.sub("(?<!\*)\*(?!\*)", "", wit).strip()
+            # fix the string so that every bold witness is surrounded by **A**, to solve the wacky trailing space issue
+            s = re.search("(\*\*.*\*\*)", wit)
+            new_bold = ""
+            if s:
+                bold_split = s[0].replace("*", "").split(' ')
+                for b in bold_split:
+                    if b != "" and b != " ":
+                        basterisks = "**" + b + "**"
+                        new_bold += basterisks + " "
+                wit = wit.replace(s[0], new_bold.strip())
+            # Maybe overkill because there is probably only one so trailing space is the only issue, but better safe than sorry.
+            s = re.search("(\[.*\])", wit)
+            new_bracket = ""
+            if s:
+                bracket_split = s[0].replace("[", "").replace("]", "").split(' ')
+                for b in bracket_split:
+                    if b != "" and b != " ":
+                        bbrackets = "[" + b + "]"
+                        new_bracket += bbrackets + " "
+                wit = wit.replace(s[0], new_bracket.strip())
+            print("after bold and bracket processing:", wit)
             split = wit.split(' ')
 
             # iterate through witnesses and check if each has ac, c, spl, sbl
@@ -609,11 +803,9 @@ def make_rdg_tag(p, s, reading, wit, source, note):
                     detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\">in margin</witDetail>"
 
                 # now start checking for bold or []
-                print("made it to the [] check")
-                if re.match(u'\[[*A-Z\u0391-\u03A9\u03B1-\u03C9_]+?\]', s):
-                    print("MATCHED A SIGLUM IN []")
+                if re.match(u'\[[*A-Z\u0391-\u03A9\u03B1-\u03C9_]+?\s*\]', s):
                     # tradition specified
-                    s = s.replace('[', '').replace(']', '')
+                    s = s.replace('[', '').replace(']', '').strip()
                     detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + rdg_target + "\" type=\"tradition\"/>"
 
                 # if the siglum doesn't have an annotation, it doesn't need a <witDetail>
@@ -644,7 +836,7 @@ def make_rdg_tag(p, s, reading, wit, source, note):
         noteTags = ''
         # notes that should go before the reading
         beforeTags = ''
-        if not note:
+        if not note or note == "" or note.isspace():
             return ['', '']
         else:
             try:
@@ -656,16 +848,18 @@ def make_rdg_tag(p, s, reading, wit, source, note):
                     if (s == "an" or s == "vel"):
                         # this note goes before the reading (e.g. an or vel)
                         # easily generalized to catch other "before reading" notes
-                        beforeTags += ('<note target="' + rdg_target + '">' + s + '</note>')
+                        if s != "" and not s.isspace():
+                            beforeTags += ('<note target="' + rdg_target + '">' + s.strip() + '</note>')
 
                     else:
                         # this is a normal note (i.e. after the reading)
-                        noteTags += ('<note target="' + rdg_target + '">' + s + '</note>')
+                        if s != "" and not s.isspace():
+                            noteTags += ('<note target="' + rdg_target + '">' + s.strip() + '</note>')
 
                 return [beforeTags, noteTags]
             except:
                 # if there is only one note, wrap it in tags and return it
-                return ['', '<note target="' + rdg_target + '">' + note + '</note>']
+                return ['', '<note target="' + rdg_target + '">' + note.strip() + '</note>']
 
     # n.b. this is a tuple not a string
     notes = rdg_notes()
@@ -746,7 +940,7 @@ def cleanup_tag(entries):
     replace_deletion2 = search_deletion2.sub(r'\1-surplus', replace_deletion1)
 
     # turn omissions in to self-closing reading tags
-    search_omission = re.compile(r'>_?om\._?</rdg>') # allow optional italicized _om._
+    search_omission = re.compile(r'>\*?om\.\*?</rdg>') # allow optional italicized _om._
     replace_omission = search_omission.sub(r'/>', replace_deletion2)
 
     return replace_omission
@@ -761,7 +955,7 @@ def main():
     parser = ET.XMLParser(remove_comments=False)
 
     # Create a variable for the path to the base text.
-    path = "../DemosPresentations/bk9demo.txt"
+    path = "../kaster/bk9.txt"
 
     # Open the file with utf-8 encoding.
     source_file = codecs.open(path, 'r', 'utf-8')
@@ -812,14 +1006,9 @@ def main():
     print("Let's encode some Servius!")
     # decided to deal with _italics_ in the ServThing.__XMheLp() function
     # chunking: <div> elements
-    # current problem: splitting on "#. " while preserving the preceding | where applicable
-    # possible solution: re.split to split on an "or" pattern
-    # then only replace the number
 
     # presumes numbers are ASCII digits only. Should be fine.
     div_chunks = re.split("(\d+\.\s)|(\|\s\d+\.\s)", text, flags=re.ASCII)
-
-    #print(div_chunks)
 
     i = 0
     divs = []  # put the finished div chunks here
@@ -891,8 +1080,6 @@ def main():
                     ab_things.append(ServThing(thisType, t))
                     abIndex = abIndex + 1
                     #print("made an anonymous block, i.e. a discrete comment on one section of Vergil!")
-                print(ab_things[abIndex - 1].__repr__())
-                print(ab_things[abIndex - 1].__str__())
 
             #print("###### here are the generated <seg> tags #####")
             #print(ab_things)
@@ -968,6 +1155,7 @@ def main():
     new_path = "../kaster/test-output.xml"
     out_file = codecs.open(new_path, 'w', 'utf-8')
     out_file.write(TEI)
+    out_file.close()
     print('Writing the XML base text to the new file ...')
     logger.info(" The encoded base text has been written to: " + new_path)
 
@@ -984,7 +1172,7 @@ def main():
     # the TEI namespace (default ns for this doc) is found at: http://www.tei-c.org/ns/1.0
     ET.register_namespace('tei', 'http://www.tei-c.org/ns/1.0')
 
-    with open("../kaster/bk9prototype.csv", encoding='utf-8') as appFile:
+    with open("../kaster/excel_as_word_gfm.csv", encoding='utf-8') as appFile:
         readApp = csv.reader(appFile, delimiter=',')
         for row in readApp:
             if row[0] == "Book":
@@ -1010,10 +1198,10 @@ def main():
             searchLem = lemReturn[0]
             lemtag = lemReturn[1].strip()
 
-            print("\n\nLEMMA: " + searchLem)
+           # print("\n\nLEMMA: " + searchLem)
 
             # encode general annotations on this entry
-            if row[6] == '':
+            if row[6] == '' or row[6].isspace():
                 commenttag = ''
             else:
                 commenttag = "<note>" + row[6] + "</note>"
@@ -1029,6 +1217,7 @@ def main():
                 i += 4
 
             # combine everything into one <app> tag
+            # remove angle brackets from inside the comment because they are not allowed
             entries = '\n<!-- App entry for ' + str(row[0]) + '.' + str(row[1]) + ': ' + searchLem + ' -->' + \
                       '<app>' + lemtag + rdgTags + commenttag + '</app>\n'
 
@@ -1069,8 +1258,8 @@ def main():
                 lemNum = int(lemNum)  # to avoid possible type mismatch problems
                 newLem = searchLem.split('(')[0]
 
-                print("HERE IS MY NEW LEMMA: " + newLem)
-                print("APP TAG BEFORE UPDATING XMLID OF LEMMA: " + new_entries)
+                #print("HERE IS MY NEW LEMMA: " + newLem)
+                #print("APP TAG BEFORE UPDATING XMLID OF LEMMA: " + new_entries)
                 # update the tag with the new lemma text (i.e. remove (#) from comments and IDs)
                 new_entries = new_entries.replace(searchLem, newLem)
                 # fix a trailing digit for some reason
@@ -1098,13 +1287,14 @@ def main():
             while foundCount < lemNum and index < len(segtags) - 1:
                 prevFound = foundCount
                 index = index + 1
-                matches = re.findall(replacePattern, "".join(segtags[index].itertext()))
-                print(matches)
+                # make matching case-insensitive
+                matches = re.findall(replacePattern, "".join(segtags[index].itertext()), flags=re.IGNORECASE)
+                #print(matches)
                 for f in matches:
                     foundCount = foundCount + 1
 
             text = "".join(segtags[index].itertext())
-            print("HERE IS THE TEXT WE ARE SEARCHING: " + text)
+            #print("HERE IS THE TEXT WE ARE SEARCHING: " + text)
             # insert the <app> tag into the text using a custom function defined above
             try:
                 newtext = replace_with_xml(text, replacePattern, new_entries, (lemNum - prevFound - 1))
@@ -1131,7 +1321,7 @@ def main():
                 # if newtext contains only valid XML, we replace the section text
                 segtags[index].text = newtext
 
-                print("HERE IS NEW TEXT: " + segtags[index].text)
+                #print("HERE IS NEW TEXT: " + segtags[index].text)
 
             except:
                 # catch the exception from possible invalid XML
@@ -1141,7 +1331,7 @@ def main():
                 logger.error(
                     " invalid XML was generated for section " + bNum + "." + vNum + ", lemma: " + searchLem + "\n")
 
-            print("HERE IS THE WHOLE SECTION: " + "".join(section.itertext()))
+            #print("HERE IS THE WHOLE SECTION: " + "".join(section.itertext()))
 
     # we're done with the csv file now
     appFile.close()
@@ -1165,6 +1355,13 @@ def main():
     print("Valid XML coming your way!")
     logger.info(" Valid XML generated, encoding is complete.")
 
+    print("Here are the counts from matching things in the table:")
+    print("References found:", count_refs)
+    print("Table lookups:", count_lookups)
+    print("No matches:", count_no_match)
+    print("One match:", count_match)
+    print("Two matches:", count_2_match)
+    if count_lookups > 0: print("hit rate:", count_match/count_lookups)
     # automatically open the finished XML file.
     os.system("open ../kaster/test-output.xml")
 

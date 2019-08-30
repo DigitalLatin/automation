@@ -2691,8 +2691,7 @@ furta._
 
 547. VETITISQVE AD TROIAM MISERAT ARMIS secundum
 
-| quosdam ‘vetitis fato’, quia stare Troia diutius | Donatum (Verg. 97)
-‘vetitis fato’;
+| quosdam ‘vetitis fato’, quia stare Troia diutius | Donatum (Verg. 97) ‘vetitis fato’;
 
 | vetabatur; |
 

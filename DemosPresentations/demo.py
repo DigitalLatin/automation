@@ -661,5 +661,5 @@ tree.write(pwd_path + 'RB-demo.xml',
 print("Valid XML coming your way!")
 time.sleep(2)
 
-#openstring = 'open ' + pwd_path + 'RB-demo.xml'
-#os.system(openstring)
+openstring = 'open ' + pwd_path + 'RB-demo.xml'
+os.system(openstring)

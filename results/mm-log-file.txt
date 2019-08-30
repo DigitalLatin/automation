@@ -16,13 +16,13 @@ INFO:Mixed Matter:   {editorial deletions}.
 INFO:Mixed Matter: Adding structural tags.
 INFO:Mixed Matter: Finished with that prose section.
 
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
+INFO:Mixed Matter: Encoding a poetry chunk. Handling editorial markup first:
 INFO:Mixed Matter:   editorial additions.
 INFO:Mixed Matter:   †crux†.
 INFO:Mixed Matter:   *** lacunae.
 INFO:Mixed Matter:   {editorial deletions}.
 INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
+INFO:Mixed Matter: Finished with that poetry section.
 
 INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
 INFO:Mixed Matter:   editorial additions.
@@ -32,13 +32,13 @@ INFO:Mixed Matter:   {editorial deletions}.
 INFO:Mixed Matter: Adding structural tags.
 INFO:Mixed Matter: Finished with that prose section.
 
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
+INFO:Mixed Matter: Encoding a poetry chunk. Handling editorial markup first:
 INFO:Mixed Matter:   editorial additions.
 INFO:Mixed Matter:   †crux†.
 INFO:Mixed Matter:   *** lacunae.
 INFO:Mixed Matter:   {editorial deletions}.
 INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
+INFO:Mixed Matter: Finished with that poetry section.
 
 INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
 INFO:Mixed Matter:   editorial additions.
@@ -48,13 +48,13 @@ INFO:Mixed Matter:   {editorial deletions}.
 INFO:Mixed Matter: Adding structural tags.
 INFO:Mixed Matter: Finished with that prose section.
 
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
+INFO:Mixed Matter: Encoding a poetry chunk. Handling editorial markup first:
 INFO:Mixed Matter:   editorial additions.
 INFO:Mixed Matter:   †crux†.
 INFO:Mixed Matter:   *** lacunae.
 INFO:Mixed Matter:   {editorial deletions}.
 INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
+INFO:Mixed Matter: Finished with that poetry section.
 
 INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
 INFO:Mixed Matter:   editorial additions.
@@ -64,13 +64,13 @@ INFO:Mixed Matter:   {editorial deletions}.
 INFO:Mixed Matter: Adding structural tags.
 INFO:Mixed Matter: Finished with that prose section.
 
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
+INFO:Mixed Matter: Encoding a poetry chunk. Handling editorial markup first:
 INFO:Mixed Matter:   editorial additions.
 INFO:Mixed Matter:   †crux†.
 INFO:Mixed Matter:   *** lacunae.
 INFO:Mixed Matter:   {editorial deletions}.
 INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
+INFO:Mixed Matter: Finished with that poetry section.
 
 INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
 INFO:Mixed Matter:   editorial additions.
@@ -80,181 +80,13 @@ INFO:Mixed Matter:   {editorial deletions}.
 INFO:Mixed Matter: Adding structural tags.
 INFO:Mixed Matter: Finished with that prose section.
 
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
+INFO:Mixed Matter: Encoding a poetry chunk. Handling editorial markup first:
 INFO:Mixed Matter:   editorial additions.
 INFO:Mixed Matter:   †crux†.
 INFO:Mixed Matter:   *** lacunae.
 INFO:Mixed Matter:   {editorial deletions}.
 INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
-
-INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
-INFO:Mixed Matter:   editorial additions.
-INFO:Mixed Matter:   †crux†.
-INFO:Mixed Matter:   *** lacunae.
-INFO:Mixed Matter:   {editorial deletions}.
-INFO:Mixed Matter: Adding structural tags.
-INFO:Mixed Matter: Finished with that prose section.
+INFO:Mixed Matter: Finished with that poetry section.
 
 INFO:Mixed Matter: Encoding a prose chunk. Handling editorial markup first:
 INFO:Mixed Matter:   editorial additions.
@@ -266,8 +98,17 @@ INFO:Mixed Matter: Finished with that prose section.
 
 INFO:Mixed Matter:  Base text wrapped in XML.
 INFO:Mixed Matter: Adding the TEI header and footer.
-INFO:Mixed Matter: The encoded base text has been written to: ../results/mm-prose-test.xml
+INFO:Mixed Matter: The encoded base text has been written to: results/mm-encoding.xml
 INFO:Mixed Matter:Now encoding the critical apparatus. 
 Encoding errors will be shown below. 
 
+
+ERROR:Mixed Matter: lemma not found in act 2, poem 1, line 1, lemma: arcum
+ERROR:Mixed Matter: lemma not found in act 2, poem 1, line 4, lemma: carpebat
+ERROR:Mixed Matter: lemma not found in act 2, poem 1, line 5, lemma: iussoque
+ERROR:Mixed Matter: lemma not found in act 4, poem 4, line 17, lemma: cantus
+INFO:Mixed Matter: Finished encoding the critical apparatus.
+
+INFO:Mixed Matter: Finishing up the XML.
+INFO:Mixed Matter: Valid XML generated, encoding is complete. 
 

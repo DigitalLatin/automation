@@ -9,7 +9,6 @@ import logging # support error logging to an external file
 import logging.config # support for our logger configuration
 import sys # command line arguments
 
-
 # enum for types of <ab>
 class Type(Enum):
     SERVIUS = 1
@@ -877,7 +876,7 @@ def main():
 
         text = '<div type="textpart" subtype= "verse" n="' + str(n) + '" xml:id="l' + str(n) + '">' + "\n".join(finished_blocks) + "</div>"
         print("finished <div> number", n)
-        time.sleep(2)
+        time.sleep(.5)
 
         divs.append(text)
         i = i + 3
@@ -885,7 +884,7 @@ def main():
     # Write the TEI header.
     print('Now we\'ll add the TEI header and footer.')
     logger.info(' Adding the TEI header and footer.')
-    time.sleep(2)
+    time.sleep(1)
 
     header = '''<?xml-model
             href="https://digitallatin.github.io/guidelines/critical-editions.rng" type="application/xml" 
@@ -940,7 +939,7 @@ def main():
     logger.info(" The encoded base text has been written to: " + new_path)
     logger.info(" Now encoding the critical apparatus. \nEncoding errors will be shown below. \n\n")
     print('Now that the base text is encoded, we\'ll start on the app. crit.')
-    time.sleep(2)
+    time.sleep(1)
 
     # set up XML parsing/lxml tree
     # tree is an instance of ElementTree
@@ -1007,7 +1006,7 @@ def main():
                 logger.error(logmsg.encode(encoding='utf-8'))
                 continue
 
-            print("\nNow encoding note for section " + bNum + "." + vNum + ", lemma: " + searchLem)
+            print("Now encoding note for section " + bNum + "." + vNum + ", lemma: " + searchLem)
 
             print("Using XPath to find the section!....")
             # use Xpath to find the appropriate paragraph and section
@@ -1092,7 +1091,7 @@ def main():
 
                 logger.error(
                     " invalid XML was generated for section " + bNum + "." + vNum + ", lemma: " + searchLem + "\n")
-            time.sleep(1)
+
 
 
     # we're done with the csv file now
@@ -1103,7 +1102,7 @@ def main():
 
     print("Writing to a .xml file....")
     logger.info(" Finishing up the XML.")
-    time.sleep(2)
+    time.sleep(1)
 
     #open("../kaster/str-output.txt", 'w', encoding='utf-8').write(bigstr)
 
