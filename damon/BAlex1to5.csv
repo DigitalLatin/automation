@@ -1,0 +1,33 @@
+STBA,Paragraph,Section,Lemma,Lemma_Witnesses,Lemma_Sources,Lemma_Annotations,Reading_1,Reading_1_Witnesses,Reading_1_Sources,Reading_1_Annotations,Reading_2,Reading_2_Witnesses,Reading_2_Sources,Reading_2_Annotations,Reading_3,Reading_3_Witnesses,Reading_3_Sources,Reading_3_Annotations,Reading_4,Reading_4_Witnesses,Reading_4_Sources,Reading_4_Annotations,Reading_5,Reading_5_Witnesses,Reading_5_Sources,Reading_5_Annotations,Reading_6,Reading_6_Witnesses,Reading_6_Sources,Reading_6_Annotations,Reading_7,Reading_7_Witnesses,Reading_7_Sources,Reading_7_Annotations,General_Comment,Omissions,Complications
+,1,2,cotidie operibus,U S T V,,,cotidie,M,,(cf. BC 3.112.9),nouis cotidie operibus,,Castiglioni,(cf. Tac. Hist. 2.76.4),,,,,,,,,,,,,,,,,,,,,,omission in M,
+,1,2,aptantur,M U S T V,,(u. BC 3.112.7-9 et cf. Virg. Aen. 3.472),temptantur,,Nipperdey,(cf. BC 3.40.1),,,,,,,,,,,,,,,,,,,,,,,,,alii alia (u. Gaertner-Hausburg 48 n.87),,
+,1,2,per foramina,M U,,,foramina,S T V,,", quos secutus foramina seclusit Vielhaber ut glossema",,,,,,,,,,,,,,,,,,,,,,,,,,omission in S T V,
+,1,2,in2,M U S T V,,,[in],,Schneider,coll. Hirt. 8.27.4,,,,,,,,,,,,,,,,,,,,,,,,,,,superscript in lemma
+,1,3,<ab> incendio,,Müller,(cf. 61.3),incendio,M U S T V,,,,,,,,,,,,,,,,,,,,,,,,,,,,omission in M U S T V,
+,1,3,et structuris,U S T V,,,structuris,M,,,,,,,,,,,,,,,,,,,,,,,,,,,,omission in M,
+,1,3,ac2,M T V,,,et ,U,,,a,S,,,,,,,,,,,,,,,,,,,,,,,,,superscript in lemma
+,1,5,expectans,M U S T V,,(cf. BC 3.43.3 et u. Damon 116 n.32),spectans,,Vascosanus,"(cf. BC 3.85.2)
+",,,,,,,,,,,,,,,,,,,,,,,,,,,
+,1,5,urbs,U,,,ubrs,M,,,urbis,S T V,,non male (cf. BG 6.43.4 et u. TLL 5.1.1596-1597.25),,,,,,,,,,,,,,,,,,,,,,,
+,1,5,"alterius rei copiam exiguam, alterius",M U T V,,,alterius,S,,", qui uerba 4 omisit",,,,,,,,,,,,,,,,,,,,,,,,,,omission in S (uerba 4),
+,2,1,miserant magnumque numerum in oppidum telorum atque tormentorum conuexerant et innumerabilem multitudinem adduxerant,M U T V,,,miserant,S,,", qui uerba 12 omisit",,,,,,,,,,,,,,,,,,,,,,,,,,omission in S (uerba 12),
+,2,1,multitudinem <armatorum>,,Fischer,(cf. 30.2 de militibus Alexandrinis),multitudinem,M U S T V,,,<militum> multitudinem,,Dauisius,1727 (cf. 21.3 etc.),,,,,,,,,,,,,,,,,,,,,,omission in M U S T V,
+,2,3,hac,U T V,,,hac,M,,,ha,S,,,,,,,,,,,,,,,,,,,,,,,,,
+,2,3,semotarum,Mmr,,,semotorum,M U S T V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,2,3,uacuas in celeberrimis urbis locis,U S T V,,,uacuas,M,,", qui uerba 4 omisit",,,,,,,,,,,,,,,,,,,,,,,,,,omission in M (uerba 4),
+◊,2,5,confixerant,M U S T V,,(cf. BG 3.13.4),confecerant,ς,,teste Oudendorp (cf. 13.4),confinxerant,,Dauisius,1706 coll. Plin. Nat. 10.93,,,,,,,,,,,,,,,,,,,,,an contexerant (cf. BC 2.10.5)?,,
+,2,5,†obiectis†,,scripsimus,,obiectis,M U S T V,,,[obiectis],,Scaliger,(cf. Prop. 4.11.51),subiunctis,,Cornelissen,coll. Col. 6.2.8,adiectis,,Castiglioni,(cf. 28.3),obtectis,,Klotz,dubitanter (cf. BC 3.19.7),,,,,,,,,nisi mauis iunctis (cf. Vitr. 10.2.14) uel adiunctis (cf. Gel. 20.1.28),,this lemma overlaps with the preceding one
+,3,1,ingeniosi,M U S T V,,,ingeniosissimi,,Wölfflin,teste Klotz,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,3,1,nobis,M U S T V,,(cf. 19.6),nostris,,Nipperdey,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,3,2,eius,M U S T V,,", quod suspicatur Larsen ('expectes certe illius')",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,3,3,ante A. Gabinium,,Schneider,,antea gabinium uel ante agabinium,M U S Tc Vac,,,ante gabinium ,Tac Vc,,,,,,,,,,,,,,,,,,,,,,,,,
+,4,1,"praeoccupat Arsinoe per Ganymeden eunuchum, nutricium suum, atque Achillan",M U S T V,,(de usu absoluto u. TLL 10.2.743.7-20),"praeoccupat Arsinoe per Ganymeden eunuchum, nutricium suum, atque Achillan",,Fleischer,1879,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,4,1,interficit,U S V,,,interfecit,M T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,4,2,is,M U V,,,his,T,,,hic,S,,,,,,,,,,,,,,,,,,,,,,,,,
+,4,2,militem,S T V,,(cf. Cic. Man. 39),milites,M U,,(cf. BC 3.112.11),,,,,,,,,,,,,,,,,,,,,,,,,,,
+,4,2,reliqua,M S,,(cf. BC 2.39.2 etc.),et reliqua,U T V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,5,1,s(u/o)ffossa,Uc S T V,,,soffosa,Uac,,ut uidetur,fossossa,Mac,,,fossosa,Mc,,,,,,,,,,,,,,,,,,,,,
+,5,1,ad Nilum,M U,,"(cf. 14.5 et BG 1.1.6 etc., u. TLL 10.1.1809.73-1810.38)",a Nilo,S T V,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,5,1,spatio temporis,M U S T V,,,[spatio temporis],,Landgraf,1891a ut glossema de 6.3 sumptum,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,5,2,tamen,M U S T V,,", quod suspicatur Larsen ('fortasse ortum est dittographia ex flumen')",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,5,3,munitionum,M U S,,,munitionem,T,,,muni,V,,,,,,,,,,,,,,,,,,,,,,,,,

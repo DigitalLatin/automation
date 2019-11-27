@@ -948,7 +948,6 @@ def cleanup_tag(entries):
 # this is the main function
 def main():
     # TODO: write function-level doc for this
-
     # ######### file inputs and logger config #########
     # we are now using LXML because it allows us to use a custom XML parser
     # custom LMXL parser that won't remove comments
@@ -1003,6 +1002,12 @@ def main():
     logging.config.dictConfig(dictLogConfig)
     logger = logging.getLogger("Servius")
     logger.info(" Now encoding a some Servius!")
+
+    # counters for checking CSV processing quality measures
+    rows_processed = 0
+    successful_rows = 0
+    invalid_tags = 0
+    not_found = 0
     print("Let's encode some Servius!")
     # decided to deal with _italics_ in the ServThing.__XMheLp() function
     # chunking: <div> elements
@@ -1178,7 +1183,7 @@ def main():
             if row[0] == "Book":
                 # skip the first row, which contains column labels
                 continue
-
+            rows_processed += 1
                 # get paragraph and section number and row length
             bNum = row[0]  # book number
             vNum = row[1]  # verse (in Vergil) number
@@ -1235,6 +1240,7 @@ def main():
                 print("**** invalid XML was generated for section " + bNum + "." + vNum + ", lemma: " + searchLem)
                 print(new_entries)
                 print("it was left unencoded for now.")
+                invalid_tags += 1
 
                 logmsg = " invalid XML was generated for section " + bNum + "." + vNum + ", lemma: " + searchLem + "\n"
                 logger.error(logmsg.encode(encoding='utf-8'))
@@ -1306,32 +1312,11 @@ def main():
                 logmsg = " problem finding lemma for section " + bNum + "." + vNum + ", lemma: " + searchLem + "\n"
                 logger.error(logmsg.encode(encoding='utf-8'))
                 prevDiv = row[1]
+                not_found += 1
                 continue
-            # we're going to check that the newly created lemma tag is valid XML
-            # if it is valid, we will insert it into the text
-            # if not, we will not insert it and will print an error message
-            # the goal of this measure is to prevent XMLParseErrors and XMLSyntaxErrors
-            # we want to guarantee that the output of this script is always a valid XML file.
-            # this will minimize runtime exceptions and errors.
 
-            try:
-                # this will throw an exception if new_entries (i.e. the new <app> tag) contains any invalid XML
-                ET.fromstring(new_entries)
-
-                # if newtext contains only valid XML, we replace the section text
-                segtags[index].text = newtext
-
-                #print("HERE IS NEW TEXT: " + segtags[index].text)
-
-            except:
-                # catch the exception from possible invalid XML
-                print("**** invalid XML was generated for section " + bNum + "." + vNum + ", lemma: " + searchLem)
-                print("it was left unencoded for now.")
-
-                logger.error(
-                    " invalid XML was generated for section " + bNum + "." + vNum + ", lemma: " + searchLem + "\n")
-
-            #print("HERE IS THE WHOLE SECTION: " + "".join(section.itertext()))
+            # if we got here, replacement was successful
+            successful_rows += 1
 
     # we're done with the csv file now
     appFile.close()
@@ -1355,6 +1340,7 @@ def main():
     print("Valid XML coming your way!")
     logger.info(" Valid XML generated, encoding is complete.")
 
+    """
     print("Here are the counts from matching things in the table:")
     print("References found:", count_refs)
     print("Table lookups:", count_lookups)
@@ -1362,6 +1348,14 @@ def main():
     print("One match:", count_match)
     print("Two matches:", count_2_match)
     if count_lookups > 0: print("hit rate:", count_match/count_lookups)
+    """
+    # print some quality metrics
+    print("Here are some quality metrics for overall execution: ")
+    print("total CSV rows processed:", rows_processed)
+    print("Rows processed successfully:", successful_rows)
+    print("Syntactically invalid app tags generated:", invalid_tags)
+    print("lemmas not found:", not_found)
+    if rows_processed > 0: print("Success rate:", successful_rows/rows_processed)
     # automatically open the finished XML file.
     os.system("open ../kaster/test-output.xml")
 

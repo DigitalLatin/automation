@@ -1,0 +1,19 @@
+Format,Count
+_italicized word(s)_ (referring to lemma),21
+_italicized word(s)_ (not referring to lemma),8
+Name (passage ref) _italicized quote_,2
+Name (passage ref),4
+(line ref) <form of dico> _italicized quote_,2
+(line ref) with no apparent quote,1
+_italicized quote_ other text “ut diximus” (line ref),1
+Dicit (fr. line ref) ‘quoted text’,1
+ut (line ref) _italicized quote_,8
+(line ref) _italicized quote_,11
+ut diximus (line ref),1
+Name [work passage],1
+Name <other words> (fr. line ref),1
+Name (fr. ref) <form of distinguo> _italicized quote_,1
+"Name, qui ait (passage ref) _italicized quote_",1
+ut (Author passage) _italicized quote_,1
+Name <other words> ait (fr. ref) _italicized quote_,1
+ut (work passage ref) _italicized quote_,3

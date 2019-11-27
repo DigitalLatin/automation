@@ -1,0 +1,13 @@
+INFO:Servius: Now encoding a some Servius!
+INFO:Servius: Adding the TEI header and footer.
+INFO:Servius: The encoded base text has been written to: ../kaster/test-output.xml
+INFO:Servius: Now encoding the critical apparatus. 
+Encoding errors will be shown below. 
+
+
+ERROR:Servius:b' problem finding lemma for section 9.1, lemma: atqve ea diversa penitvs dvm p<supplied reason="lost">arte</supplied> g<supplied reason="lost">ervntvr</supplied> in hoc libro mutatio est rerum omnium\n'
+ERROR:Servius:b' problem finding lemma for section 9.1, lemma: PENITVS DVM P<supplied reason="lost">ARTE</supplied> G<supplied reason="lost">ERUNTUR</supplied>\n'
+ERROR:Servius:b' problem finding lemma for section 9.1, lemma: DVM PARTE GERVNTVR\n'
+INFO:Servius:Finished encoding app. crit.
+INFO:Servius: Finishing up the XML.
+INFO:Servius: Valid XML generated, encoding is complete.

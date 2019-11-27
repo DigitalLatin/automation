@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="edition" xml:id="edition-text">
+            <div type="textpart" n="1" xml:id="part1">
+               <div type="textpart" subtype="verse" n="1" xml:id="l1">
+                  <ab><seg source="#Σ #DS"><quote type="lemma">ATQVE EA <!-- App entry for 9.1: DIVERSA --><app>
+                              <lem wit="#*F* #Ah2 #Pah2 #N" xml:id="lem-9.1-DIVERSA">DIVERSA</lem>
+                              <rdg wit="#Pc" xml:id="rdg-9.1-d.">d.</rdg>
+                              <rdg wit="#*Γ*" xml:id="rdg-9.1-om."/>
+                           </app> PENITVS DVM P<supplied reason="lost">ARTE</supplied> G<supplied
+                              reason="lost">ERVNTVR</supplied></quote> in hoc libro mutatio est
+                        rerum omnium: nam et personae et loca alia sunt et aliud negotium incipitur;
+                        ab Aenea enim <!-- App entry for 9.1: transit --><app>
+                           <lem wit="#*F* #Pa #Pc #γ" xml:id="lem-9.1-transit">transit</lem>
+                           <rdg wit="#θ #Q #σ #*Γ*" xml:id="rdg-9.1-traxit">traxit</rdg>
+                           <witDetail wit="#*Γ*" target="#rdg-9.1-traxit" type="tradition"/>
+                        </app> ad Turnum, a Tuscia <!-- App entry for 9.1: ad Ardeam --><app>
+                           <lem wit="#Fh3 #θ #Pa #Pc #γ #W" xml:id="lem-9.1-ad-Ardeam">ad
+                              Ardeam</lem>
+                           <rdg wit="#*F* #Q #N" xml:id="rdg-9.1-ardeam">ardeam</rdg>
+                        </app> , a petitione auxiliorum ad bellum. quem transitum quidam culpant,
+                        nescientes Vergilium prudenter iunxisse superioribus negotiis sequentia per
+                        illam particulam, <hi rend="italic">
+                           <!-- App entry for 9.1: atque --><app>
+                              <lem source="#Murgia" xml:id="lem-9.1-atque">atque</lem>
+                              <note target="lem-9.1-atque">post hoc verbum distinxi, ante hoc verbum
+                                 edd. plerique</note>
+                           </app> . </hi></seg></ab>
+                  <ab><seg source="#Σ #DS"><quote type="lemma">EA <!-- App entry for 9.1: D<supplied reason="lost">IVERSA</supplied> PENITVS --><app>
+                              <lem source="#Verg." xml:id="lem-9.1-DIVERSA-PENITVS-addition"
+                                    >D<supplied reason="lost">IVERSA</supplied> PENITVS</lem>
+                              <rdg wit="#*F* #N" xml:id="rdg-9.1-penitus">penitus</rdg>
+                              <rdg wit="#θ #Pc" xml:id="rdg-9.1-d.-p.">d. p.</rdg>
+                              <rdg wit="#Q #γ #W" xml:id="rdg-9.1-p.">p.</rdg>
+                           </app>
+                           <!-- App entry for 9.1: DVM PARTE GERVNTVR --><app>
+                              <lem wit="#*F* #N" xml:id="lem-9.1-DVM-PARTE-GERVNTVR">DVM PARTE
+                                 GERVNTVR</lem>
+                              <rdg wit="#θ #Pc #Q #W #*Γ*" xml:id="rdg-9.1-d.-parte-geruntur">d.
+                                 parte geruntur</rdg>
+                              <witDetail wit="#*Γ*" target="#rdg-9.1-d.-parte-geruntur"
+                                 type="tradition"/>
+                              <rdg wit="#Pa #γ" xml:id="rdg-9.1-d.-p.-g.">d. p. g.</rdg>
+                           </app>
+                        </quote> scilicet dum offeruntur arma, dum dantur auxilia.</seg><seg
+                        source="#DS">
+                        <quote ref="Eu. 320">dum</quote> enim, cum sit coniunctio, hic tamen <!-- App entry for 9.1: adverbii vim --><app>
+                           <lem source="#Dan." xml:id="lem-9.1-adverbii-vim">adverbii vim</lem>
+                           <rdg wit="#F" xml:id="rdg-9.1-adverbis">adverbis</rdg>
+                        </app> obtinet: Terentius <hi rend="italic">mea nihil refert, dum potiar
+                           modo.</hi></seg><seg source="#Σ #DS">sane formatus est iste liber ad <!-- App entry for 9.1: illud --><app>
+                           <lem wit="#*Γ*" xml:id="lem-9.1-illud">illud</lem>
+                           <rdg wit="#*F*" xml:id="rdg-9.1-illa">illa</rdg>
+                        </app> Homeri (Il. 10) ubi dicit per noctem egressos esse <!-- App entry for 9.1: Diomedem --><app>
+                           <lem wit="#*F* #Pc #Pb #Y" xml:id="lem-9.1-Diomedem">Diomedem</lem>
+                           <rdg wit="#*Γ*" xml:id="rdg-9.1-diomeden">diomeden</rdg>
+                           <note target="rdg-9.1-diomeden">_(sed cf. Serv. ad A. 11.243)_</note>
+                           <rdg wit="#N" xml:id="rdg-9.1-diomede">diomede</rdg>
+                        </app> et <!-- App entry for 9.1: Vlixem --><app>
+                           <lem wit="#Pc" xml:id="lem-9.1-Vlixem">Vlixem</lem>
+                           <rdg wit="#*Γ*" xml:id="rdg-9.1-ulixen">ulixen</rdg>
+                           <rdg wit="#*F*" xml:id="rdg-9.1-tulixem">tulixem</rdg>
+                        </app> cum capto Dolone castra penetrarunt: nam partem maximam et oeconomiae
+                        et negotiorum exinde habet.</seg></ab>
+                  <ab><seg source="#Σ #DS"><quote type="lemma">DIVERSA PENITVS</quote> valde
+                        diversa, id est longius remota,</seg><seg source="#DS">vel apud Pallanteum
+                        vel in Etruria;</seg><seg source="#Σ #DS">unde paulo <!-- App entry for 9.1: post --><app>
+                           <lem wit="#*Γ*" xml:id="lem-9.1-post">post</lem>
+                           <rdg wit="#*F*" xml:id="rdg-9.1-posest">posest</rdg>
+                        </app> (10) dicit <hi rend="italic">nec satis, extremas Corythi penetravit
+                           ad urbes Lydorumque manum.</hi>
+                     </seg></ab>
+               </div>
+               <div type="textpart" subtype="verse" n="2" xml:id="l2">
+                  <ab><seg source="#Σ #DS"><quote type="lemma">IRIM </quote>
+                        <!-- App entry for 9.2: Iris --><app>
+                           <lem wit="#*Γ*" xml:id="lem-9.2-Iris">Iris</lem>
+                           <rdg wit="#*F*" xml:id="rdg-9.2-om."/>
+                        </app> quasi <!-- App entry for 9.2: ἔρις --><app>
+                           <lem xml:id="lem-9.2-ἔρις">ἔρις</lem>
+                           <rdg wit="#*F* #*Γ*" xml:id="rdg-9.2-eris">eris</rdg>
+                        </app> dicta est: numquam enim ad conciliationem mittitur, sicut Mercurius,
+                        sed ad disturbationem. et est ministra non tantum dearum, sed et deorum: nam
+                        praeter Homerum et Vergilius hoc probat, dicens <ptr
+                           target="urn:cts:latinLit:phi0690.phi003:9.803"/>
+                        <quote>
+                           <!-- App entry for 9.2: aeriam --><app>
+                              <lem wit="#*Γ*" source="#Verg." xml:id="lem-9.2-aeriam">aeriam</lem>
+                              <note target="lem-9.2-aeriam">_(et hic et ad A. 5.606)_</note>
+                              <rdg wit="#*F*" xml:id="rdg-9.2-erigam">erigam</rdg>
+                              <rdg wit="#*F*" xml:id="rdg-9.2-eriam">eriam</rdg>
+                              <note target="rdg-9.2-eriam">ad A. _5.606_</note>
+                              <rdg wit="#Q" xml:id="rdg-9.2-aeriem">aeriem</rdg>
+                           </app> caelo nam Iuppiter Irim <!-- App entry for 9.2: demisit --><app>
+                              <lem wit="#*F* #γ" source="#Verg." xml:id="lem-9.2-demisit"
+                                 >demisit</lem>
+                              <rdg wit="#*Γ*" xml:id="rdg-9.2-dimisit">dimisit</rdg>
+                              <rdg wit="#*F* #*Γ*" xml:id="rdg-9.2-dimittit">dimittit</rdg>
+                              <note target="rdg-9.2-dimittit">ad A. _5.606_</note>
+                           </app>
+                           <!-- App entry for 9.2: germanae --><app>
+                              <lem wit="#*Γ*" xml:id="lem-9.2-germanae">germanae</lem>
+                              <rdg wit="#*F*" xml:id="rdg-9.2-germani">germani</rdg>
+                           </app> haud mollia iussa <!-- App entry for 9.2: ferentem --><app>
+                              <lem wit="#*Γ*" xml:id="lem-9.2-ferentem">ferentem</lem>
+                              <rdg wit="#*F*" xml:id="rdg-9.2-ferenti">ferenti</rdg>
+                           </app> .</quote></seg></ab>
+               </div>
+               <div type="textpart" subtype="verse" n="3" xml:id="l3">
+                  <ab><seg source="#Σ #DS"><quote type="lemma">AVDACEM AD TVRNVM</quote> fortem sine
+                        felicitate, sicut de Pallante diximus (8.110).</seg><seg source="#DS">et
+                        modo audaciae laus oportuna, quia ad audendum exhortandus est.</seg></ab>
+                  <ab><seg source="#Σ"><quote type="lemma">PARENTIS</quote></seg></ab>
+                  <ab><seg source="#Σ"><quote type="lemma">PARENTIS PILVMNI </quote>Pilumnus et
+                        Pitumnus fratres fuerunt di. horum Pitumnus usum stercorandorum invenit
+                        agrorum—unde et Sterculinius dictus est—Pilumnus vero pinsendi frumenti:
+                        unde et a pistoribus colitur. ab ipso et pilum dictum est.</seg><seg
+                        source="#DS"><supplied reason="lost">quidam Pilumnum et Pitumnum Castorem et
+                           Pollucem accipiunt; nonnulli laudum deos; Varro (VPR 2.82a) coniugales
+                           deos suspicatur.</supplied></seg><seg source="#Σ #DS"/></ab>
+               </div>
+               <div type="textpart" subtype="verse" n="4" xml:id="l4">
+                  <ab><seg source="#Σ #DS"><quote type="lemma">SACRATA VALLE</quote> ideo <hi
+                           rend="italic">sacrata</hi> quia, ut diximus supra (1.441), numquam est
+                        lucus sine religione.</seg></ab>
+                  <ab><seg source="#Σ #DS"><quote type="lemma">SEDEBAT</quote> ut Asper dicit (fr.
+                        38) 'erat', quae clausula antiqua est et de usu remota. secundum
+                        Plautum</seg><seg source="#DS">autem</seg><seg source="#Σ #DS"><hi
+                           rend="italic">sedere</hi> est consilium capere, qui inducit</seg><seg
+                        source="#DS">in Mostellaria</seg><seg source="#Σ #DS">servum dicentem <ptr
+                           target="urn:cts:latinLit:phi0690.phi003:7.187"/>
+                        <quote>sine iuxta aram sedeam, et dabo meliora consilia.</quote> sed
+                        secundum augures <hi rend="italic">sedere</hi> est augurium captare; namque
+                        post designatas caeli partes a sedentibus captabantur auguria: quod et supra
+                        ipse ostendit latenter, inducens Picum solum sedentem, ut <hi rend="italic"
+                           >parvaque sedebat succinctus trabea,</hi> quod est augurum, cum alios
+                        stantes induxerit. ergo <hi rend="italic">sedebat</hi> aut 'erat' aut
+                        'consilia capiebat' aut 'augurabatur'.</seg><seg source="#DS">unde et hic
+                           <ptr target="urn:cts:latinLit:phi0690.phi003:7.174"/>
+                        <quote>lucus</quote> vice aedis sacratae accipi debet: quod plenius illo
+                        loco dictum est <hi rend="italic">hoc illius curia templum.</hi> aut quia in
+                        locis sacris sedentes consilia habituri erant. * curiam in templo haberent:
+                        quod Numa cum sciret,Vestae aediculam, non templum, statuit, ne ibi senatus
+                        haberi posset et ipsa necessitate vir introiret locum. nam et ipsa consilia
+                        a sedendo quasi considia dicta sunt; sedentium enim animi tranquilliores
+                        fiunt.</seg><seg source="#Σ"/></ab>
+               </div>
+               <div type="textpart" subtype="verse" n="5" xml:id="l5">
+                  <ab><seg source="#Σ #DS"><quote type="lemma">THAVMANTIAS</quote> secundum poeticam
+                        Thaumantis filia. ceterum ex admiratione hoc nomen accepit, quia admiratio
+                        de eius coloribus nascitur.</seg></ab>
+               </div>
+               <div type="textpart" subtype="verse" n="6" xml:id="l6">
+                  <ab><seg source="#Σ #DS"><quote type="lemma">DIVVM PROMITTERE NEMO </quote>'nemo'
+                        pro 'nullus' posuit. et est acyrologia. nam 'divum nemo' non possumus
+                        dicere, cum proprie 'nemo' sit 'ne homo'.</seg></ab>
+               </div>
+               <div type="textpart" subtype="verse" n="7" xml:id="l7">
+                  <ab><seg source="#Σ #DS"><quote type="lemma">AVDERET</quote> docet per transitum
+                        multa interdum temporum ratione provenire, quae numina praestare non
+                        possunt. quod etiam paulo post in matris deum petitione Iuppiter probat,
+                        dicens <ptr target="urn:cts:latinLit:phi0690.phi003:9.97"/>
+                        <quote>cui tanta deo permissa potestas.</quote></seg></ab>
+                  <ab><seg source="#Σ #DS"><quote type="lemma">VOLVENDA</quote> pro
+                        'volubilis'.</seg></ab>
+               </div>
+               <div type="textpart" subtype="verse" n="8" xml:id="l8">
+                  <ab><seg source="#DS"><quote type="lemma">AENEAS VRBE ET SOCIIS</quote> ab
+                        occasione. et ostendit quid illi expugnandum sit, quia caret
+                        defensore.</seg></ab>
+                  <ab><seg source="#DS"><quote type="lemma">VRBE</quote></seg></ab>
+                  <ab><seg source="#DS"><quote type="lemma">VRBE</quote> urbs ista quae est in
+                        septimo <ptr target="urn:cts:latinLit:phi0690.phi003:9.157"/>
+                        <quote>ipse humili designat moenia</quote>
+                        <hi rend="italic">fossa.</hi>hanc Castrum Laurens ait dici Varro (ARH 2.14),
+                        oppidum tacet. sed ubi primum Aeneas egressus sit, eum locum Troiam
+                        nuncupari traditur.</seg><seg source="#Σ #DS"/></ab>
+               </div>
+               <div type="textpart" subtype="verse" n="9" xml:id="l9">
+                  <ab><seg source="#DS"><quote type="lemma">PALATINI</quote> prolepsis
+                        est.</seg><seg source="#Σ #DS"/></ab>
+               </div>
+               <div type="textpart" subtype="verse" n="10" xml:id="l10">
+                  <ab><seg source="#Σ #DS"><quote type="lemma">NEC SATIS</quote> quia occurrebat ab
+                        Euandro eum facile posse remeare.</seg></ab>
+                  <ab><seg source="#DS"><quote type="lemma">CORYTHI</quote></seg></ab>
+                  <ab><seg source="#DS"><quote type="lemma">CORYTHI PENETRAVIT</quote> ut totam
+                           <surplus>in</surplus> Etruriam peragrasse videatur.</seg><choice>
+                        <seg source="#DS"><hi rend="italic">Corythi</hi> autem</seg>
+                        <seg source="#Σ"><quote type="lemma">CORYTHI</quote></seg>
+                     </choice><seg source="#Σ #DS">montis Tusciae, qui, ut diximus (7.209), nomen
+                        accepit a Corytho rege, cum cuius uxore concubuit Iuppiter, unde natus est
+                        Dardanus.</seg><seg source="#DS"><hi rend="italic">penetravit</hi> autem
+                        bene, quia supra (1) dixerat <hi rend="italic">penitus.</hi></seg></ab>
+               </div>
+            </div>
+         </div>
+      </body>
+      <back>
+         <!--
+            The content of the back matter will be determined in consultation between
+                    the editor and the staff of the DLL. Because LDLT editions are encoded, the
+                    matter traditionally found in the back of a printed critical edition may be
+                    generated by applications instead of having to be entered manually.
+                    Nevertheless, there is space here for notes, indices, and other kinds of
+                    information.
+            -->
+      </back>
+   </text>
+</TEI>
