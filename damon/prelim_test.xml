@@ -45,17 +45,12 @@
                      </app> in proxima aedificia arietes immittuntur, quantumque aut ruinis deicitur
                      aut per uim recipitur loci <!-- App entry for 1.2: in --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-1.2-in">in</lem>
-                        <rdg source="#Schneider" xml:id="rdg-1.2-in-surplus"
+                        <rdg source="#Schneider" xml:id="rdg-1.2-in-deletion"
                            ><surplus>in</surplus></rdg>
-                        <note target="rdg-1.2-in-surplus">coll. Hirt. 8.27.4</note>
+                        <note target="rdg-1.2-in-deletion">coll. Hirt. 8.27.4</note>
                      </app> tantum munitiones proferuntur.</seg>
-                  <seg n="3">Nam <!-- App entry for 1.3: <supplied reason="lost">ab</supplied> incendio --><app>
-                        <lem source="#Müller" xml:id="lem-1.3-ab-incendio-addition"><supplied
-                              reason="lost">ab</supplied> incendio</lem>
-                        <note target="lem-1.3-ab-incendio-addition">(cf. 61.3)</note>
-                        <rdg wit="#M #U #S #T #V" xml:id="rdg-1.3-incendio">incendio</rdg>
-                     </app> fere tuta est Alexandria quod sine contignatione ac materia sunt
-                     aedificia <!-- App entry for 1.3: et structuris --><app>
+                  <seg n="3">Nam <supplied reason="lost">ab</supplied> incendio fere tuta est
+                     Alexandria quod sine contignatione ac materia sunt aedificia <!-- App entry for 1.3: et structuris --><app>
                         <lem wit="#U #S #T #V" xml:id="lem-1.3-et-structuris">et structuris</lem>
                         <rdg wit="#M" xml:id="rdg-1.3-structuris">structuris</rdg>
                      </app>
@@ -90,14 +85,9 @@
 
                <p n="2"><seg n="1">Neque uero Alexandrinis in gerendis negotiis cunctatio ulla aut
                      mora inferebatur. Nam in omnes partes per quas fines Aegypti regnumque pertinet
-                     legatos conquisitoresque dilectus habendi causa <!-- App entry for 2.1: miserant magnumque numerum in oppidum telorum atque tormentorum conuexerant et innumerabilem multitudinem adduxerant --><app>
-                        <lem wit="#M #U #T #V"
-                           xml:id="lem-2.1-miserant-magnumque-numerum-in-oppidum-telorum-atque-tormentorum-conuexerant-et-innumerabilem-multitudinem-adduxerant"
-                           >miserant magnumque numerum in oppidum telorum atque tormentorum
-                           conuexerant et innumerabilem multitudinem adduxerant</lem>
-                        <rdg wit="#S" xml:id="rdg-2.1-miserant">miserant</rdg>
-                        <note target="rdg-2.1-miserant">, qui uerba 12 omisit</note>
-                     </app>.</seg>
+                     legatos conquisitoresque dilectus habendi causa miserant magnumque numerum in
+                     oppidum telorum atque tormentorum conuexerant et innumerabilem multitudinem
+                        <supplied reason="lost">armatorum</supplied> adduxerant.</seg>
                   <seg n="2">Nec minus in urbe maximae armorum erant institutae officinae. Seruos
                      praeterea puberes armauerant, quibus domini locupletiores uictum cotidianum
                      stipendiumque praebebant.</seg>
@@ -127,8 +117,22 @@
                         <rdg source="#Dauisius" xml:id="rdg-2.5-confinxerant">confinxerant</rdg>
                         <note target="rdg-2.5-confinxerant">1706 coll. Plin. Nat. 10.93</note>
                         <note>an contexerant (cf. BC 2.10.5)?</note>
-                     </app> subiectisque eas rotis funibus iumentisque <sic>obiectis</sic> derectis
-                     plateis in quamcumque erat uisum partem mouebant.</seg></p>
+                     </app> subiectisque eas rotis funibus iumentisque <!-- App entry for 2.5: <sic>obiectis</sic> --><app>
+                        <lem source="#scripsimus" xml:id="lem-2.5-obiectis-crux"
+                           ><sic>obiectis</sic></lem>
+                        <rdg wit="#M #U #S #T #V" xml:id="rdg-2.5-obiectis">obiectis</rdg>
+                        <rdg source="#Scaliger" xml:id="rdg-2.5-obiectis-deletion"
+                              ><surplus>obiectis</surplus></rdg>
+                        <note target="rdg-2.5-obiectis-deletion">(cf. Prop. 4.11.51)</note>
+                        <rdg source="#Cornelissen" xml:id="rdg-2.5-subiunctis">subiunctis</rdg>
+                        <note target="rdg-2.5-subiunctis">coll. Col. 6.2.8</note>
+                        <rdg source="#Castiglioni" xml:id="rdg-2.5-adiectis">adiectis</rdg>
+                        <note target="rdg-2.5-adiectis">(cf. 28.3)</note>
+                        <rdg source="#Klotz" xml:id="rdg-2.5-obtectis">obtectis</rdg>
+                        <note target="rdg-2.5-obtectis">dubitanter (cf. BC 3.19.7)</note>
+                        <note>nisi mauis iunctis (cf. Vitr. 10.2.14) uel adiunctis (cf. Gel.
+                           20.1.28)</note>
+                     </app> derectis plateis in quamcumque erat uisum partem mouebant.</seg></p>
                <p n="3"><seg n="1">Vrbs fertilissima et copiosissima omnium rerum apparatus
                      suggerebat. Ipsi homines <!-- App entry for 3.1: ingeniosi --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-3.1-ingeniosi">ingeniosi</lem>
@@ -202,8 +206,14 @@
                         <note target="lem-5.1-ad-Nilum">(cf. 14.5 et BG 1.1.6 etc., u. TLL
                            10.1.1809.73-1810.38)</note>
                         <rdg wit="#S #T #V" xml:id="rdg-5.1-a-Nilo">a Nilo</rdg>
-                     </app> pertinentes quibus aqua in priuatas domos inducitur, quae paulatim
-                     spatio temporis liquescit ac subsidit.</seg>
+                     </app> pertinentes quibus aqua in priuatas domos inducitur, quae paulatim <!-- App entry for 5.1: spatio temporis --><app>
+                        <lem wit="#M #U #S #T #V" xml:id="lem-5.1-spatio-temporis">spatio
+                           temporis</lem>
+                        <rdg source="#Landgraf" xml:id="rdg-5.1-spatio-temporis-deletion"
+                              ><surplus>spatio temporis</surplus></rdg>
+                        <note target="rdg-5.1-spatio-temporis-deletion">1891a ut glossema de 6.3
+                           sumptum</note>
+                     </app> liquescit ac subsidit.</seg>
                   <seg n="2">Hac uti domini aedificiorum atque eorum familiae consuerunt. Nam quae
                      flumine Nilo fertur adeo est limosa ac turbida ut multos uariosque morbos
                      efficiat. Sed ea plebes ac multitudo contenta est necessario, quod fons urbe
@@ -263,9 +273,9 @@
                               ><supplied reason="lost">non</supplied> morari Caesarem</rdg>
                         <note target="rdg-7.1--non-morari-Caesarem-addition">1888 coll. 55.2 sensu
                            repugnante</note>
-                        <rdg source="#Siesbye" xml:id="rdg-7.1--morari-Caesarem-rem-addition"
-                              ><supplied reason="lost">morari Caesarem rem</supplied></rdg>
-                        <note target="rdg-7.1--morari-Caesarem-rem-addition">teste Larsen coll. Liu.
+                        <rdg source="#Siesbye" xml:id="rdg-7.1-morari-Caesarem--rem-addition">morari
+                           Caesarem <supplied reason="lost">rem</supplied></rdg>
+                        <note target="rdg-7.1-morari-Caesarem--rem-addition">teste Larsen coll. Liu.
                            40.40.4</note>
                      </app> dicerent quin naues conscendere <!-- App entry for 7.1: iuberet --><app>
                         <lem wit="#M #U" xml:id="lem-7.1-iuberet">iuberet</lem>
@@ -279,9 +289,9 @@
                            >grauiorem extimescerent casum</rdg>
                         <note target="rdg-7.1-grauiorem-extimescerent-casum">(cf. Cic. Ph.
                            1.13)</note>
-                        <rdg source="#Haupt" xml:id="rdg-7.1-grauius-extimescerent-casum-surplus"
-                           >grauius extimescerent <surplus>casum</surplus></rdg>
-                        <note target="rdg-7.1-grauius-extimescerent-casum-surplus">teste Nipperdey
+                        <rdg source="#Haupt" xml:id="rdg-7.1-grauius-extimescerent-casum-deletion"
+                              ><surplus>grauius extimescerent casum</surplus></rdg>
+                        <note target="rdg-7.1-grauius-extimescerent-casum-deletion">teste Nipperdey
                            (cf. BG 1.16.6 et u. supra)</note>
                         <rdg source="#Kraffert" xml:id="rdg-7.1-grauius-extimescerent-casurum"
                            >grauius extimescerent casurum</rdg>
@@ -311,10 +321,10 @@
                         <rdg wit="#M #U #S #T #V" xml:id="rdg-7.2-essent">essent</rdg>
                      </app> simulabat et desciuisse a suis uidebatur, <!-- App entry for 7.2: ut mihi --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-7.2-ut-mihi">ut mihi</lem>
-                        <rdg source="#Madvig" xml:id="rdg-7.2--at-mihi-si-addition"><supplied
-                              reason="lost">at mihi si</supplied></rdg>
-                        <rdg source="#Klotz" xml:id="rdg-7.2--ut-mihi-si-addition"><supplied
-                              reason="lost">ut mihi si</supplied></rdg>
+                        <rdg source="#Madvig" xml:id="rdg-7.2-at-mihi--si-addition">at mihi
+                              <supplied reason="lost">si</supplied></rdg>
+                        <rdg source="#Klotz" xml:id="rdg-7.2-ut-mihi--si-addition">ut mihi <supplied
+                              reason="lost">si</supplied></rdg>
                      </app> defendendi essent Alexandrini—<!-- App entry for 7.2: neque --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-7.2-neque">neque</lem>
                         <rdg wit="#ed.pr." xml:id="rdg-7.2-quod-neque-addition"><supplied
@@ -368,8 +378,13 @@
                   <seg n="5">Magnam autem moram et difficultatem ascensum in naues habere praesertim
                      ex scaphis. Summam esse contra in Alexandrinis uelocitatem locorumque et
                      aedificiorum notitiam.</seg>
-                  <seg n="6">Hos praecipue in uictoria insolentes praecursuros et loca excelsiora
-                     atque aedificia occupaturos. Ita <!-- App entry for 8.6: fuga --><app>
+                  <seg n="6">Hos praecipue in uictoria insolentes <!-- App entry for 8.6: praecursuros et loca excelsiora atque aedificia occupaturos --><app>
+                        <lem wit="#U #S #T #V"
+                           xml:id="lem-8.6-praecursuros-et-loca-excelsiora-atque-aedificia-occupaturos"
+                           >praecursuros et loca excelsiora atque aedificia occupaturos</lem>
+                        <rdg wit="#M" xml:id="rdg-8.6-praecursuros">praecursuros</rdg>
+                        <note target="rdg-8.6-praecursuros">, qui uerba 6 omisit </note>
+                     </app>. Ita <!-- App entry for 8.6: fuga --><app>
                         <lem wit="#M #S" xml:id="lem-8.6-fuga">fuga</lem>
                         <rdg wit="#U #V" xml:id="rdg-8.6-fugam">fugam</rdg>
                         <rdg wit="#T" xml:id="rdg-8.6-tamen-fugam">tamen fugam</rdg>
@@ -467,7 +482,21 @@
                      tum maxime illo tempore totum onus sustinere non recusabant ne quod suorum
                      culpa detrimentum acceptum uideretur.</seg>
                   <seg n="4">Ita proelium secundissimum est factum. Capta est una hostium
-                     quadriremis, depressa est altera, duae omnibus epibatis nudatae. <!-- App entry for 11.4: magna --><app>
+                     quadriremis, depressa est <!-- App entry for 11.4: altera, duae --><app>
+                        <lem source="#Turnebus" xml:id="lem-11.4-altera-duae">altera, duae</lem>
+                        <note target="lem-11.4-altera,-duae">(cf. 16.6, 47.2)</note>
+                        <rdg wit="#M #U #T #V" xml:id="rdg-11.4-altera-deinde">altera deinde</rdg>
+                        <rdg wit="#Sc" xml:id="rdg-11.4-alteraque-peritur-deinde">alteraque peritur
+                           deinde</rdg>
+                        <rdg wit="#Sac" xml:id="rdg-11.4-alteraque-pertur-deinde">alteraque pertur
+                           deinde</rdg>
+                        <rdg source="#Dauisius" xml:id="rdg-11.4-altera-dein-duae">altera dein
+                           duae</rdg>
+                        <note target="rdg-11.4-altera-dein-duae">1706</note>
+                        <rdg source="#Kübler" xml:id="rdg-11.4-altera-apertae-undecim">altera
+                           apertae undecim</rdg>
+                        <note target="rdg-11.4-altera-apertae-undecim">dubitanter (u. 11.1)</note>
+                     </app> omnibus epibatis nudatae. <!-- App entry for 11.4: magna --><app>
                         <lem wit="#M #U #S" xml:id="lem-11.4-magna">magna</lem>
                         <rdg wit="#T #V" xml:id="rdg-11.4-magnae">magnae</rdg>
                      </app> praeterea multitudo in reliquis nauibus propugnatorum est
@@ -494,7 +523,7 @@
                            Alexandrini)</rdg>
                         <note target="rdg-12.1-qui-(sc.-Alexandrini)">, qui Manutium infra
                            sequitur</note>
-                     </app> et <supplied reason="lost">gap</supplied> superioribus <!-- App entry for 12.1: locis --><app>
+                     </app> et <gap reason="lost"/> superioribus <!-- App entry for 12.1: locis --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-12.1-locis">locis</lem>
                         <rdg source="#Kübler" xml:id="rdg-12.1-temporibus">temporibus</rdg>
                         <note target="rdg-12.1-temporibus">dubitanter (cf. BG 7.14.3)</note>
@@ -545,9 +574,9 @@
                      </app>, non commeatus supportari posse si classe ipsi ualerent. Praeterea <!-- App entry for 12.4: nautici --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-12.4-nautici">nautici</lem>
                         <note target="lem-12.4-nautici">(cf. 16.5)</note>
-                        <rdg source="#Morus" xml:id="rdg-12.4-nautici-surplus"
+                        <rdg source="#Morus" xml:id="rdg-12.4-nautici-deletion"
                               ><surplus>nautici</surplus></rdg>
-                        <note target="rdg-12.4-nautici-surplus">ut glossema</note>
+                        <note target="rdg-12.4-nautici-deletion">ut glossema</note>
                      </app> homines urbis et <!-- App entry for 12.4: regionis --><app>
                         <lem wit="#M #T #V" xml:id="lem-12.4-regionis">regionis</lem>
                         <rdg wit="#U #S" xml:id="rdg-12.4-religioneis">religion(e/i)s</rdg>
@@ -583,8 +612,8 @@
                         <rdg source="#Larsen" xml:id="rdg-13.5-cursu-sub-litore-addition"><supplied
                               reason="lost">cursu sub litore</supplied></rdg>
                         <note target="rdg-13.5-cursu-sub-litore-addition">coll. BG 5.57.3</note>
-                        <rdg source="#Nipperdey" xml:id="rdg-13.5-cursu-litore-surplus">cursu
-                              <surplus>litore</surplus></rdg>
+                        <rdg source="#Nipperdey" xml:id="rdg-13.5-cursu-litore-deletion"
+                              ><surplus>cursu litore</surplus></rdg>
                      </app> Aegyptio <!-- App entry for 13.5: defecerat --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-13.5-defecerat">defecerat</lem>
                         <note target="lem-13.5-defecerat">(cf. Verg. Aen. 6.354 <!-- App entry for 13.5: et --><app>
@@ -596,8 +625,14 @@
                         <note target="rdg-13.5-decesserat">coll. BC 3.112.3 (sed u. Dauisium)</note>
                         <rdg source="#Siesbye" xml:id="rdg-13.5-desederat">desederat</rdg>
                         <note target="rdg-13.5-desederat">teste Larsen (cf. Sen. Nat. 6.6.4)</note>
-                     </app>—Ponticas VIII, Lycias V, ex Asia XII. Ex his erant quinqueremes et
-                     quadriremes X, reliquae infra hanc magnitudinem et pleraeque apertae.</seg>
+                     </app>—Ponticas VIII, <!-- App entry for 13.5: Lycias --><app>
+                        <lem wit="#M #U #S #T #V" xml:id="lem-13.5-Lycias">Lycias</lem>
+                        <note target="lem-13.5-Lycias">(u. Mitchell 234-37)</note>
+                        <rdg source="#Schneider" xml:id="rdg-13.5--Syrias-lacuna-Cilicias-addition"
+                              ><supplied reason="lost">Syrias *** Ci</supplied>licias</rdg>
+                        <note target="rdg-13.5--Syrias-lacuna-Cilicias-addition">coll. 1.1</note>
+                     </app> V, ex Asia XII. Ex his erant quinqueremes et quadriremes X, reliquae
+                     infra hanc magnitudinem et pleraeque apertae.</seg>
                   <seg n="6">Tamen uirtute militum confisus cognitis hostium copiis se ad dimicandum
                      parabat.</seg></p>
                <p n="14"><seg n="1">Postquam eo uentum est ut sibi <!-- App entry for 14.1: uterque eorum --><app>
@@ -651,8 +686,17 @@
                         <rdg wit="#U #S #Tac #Vac" xml:id="rdg-15.5-pugna">pugna</rdg>
                         <rdg wit="#Vc" xml:id="rdg-15.5-pugnandi">pugnandi</rdg>
                         <note target="rdg-15.5-pugnandi">(cf. 45.3)</note>
-                     </app>. Progressis ultra uadum IIII, Rhodias naues circumsistunt Alexandrini
-                     atque in eas impetum faciunt.</seg>
+                     </app>. <!-- App entry for 15.5: progressis ultra uadum IIII, Rhodias --><app>
+                        <lem wit="#U #S #Tac #V"
+                           xml:id="lem-15.5-progressis-ultra-uadum-IIII-Rhodias">progressis ultra
+                           uadum IIII, Rhodias</lem>
+                        <note target="lem-15.5-progressis-ultra-uadum-IIII,-Rhodias">(cf. BC 2.19.4
+                           deductis tribus ... cohortes)</note>
+                        <rdg wit="#M #Tc" xml:id="rdg-15.5-progressas-ultra-uadum-IIII-Rhodias"
+                           >progressas ultra uadum IIII Rhodias</rdg>
+                        <note>an progressis ultra uadum Rhodiis, IIII (cf. 14.1 et illi
+                           infra)?</note>
+                     </app> naues circumsistunt Alexandrini atque in eas impetum faciunt.</seg>
                   <seg n="6">Sustinent <!-- App entry for 15.6: illi --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-15.6-illi">illi</lem>
                         <note target="lem-15.6-illi">(u. et ad 14.1)</note>
@@ -739,15 +783,25 @@
                      </app> proeli certamen. Nostris enim <!-- App entry for 16.1: pulsis --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-16.1-pulsis">pulsis</lem>
                         <note target="lem-16.1-pulsis">(cf. BG 1.46.3)</note>
-                        <rdg source="#Nipperdey" xml:id="rdg-16.1-pulsis-surplus-">[pulsis] </rdg>
-                        <note target="rdg-16.1-pulsis-surplus-">uoce uictis infra seruata</note>
+                        <rdg source="#Nipperdey" xml:id="rdg-16.1-pulsis--deletion"><surplus>pulsis
+                           </surplus></rdg>
+                        <note target="rdg-16.1-pulsis--deletion">uoce uictis infra seruata</note>
                         <rdg source="#Landgraf" xml:id="rdg-16.1-paucis">paucis</rdg>
                         <note target="rdg-16.1-paucis">1888 (u. 16.2)</note>
                         <rdg source="#Stephanus" xml:id="rdg-16.1-prorsus">prorsus</rdg>
                         <note target="rdg-16.1-prorsus">(cf. Quint. 12.9.9) </note>
-                     </app> neque terra neque mari effugium dabatur uictis, omniaque uictoribus
-                     erant futura in incerto. Illi si superassent nauibus omnia tenerent, si
-                     inferiores fuissent reliquam tamen fortunam periclitarentur.</seg>
+                     </app> neque terra neque mari effugium <!-- App entry for 16.1: dabatur uictis --><app>
+                        <lem wit="#M #U #S #T #V" xml:id="lem-16.1-dabatur-uictis">dabatur
+                           uictis</lem>
+                        <note target="lem-16.1-dabatur-uictis">(cf. 17.4 et 60.2) </note>
+                        <rdg source="#Gruterus" xml:id="rdg-16.1-dabatur-uictis--deletion"
+                              ><surplus>dabatur uictis </surplus></rdg>
+                        <note target="rdg-16.1-dabatur-uictis--deletion">teste Oudendorp uoce pulsis
+                           supra seruata </note>
+                        <rdg source="#Strada" xml:id="rdg-16.1-dabatur-ullum">dabatur ullum</rdg>
+                     </app>, omniaque uictoribus erant futura in incerto. Illi si superassent
+                     nauibus omnia tenerent, si inferiores fuissent reliquam tamen fortunam
+                     periclitarentur.</seg>
                   <seg n="2">Simul illud graue ac miserum uidebatur perpaucos de summa <supplied
                         reason="lost">exercitus</supplied> ac de salute omnium decertare. Quorum si <!-- App entry for 16.2: qui --><app>
                         <lem wit="#S #T #V" xml:id="lem-16.2-qui">qui</lem>
@@ -768,8 +822,12 @@
                         <note target="rdg-16.2-cedendum">testibus Gaertner-Hausburg 126 n.198</note>
                         <rdg source="#Manutius" xml:id="rdg-16.2-cadendum">cadendum</rdg>
                      </app>, quibus pro se pugnandi facultas non fuisset.</seg>
-                  <seg n="3">Haec superioribus diebus saepenumero Caesar suis exposuerat ut hoc
-                     maiore animo contenderent quod omnium salutem sibi commendatam uiderent.</seg>
+                  <seg n="3">Haec <!-- App entry for 16.3: superioribus diebus --><app>
+                        <lem wit="#M #Uc #T #V" xml:id="lem-16.3-superioribus-diebus">superioribus
+                           diebus</lem>
+                        <rdg wit="#Uac #S" xml:id="rdg-16.3-diebus">diebus</rdg>
+                     </app> saepenumero Caesar suis exposuerat ut hoc maiore animo contenderent quod
+                     omnium salutem sibi commendatam uiderent.</seg>
                   <seg n="4">Eadem suum quisque contubernalem amicum notum prosequens erat
                      obtestatus: ne suam atque omnium falleret opinionem, quorum iudicio delectus ad
                      pugnam proficisceretur.</seg>
@@ -812,8 +870,7 @@
                         <rdg source="#Vascosanus" xml:id="rdg-17.3-alteramque">alteramque</rdg>
                         <note target="rdg-17.3-alteramque">(u. et infra)</note>
                         <rdg source="#Castiglioni" xml:id="rdg-17.3-et-alteram">et alteram</rdg>
-                     </app> insulae partem <supplied reason="lost">gap</supplied> distinendae manus
-                     causa <!-- App entry for 17.3: constratis --><app>
+                     </app> insulae partem <gap reason="lost"/> distinendae manus causa <!-- App entry for 17.3: constratis --><app>
                         <lem wit="#M #U #S" xml:id="lem-17.3-constratis">constratis</lem>
                         <rdg wit="#T #Vac" xml:id="rdg-17.3-constractis">constractis</rdg>
                         <rdg wit="#Vc" xml:id="rdg-17.3-contractis">contractis</rdg>
@@ -836,9 +893,9 @@
                      </app> propter asperitatem loci non facilis nostris aditus dabatur, et scaphis
                      nauibusque longis <!-- App entry for 17.4: V --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-17.4-V">V</lem>
-                        <rdg source="#Vielhaber" xml:id="rdg-17.4-V-surplus"
+                        <rdg source="#Vielhaber" xml:id="rdg-17.4-V-deletion"
                            ><surplus>V</surplus></rdg>
-                        <note target="rdg-17.4-V-surplus">coll. 13.4 et 16.7 </note>
+                        <note target="rdg-17.4-V-deletion">coll. 13.4 et 16.7 </note>
                         <rdg source="#Fleischer" xml:id="rdg-17.4-utrinque">utrinque</rdg>
                         <note target="rdg-17.4-utrinque">1879 coll. 17.3</note>
                         <note>an Alexandrini (u. et infra)?</note>
@@ -863,8 +920,8 @@
                         <lem wit="#U #S #T #V" xml:id="lem-17.6-his-pulsis">his pulsis</lem>
                         <rdg wit="#M" xml:id="rdg-17.6-hii-pulsi">hii pulsi</rdg>
                      </app>
-                     <supplied reason="lost">gap</supplied> custodia portus relicta naues ad litora
-                     et uicum applicarunt seque ex nauibus ad tuenda aedificia eiecerunt.</seg></p>
+                     <gap reason="lost"/> custodia portus relicta naues ad litora et uicum
+                     applicarunt seque ex nauibus ad tuenda aedificia eiecerunt.</seg></p>
                <p n="18"><seg n="1">Neque uero <!-- App entry for 18.1: diutius ea munitione --><app>
                         <lem source="#Dauisius" xml:id="lem-18.1-diutius-ea-munitione">diutius ea
                            munitione</lem>
@@ -978,8 +1035,17 @@
                      Hi primum nauigia hostium lapidibus ac fundis a mole repellebant ac multum
                      proficere multitudine telorum uidebantur.</seg>
                   <seg n="3">Sed postquam ultra eum locum ab latere eorum aperto ausi sunt egredi ex
-                     nauibus Alexandrini pauci, ut sine signis certisque ordinibus sine ratione
-                     prodierant sic temere in naues <!-- App entry for 20.3: refugere coeperunt --><app>
+                     nauibus Alexandrini pauci, ut sine signis certisque ordinibus <!-- App entry for 20.3: sine ratione --><app>
+                        <lem wit="#M #U #T #V" xml:id="lem-20.3-sine-ratione">sine ratione</lem>
+                        <note target="lem-20.3-sine-ratione">(de anaphora cf. 19.6) (deest S)</note>
+                        <rdg source="#Callaghan" xml:id="rdg-20.3--et-sine-ratione-addition"
+                              ><supplied reason="lost">et</supplied> sine ratione</rdg>
+                        <note target="rdg-20.3--et-sine-ratione-addition">(cf. BG 7.52.2)</note>
+                        <rdg source="#Forchhammer" xml:id="rdg-20.3-sine-ratione-deletion"
+                              ><surplus>sine ratione</surplus></rdg>
+                        <note target="rdg-20.3-sine-ratione-deletion">ut glossema ad temere
+                           pertinens</note>
+                     </app> prodierant sic temere in naues <!-- App entry for 20.3: refugere coeperunt --><app>
                         <lem wit="#U" xml:id="lem-20.3-refugere-coeperunt">refugere coeperunt</lem>
                         <rdg wit="#M" xml:id="rdg-20.3-receperunt">receperunt</rdg>
                         <rdg wit="#T" xml:id="rdg-20.3-fugere-coeperunt">fugere coeperunt</rdg>
@@ -1022,18 +1088,28 @@
                         <note>an secludendum ut glossema de BC 2.43.4 sumptum?</note>
                      </app> depressa est, pars resistens et dubitans quid esset capiendum consili ab
                      Alexandrinis interfecta est. Nonnulli feliciore exitu expeditas ad ancoram
-                     naues consecuti incolumes discesserunt, pauci <!-- App entry for 20.6: alleuatis --><app>
-                        <lem wit="#U #T #V" xml:id="lem-20.6-alleuatis">alleuatis</lem>
-                        <rdg wit="#M" xml:id="rdg-20.6-alleuati">alleuati</rdg>
-                        <note target="rdg-20.6-alleuati">, quod defendit Madvig 'alleuati ipsi
-                           scutis ligneis homines'; u. Amm. 24.6.7, cf. Curt. 9.9.22 et, de uerborum
-                           ordine, BC 1.45.2) (deest S)</note>
-                     </app> scutis et <!-- App entry for 20.6: animo ad conandum nisi --><app>
-                        <lem wit="#M #U #T #V" xml:id="lem-20.6-animo-ad-conandum-nisi">animo ad
-                           conandum nisi</lem>
-                        <note target="lem-20.6-animo-ad-conandum-nisi">(cf. Quint. Decl. min. 266.9)
-                           (deest S)</note>
-                        <note>an animo ad conandum incumbentes (cf. 12.4)?</note>
+                     naues consecuti incolumes discesserunt, pauci <!-- App entry for 20.6: alleuatis scutis et animo ad conandum nisi --><app>
+                        <lem wit="#M #U #T #V"
+                           xml:id="lem-20.6-alleuatis-scutis-et-animo-ad-conandum-nisi"><!-- App entry for 20.6: alleuatis --><app>
+                              <lem wit="#U #T #V" xml:id="lem-20.6-alleuatis-2">alleuatis</lem>
+                              <rdg wit="#M" xml:id="rdg-20.6-alleuati">alleuati</rdg>
+                              <note target="rdg-20.6-alleuati">, quod defendit Madvig 'alleuati ipsi
+                                 scutis ligneis homines'; u. Amm. 24.6.7, cf. Curt. 9.9.22 et, de
+                                 uerborum ordine, BC 1.45.2) (deest S)</note>
+                           </app> scutis et <!-- App entry for 20.6: animo ad conandum nisi --><app>
+                              <lem wit="#M #U #T #V" xml:id="lem-20.6-animo-ad-conandum-nisi">animo
+                                 ad conandum nisi</lem>
+                              <note target="lem-20.6-animo-ad-conandum-nisi">(cf. Quint. Decl. min.
+                                 266.9) (deest S)</note>
+                              <note>an animo ad conandum incumbentes (cf. 12.4)?</note>
+                           </app></lem>
+                        <note target="lem-20.6-alleuatis-scutis-et-animo-ad-conandum-nisi">uocibus
+                           hic et illic leuiter mutatis (u. infra) (deest S)</note>
+                        <rdg source="#Fleischer"
+                           xml:id="rdg-20.6-alleuatis-scutis-et-animo-ad-conandum-nisi-deletion"
+                              ><surplus>alleuatis scutis et animo ad conandum nisi</surplus></rdg>
+                        <note target="rdg-20.6-alleuatis-scutis-et-animo-ad-conandum-nisi-deletion"
+                           >1879 ('romanhafte')</note>
                      </app> ad proxima nauigia adnatarunt.</seg></p>
                <p n="21"><seg n="1">Caesar quoad potuit cohortando suos ad pontem ac munitiones <!-- App entry for 21.1: continere --><app>
                         <lem source="#Lipsius" xml:id="lem-21.1-continere">continere</lem>
@@ -1061,16 +1137,22 @@
                         <note target="rdg-22.1-accensiones">(deest S)</note>
                      </app> fecerint in operibus hostium expugnandis.</seg>
                   <seg n="2">In proeliis cotidianis, quandocumque fors obtulerat, procurrentibus et
-                     erumpentibus Alexandrinis, manum <supplied reason="lost">gap</supplied>
-                     comprehendi <sic>multum</sic> operibus et ardentibus studiis militum. Nec
-                     diuulgata Caesaris hortatio subsequi legionum aut laborem aut pugnandi poterat
-                     cupiditatem, ut magis deterrendi et continendi a periculosissimis essent
-                     dimicationibus quam incitandi ad pugnandum.</seg></p>
+                     erumpentibus Alexandrinis, manum <gap reason="lost"/> comprehendi <!-- App entry for 22.2: <sic>multum</sic> --><app>
+                        <lem source="#scripsimus" xml:id="lem-22.2-multum-crux"
+                           ><sic>multum</sic></lem>
+                        <rdg wit="#M #U #T #V" xml:id="rdg-22.2-multum">multum</rdg>
+                        <note target="rdg-22.2-multum">(deest S)</note>
+                        <note>an munitionum (cf. 1.2)? nisi mauis lacunam alteram ante operibus
+                           statuere</note>
+                     </app> operibus et ardentibus studiis militum. Nec diuulgata Caesaris hortatio
+                     subsequi legionum aut laborem aut pugnandi poterat cupiditatem, ut magis
+                     deterrendi et continendi a periculosissimis essent dimicationibus quam
+                     incitandi ad pugnandum.</seg></p>
                <p n="23"><seg n="1">Alexandrini cum Romanos et secundis rebus confirmari et aduersis
                      incitari uiderent neque ullum belli <!-- App entry for 23.1: tertium --><app>
                         <lem wit="#M #U #T #V" xml:id="lem-23.1-tertium">tertium</lem>
                         <note target="lem-23.1-tertium">(cf. Lucr. 1.445-46) (deest S)</note>
-                        <rdg source="#Kraffert" xml:id="rdg-23.1-tertium-surplus"
+                        <rdg source="#Kraffert" xml:id="rdg-23.1-tertium-deletion"
                               ><surplus>tertium</surplus></rdg>
                      </app> casum nossent <!-- App entry for 23.1: quo --><app>
                         <lem wit="#M" xml:id="lem-23.1-quo">quo</lem>
@@ -1143,9 +1225,9 @@
                         <lem wit="#M #U #S #T #V" xml:id="lem-24.3-contra-Caesarem">contra
                            Caesarem</lem>
                         <note target="lem-24.3-contra-Caesarem">(cf. 37.2 etc.)</note>
-                        <rdg source="#Dinter" xml:id="rdg-24.3-contra-surplus-Caesarem">[contra]
-                           Caesarem</rdg>
-                        <note target="rdg-24.3-contra-surplus-Caesarem">(ex 24.5? cf. BG
+                        <rdg source="#Dinter" xml:id="rdg-24.3-contra-Caesarem-deletion"
+                              ><surplus>contra Caesarem</surplus></rdg>
+                        <note target="rdg-24.3-contra-Caesarem-deletion">(ex 24.5? cf. BG
                            5.27.7)</note>
                         <note>an Caesarem contra (cf. 60.3)?</note>
                      </app> coepit ne se dimitteret: non enim sibi regnum ipsum conspectu Caesaris
@@ -1163,11 +1245,11 @@
                         <note target="lem-24.5-ut-ex-carceribus-in-liberum-cursum-emissus">(cf. Cic.
                            Amic. 101)</note>
                         <rdg source="#Fleischer"
-                           xml:id="rdg-24.5--ut-equus-ex-carceribus-in-liberum-cursum-emissus--addition"
-                              ><supplied reason="lost">ut equus</supplied> ex carceribus in liberum
+                           xml:id="rdg-24.5-ut--equus-ex-carceribus-in-liberum-cursum-emissus--addition"
+                           >ut <supplied reason="lost">equus</supplied> ex carceribus in liberum
                            cursum emissus </rdg>
                         <note
-                           target="rdg-24.5--ut-equus-ex-carceribus-in-liberum-cursum-emissus--addition"
+                           target="rdg-24.5-ut--equus-ex-carceribus-in-liberum-cursum-emissus--addition"
                            >1879</note>
                      </app>, adeo contra Caesarem acriter bellum gerere coepit ut lacrimas quas in
                      colloquio proiecerat gaudio uideretur profudisse.</seg>
@@ -1189,8 +1271,15 @@
                      </app> terrestri itinere <supplied reason="lost">ex</supplied> Syria <!-- App entry for 25.1: Ciliciaque --><app>
                         <lem wit="#M #U #V" xml:id="lem-25.1-Ciliciaque">Ciliciaque</lem>
                         <rdg wit="#S #T" xml:id="rdg-25.1-Ciyliaque">C(i/y)liaque</rdg>
-                     </app> adduci—quod nondum auditum Caesari erat)—, commeatum qui mari nostris
-                     supportabatur intercipere statuerunt.</seg>
+                     </app> adduci—quod nondum auditum Caesari erat)—, <!-- App entry for 25.1: commeatum --><app>
+                        <lem wit="#M #U" xml:id="lem-25.1-commeatum">commeatum</lem>
+                        <rdg wit="#S #T #V" xml:id="rdg-25.1-commeatumque">commeatumque</rdg>
+                        <rdg source="#Vielhaber"
+                           xml:id="rdg-25.1-audendum-aliquid-commeatumque-addition"><supplied
+                              reason="lost">audendum aliquid commeatumque</supplied></rdg>
+                        <note target="rdg-25.1-audendum-aliquid-commeatumque-addition">dubitanter
+                           (cf. Liu. 41.19.7)</note>
+                     </app> qui mari nostris supportabatur intercipere statuerunt.</seg>
                   <seg n="2">Itaque expeditis nauigiis locis idoneis ad Canopum in statione
                      dispositis nauibus insidiabantur nostris <sic>commeatu</sic>.</seg>
                   <seg n="3">Quod ubi Caesari nuntiatum est <!-- App entry for 25.3: uniuersam --><app>
@@ -1204,7 +1293,16 @@
                         <lem wit="#S #T #V" xml:id="lem-25.3-praeficit">praeficit</lem>
                         <rdg wit="#M #U" xml:id="rdg-25.3-praefecit">praefecit</rdg>
                      </app> huic Tiberium Neronem. Proficiscuntur in ea classe Rhodiae naues atque
-                     in iis Euphranor, sine quo nulla umquam dimicatio maritima—nulla etiam <!-- App entry for 25.3: parum --><app>
+                     in iis Euphranor, sine quo nulla umquam dimicatio <!-- App entry for 25.3: maritima --><app>
+                        <lem wit="#M #U #S #T #V" xml:id="lem-25.3-maritima">maritima</lem>
+                        <note target="lem-25.3-maritima">(cf. 46.1 et Cic. Ver. 2.5.136)</note>
+                        <rdg source="#Cornelissen" xml:id="rdg-25.3-mari-inita">mari inita</rdg>
+                        <note target="rdg-25.3-mari-inita">(cf. Sempronius Asellio FRHist F2)</note>
+                        <rdg source="#Kübler" xml:id="rdg-25.3-maritima-gap-addition"><supplied
+                              reason="lost">maritima gap</supplied></rdg>
+                        <note target="rdg-25.3-maritima-gap-addition">, qui <supplied>suscipi posse
+                              uidebatur</supplied> suppleuerit (cf. Hirt. 8.10.1)</note>
+                     </app>—nulla etiam <!-- App entry for 25.3: parum --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-25.3-parum">parum</lem>
                         <rdg source="#Larsen" xml:id="rdg-25.3-impar-sc.-dimicatio-parum-addition"
                               ><supplied reason="lost">impar (sc. dimicatio) parum</supplied></rdg>
@@ -1253,9 +1351,9 @@
                            copiis</lem>
                         <rdg source="#Vascosanus" xml:id="rdg-26.1-magnas-copias">magnas
                            copias</rdg>
-                        <rdg source="#Hoffmann" xml:id="rdg-26.1-cum-surplus-magnis-copiis">[cum]
-                           magnis copiis</rdg>
-                        <note target="rdg-26.1-cum-surplus-magnis-copiis">1890 (u. et infra)</note>
+                        <rdg source="#Hoffmann" xml:id="rdg-26.1-cum-magnis-copiis-deletion"
+                              ><surplus>cum magnis copiis</surplus></rdg>
+                        <note target="rdg-26.1-cum-magnis-copiis-deletion">1890 (u. et infra)</note>
                      </app>, quas celeriter et propensissima ciuitatium uoluntate et sua diligentia
                      confecerat, itinere pedestri, quo coniungitur Aegyptus Syriae—</seg><seg n="2">
                      Pelusium adducit. <!-- App entry for 26.2: idque --><app>
@@ -1320,18 +1418,43 @@
                            fluens? Stoffel 2.63-64)</note>
                      </app> sciret magnas aduersus eum copias misit, quibus uel superari delerique
                      Mithridaten uel sine dubio retineri posse credebat.</seg>
-                  <seg n="3">Quem ad modum autem optabat eum uinci, sic satis habebat interclusum a
-                     Caesare a se retineri.</seg>
+                  <seg n="3">Quem ad modum autem optabat eum uinci, sic satis habebat <!-- App entry for 27.3: interclusum a Caesare a se --><app>
+                        <lem wit="#M #U #S #T" xml:id="lem-27.3-interclusum-a-Caesare-a-se"
+                           >interclusum a Caesare a se</lem>
+                        <rdg wit="#V" xml:id="rdg-27.3-interclusum-a-caesare-se">interclusum a
+                           caesare se</rdg>
+                        <rdg source="#Ciaconnius"
+                           xml:id="rdg-27.3-interclusum-a-Caesare-a-se--deletion"
+                              ><surplus>interclusum a Caesare a se </surplus></rdg>
+                        <note target="rdg-27.3-interclusum-a-Caesare-a-se--deletion">, qui tamen a
+                           se interclusum [a Caesare] malit, et Jurinius ut dittographia ('cum rex
+                           ipse cum iis copiis non esset')</note>
+                     </app> retineri.</seg>
                   <seg n="4">Quae primae copiae flumen a Delta transire et Mithridati occurrere
                      potuerunt proelium commiserunt festinantes praeripere subsequentibus uictoriae
                      societatem.</seg>
-                  <seg n="5">Quorum impetum Mithridates magna cum prudentia constantiaque [<!-- App entry for 27.5: uirtutum --><app>
-                        <lem wit="#M #U #T #V" xml:id="lem-27.5-uirtutum">uirtutum</lem>
-                        <note target="lem-27.5-uirtutum">(deest S, u. supra)</note>
-                        <rdg wit="ς" xml:id="rdg-27.5-militum">militum</rdg>
-                        <note target="rdg-27.5-militum">teste Ciacconio</note>
-                     </app> et Alexandrinorum imprudentia] consuetudine nostra castris uallatis
-                     sustinuit. Cum uero <!-- App entry for 27.5: incaute --><app>
+                  <seg n="5">Quorum impetum <!-- App entry for 27.5: Mithridates magna cum prudentia --><app>
+                        <lem wit="#M #U #Sc" xml:id="lem-27.5-Mithridates-magna-cum-prudentia"
+                           >Mithridates magna cum prudentia</lem>
+                        <note target="lem-27.5-Mithridates-magna-cum-prudentia">et T supra
+                           lineam</note>
+                        <rdg wit="#Sac #T" xml:id="rdg-27.5-mithridates-magna-cum-potentia"
+                           >mithridates magna cum potentia</rdg>
+                        <rdg wit="#V" xml:id="rdg-27.5-magna-cum-prudentia-mithridates">magna cum
+                           prudentia mithridates</rdg>
+                        <note target="rdg-27.5-magna-cum-prudentia-mithridates">feliciter</note>
+                        <rdg source="#D. #Simons"
+                           xml:id="rdg-27.5-Mithridates-magna-cum-prudentia-deletion"
+                              ><surplus>Mithridates magna cum prudentia</surplus></rdg>
+                        <note target="rdg-27.5-Mithridates-magna-cum-prudentia-deletion">, qui et
+                           constantiaque <!-- App entry for 27.5: uirtutum --><app>
+                              <lem wit="#M #U #T #V" xml:id="lem-27.5-uirtutum">uirtutum</lem>
+                              <note target="lem-27.5-uirtutum">(deest S, u. supra)</note>
+                              <rdg wit="ς" xml:id="rdg-27.5-militum">militum</rdg>
+                              <note target="rdg-27.5-militum">teste Ciacconio</note>
+                           </app> et Alexandrinorum imprudentia secluserit ut glossema</note>
+                     </app> constantiaque [uirtutum et Alexandrinorum imprudentia] consuetudine
+                     nostra castris uallatis sustinuit. Cum uero <!-- App entry for 27.5: incaute --><app>
                         <lem wit="#M #U" xml:id="lem-27.5-incaute">incaute</lem>
                         <note target="lem-27.5-incaute">(cf. Liu. 7.15.9)</note>
                         <rdg wit="#S #T #V" xml:id="rdg-27.5-caute">caute</rdg>
@@ -1381,9 +1504,38 @@
                      </app>.</seg>
                   <seg n="4">Itaque eodem tempore equites Germani dispersi uada
                         <surplus>fluminum</surplus> quaerentes partim demissioribus ripis flumen
-                     tranarunt, et legionarii magnis arboribus excisis quae longitudine utramque
-                     ripam contingerent, proiectis repentinoque aggere iniecto flumen
-                     transierunt.</seg>
+                     tranarunt, et legionarii magnis arboribus <!-- App entry for 29.4: excisis quae longitudine utramque ripam contingerent, proiectis repentinoque --><app>
+                        <lem wit="#M #U #S #T #V"
+                           xml:id="lem-29.4-excisis-quae-longitudine-utramque-ripam-contingerent-proiectis-repentinoque"
+                           >excisis quae longitudine utramque ripam contingerent, proiectis
+                           repentinoque</lem>
+                        <note
+                           target="lem-29.4-excisis-quae-longitudine-utramque-ripam-contingerent,-proiectis-repentinoque"
+                           >, quod defendit Landgraf 1891b coll. Hirt. 8.28.4</note>
+                        <rdg wit="ς"
+                           xml:id="rdg-29.4-excisis-quae-longitudine-utramque-ripam-contingerent-et-proiectis-repentinoque"
+                           >excisis quae longitudine utramque ripam contingerent et proiectis
+                           repentinoque</rdg>
+                        <note
+                           target="rdg-29.4-excisis-quae-longitudine-utramque-ripam-contingerent-et-proiectis-repentinoque"
+                           >teste Andrieu (cf. 17.3)</note>
+                        <rdg source="#Ciacconius"
+                           xml:id="rdg-29.4-excisis-quae-longitudine-utramque-ripam-contingerent-proiectis-repentinoque-deletion"
+                              ><surplus>excisis quae longitudine utramque ripam contingerent
+                              proiectis repentinoque</surplus></rdg>
+                        <note
+                           target="rdg-29.4-excisis-quae-longitudine-utramque-ripam-contingerent-proiectis-repentinoque-deletion"
+                           >(cf. Vitr. 10.14.2 et u. TLL 10.2.1797.75-1798.30)</note>
+                        <rdg source="#Nipperdey"
+                           xml:id="rdg-29.4-excisis-quae-longitudine-utramque-ripam-contingerent-proiectis--iis-repentinoque-addition"
+                           >excisis quae longitudine utramque ripam contingerent proiectis <supplied
+                              reason="lost">iis</supplied> repentinoque</rdg>
+                        <note
+                           target="rdg-29.4-excisis-quae-longitudine-utramque-ripam-contingerent-proiectis--iis-repentinoque-addition"
+                           >(cf. BC 1.27.4)</note>
+                        <note>an excisis quae longitudine utramque ripam contingerent proiectisque
+                           repentino (cf. 44.4)?</note>
+                     </app> aggere iniecto flumen transierunt.</seg>
                   <seg n="5">Quorum impetum adeo pertimuerunt hostes ut in fuga spem salutis
                      collocarent. Sed id frustra. Namque ex ea fuga pauci ad regem refugerunt paene
                      omni reliqua multitudine interfecta.</seg></p>
@@ -1443,7 +1595,18 @@
                      militibus acerrime pugnantibus, diuerso clamore et proelio perterriti
                      Alexandrini trepidantes in omnes partes castrorum discurrere coeperunt.</seg>
                   <seg n="3">Quorum perturbatione nostrorum animi adeo sunt incitati ut paene eodem
-                     tempore ex omnibus partibus, primi tamen editissimum <!-- App entry for 31.3: castrorum locum --><app>
+                     tempore ex omnibus <!-- App entry for 31.3: partibus --><app>
+                        <lem wit="#M #U #S #T #V" xml:id="lem-31.3-partibus">partibus</lem>
+                        <note target="lem-31.3-partibus">(sc. loca caperent nostri; cf. Hirt. 8.36.4
+                           et, de figura apo koinou, BC 1.19.5)</note>
+                        <rdg source="#Kübler" xml:id="rdg-31.3-partibus-impetus-fieret-addition"
+                              ><supplied reason="lost">partibus impetus fieret</supplied></rdg>
+                        <note target="rdg-31.3-partibus-impetus-fieret-addition">(cf. BG
+                           1.22.3)</note>
+                        <rdg source="#Schneider" xml:id="rdg-31.3-partibus-inrumperent-addition"
+                              ><supplied reason="lost">partibus inrumperent</supplied></rdg>
+                        <note target="rdg-31.3-partibus-inrumperent-addition">(cf. BG 4.14.3)</note>
+                     </app>, primi tamen editissimum <!-- App entry for 31.3: castrorum locum --><app>
                         <lem wit="#S #T #V" xml:id="lem-31.3-castrorum-locum">castrorum locum</lem>
                         <note target="lem-31.3-castrorum-locum">et Mmr (cf. BG 2.23.5)</note>
                         <rdg wit="#M #U" xml:id="rdg-31.3-locum-castrorum">locum castrorum</rdg>
@@ -1462,7 +1625,14 @@
                   <seg n="5">Horum primis in ipsa fossa munitionis magna ruina oppressis ceteri
                      faciliorem fugam habuerunt.</seg>
                   <seg n="6">Constat fugisse ex castris regem ipsum receptumque in nauem multitudine
-                     eorum qui ad proximas naues adnatabant demerso nauigio perisse.</seg></p>
+                     eorum qui <!-- App entry for 31.6: ad proximas naues --><app>
+                        <lem wit="#M #U #S #T #V" xml:id="lem-31.6-ad-proximas-naues">ad proximas
+                           naues</lem>
+                        <rdg source="#Vielhaber" xml:id="rdg-31.6-ad-proximas-naues-deletion"
+                              ><surplus>ad proximas naues</surplus></rdg>
+                        <note target="rdg-31.6-ad-proximas-naues-deletion">ut glossema
+                           ineptum</note>
+                     </app> adnatabant demerso nauigio perisse.</seg></p>
                <p n="32"><seg n="1">Re felicissime celerrimeque gesta Caesar <!-- App entry for 32.1: magnae uictoriae --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-32.1-magnae-uictoriae">magnae
                            uictoriae</lem>
@@ -1475,8 +1645,17 @@
                         <note target="rdg-32.1-magna-e-uictoria">(cf. Liu. 28.43.19) </note>
                      </app> fiducia proximo terrestri itinere Alexandriam cum equitibus contendit
                      atque ea parte oppidi uictor introiit quae praesidio hostium tenebatur.</seg>
-                  <seg n="2">Neque eum consilium suum fefellit quin hostes eo proelio audito nihil
-                     iam de bello essent cogitaturi.</seg>
+                  <seg n="2">Neque eum <!-- App entry for 32.2: consilium suum fefellit --><app>
+                        <lem wit="#M #U #V" xml:id="lem-32.2-consilium-suum-fefellit">consilium suum
+                           fefellit</lem>
+                        <rdg wit="#S #T" xml:id="rdg-32.2-consilium-suum-refellit">consilium suum
+                           refellit</rdg>
+                        <rdg source="#Ciacconius" xml:id="rdg-32.2-consilium-suum-fefellit-deletion"
+                              ><surplus>consilium suum fefellit</surplus></rdg>
+                        <note target="rdg-32.2-consilium-suum-fefellit-deletion">coll. BC
+                           3.94.3</note>
+                     </app> quin hostes eo proelio audito nihil iam de bello essent
+                     cogitaturi.</seg>
                   <seg n="3">Dignum adueniens fructum uirtutis et animi magnitudinis tulit: omnis
                      enim multitudo oppidanorum armis proiectis munitionibusque suis relictis, ueste
                      ea sumpta qua supplices dominantes deprecari consuerunt sacrisque omnibus
@@ -1493,13 +1672,13 @@
                            aduentum eius felicem</lem>
                         <note target="lem-32.4-sed-etiam-talem-aduentum-eius-felicem">(cf. Plin.
                            Nat. 11.174)</note>
-                        <rdg xml:id="rdg-32.4-sed-etiam-talem-aduentum-eius-felicem-surplusMadvig"
-                           >sed etiam talem aduentum eius [felicem]Madvig</rdg>
-                        <note target="rdg-32.4-sed-etiam-talem-aduentum-eius-felicem-surplusMadvig"
+                        <rdg xml:id="rdg-32.4-sed-etiam-talem-aduentum-eius-felicemMadvig-deletion"
+                              ><surplus>sed etiam talem aduentum eius felicemMadvig</surplus></rdg>
+                        <note target="rdg-32.4-sed-etiam-talem-aduentum-eius-felicemMadvig-deletion"
                            >(cf. 77.1)</note>
                         <rdg source="#Morus"
-                           xml:id="rdg-32.4-sed-etiam-talem-surplus-aduentum-eius-talem">sed etiam
-                           [talem] aduentum eius talem</rdg>
+                           xml:id="rdg-32.4-sed-etiam-talem-aduentum-eius-talem-deletion"
+                              ><surplus>sed etiam talem aduentum eius talem</surplus></rdg>
                         <rdg source="#Vielhaber"
                            xml:id="rdg-32.4-felicem-sed-etiam-talem-aduentum-eius">felicem sed etiam
                            talem aduentum eius</rdg>
@@ -1510,10 +1689,18 @@
                <p n="33"><seg n="1">Caesar Aegypto atque Alexandria potitus reges constituit
                         <surplus>ut</surplus> quos Ptolomaeus testamento scripserat atque obtestatus
                      erat populum Romanum ne mutarentur.</seg>
-                  <seg n="2">Nam maiore ex duobus pueris, rege, amisso minori tradidit regnum
-                     maiorique ex duabus filiis, Cleopatrae, quae manserat in fide praesidiisque
-                     eius. Minorem, Arsinoem, cuius nomine diu regnasse impotenter Ganymeden
-                     docuimus, deducere ex regno statuit ne qua rursus noua dissensio, priusquam <!-- App entry for 33.2: diuturnitate confirmarentur --><app>
+                  <seg n="2">Nam <!-- App entry for 33.2: maiore ex duobus pueris, rege, --><app>
+                        <lem wit="#M #U #Tc" xml:id="lem-33.2-maiore-ex-duobus-pueris-rege">maiore
+                           ex duobus pueris, rege,</lem>
+                        <rdg wit="#S #Tac #V" xml:id="rdg-33.2-maiorem-ex-duobus-pueris-regem"
+                           >maiorem ex duobus pueris regem</rdg>
+                        <rdg source="#Kraffert"
+                           xml:id="rdg-33.2-maiore-ex-duobus-pueris-rege-deletion"><surplus>maiore
+                              ex duobus pueris rege</surplus></rdg>
+                     </app> amisso minori tradidit regnum maiorique ex duabus filiis, Cleopatrae,
+                     quae manserat in fide praesidiisque eius. Minorem, Arsinoem, cuius nomine diu
+                     regnasse impotenter Ganymeden docuimus, deducere ex regno statuit ne qua rursus
+                     noua dissensio, priusquam <!-- App entry for 33.2: diuturnitate confirmarentur --><app>
                         <lem wit="#Tc" xml:id="lem-33.2-diuturnitate-confirmarentur">diuturnitate
                            confirmarentur</lem>
                         <note target="lem-33.2-diuturnitate-confirmarentur">et Mmr (cf. 53.5 et u.
@@ -1571,8 +1758,17 @@
                         <rdg wit="#M #U" xml:id="rdg-33.4-esse-ut-hos">esse ut hos</rdg>
                         <rdg wit="#S #T #V" xml:id="rdg-33.4-esset-ut-hos">esset ut hos</rdg>
                      </app>; si essent ingrati, posse iisdem praesidiis coerceri. Sic rebus omnibus
-                     confectis et collocatis ipse itinere terrestri profectus est in
-                  Syriam.</seg></p>
+                     confectis et collocatis ipse <!-- App entry for 33.4: itinere terrestri --><app>
+                        <lem wit="#U #S #T #V" xml:id="lem-33.4-itinere-terrestri">itinere
+                           terrestri</lem>
+                        <note target="lem-33.4-itinere-terrestri">(cf. 34.3 etc.)</note>
+                        <rdg wit="#M" xml:id="rdg-33.4-itinere-pedestri">itinere pedestri</rdg>
+                        <note target="rdg-33.4-itinere-pedestri">ex 26.1?</note>
+                        <rdg source="#Nipperdey" xml:id="rdg-33.4-itinere-terrestri-deletion"
+                              ><surplus>itinere terrestri</surplus></rdg>
+                        <note target="rdg-33.4-itinere-terrestri-deletion">(u. 66.1 et Jos. AJ
+                           14.137)</note>
+                     </app> profectus est in Syriam.</seg></p>
                <p n="34"><seg n="1">Dum haec in Aegypto geruntur rex Deiotarus ad Domitium Caluinum,
                      cui Caesar Asiam finitimasque <!-- App entry for 34.1: prouincias --><app>
                         <lem wit="#U #S #T #V" xml:id="lem-34.1-prouincias">prouincias</lem>
@@ -1635,10 +1831,14 @@
                         <rdg wit="#T #V" xml:id="rdg-35.2-regno-suo">regno suo</rdg>
                      </app> quam Cappadociam longius remotam quodque omnes tres legiones adducturum
                      Domitium putasset, ex quibus cum duas ad Caesarem missas audisset audacius in
-                     Armenia substitisse, perseuerare coepit ut eo quoque regno decederet: neque
-                     enim aliud ius esse Cappadociae atque Armeniae, nec iuste eum postulare ut in
-                     Caesaris aduentum res integra differretur; id enim esse integrum quod ita esset
-                     ut fuisset.</seg>
+                     Armenia <!-- App entry for 35.2: substitisse --><app>
+                        <lem source="#Bentley" xml:id="lem-35.2-substitisse">substitisse</lem>
+                        <rdg wit="#M #U" xml:id="rdg-35.2-substitisset">substitisset</rdg>
+                        <rdg wit="#S #T #V" xml:id="rdg-35.2-substitisset-et">substitisset et</rdg>
+                     </app>, perseuerare coepit ut eo quoque regno decederet: neque enim aliud ius
+                     esse Cappadociae atque Armeniae, nec iuste eum postulare ut in Caesaris
+                     aduentum res integra differretur; id enim esse integrum quod ita esset ut
+                     fuisset.</seg>
                   <seg n="3">His responsis datis cum iis copiis quas supra scripsi profectus est in
                      Armeniam locisque superioribus iter facere instituit. (Nam ex Ponto a Comanis
                      iugum editum siluestre <supplied reason="lost">est</supplied> pertinens in
@@ -1680,10 +1880,26 @@
                         <rdg wit="#T #V" xml:id="rdg-36.4-obseruari">obseruari</rdg>
                         <note target="rdg-36.4-obseruari">(cf. Liu. 3.22.6)</note>
                      </app></seg>
-                  <seg n="5">ut, siue amicus siue inimicus Domitius eas angustias transiret, nihil
-                     de insidiis suspicaretur cum in agris et pecora et homines animaduerteret
-                     uersari tamquam amicorum aduentu, sin ut in hostium fines ueniret, praeda
-                     diripienda milites dissiparentur dispersique caederentur.</seg></p>
+                  <seg n="5">ut, <!-- App entry for 36.5: siue amicus siue inimicus --><app>
+                        <lem wit="#M #U #S #T #V" xml:id="lem-36.5-siue-amicus-siue-inimicus">siue
+                           amicus siue inimicus</lem>
+                        <note target="lem-36.5-siue-amicus-siue-inimicus">, quam lectionem defendit
+                           Hoffmann 1890 LIV (cf. 74.3 et u. infra) </note>
+                        <rdg source="#Aldus" xml:id="rdg-36.5-si-amicus-siue-inimicus-deletion"
+                              ><surplus>si amicus siue inimicus</surplus></rdg>
+                        <rdg source="#Nipperdey"
+                           xml:id="rdg-36.5-siue-amicus-siue-inimicus-deletion"><surplus>siue amicus
+                              siue inimicus</surplus></rdg>
+                        <note target="rdg-36.5-siue-amicus-siue-inimicus-deletion">(u. et
+                           infra)</note>
+                     </app> Domitius eas angustias transiret, nihil de insidiis suspicaretur cum in
+                     agris et pecora et homines animaduerteret uersari <!-- App entry for 36.5: tamquam amicorum aduentu --><app>
+                        <lem wit="#M #U #S #T #V" xml:id="lem-36.5-tamquam-amicorum-aduentu">tamquam
+                           amicorum aduentu</lem>
+                        <rdg source="#Gruterus" xml:id="rdg-36.5-tamquam-amicorum-aduentu--deletion"
+                              ><surplus>tamquam amicorum aduentu </surplus></rdg>
+                     </app>, sin ut in hostium fines ueniret, praeda diripienda milites
+                     dissiparentur dispersique caederentur.</seg></p>
                <p n="37"><seg n="1">Haec cum administraret <!-- App entry for 37.1: numquam tamen --><app>
                         <lem wit="#M #U" xml:id="lem-37.1-numquam-tamen">numquam tamen</lem>
                         <rdg wit="#S #T #V" xml:id="rdg-37.1-numquam-tamen-non">numquam tamen
@@ -1726,15 +1942,10 @@
                         <rdg wit="#M" xml:id="rdg-38.2-domitium-">domitium </rdg>
                         <rdg wit="#V" xml:id="rdg-38.2-domino">domino</rdg>
                      </app> celeriter putaret.</seg>
-                  <seg n="3">Itaque ab oppido, qua facillimum accessum et aequissimum ad dimicandum <!-- App entry for 38.3: <supplied reason="lost">locum</supplied> nostris --><app>
-                        <lem source="#Schneider" xml:id="lem-38.3-locum-nostris-addition"><supplied
-                              reason="lost">locum</supplied> nostris</lem>
-                        <note target="lem-38.3-locum-nostris-addition">(cf. Nep. Milt. 5)</note>
-                        <rdg wit="#M #U #S #T #V" xml:id="rdg-38.3-nostris-">nostris </rdg>
-                        <note target="rdg-38.3-nostris-">(cf. BC 3.45.3)</note>
-                     </app> uidebat, fossas duas derectas non ita magno medio interuallo relicto IV
-                     pedum altitudinis in eum locum deduxit quo longius constituerat suam non
-                     producere aciem.</seg>
+                  <seg n="3">Itaque ab oppido, qua facillimum accessum et aequissimum ad dimicandum
+                        <supplied reason="lost">locum</supplied> nostris uidebat, fossas duas
+                     derectas non ita magno medio interuallo relicto IV pedum altitudinis in eum
+                     locum deduxit quo longius constituerat suam non producere aciem.</seg>
                   <seg n="4">Inter has fossas aciem semper instruebat. Equitatum autem omnem ab
                      lateribus extra fossam collocabat, qui neque aliter utilis esse poterat et
                      multum numero anteibat nostrum equitatum.</seg></p>
@@ -1773,8 +1984,32 @@
                         <note target="lem-40.2-aduersa">(cf. 20.5 et u. infra)</note>
                         <rdg wit="#M #U #S #T #V" xml:id="rdg-40.2-auersa">auersa</rdg>
                         <note target="rdg-40.2-auersa">(u. TLL 2.1323.63-66 ‘de fugientibus’)</note>
-                     </app> hostibus cessisset, fossam autem circumire ac transcendere conata esset
-                     ut <!-- App entry for 40.2: aperto --><app>
+                     </app> hostibus cessisset, fossam autem <!-- App entry for 40.2: circumire ac transcendere --><app>
+                        <lem source="#Nipperdey" xml:id="lem-40.2-circumire-ac-transcendere"
+                           >circumire ac transcendere</lem>
+                        <note target="lem-40.2-circumire-ac-transcendere">(cf. BC 3.46.3)</note>
+                        <rdg wit="#M #U #S #T #V" xml:id="rdg-40.2-circumire-acies-secundo"
+                           >circumire acies secundo</rdg>
+                        <rdg source="#Lipsius" xml:id="rdg-40.2-circumire-acies-secunda">circumire
+                           acies secunda</rdg>
+                        <note target="rdg-40.2-circumire-acies-secunda">teste Oudendorp, sensu et
+                           uerborum ordine repugnante</note>
+                        <rdg source="#Madvig" xml:id="rdg-40.2-circumire-acie-secunda">circumire
+                           acie secunda</rdg>
+                        <note target="rdg-40.2-circumire-acie-secunda">(u. TLL 1.409.41-81 ‘i. q.
+                           proelium’ et supra)</note>
+                        <rdg source="#Gruterus"
+                           xml:id="rdg-40.2-circumire-acies-secundo-sc.-post-recessum-deletion"
+                              ><surplus>circumire acies secundo (sc. post recessum?)</surplus></rdg>
+                        <rdg source="#Dauisius" xml:id="rdg-40.2-circumire-acies-secundo-deletion"
+                              ><surplus>circumire acies secundo</surplus></rdg>
+                        <note target="rdg-40.2-circumire-acies-secundo-deletion">1727 ut glossema
+                           ineptum ad 40.1 (u. et infra)</note>
+                        <rdg source="#Ciacconius" xml:id="rdg-40.2-transire-ut-secunda-acies"
+                           >transire ut secunda acies</rdg>
+                        <note target="rdg-40.2-transire-ut-secunda-acies">dubitanter</note>
+                        <note>alii alia</note>
+                     </app> conata esset ut <!-- App entry for 40.2: aperto --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-40.2-aperto">aperto</lem>
                         <note target="lem-40.2-aperto">(cf. BG 1.25.6)</note>
                         <rdg source="#Landgraf" xml:id="rdg-40.2-ab-aperto">ab aperto</rdg>
@@ -1789,10 +2024,14 @@
                         <note target="rdg-40.2-uix-primum">(cf. BG 6.37.3)</note>
                      </app> impetum sustinuerunt.</seg>
                   <seg n="3">Ita uictrices regiae copiae cornu suo dextro mediaque acie conuerterunt
-                     se ad tricesimam sextam legionem. Quae tamen fortiter uincentium impetum
-                     sustinuit. Magnis copiis hostium circumdata, praesentissimo animo pugnans in
-                     orbem se recepit ad radices montium, quo Pharnaces insequi propter iniquitatem
-                     loci noluit.</seg>
+                     se ad tricesimam sextam legionem. Quae tamen fortiter uincentium impetum <!-- App entry for 40.3: sustinuit. Magnis --><app>
+                        <lem wit="#M #U #S #T #V" xml:id="lem-40.3-sustinuit.-Magnis">sustinuit.
+                           Magnis</lem>
+                        <rdg source="#Madvig" xml:id="rdg-40.3-sustinuit-et-magnis-addition"
+                              ><supplied reason="lost">sustinuit et magnis</supplied></rdg>
+                     </app> copiis hostium circumdata, praesentissimo animo pugnans in orbem se
+                     recepit ad radices montium, quo Pharnaces insequi propter iniquitatem loci
+                     noluit.</seg>
                   <seg n="4">Ita Pontica legione paene tota amissa, magna parte Deiotari militum
                      interfecta, tricesima sexta <supplied reason="lost">legio</supplied> in loca se
                      superiora contulit non amplius CCL desideratis.</seg>
@@ -1921,10 +2160,13 @@
                      magnam spem Octauium adduxit prouinciae potiendae. Quem tamen diutius in rebus
                      secundis et fortuna, quae plurimum in bellis potest, diligentiaque Cornifici et
                      uirtus Vatini uersari passa non est.</seg></p>
-               <p n="44"><seg n="1">Vatinius Brundisi cum esset, cognitis rebus quae gestae erant in
-                     Illyrico, cum crebris litteris Cornifici ad auxilium prouinciae ferendum
-                     euocaretur, et M. Octauium audiret cum barbaris foedera percussisse
-                     compluribusque locis nostrorum militum oppugnare praesidia partim <!-- App entry for 44.1: classe --><app>
+               <p n="44"><seg n="1">Vatinius Brundisi cum esset, cognitis rebus quae gestae erant in <!-- App entry for 44.1: Illyrico, cum --><app>
+                        <lem source="#Stephanus" xml:id="lem-44.1-Illyrico-cum">Illyrico, cum</lem>
+                        <rdg wit="#M #U #S #T #V" xml:id="rdg-44.1-Illyricum-cum">Illyricum
+                           cum</rdg>
+                     </app> crebris litteris Cornifici ad auxilium prouinciae ferendum euocaretur,
+                     et M. Octauium audiret cum barbaris foedera percussisse compluribusque locis
+                     nostrorum militum oppugnare praesidia partim <!-- App entry for 44.1: classe --><app>
                         <lem wit="#S" xml:id="lem-44.1-classe">classe</lem>
                         <note target="lem-44.1-classe">(cf. Cic. Ph. 10.12 exercitu)</note>
                         <rdg wit="#M #U #T #V" xml:id="rdg-44.1-classem">classem</rdg>
@@ -2008,8 +2250,15 @@
                         <lem source="#Vascosanus" xml:id="lem-45.3-demittique">demittique</lem>
                         <note target="lem-45.3-demittique">(cf. 45.2)</note>
                         <rdg wit="#M #U #S #T #V" xml:id="rdg-45.3-dimittique">dimittique</rdg>
-                     </app> antemnas iubet et milites armari et uexillo sublato, quo pugnandi dabat
-                     signum, quae primae naues subsequebantur idem ut facerent <!-- App entry for 45.3: significabat --><app>
+                     </app> antemnas iubet et milites armari et uexillo sublato, <!-- App entry for 45.3: quo pugnandi dabat signum --><app>
+                        <lem wit="#M #U #S #T #V" xml:id="lem-45.3-quo-pugnandi-dabat-signum">quo
+                           pugnandi dabat signum</lem>
+                        <note target="lem-45.3-quo-pugnandi-dabat-signum">(cf. BC 3.89.5)</note>
+                        <rdg source="#Kübler" xml:id="rdg-45.3-quo-pugnandi-dabat-signum-deletion"
+                              ><surplus>quo pugnandi dabat signum</surplus></rdg>
+                        <note target="rdg-45.3-quo-pugnandi-dabat-signum-deletion">ut
+                           glossema</note>
+                     </app>, quae primae naues subsequebantur idem ut facerent <!-- App entry for 45.3: significabat --><app>
                         <lem wit="#M #U" xml:id="lem-45.3-significabat">significabat</lem>
                         <rdg wit="#S #T #V" xml:id="rdg-45.3-significabant">significabant</rdg>
                      </app>.</seg>
@@ -2027,9 +2276,17 @@
                      numero parem esse, fortuitae dimicationi <surplus>fortunae</surplus> rem
                      committere maluit. Itaque primus sua quinqueremi in quadriremem ipsius Octaui
                      impetum fecit.</seg>
-                  <seg n="2">Celerrime fortissimeque contra illo remigante naues aduersae rostris
-                     concurrerunt adeo uehementer ut nauis Octauiana rostro discusso ligno
-                     contineretur.</seg>
+                  <seg n="2">Celerrime fortissimeque <!-- App entry for 46.2: contra illo remigante --><app>
+                        <lem wit="#M" xml:id="lem-46.2-contra-illo-remigante">contra illo
+                           remigante</lem>
+                        <note target="lem-46.2-contra-illo-remigante">(cf. BG 7.28.1 contra
+                           ueniretur)</note>
+                        <rdg wit="#S #V" xml:id="rdg-46.2-contra-illum-remigantem">contra illum
+                           remigantem</rdg>
+                        <rdg wit="#U #T" xml:id="rdg-46.2-contra-illo-remigantem">contra illo
+                           remigantem</rdg>
+                     </app> naues aduersae rostris concurrerunt adeo uehementer ut nauis Octauiana
+                     rostro discusso ligno contineretur.</seg>
                   <seg n="3">Committitur acriter reliquis locis proelium, concurriturque ad duces
                      maxime. <!-- App entry for 46.3: nam cum --><app>
                         <lem wit="#M #U #S" xml:id="lem-46.3-nam-cum">nam cum</lem>
@@ -2060,9 +2317,9 @@
                   <seg n="2">Capit <!-- App entry for 47.2: ex --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-47.2-ex">ex</lem>
                         <note target="lem-47.2-ex">(cf. BAfr 40.5)</note>
-                        <rdg source="#Schneider" xml:id="rdg-47.2-ex-surplus"
+                        <rdg source="#Schneider" xml:id="rdg-47.2-ex-deletion"
                            ><surplus>ex</surplus></rdg>
-                        <note target="rdg-47.2-ex-surplus">coll. 16.6</note>
+                        <note target="rdg-47.2-ex-deletion">coll. 16.6</note>
                      </app> eo proelio <!-- App entry for 47.2: penterem --><app>
                         <lem source="#Stephanus" xml:id="lem-47.2-penterem">penterem</lem>
                         <note target="lem-47.2-penterem">(cf. BAfr 62.5)</note>
@@ -2133,7 +2390,14 @@
                         <rdg wit="#Tc" xml:id="rdg-48.2-conduxit-se-R-C">conduxit se R C</rdg>
                         <rdg wit="#V" xml:id="rdg-48.2-conduxisset-romanus-cassius">conduxisset
                            romanus cassius</rdg>
-                     </app> militibus est pollicitus nec multo post, cum <!-- App entry for 48.2: in Lusitania Medobrigam --><app>
+                     </app> militibus est pollicitus nec multo <!-- App entry for 48.2: post, cum --><app>
+                        <lem source="#Vascosanus" xml:id="lem-48.2-post-cum">post, cum</lem>
+                        <note target="lem-48.2-post,-cum">(cf. BC 3.65.2)</note>
+                        <rdg wit="#M #U #S #T #V" xml:id="rdg-48.2-postquam">postquam</rdg>
+                        <note target="rdg-48.2-postquam">, quod defendit Landgraf 1889 coll. BAfr
+                           40.5, 50.3, 91.3 </note>
+                     </app>
+                     <!-- App entry for 48.2: in Lusitania Medobrigam --><app>
                         <lem source="#Ciacconius" xml:id="lem-48.2-in-Lusitania-Medobrigam">in
                            Lusitania Medobrigam</lem>
                         <note target="lem-48.2-in-Lusitania-Medobrigam">(u. infra)</note>
@@ -2245,14 +2509,21 @@
                         <note target="lem-51.3-Lusitaniam">teste Oudendorp</note>
                         <rdg wit="#M #U #S #T #V" xml:id="rdg-51.3-lusitania">lusitania</rdg>
                      </app> proficiscitur ad legiones arcessendas auxiliaque adducenda. Certis
-                     hominibus dat negotium ut frumentum nauesque C praepararentur, pecuniaeque <!-- App entry for 51.3: describerentur --><app>
-                        <lem wit="#M #U #S #T" xml:id="lem-51.3-describerentur">describerentur</lem>
-                        <note target="lem-51.3-describerentur">(deest V; de orthographia u. TLL
-                           5.1.663.39-46)</note>
-                        <rdg wit="ς" xml:id="rdg-51.3-discriberentur">discriberentur</rdg>
-                        <note target="rdg-51.3-discriberentur">teste Dübner</note>
-                     </app> atque imperarentur, ne qua res cum redisset moraretur. Reditus eius fuit
-                     celerior omnium opinione.</seg>
+                     hominibus dat negotium ut frumentum nauesque C praepararentur, <!-- App entry for 51.3: pecuniaeque describerentur atque imperarentur, ne --><app>
+                        <lem wit="#M #U #S #T"
+                           xml:id="lem-51.3-pecuniaeque-describerentur-atque-imperarentur-ne"
+                           >pecuniaeque <!-- App entry for 51.3: describerentur --><app>
+                              <lem wit="#M #U #S #T" xml:id="lem-51.3-describerentur"
+                                 >describerentur</lem>
+                              <note target="lem-51.3-describerentur">(deest V; de orthographia u.
+                                 TLL 5.1.663.39-46)</note>
+                              <rdg wit="ς" xml:id="rdg-51.3-discriberentur">discriberentur</rdg>
+                              <note target="rdg-51.3-discriberentur">teste Dübner</note>
+                           </app> atque imperarentur, ne</lem>
+                        <rdg wit="#V" xml:id="rdg-51.3-ne">ne</rdg>
+                        <note target="rdg-51.3-ne">, qui uerba 4 omisit</note>
+                     </app> qua res cum redisset moraretur. Reditus eius fuit celerior omnium
+                     opinione.</seg>
                   <seg n="4">Non enim labor aut uigilantia cupienti praesertim aliquid Cassio <!-- App entry for 51.4: deerat --><app>
                         <lem wit="#M #U" xml:id="lem-51.4-deerat">deerat</lem>
                         <rdg wit="#S #T #V" xml:id="rdg-51.4-de-ea">de ea</rdg>
@@ -2373,10 +2644,10 @@
                         <rdg wit="#M #U #S #T #V" xml:id="rdg-55.1-legiones-V-in-castra-remittit"
                            >legiones V in castra remittit</rdg>
                         <rdg source="#Kübler"
-                           xml:id="rdg-55.1--legiones-V-surplus-in-castra-remittit-V-addition"
-                              ><supplied reason="lost">legiones [V] in castra remittit
-                           V</supplied></rdg>
-                        <note target="rdg-55.1--legiones-V-surplus-in-castra-remittit-V-addition"
+                           xml:id="rdg-55.1-legiones-V-surplus-in-castra-remittit--V-addition"
+                           >legiones [V] in castra remittit <supplied reason="lost"
+                           >V</supplied></rdg>
+                        <note target="rdg-55.1-legiones-V-surplus-in-castra-remittit--V-addition"
                            >dubitanter coll. 57.2</note>
                         <note>nisi mauis legiones [V] in castra remittit (u. et infra)</note>
                      </app> cohortibus XXX retentis.</seg>
@@ -2384,8 +2655,12 @@
                      Scapulam, maximae dignitatis et gratiae prouincialem hominem sibique tam
                      familiarem quam Laterensem et Racilium, in eadem fuisse coniuratione, nec diu
                      moratur dolorem suum quin eos interfici iubeat.</seg>
-                  <seg n="3">Minucium libertis tradit excruciandum, item Calpurnium Saluianum, qui
-                     profitetur <!-- App entry for 55.3: indicium --><app>
+                  <seg n="3"><!-- App entry for 55.3: Minucium --><app>
+                        <lem wit="ς" xml:id="lem-55.3-Minucium">Minucium</lem>
+                        <note target="lem-55.3-Minucium">teste Nipperdey</note>
+                        <rdg wit="#M #U #S #V" xml:id="rdg-55.3-municium">municium</rdg>
+                        <rdg wit="#T" xml:id="rdg-55.3-minitium">minitium</rdg>
+                     </app> libertis tradit excruciandum, item Calpurnium Saluianum, qui profitetur <!-- App entry for 55.3: indicium --><app>
                         <lem wit="#ed.pr." xml:id="lem-55.3-indicium">indicium</lem>
                         <note target="lem-55.3-indicium">(cf. Sal. Jug. 35.6)</note>
                         <rdg wit="#M #U #S #T #V" xml:id="rdg-55.3-indictum">indictum</rdg>
@@ -2523,7 +2798,19 @@
                         <note target="rdg-57.1-adducebatur">(cf. 25.1 et 58.1)</note>
                      </app>.</seg>
                   <seg n="2">Cognita re noctu cum V cohortibus unetuicesimanorum egreditur. Mane
-                     peruenit <sic>noctu</sic>. Ibi eum diem ut quid ageretur perspiceret moratus <!-- App entry for 57.2: Carmonem --><app>
+                     peruenit <!-- App entry for 57.2: <sic>noctu</sic> --><app>
+                        <lem source="#scripsimus" xml:id="lem-57.2-noctu-crux"
+                           ><sic>noctu</sic></lem>
+                        <note target="lem-57.2-noctu-crux">, ut uerbum iteratum ex 57.2 supra (de
+                           uerborum ordine cf. BC 3.22.3)</note>
+                        <rdg wit="#M #U #S #T #V" xml:id="rdg-57.2-noctu">noctu</rdg>
+                        <rdg wit="#ed.pr." xml:id="rdg-57.2-noctu-deletion"
+                           ><surplus>noctu</surplus></rdg>
+                        <note target="rdg-57.2-noctu-deletion">(de usu absoluto cf. BC
+                           3.67.4)</note>
+                        <rdg source="#Schneider" xml:id="rdg-57.2-Naeuam">Naeuam</rdg>
+                        <note target="rdg-57.2-Naeuam">(cf. Plin. Nat. 3.11)</note>
+                     </app>. Ibi eum diem ut quid ageretur perspiceret moratus <!-- App entry for 57.2: Carmonem --><app>
                         <lem source="#Nipperdey" xml:id="lem-57.2-Carmonem">Carmonem</lem>
                         <note target="lem-57.2-Carmonem">(Carmonam iam Rhellicanus; u. Str. 3.2.2 et
                            ad 64.1)</note>
@@ -2534,10 +2821,27 @@
                         <rdg wit="#S" xml:id="rdg-57.3-legiones">legiones</rdg>
                      </app> tricesima et unetuicesima et cohortes IIII ex quinta legione totusque
                      conuenisset equitatus, audit IIII cohortes a uernaculis oppressas ad Obuculam
-                     cum iis ad secundam peruenisse legionem, omnesque ibi se coniunxisse et
-                        <sic>in</sic> Torium Italicensem ducem delegisse.</seg>
-                  <seg n="4">Celeriter habito consilio Marcellum quaestorem Cordubam ut eam in
-                     potestate retineret, Q. Cassium legatum Hispalim mittit.</seg>
+                     cum iis <!-- App entry for 57.3: ad secundam --><app>
+                        <lem wit="#M #U #T #V" xml:id="lem-57.3-ad-secundam">ad secundam</lem>
+                        <rdg wit="#S" xml:id="rdg-57.3-ad-secundam-legionem">ad secundam
+                           legionem</rdg>
+                        <rdg source="#Schneider" xml:id="rdg-57.3-ad-secundam-ad-Vliam-addition"
+                              ><supplied reason="lost">ad secundam ad Vliam</supplied></rdg>
+                        <note target="rdg-57.3-ad-secundam-ad-Vliam-addition">dubitanter</note>
+                     </app> peruenisse legionem, omnesque ibi se coniunxisse et <sic>in</sic> Torium <!-- App entry for 57.3: Italicensem --><app>
+                        <lem wit="#M #U #S" xml:id="lem-57.3-Italicensem">Italicensem</lem>
+                        <rdg wit="#T #V" xml:id="rdg-57.3-italicensum">italicensum</rdg>
+                     </app> ducem delegisse.</seg>
+                  <seg n="4">Celeriter habito consilio <!-- App entry for 57.4: Marcellum quaestorem --><app>
+                        <lem source="#Forchhammer" xml:id="lem-57.4-Marcellum-quaestorem">Marcellum
+                           quaestorem</lem>
+                        <note target="lem-57.4-Marcellum-quaestorem">, qui et
+                              <supplied>M.</supplied> ante Marcellum suppleuit coll. D.C. 42.15.5
+                           (u. 59.1, sed de nomenclatura u. et ad 53.4)</note>
+                        <rdg wit="#M #U #S #T #V" xml:id="rdg-57.4-Marcellumque">Marcellumque</rdg>
+                        <note target="rdg-57.4-Marcellumque">ex 57.5?</note>
+                     </app> Cordubam ut eam in potestate retineret, Q. Cassium legatum Hispalim
+                     mittit.</seg>
                   <seg n="5">Paucis ei diebus adfertur: conuentum Cordubensem ab eo defecisse
                      Marcellumque aut uoluntate aut necessitate <!-- App entry for 57.5: adductum --><app>
                         <lem source="#Oudendorp" xml:id="lem-57.5-adductum">adductum</lem>
@@ -2605,16 +2909,24 @@
                         <lem wit="#M #U" xml:id="lem-59.1-tamque">tamque</lem>
                         <rdg wit="#S #T #V" xml:id="rdg-59.1-tamnquam">ta(m/n)quam</rdg>
                      </app> omnibus Caesarianis quam Pompeianis Longinum esse in odio, neque se
-                     conuentum neque M. Marcellum contra Caesaris causam posse perducere, nomen
-                     Pompei ex scutis <!-- App entry for 59.1: detraxerunt --><app>
-                        <lem wit="#M #U #S #T" xml:id="lem-59.1-detraxerunt">detraxerunt</lem>
-                        <note target="lem-59.1-detraxerunt">(deest V), quod defendit Kübler coll.
-                           Dig. 3.2.2.2</note>
-                        <rdg source="#Menge" xml:id="rdg-59.1-deterserunt">deterserunt</rdg>
-                        <note target="rdg-59.1-deterserunt">coll. D.C. 42.15.5 ἀπήλειψεν</note>
-                     </app>, Marcellum, qui se Caesaris causam defensurum profitebatur, ducem
-                     asciuerunt praetoremque appellarunt et conuentum sibi adiunxerunt castraque ad
-                     Cordubam posuerunt.</seg>
+                     conuentum neque M. Marcellum contra Caesaris causam <!-- App entry for 59.1: posse perducere, nomen Pompei ex scutis detraxerunt, Marcellum, qui se Caesaris causam defensurum --><app>
+                        <lem wit="#M #U #S #T"
+                           xml:id="lem-59.1-posse-perducere-nomen-Pompei-ex-scutis-detraxerunt-Marcellum-qui-se-Caesaris-causam-defensurum"
+                           >posse perducere, nomen Pompei ex scutis <!-- App entry for 59.1: detraxerunt --><app>
+                              <lem wit="#M #U #S #T" xml:id="lem-59.1-detraxerunt">detraxerunt</lem>
+                              <note target="lem-59.1-detraxerunt">(deest V), quod defendit Kübler
+                                 coll. Dig. 3.2.2.2</note>
+                              <rdg source="#Menge" xml:id="rdg-59.1-deterserunt">deterserunt</rdg>
+                              <note target="rdg-59.1-deterserunt">coll. D.C. 42.15.5
+                                 ἀπήλειψεν</note>
+                           </app>, Marcellum, qui se Caesaris causam defensurum</lem>
+                        <note
+                           target="lem-59.1-posse-perducere,-nomen-Pompei-ex-scutis-detraxerunt,-Marcellum,-qui-se-Caesaris-causam-defensurum"
+                           >uocibus hic et illic leuiter mutatis (u. infra)</note>
+                        <rdg wit="#V" xml:id="rdg-59.1-defensurum">defensurum</rdg>
+                        <note target="rdg-59.1-defensurum">, qui uerba 12 omisit</note>
+                     </app> profitebatur, ducem asciuerunt praetoremque appellarunt et conuentum
+                     sibi adiunxerunt castraque ad Cordubam posuerunt.</seg>
                   <seg n="2">Cassius eo biduo circiter IIII milia passuum a Corduba citra flumen
                      Baetim in oppidi conspectu loco excelso facit castra. Litteras ad regem Bogudem
                      in Mauretaniam et M. Lepidum proconsulem in Hispaniam citeriorem mittit:
@@ -2644,11 +2956,31 @@
                         <lem wit="#M #U" xml:id="lem-60.2-uictoris">uictoris</lem>
                         <rdg wit="#S #T #V" xml:id="rdg-60.2-uictores">uictores</rdg>
                      </app> et uicti detrimentum ad eundem Caesarem esset redundaturum, neque suae
-                     potestatis esset, legiones Baetim traducit aciemque instruit.</seg>
-                  <seg n="3">Cum Cassium contra pro suis castris aciem instruxisse loco superiore
-                     animaduerteret, causa interposita quod is in aequum non descenderet, Marcellus
-                     militibus persuadet ut se recipiant in castra. Itaque copias reducere
-                     coepit.</seg>
+                     potestatis <!-- App entry for 60.2: esset --><app>
+                        <lem wit="#M #U #S #T #V" xml:id="lem-60.2-esset">esset</lem>
+                        <rdg wit="ς" xml:id="rdg-60.2-esse">esse</rdg>
+                        <note target="rdg-60.2-esse">teste Oudendorp (u. TLL 10.2.308.24-27 et
+                           10.2.318.13-15)</note>
+                        <rdg source="#Larsen" xml:id="rdg-60.2-esset-gap-addition"><supplied
+                              reason="lost">esset gap</supplied></rdg>
+                        <rdg source="#Ciacconius"
+                           xml:id="rdg-60.2-esset-uetare-uel-prohibere-addition"><supplied
+                              reason="lost">esset uetare uel prohibere</supplied></rdg>
+                        <rdg source="#Reinhardt" xml:id="rdg-60.2-esset-receptus-addition"><supplied
+                              reason="lost">esset receptus</supplied></rdg>
+                        <note target="rdg-60.2-esset-receptus-addition">exempli gratia (cf. BC
+                           1.45.6)</note>
+                        <note>alii alia</note>
+                     </app>, legiones Baetim traducit aciemque instruit.</seg>
+                  <seg n="3">Cum Cassium contra pro suis castris aciem instruxisse loco superiore <!-- App entry for 60.3: animaduerteret, causa --><app>
+                        <lem source="#Reinhardt" xml:id="lem-60.3-animaduerteret-causa"
+                           >animaduerteret, causa</lem>
+                        <note target="lem-60.3-animaduerteret,-causa">(cf. 35.2 etc.)</note>
+                        <rdg wit="#M #U #T #V" xml:id="rdg-60.3-causa">causa</rdg>
+                        <rdg wit="#S" xml:id="rdg-60.3-uideret-causa">uideret causa</rdg>
+                        <note target="rdg-60.3-uideret-causa">(cf. 30.2 etc.)</note>
+                     </app> interposita quod is in aequum non descenderet, Marcellus militibus
+                     persuadet ut se recipiant in castra. Itaque copias reducere coepit.</seg>
                   <seg n="4">Cassius, quo bono ualebat Marcellumque <!-- App entry for 60.4: infirmum --><app>
                         <lem wit="#M #T #V" xml:id="lem-60.4-infirmum">infirmum</lem>
                         <rdg wit="#U #S" xml:id="rdg-60.4-infirmem">infirmem</rdg>
@@ -2729,9 +3061,20 @@
                         <rdg wit="#M #U #S #T #V" xml:id="rdg-61.5-ullam">ullam</rdg>
                      </app> Cassiumque munitionibus clausit.</seg>
                   <seg n="6">Quae prius quam perficerentur Longinus omnem suum equitatum emisit.
-                     Quem sibi usui fore credebat si pabulari frumentarique Marcellum non pateretur,
-                     magno autem fore impedimento si clausus obsidione et inutilis necessarium
-                     consumeret frumentum.</seg></p>
+                     Quem <!-- App entry for 61.6: sibi usui --><app>
+                        <lem wit="#M #U #T #V" xml:id="lem-61.6-sibi-usui">sibi usui</lem>
+                        <note target="lem-61.6-sibi-usui">(cf. BC 2.15.3)</note>
+                        <rdg wit="#S" xml:id="rdg-61.6-Marcus-per-compendium-sibi-usu">Marcus (per
+                           compendium) sibi usu</rdg>
+                        <note target="rdg-61.6-Marcus-(per-compendium)-sibi-usu">(de orthographia u.
+                           Gel. 4.16.8-9)</note>
+                        <rdg source="#Oudendorp" xml:id="rdg-61.6--magno-sibi-usui-addition"
+                              ><supplied reason="lost">magno</supplied> sibi usui</rdg>
+                        <note target="rdg-61.6--magno-sibi-usui-addition">fortasse recte (cf. BG
+                           4.20.2 etc. et BC 2.17.4 magna ... magna) </note>
+                     </app> fore credebat si pabulari frumentarique Marcellum non pateretur, magno
+                     autem fore impedimento si clausus obsidione et inutilis necessarium consumeret
+                     frumentum.</seg></p>
                <p n="62"><seg n="1"><!-- App entry for 62.1: paucis diebus q --><app>
                         <lem wit="#S" xml:id="lem-62.1-paucis-diebus-q">paucis diebus q</lem>
                         <note target="lem-62.1-paucis-diebus-q">ex 58.1? (cf. 66.1)</note>
@@ -2928,8 +3271,12 @@
                         <rdg wit="#S" xml:id="rdg-66.4-cappado-cum-genere">cappado cum genere</rdg>
                         <rdg wit="#Tac" xml:id="rdg-66.4-cappadociae-cum-genere">cappadociae cum
                            genere</rdg>
-                     </app> ortus propter aduersam fortunam maiorum suorum mutationemque generis
-                     iure minime dubio, uetustate tamen intermisso, <!-- App entry for 66.4: sacerdotium --><app>
+                     </app> ortus propter aduersam fortunam maiorum suorum mutationemque generis <!-- App entry for 66.4: iure minime dubio, uetustate tamen --><app>
+                        <lem wit="#M #U #S #T #V"
+                           xml:id="lem-66.4-iure-minime-dubio-uetustate-tamen">iure minime dubio,
+                           uetustate tamen</lem>
+                        <note>post ortus transposuit Schiller 1889 coll. Flor. Epit. 3.13.7</note>
+                     </app> intermisso, <!-- App entry for 66.4: sacerdotium --><app>
                         <lem wit="#T #V" xml:id="lem-66.4-sacerdotium">sacerdotium</lem>
                         <rdg wit="#S" xml:id="rdg-66.4-sacerdotum">sacerdotum</rdg>
                         <rdg wit="#M #U" xml:id="rdg-66.4-sacerdotio">sacerdotio</rdg>
@@ -2968,8 +3315,11 @@
                         <rdg source="#Cornelissen" xml:id="rdg-67.1-in-Caesaris-addition"><supplied
                               reason="lost">in Caesaris</supplied></rdg>
                         <note target="rdg-67.1-in-Caesaris-addition">(cf. 23.1 et u. infra)</note>
-                     </app> habuisset <supplied reason="lost">et coactus</supplied> exercitibus
-                     imperiisque, in Cn. Pompei castris fuisset;</seg>
+                     </app> habuisset <supplied reason="lost">et coactus</supplied> exercitibus <!-- App entry for 67.1: imperiisque, in --><app>
+                        <lem wit="#M #Uc #S #T #V" xml:id="lem-67.1-imperiisque-in">imperiisque,
+                           in</lem>
+                        <rdg wit="#Uac" xml:id="rdg-67.1-imperiisque">imperiisque</rdg>
+                     </app> Cn. Pompei castris fuisset;</seg>
                   <seg n="2">neque enim <!-- App entry for 67.2: se debuisse iudicem --><app>
                         <lem wit="#Mc #U #T" xml:id="lem-67.2-se-debuisse-iudicem">se debuisse
                            iudicem</lem>
@@ -2978,23 +3328,40 @@
                            debuisse</rdg>
                         <rdg wit="#V" xml:id="rdg-67.2-se-diebus-se-iudicem">se diebus se
                            iudicem</rdg>
-                     </app> esse controuersiarum populi Romani sed parere praesentibus
-                     imperiis.</seg></p>
+                     </app> esse <!-- App entry for 67.2: controuersiarum populi Romani --><app>
+                        <lem wit="#U #S #T" xml:id="lem-67.2-controuersiarum-populi-Romani-"
+                           >controuersiarum populi Romani </lem>
+                        <note target="lem-67.2-controuersiarum-populi-Romani-">per compendia</note>
+                        <rdg wit="#M" xml:id="rdg-67.2-controuersiarum">controuersiarum</rdg>
+                        <rdg wit="#V" xml:id="rdg-67.2-controuersiarum-publicarum-rerum"
+                           >controuersiarum publicarum rerum</rdg>
+                     </app> sed parere praesentibus imperiis.</seg></p>
                <p n="68"><seg n="1">Contra quem Caesar cum plurima sua commemorasset officia quae
-                     consul ei decretis publicis tribuisset cumque defensionem eius nullam <!-- App entry for 68.1: posse --><app>
+                     consul ei decretis publicis tribuisset cumque <!-- App entry for 68.1: defensionem eius --><app>
+                        <lem wit="#M #Uc #S #T #V" xml:id="lem-68.1-defensionem-eius">defensionem
+                           eius</lem>
+                        <rdg wit="#Uac" xml:id="rdg-68.1-defensonem-eius">defensonem <!-- App entry for 68.1: eius --><app>
+                              <lem wit="#M #U #S #T #V" xml:id="lem-68.1-eius">eius</lem>
+                              <note target="lem-68.1-eius">(de iteratione cf. BG 1.20.5)</note>
+                              <rdg source="#Clarke" xml:id="rdg-68.1-eius-deletion"
+                                    ><surplus>eius</surplus></rdg>
+                           </app></rdg>
+                        <rdg wit="ς" xml:id="rdg-68.1-defectionem-eius">defectionem eius</rdg>
+                        <note target="rdg-68.1-defectionem-eius">teste Dübner (cf. BG 7.67.7)</note>
+                        <rdg source="#Dauisius" xml:id="rdg-68.1-defensionem-eius-deletion"
+                              ><surplus>defensionem eius</surplus></rdg>
+                        <note target="rdg-68.1-defensionem-eius-deletion">1727 ut glossema ad
+                           excusationem (u. et infra), sed cf. de pleonasmo Cic. Rab. Post. 27 Rufum
+                           necessitatis excusatio defendet</note>
+                     </app> nullam <!-- App entry for 68.1: posse --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-68.1-posse">posse</lem>
                         <rdg source="#Dauisius" xml:id="rdg-68.1-posse-se-addition"><supplied
                               reason="lost">posse se</supplied></rdg>
                         <note target="rdg-68.1-posse-se-addition">(u. supra et cf. Sen. Ben.
                            7.16.3)</note>
-                     </app> excusationem <!-- App entry for 68.1: eius --><app>
-                        <lem wit="#M #U #S #T #V" xml:id="lem-68.1-eius">eius</lem>
-                        <note target="lem-68.1-eius">(de iteratione cf. BG 1.20.5)</note>
-                        <rdg source="#Clarke" xml:id="rdg-68.1-eius-surplus"
-                           ><surplus>eius</surplus></rdg>
-                     </app> imprudentiae recipere coarguisset, quod homo tantae prudentiae ac
-                     diligentiae scire potuisset quis urbem Italiamque teneret, ubi senatus
-                     populusque Romanus, ubi res publica esset, <!-- App entry for 68.1: quis deinde post L. Lentulum C. Marcellum consul esset --><app>
+                     </app> excusationem eius imprudentiae recipere coarguisset, quod homo tantae
+                     prudentiae ac diligentiae scire potuisset quis urbem Italiamque teneret, ubi
+                     senatus populusque Romanus, ubi res publica esset, <!-- App entry for 68.1: quis deinde post L. Lentulum C. Marcellum consul esset --><app>
                         <lem wit="#Mc"
                            xml:id="lem-68.1-quis-deinde-post-L.-Lentulum-C.-Marcellum-consul-esset"
                            >quis <!-- App entry for 68.1: deinde --><app>
@@ -3082,8 +3449,8 @@
                         <lem source="#Dinter" xml:id="lem-70.4-quamquam">quamquam</lem>
                         <note target="lem-70.4-quamquam">(cf. 11.2)</note>
                         <rdg wit="#M #U #S #T #V" xml:id="rdg-70.4-quam">quam</rdg>
-                        <rdg wit="ς" xml:id="rdg-70.4-quam-surplus"><surplus>quam</surplus></rdg>
-                        <note target="rdg-70.4-quam-surplus">teste Oudendorp</note>
+                        <rdg wit="ς" xml:id="rdg-70.4-quam-deletion"><surplus>quam</surplus></rdg>
+                        <note target="rdg-70.4-quam-deletion">teste Oudendorp</note>
                         <rdg source="#Nipperdey" xml:id="rdg-70.4-quin">quin</rdg>
                         <note target="rdg-70.4-quin">(cf. Cic. Att. 12.43.2)</note>
                      </app> id ipsum quod commemorarent officium fuisse utilius Pharnaci, qui
@@ -3099,9 +3466,24 @@
                      subissent;</seg>
                   <seg n="7">Ponto uero decederet confestim familiasque publicanorum remitteret
                      ceteraque restitueret sociis ciuibusque Romanis quae penes eum essent;</seg>
-                  <seg n="8">si fecisset, iam tunc sibi mitteret munera ac dona quae bene rebus
-                     gestis imperatores ab amicis accipere consuessent. Miserat enim ei Pharnaces
-                     coronam auream. His responsis datis legatos remisit.</seg></p>
+                  <seg n="8"><!-- App entry for 70.8: si fecisset, iam --><app>
+                        <lem wit="#M #U #S #T #V" xml:id="lem-70.8-si-fecisset-iam">si fecisset,
+                           iam</lem>
+                        <note target="lem-70.8-si-fecisset,-iam">(de usu absoluto cf. BC
+                           1.2.6)</note>
+                        <rdg source="#Schneider" xml:id="rdg-70.8-id-si-fecisset-iam">id si fecisset
+                           iam</rdg>
+                        <rdg source="#Klotz" xml:id="rdg-70.8-quae-si-fecisset-iam">quae si fecisset
+                           iam</rdg>
+                        <rdg source="#Menge" xml:id="rdg-70.8-si-fecisset-haec">si fecisset
+                           haec</rdg>
+                        <note target="rdg-70.8-si-fecisset-haec">125</note>
+                        <note>nisi mauis si fecisset omnia (u. 71.1)</note>
+                     </app> tunc sibi mitteret munera ac dona quae bene rebus gestis imperatores ab
+                     amicis accipere consuessent. Miserat <!-- App entry for 70.8: enim ei --><app>
+                        <lem wit="#M #U" xml:id="lem-70.8-enim-ei-">enim ei </lem>
+                        <rdg wit="#S #T #V" xml:id="rdg-70.8-enim">enim</rdg>
+                     </app> Pharnaces coronam auream. His responsis datis legatos remisit.</seg></p>
                <p n="71"><seg n="1">At Pharnaces liberaliter omnia pollicitus, cum festinantem ac <!-- App entry for 71.1: praecurrentem --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-71.1-praecurrentem"
                            >praecurrentem</lem>
@@ -3117,8 +3499,12 @@
                         <rdg wit="#M #U" xml:id="rdg-71.1-proficisceretur-existimabat"
                            >proficisceretur existimabat</rdg>
                      </app>—nemini enim erat ignotum plurimis de causis ad urbem Caesarem
-                     reuocari—lentius agere, decedendi diem postulare longiorem, pactiones
-                     interponere, in summa frustrari coepit.</seg>
+                     reuocari—lentius agere, decedendi diem postulare <!-- App entry for 71.1: longiorem --><app>
+                        <lem wit="#S #T #V" xml:id="lem-71.1-longiorem">longiorem</lem>
+                        <note target="lem-71.1-longiorem">(cf. BG 1.40.14)</note>
+                        <rdg wit="#M #U" xml:id="rdg-71.1-longiores-sc.-pactiones">longiores (sc.
+                           pactiones?)</rdg>
+                     </app>, pactiones interponere, in summa frustrari coepit.</seg>
                   <seg n="2">Caesar cognita calliditate hominis, quod aliis temporibus natura facere
                      consueuerat tunc necessitate fecit adductus, ut celerius omnium opinione manum
                      consereret.</seg></p>
@@ -3180,8 +3566,16 @@
                         <rdg wit="#S #T" xml:id="rdg-73.1-erat">erat</rdg>
                      </app> propiora regis castris—aggerem comportari iubet intra munitiones.</seg>
                   <seg n="2">Quo celeriter collato, proxima nocte uigilia quarta legionibus omnibus
-                     expeditis impedimentisque in castris relictis, prima luce necopinantibus
-                     hostibus eum ipsum locum cepit in quo Mithridates secundum proelium aduersus <!-- App entry for 73.2: triarium --><app>
+                     expeditis impedimentisque in castris relictis, <!-- App entry for 73.2: prima luce --><app>
+                        <lem wit="#M #U #S #T #V" xml:id="lem-73.2-prima-luce">prima luce</lem>
+                        <rdg source="#Larsen"
+                           xml:id="rdg-73.2-profectus-uel-egressus-prima-luce-addition"><supplied
+                              reason="lost">profectus uel egressus prima luce</supplied></rdg>
+                        <note target="rdg-73.2-profectus-uel-egressus-prima-luce-addition">(cf. Liu.
+                           27.42.14, Juu. 11.186)</note>
+                        <note>nisi mauis [prima luce] (u. 74.1)</note>
+                     </app> necopinantibus hostibus eum ipsum locum cepit in quo Mithridates
+                     secundum proelium aduersus <!-- App entry for 73.2: triarium --><app>
                         <lem wit="#M #S" xml:id="lem-73.2-triarium">triarium</lem>
                         <rdg wit="#U #T #V" xml:id="rdg-73.2-traiarium">traiarium</rdg>
                      </app> fecerat.</seg>
@@ -3213,7 +3607,13 @@
                      </app> uallis castra hostium diuideret ab opere <!-- App entry for 73.3: incepto --><app>
                         <lem wit="#M #U #S" xml:id="lem-73.3-incepto">incepto</lem>
                         <rdg wit="#T #V" xml:id="rdg-73.3-incerto">incerto</rdg>
-                     </app> Caesaris castrorum.</seg></p>
+                     </app>
+                     <!-- App entry for 73.3: Caesaris castrorum --><app>
+                        <lem wit="#M #U #S #T #V" xml:id="lem-73.3-Caesaris-castrorum">Caesaris
+                           castrorum</lem>
+                        <rdg source="#Kraner" xml:id="rdg-73.3-Caesaris-castrorum-deletion"
+                              ><surplus>Caesaris castrorum</surplus></rdg>
+                     </app>.</seg></p>
                <p n="74"><seg n="1">Pharnaces, cum id repente prima luce animaduertisset, copias
                      suas omnes pro castris instruxit. Quas, interposita tanta locorum iniquitate,
                      consuetudine magis peruulgata militari credebat instrui Caesar uel ad opus suum
@@ -3222,9 +3622,12 @@
                      uideretur.</seg>
                   <seg n="2">Itaque deterritus non est quominus prima acie pro uallo instructa
                      reliqua pars exercitus opus faceret.</seg>
-                  <seg n="3">At Pharnaces impulsus siue loci felicitate siue auspiciis et
-                     religionibus inductus, quibus obtemperasse eum postea audiebamus, siue
-                     paucitate nostrorum qui in armis erant <!-- App entry for 74.3: comperta --><app>
+                  <seg n="3">At Pharnaces <!-- App entry for 74.3: impulsus siue --><app>
+                        <lem wit="#M #U #S #T #V" xml:id="lem-74.3-impulsus-siue">impulsus
+                           siue</lem>
+                        <note>an siue impulsus?</note>
+                     </app> loci felicitate siue auspiciis et religionibus inductus, quibus
+                     obtemperasse eum postea audiebamus, siue paucitate nostrorum qui in armis erant <!-- App entry for 74.3: comperta --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-74.3-comperta">comperta</lem>
                         <note target="lem-74.3-comperta">(cf. 10.3)</note>
                         <rdg source="#Fischer" xml:id="rdg-74.3-contempta">contempta</rdg>
@@ -3268,7 +3671,8 @@
                         <rdg wit="#M #U #S #T #V" xml:id="rdg-74.4-loco">loco</rdg>
                      </app> nemo sanus <!-- App entry for 74.4: hostis --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-74.4-hostis">hostis</lem>
-                        <rdg source="#Bentley" xml:id="rdg-74.4-hostis-surplus-">[hostis] </rdg>
+                        <rdg source="#Bentley" xml:id="rdg-74.4-hostis--deletion"><surplus>hostis
+                           </surplus></rdg>
                      </app> subiturus esset, cum interim Pharnaces eodem gradu quo <!-- App entry for 74.4: in procliuem --><app>
                         <lem source="#Nipperdey" xml:id="lem-74.4-in-procliuem">in procliuem</lem>
                         <note target="lem-74.4-in-procliuem">(cf. 76.1 et, de antithesi, Liu.
@@ -3328,9 +3732,16 @@
                            legio</rdg>
                         <rdg wit="#Sc" xml:id="rdg-76.1-ueterana-religio">ueterana religio</rdg>
                         <rdg wit="#Sac" xml:id="rdg-76.1-ueterata-religio">ueterata religio</rdg>
-                     </app> erat collocata, initium uictoriae natum est. Ab ea parte cum in procliui
-                     detruderentur hostes, multo tardius sed tamen isdem dis adiuuantibus sinistro
-                     cornu mediaque acie totae profligantur copiae regis.</seg>
+                     </app> erat collocata, initium uictoriae natum est. Ab ea parte cum <!-- App entry for 76.1: in procliui --><app>
+                        <lem wit="#M #U #S" xml:id="lem-76.1-in-procliui">in procliui</lem>
+                        <note target="lem-76.1-in-procliui">(de sensu locali cf. 74.4 et u. TLL
+                           10.2.1537.42-54, de sensu translato cf. BC 1.48.7 et u. TLL
+                           10.2.1538.52-62)</note>
+                        <rdg wit="#T #V" xml:id="rdg-76.1-procliui">procliui</rdg>
+                        <rdg source="#Scaliger" xml:id="rdg-76.1-in-procliue">in procliue</rdg>
+                        <note target="rdg-76.1-in-procliue">(cf. Suet. Cal. 32.2 in mare)</note>
+                     </app> detruderentur hostes, multo tardius sed tamen isdem dis adiuuantibus
+                     sinistro cornu mediaque acie totae profligantur copiae regis.</seg>
                   <seg n="2">Quae quam facile subierant iniquum locum tam celeriter gradu pulsae
                      premebantur loci iniquitate. Itaque multis militibus partim interfectis partim
                      suorum ruina oppressis, qui uelocitate effugere poterant, armis <!-- App entry for 76.2: tamen --><app>
@@ -3340,7 +3751,13 @@
                      </app> proiectis, uallem transgressi nihil ex loco superiore inermi proficere
                      poterant. At nostri uictoria elati subire iniquum locum munitionesque aggredi
                      non dubitarunt.</seg>
-                  <seg n="3">Defendentibus autem iis cohortibus <!-- App entry for 76.3: castra quas --><app>
+                  <seg n="3"><!-- App entry for 76.3: Defendentibus --><app>
+                        <lem wit="#M #U #S #T #V" xml:id="lem-76.3-Defendentibus"
+                           >Defendentibus</lem>
+                        <note target="lem-76.3-Defendentibus">(cf. BC 3.95.3)</note>
+                        <rdg source="#Lipsius" xml:id="rdg-76.3-deserentibus">deserentibus</rdg>
+                        <note target="rdg-76.3-deserentibus">(cf. BAfr 83.4)</note>
+                     </app> autem iis cohortibus <!-- App entry for 76.3: castra quas --><app>
                         <lem wit="#M #U #S" xml:id="lem-76.3-castra-quas">castra quas</lem>
                         <rdg wit="#T" xml:id="rdg-76.3-castris-quas">castris quas</rdg>
                         <rdg wit="#V" xml:id="rdg-76.3-castra-quae">castra quae</rdg>
@@ -3357,8 +3774,14 @@
                   esset.</seg></p>
                <p n="77"><seg n="1">Tali uictoria totiens uictor Caesar incredibili est laetitia
                      adfectus, quod maximum bellum tanta celeritate confecerat, eoque subiti
-                     periculi recordatione laetior, quod uictoria facilis ex difficillimis rebus
-                     acciderat.</seg>
+                     periculi recordatione laetior, <!-- App entry for 77.1: quod uictoria --><app>
+                        <lem wit="#M #U #S #T #V" xml:id="lem-77.1-quod-uictoria">quod
+                           uictoria</lem>
+                        <rdg source="#Dinter" xml:id="rdg-77.1-quod-uictoria-deletion"><surplus>quod
+                              uictoria</surplus></rdg>
+                        <note target="rdg-77.1-quod-uictoria-deletion">, quodque supra retinens
+                        </note>
+                     </app> facilis ex difficillimis rebus acciderat.</seg>
                   <seg n="2">Ponto recepto praeda omni regia militibus condonata, postero die cum
                      expeditis <!-- App entry for 77.2: equitibus --><app>
                         <lem wit="#M #U #S #T #V" xml:id="lem-77.2-equitibus">equitibus</lem>

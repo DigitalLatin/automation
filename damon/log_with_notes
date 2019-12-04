@@ -138,104 +138,309 @@ ERROR:Prose:b' problem finding lemma for section 27.1, lemma: [a] mari coniungit
 Unsure of problem. KATY:CHECK
 
 ERROR:Prose:b' invalid app tag was generated for section 27.3, lemma: interclusum a Caesare a se\n<!-- App entry for 27.3: interclusum a Caesare a se --><app><lem wit="#M #U #S #T" xml:id="lem-27.3-interclusum-a-Caesare-a-se">interclusum a Caesare a se</lem><rdg wit="#V" xml:id="rdg-27.3-interclusum-a-caesare-se">interclusum a caesare se</rdg><rdg source="#Ciaconnius" xml:id="rdg-27.3-interclusum-a-Caesare-[a-se]-">interclusum a Caesare [a se] </rdg><note target="rdg-27.3-interclusum-a-Caesare-[a-se]-">, qui tamen a se interclusum [a Caesare] malit, et Jurinius ut dittographia (\'cum rex ipse cum iis copiis non esset\')</note></app>'
-
+[] in id. shoudl be fixed programmatically
 
 ERROR:Prose:b' invalid app tag was generated for section 27.5, lemma: Mithridates magna cum prudentia\n<!-- App entry for 27.5: Mithridates magna cum prudentia --><app><lem wit="#M #U #Sc" xml:id="lem-27.5-Mithridates-magna-cum-prudentia">Mithridates magna cum prudentia</lem><note target="lem-27.5-Mithridates-magna-cum-prudentia">et T supra lineam</note><rdg wit="#Sac #T" xml:id="rdg-27.5-mithridates-magna-cum-potentia">mithridates magna cum potentia</rdg><rdg wit="#V" xml:id="rdg-27.5-magna-cum-prudentia-mithridates">magna cum prudentia mithridates</rdg><note target="rdg-27.5-magna-cum-prudentia-mithridates">feliciter</note><rdg source="#D. #Simons" xml:id="rdg-27.5-Mithridates-[magna-cum-prudentia]">Mithridates [magna cum prudentia]</rdg><note target="rdg-27.5-Mithridates-[magna-cum-prudentia]">, qui et constantiaque uirtutum et Alexandrinorum imprudentia secluserit ut glossema</note></app>'
-
+[] in id. shoudl be fixed programmatically
 
 ERROR:Prose:b' invalid app tag was generated for section 27.5, lemma: constantiaque [uirtutum et Alexandrinorum imprudentia] consuetudine\n<!-- App entry for 27.5: constantiaque [uirtutum et Alexandrinorum imprudentia] consuetudine --><app><lem source="#D\xc3\xbcbner" xml:id="lem-27.5-constantiaque-[uirtutum-et-Alexandrinorum-imprudentia]-consuetudine">constantiaque [uirtutum et Alexandrinorum imprudentia] consuetudine</lem><note target="lem-27.5-constantiaque-[uirtutum-et-Alexandrinorum-imprudentia]-consuetudine">dubitanter</note><rdg wit="#M #U #T #V" xml:id="rdg-27.5-constantiaque-uirtutum-et-Alexandrinorum-imprudentia-consuetudine">constantiaque uirtutum et Alexandrinorum imprudentia consuetudine</rdg><rdg wit="#S" xml:id="rdg-27.5-consuetudine">consuetudine</rdg><note target="rdg-27.5-consuetudine">, qui uerba 5 omisit</note><rdg wit="#ed.pr." xml:id="rdg-27.5-[constantiaque-uirtutum-et-Alexandrinorum-imprudentia]-consuetudine">[constantiaque uirtutum et Alexandrinorum imprudentia] consuetudine</rdg><note>constantiaque uirtutum et Alexandrinorum imprudentia post facta transposuerit Klotz</note></app>'
-
+[] in id. shoudl be fixed programmatically
 
 ERROR:Prose:b' problem finding lemma for section 27.7, lemma: adiuncti his\n'
+CSV has adiuncti his, but text has adiuncti iis. DAMON:CHECK
+
+
 ERROR:Prose:b' invalid app tag was generated for section 28.3, lemma: uariis generum\n<!-- App entry for 28.3: uariis generum --><app><lem wit="#M #U #S #T #V" xml:id="lem-28.3-uariis-generum">uariis generum</lem><note target="lem-28.3-uariis-generum">, quod defendit L\xc3\xb6fstedt (cf. Cic. Font. 13 uarietate generum)</note><rdg wit="\xcf\x82" xml:id="rdg-28.3-uariis-genere">uariis genere</rdg><note target="rdg-28.3-uariis-genere">teste Andrieu (cf. BC 3.110.12 et Liu. 22.36.1)</note><rdg source="#Oehler" xml:id="rdg-28.3-uarii-generis">uarii generis</rdg><note target="rdg-28.3-uarii-generis">(cf. BC 2.36.1)</note><note>an uariis <multorumque> generum (cf. Cic. De orat. 3.177)?</note></app>'
+<> in note - should be fixed. also, some Unicode garbage in output.
+
 ERROR:Prose:b' problem finding lemma for section 29.4, lemma: [fluminum]\n'
+unsure of problem. KATY:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 29.4, lemma: excisis quae longitudine utramque ripam contingerent proiectis repentinoque\n'
+Difference of a comma. fixed manually.
+
 ERROR:Prose:b' problem finding lemma for section 31.1, lemma: tres (i.e., III)\n'
+mismatch between text and spreadsheet. Text has tres without (i.e. III)
+
 ERROR:Prose:b' invalid app tag was generated for section 31.3, lemma: partibus\n<!-- App entry for 31.3: partibus --><app><lem wit="#M #U #S #T #V" xml:id="lem-31.3-partibus">partibus</lem><note target="lem-31.3-partibus">(sc. loca caperent nostri; cf. Hirt. 8.36.4 et, de figura apo koinou, BC 1.19.5)</note><rdg source="#K\xc3\xbcbler" xml:id="rdg-31.3-partibus-impetus-fieret">partibus <impetus fieret></rdg><note target="rdg-31.3-partibus-<impetus-fieret>">(cf. BG 1.22.3)</note><rdg source="#Schneider" xml:id="rdg-31.3-partibus-inrumperent-addition"><supplied reason="lost">partibus inrumperent</supplied></rdg><note target="rdg-31.3-partibus-inrumperent-addition">(cf. BG 4.14.3)</note></app>'
+
+should be fixed programmatically. also, unicode garbage in output.
+
+
 ERROR:Prose:b' invalid app tag was generated for section 31.6, lemma: ad proximas naues\n<!-- App entry for 31.6: ad proximas naues --><app><lem wit="#M #U #S #T #V" xml:id="lem-31.6-ad-proximas-naues">ad proximas naues</lem><rdg source="#Vielhaber" xml:id="rdg-31.6-[ad-proximas-naues]">[ad proximas naues]</rdg><note target="rdg-31.6-[ad-proximas-naues]">ut glossema ineptum</note></app>'
+should be fixed programmatically
+
 ERROR:Prose:b' invalid app tag was generated for section 32.2, lemma: consilium suum fefellit\n<!-- App entry for 32.2: consilium suum fefellit --><app><lem wit="#M #U #V" xml:id="lem-32.2-consilium-suum-fefellit">consilium suum fefellit</lem><rdg wit="#S #T" xml:id="rdg-32.2-consilium-suum-refellit">consilium suum refellit</rdg><rdg source="#Ciacconius" xml:id="rdg-32.2-[consilium-suum]-fefellit">[consilium suum] fefellit</rdg><note target="rdg-32.2-[consilium-suum]-fefellit">coll. BC 3.94.3</note></app>'
+[] in ID should be fixed programmatically
+
+
+
 ERROR:Prose:b' problem finding lemma for section 33.1, lemma: [ut]\n'
+unsure of problem. KATY:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 33.2, lemma: maiore ex duobus pueris rege\n'
+difference of a comma. fixed manually.
+
+
 ERROR:Prose:b' invalid app tag was generated for section 33.5, lemma: itinere terrestri\n<!-- App entry for 33.5: itinere terrestri --><app><lem wit="#U #S #T #V" xml:id="lem-33.5-itinere-terrestri">itinere terrestri</lem><note target="lem-33.5-itinere-terrestri">(cf. 34.3 etc.)</note><rdg wit="#M" xml:id="rdg-33.5-itinere-pedestri">itinere pedestri</rdg><note target="rdg-33.5-itinere-pedestri">ex 26.1?</note><rdg source="#Nipperdey" xml:id="rdg-33.5-[itinere-terrestri]">[itinere terrestri]</rdg><note target="rdg-33.5-[itinere-terrestri]">(u. 66.1 et Jos. AJ 14.137)</note></app>'
+[] in ID should be fixed programmatically
+
+
+
 ERROR:Prose:b' invalid app tag was generated for section 35.2, lemma: [P.]\n<!-- App entry for 35.2: [P.] --><app><lem wit="\xcf\x82" xml:id="lem-35.2-[P.]">[P.]</lem><note target="lem-35.2-[P.]">teste Oudendorp</note><rdg wit="#M #U #S #T #V" xml:id="rdg-35.2-P">P</rdg><rdg source="#Beroaldus" xml:id="rdg-35.2-Cn.">Cn.</rdg></app>'
+[] in ID should be fixed programmatically. Unicode garbage in output.
+
+
 ERROR:Prose:b' problem finding lemma for section 35.2, lemma: substitisse \n'
+whitespace issue in lemma - should be fixed now?
+
 ERROR:Prose:b' invalid app tag was generated for section 35.3, lemma: siluestre <est> pertinens\n<!-- App entry for 35.3: siluestre <est> pertinens --><app><lem source="#Aldus" xml:id="lem-35.3-siluestre-est-pertinens">siluestre "><supplied reason="lost">est</supplied> pertinens</lem><note target="lem-35.3-siluestre-est-addition-pertinens">(cf. BC 2.24.3)</note><rdg wit="#M #U #S #T #V" xml:id="rdg-35.3-siluestrem-pertinens">siluestrem pertinens</rdg><rdg source="#Schneider" xml:id="rdg-35.3-ac-siluestre-pertinet">ac siluestre pertinet</rdg><note target="rdg-35.3-ac-siluestre-pertinet">(cf. BG 8.14.4) </note><note>an siluestre <est et perpetuum> pertinens (cf. Curt. 5.4.9)?</note></app>'
+<> in note - should be fixed programmatically
+
 ERROR:Prose:b' invalid app tag was generated for section 35.3, lemma: has esse certas <constat> opportunitates\n<!-- App entry for 35.3: has esse certas <constat> opportunitates --><app><lem source="#scripsimus" xml:id="lem-35.3-has-esse-certas-constat-opportunitates">has esse certas "><supplied reason="lost">constat</supplied> opportunitates</lem><note target="lem-35.3-has-esse-certas-constat-addition-opportunitates">(cf. 31.6), nisi mauis cum \xcf\x82 teste Oudendorp post opportunitates <constat> supplere </note><rdg wit="#M #U #S #T #V" xml:id="rdg-35.3-has-esse-certas-opportunitates">has esse certas opportunitates</rdg><rdg wit="\xcf\x82" xml:id="rdg-35.3-hae-erant-certae-opportunitates-">hae erant certae opportunitates </rdg><note target="rdg-35.3-hae-erant-certae-opportunitates-">teste Oudendorp</note><rdg source="#Scaliger" xml:id="rdg-35.3-has-esse-certas-surplus-opportunitates-">has esse [certas] opportunitates </rdg><rdg source="#Klotz" xml:id="rdg-35.3--has-esse-certas-opportunitates-cognouerat-addition"><supplied reason="lost">has esse certas opportunitates cognouerat</supplied></rdg><rdg source="#Vielhaber" xml:id="rdg-35.3-has-esse-cernebat-opportunitates">has esse cernebat opportunitates</rdg><note target="rdg-35.3-has-esse-cernebat-opportunitates">(cf. BC 3.69.4)</note><rdg source="#Larsen" xml:id="rdg-35.3-has-est-secutus-opportunitates">has est secutus opportunitates</rdg><note target="rdg-35.3-has-est-secutus-opportunitates">coll. BC 1.1.3 et Cic. Off. 1.35</note><rdg source="#Landgraf" xml:id="rdg-35.3-duas-est-consecutus-opportunitates">duas est consecutus opportunitates</rdg><note target="rdg-35.3-duas-est-consecutus-opportunitates">1891b coll. BC 1.39.4</note></app>'
+should be fixed programmatically? also, unicode garbage
+
+
 ERROR:Prose:b' invalid app tag was generated for section 36.5, lemma: siue amicus siue inimicus\n<!-- App entry for 36.5: siue amicus siue inimicus --><app><lem wit="#M #U #S #T #V" xml:id="lem-36.5-siue-amicus-siue-inimicus">siue amicus siue inimicus</lem><note target="lem-36.5-siue-amicus-siue-inimicus">, quam lectionem defendit Hoffmann 1890 LIV (cf. 74.3 et u. infra) </note><rdg source="#Aldus" xml:id="rdg-36.5-si-amicus-[siue-inimicus]">si amicus [siue inimicus]</rdg><rdg source="#Nipperdey" xml:id="rdg-36.5-siue-amicus-[siue-inimicus]">siue amicus [siue inimicus]</rdg><note target="rdg-36.5-siue-amicus-[siue-inimicus]">(u. et infra)</note></app>'
+[] in ID?? if so, fixed programmatically
+
 ERROR:Prose:b' invalid app tag was generated for section 36.5, lemma: tamquam amicorum aduentu\n<!-- App entry for 36.5: tamquam amicorum aduentu --><app><lem wit="#M #U #S #T #V" xml:id="lem-36.5-tamquam-amicorum-aduentu">tamquam amicorum aduentu</lem><rdg source="#Gruterus" xml:id="rdg-36.5-[tamquam-amicorum-aduentu]-">[tamquam amicorum aduentu] </rdg></app>'
+[] in ID?? if so, fixed programmatically
+
 ERROR:Prose:b' problem finding lemma for section 36.5, lemma: aduentu sin\n'
+missing comma - fixed manually
+
 ERROR:Prose:b' invalid app tag was generated for section 40.2, lemma: circumire ac transcendere\n<!-- App entry for 40.2: circumire ac transcendere --><app><lem source="#Nipperdey" xml:id="lem-40.2-circumire-ac-transcendere">circumire ac transcendere</lem><note target="lem-40.2-circumire-ac-transcendere">(cf. BC 3.46.3)</note><rdg wit="#M #U #S #T #V" xml:id="rdg-40.2-circumire-acies-secundo">circumire acies secundo</rdg><rdg source="#Lipsius" xml:id="rdg-40.2-circumire-acies-secunda">circumire acies secunda</rdg><note target="rdg-40.2-circumire-acies-secunda">teste Oudendorp, sensu et uerborum ordine repugnante</note><rdg source="#Madvig" xml:id="rdg-40.2-circumire-acie-secunda">circumire acie secunda</rdg><note target="rdg-40.2-circumire-acie-secunda">(u. TLL 1.409.41-81 \xe2\x80\x98i. q. proelium\xe2\x80\x99 et supra)</note><rdg source="#Gruterus" xml:id="rdg-40.2-circumire-acies-surplus-secundo-sc.-post-recessum?">circumire [acies] secundo (sc. post recessum?)</rdg><rdg source="#Dauisius" xml:id="rdg-40.2-circumire-[acies-secundo]">circumire [acies secundo]</rdg><note target="rdg-40.2-circumire-[acies-secundo]">1727 ut glossema ineptum ad 40.1 (u. et infra)</note><rdg source="#Ciacconius" xml:id="rdg-40.2-transire-ut-secunda-acies">transire ut secunda acies</rdg><note target="rdg-40.2-transire-ut-secunda-acies">dubitanter</note><note>alii alia</note></app>'
+[] in ID?? if so, fixed programmatically
+
 ERROR:Prose:b' problem finding lemma for section 40.3, lemma: sustinuit magnis\n'
+punctuation difference - fixed manually
+
 ERROR:Prose:b' problem finding lemma for section 40.4, lemma: tricesima sexta <legio>\n'
+unsure of problem KATY:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 44.1, lemma: Illyrico cum\n'
+punctuation difference - fixed manually
+
+
 ERROR:Prose:b' invalid app tag was generated for section 45.3, lemma: quo pugnandi dabat signum\n<!-- App entry for 45.3: quo pugnandi dabat signum --><app><lem wit="#M #U #S #T #V" xml:id="lem-45.3-quo-pugnandi-dabat-signum">quo pugnandi dabat signum</lem><note target="lem-45.3-quo-pugnandi-dabat-signum">(cf. BC 3.89.5)</note><rdg source="#K\xc3\xbcbler" xml:id="rdg-45.3-[quo-pugnandi-dabat-signum]">[quo pugnandi dabat signum]</rdg><note target="rdg-45.3-[quo-pugnandi-dabat-signum]">ut glossema</note></app>'
+[] in ID?? if so, fixed programmatically
+
 ERROR:Prose:b' invalid app tag was generated for section 46.1, lemma: fortuitae dimicationi [fortunae] rem committere maluit\n<!-- App entry for 46.1: fortuitae dimicationi [fortunae] rem committere maluit --><app><lem source="#Klotz" xml:id="lem-46.1-fortuitae-dimicationi-fortunae-surplus-rem-committere-maluit">fortuitae dimicationi [fortunae] rem committere maluit</lem><note target="lem-46.1-fortuitae-dimicationi-fortunae-surplus-rem-committere-maluit">auctore Hoffmann 1857 (cf. Liu. 25.12.5 impetu fortuito), qui et post fortuitae <tamen> suppleuit</note><rdg wit="#M #U #S #V" xml:id="rdg-46.1-fortuitae-dimicationi-fortunae-rem-committere-maluit">fortuitae dimicationi fortunae rem committere maluit</rdg><rdg wit="#T" xml:id="rdg-46.1-fortunae-rem-committere-noluit">fortunae rem committere noluit</rdg><note target="rdg-46.1-fortunae-rem-committere-noluit">(cf. Liu. 9.12.11)</note><rdg wit="\xcf\x82" xml:id="rdg-46.1-futurae-dimicationi-fortunae-rem-committere-maluit">futurae dimicationi fortunae rem committere maluit</rdg><note target="rdg-46.1-futurae-dimicationi-fortunae-rem-committere-maluit">teste Oudendorp (de genitiuo u. TLL 5.1.1197.21-34, et de adiectiuo cf. BC 1.52.1)</note><rdg source="#K\xc3\xbcbler" xml:id="rdg-46.1-futurae-dimicationi-fortunae-tamen-quam-fugae-rem-committere-maluit">futurae dimicationi fortunae <tamen quam fugae> rem committere maluit</rdg><note target="rdg-46.1-futurae-dimicationi-fortunae-<tamen-quam-fugae>-rem-committere-maluit">(sed cf. BC 1.72.3 et u. TLL 8.201.78-202.8)</note></app>'
+supplied text in note - should be fixed programmatically
+
 ERROR:Prose:b' problem finding lemma for section 46.2, lemma: contra illo remigant\n'
+text has "contra illo remigante". Corrected manually in CSV
+
 ERROR:Prose:b' problem finding lemma for section 47.2, lemma: consumpto post\n'
+text has <consumpto> post, app has consumpto post. DAMON:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 48.1, lemma: quod (sc. odium) uel\n'
+'(sc. odium)' not present in text. DAMON:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 48.1, lemma: animaduertere\n'
+Text has 'animum aduertere', but app has 'animaduertere' DAMON:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 48.2, lemma: post cum\n'
+comma missing - corrected manually
+
 ERROR:Prose:b' problem finding lemma for section 48.3, lemma: minuebat (sc. Cassius)\n'
+'(sc. Cassius)' not present in text. DAMON:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 49.1, lemma: in ea (sc. prouincia)\n'
+'(sc. prouincia)' not present in text. DAMON:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 49.2, lemma: coiciebantur\n'
+main text has 'coniciebatur'. in the CSV, coniciebatur is listed as an alternate reading. DAMON:CHECK
+
+
 ERROR:Prose:b' problem finding lemma for section 51.3, lemma: pecuniaeque describerentur atque imperarentur ne\n'
+comma missing. fixed manually.
+
 ERROR:Prose:b' problem finding lemma for section 52.1, lemma: sestertios centenos\n'
+<centenos> is marked supplied in text but not in CSV. DAMON:CHECK.
+
 ERROR:Prose:b' problem finding lemma for section 52.2, lemma: auersum (sc. Cassium)\n'
+'(sc. Cassium)' not in main text
+
+
 ERROR:Prose:b' invalid app tag was generated for section 53.4, lemma: Laterensis\n<!-- App entry for 53.4: Laterensis --><app><lem wit="#M #U #S #T #V" xml:id="lem-53.4-Laterensis">Laterensis</lem><note target="lem-53.4-Laterensis">(de nomenclatura cf. 31.1 Carfulenum et 57.4 Marcellum)</note><rdg wit="\xcf\x82" xml:id="rdg-53.4-L.-Laterensis"><L.> Laterensis</rdg><note target="rdg-53.4-<L.>-Laterensis">teste Klotz, fortasse recte (u. 55.2)</note></app>'
+<> in note - should be fixed programmatically.
+
+
 ERROR:Prose:b' problem finding lemma for section 55.1, lemma: cohortibus XXX (sc. legionum tricesimae, unetuicesmae, et secundae)\n'
+'(sc. legionum tricesimae, unetuicesmae, et secundae)' not in main text. DAMON:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 55.2, lemma: Minuci(i)\n'
+(i) not in main text. HUSKEY:CHECK DAMON:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 55.2, lemma: Minucium\n'
+wrong sentence number - fixed manually.
+
 ERROR:Prose:b' problem finding lemma for section 55.4, lemma: nam palam HS LX cum\n'
+wrong sentence number - this is fixed.
+Also mismatched text. Main text has 'Nam palam sestertium sexagiens cum'. DAMON:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 57.2, lemma: unetuicesimanorum (i.e., XXImanorum)\n'
+'(i.e., XXImanorum)' not in main text. DAMON:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 57.2, lemma: \xe2\x80\xa0noctu\xe2\x80\xa0\n'
 ERROR:Prose:b' invalid app tag was generated for section 57.3, lemma: ad secundam\n<!-- App entry for 57.3: ad secundam --><app><lem wit="#M #U #T #V" xml:id="lem-57.3-ad-secundam">ad secundam</lem><rdg wit="#S" xml:id="rdg-57.3-ad-secundam-legionem">ad secundam legionem</rdg><rdg source="#Schneider" xml:id="rdg-57.3-ad-secundam-ad-Vliam">ad secundam <ad Vliam></rdg><note target="rdg-57.3-ad-secundam-<ad-Vliam>">dubitanter</note></app>'
+issues with crux - should be fixed now? KATY:CHECK
+
+
 ERROR:Prose:b' problem finding lemma for section 57.3, lemma: \xe2\x80\xa0in\xe2\x80\xa0 Torium\n'
+issues with crux - should be fixed now? KATY:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 57.4, lemma: Italicensem\n'
+Wrong sentence number - fixed manually.
+
 ERROR:Prose:b' invalid app tag was generated for section 57.4, lemma: Marcellum quaestorem\n<!-- App entry for 57.4: Marcellum quaestorem --><app><lem source="#Forchhammer" xml:id="lem-57.4-Marcellum-quaestorem">Marcellum quaestorem</lem><note target="lem-57.4-Marcellum-quaestorem">, qui et <M.> ante Marcellum suppleuit coll. D.C. 42.15.5 (u. 59.1, sed de nomenclatura u. et ad 53.4)</note><rdg wit="#M #U #S #T #V" xml:id="rdg-57.4-Marcellumque">Marcellumque</rdg><note target="rdg-57.4-Marcellumque">ex 57.5?</note></app>'
+supplied in note - should be fixed now?
+
 ERROR:Prose:b' problem finding lemma for section 58.2, lemma: sed ... coniectura\n'
+ellipses replaced with full text in CSV. HUSKEY:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 58.2, lemma: sed ... ferebat\n'
+ellipses replaced with full text in CSV. HUSKEY:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 58.4, lemma: frequens legionibus conuentus obuiam prodit neque tantum uirorum sed etiam matrum familias ac praetextatorum deprecaturque ne hostili aduentu Cordubam diriperent nam\n'
+Punctuation differences. should be fixed in CSV now.
+
+
 ERROR:Prose:b' problem finding lemma for section 59.1, lemma: posse perducere nomen Pompei ex scutis detraxerunt Marcellum qui se Caesaris causam defensurum\n'
+Punctuation differences. fixed manually.
+
 ERROR:Prose:b' invalid app tag was generated for section 60.1, lemma: concurrerunt ut in aciem educerentur\n<!-- App entry for 60.1: concurrerunt ut in aciem educerentur --><app><lem wit="#M #U #T #V" xml:id="lem-60.1-concurrerunt-ut-in-aciem-educerentur">concurrerunt ut in aciem educerentur</lem><note target="lem-60.1-concurrerunt-ut-in-aciem-educerentur">(cf. BC 1.71.2)</note><rdg wit="#S" xml:id="rdg-60.1-concurrerunt-ut-in-aciem-educerentur-orant">concurrerunt ut in aciem educerentur orant</rdg><note target="rdg-60.1-concurrerunt-ut-in-aciem-educerentur-orant">(de uerborum ordine cf. 58.4)</note><note>nisi mauis concurrerunt. <Orant> ut in aciem educerentur (de asyndeto cf. BC 2.12.3)</note></app>'
+supplied tag in note. should be fixed programmatically.
+
 ERROR:Prose:b' invalid app tag was generated for section 60.2, lemma: esset2\n<!-- App entry for 60.2: esset2 --><app><lem wit="#M #U #S #T #V" xml:id="lem-60.2-esset2">esset2</lem><rdg wit="\xcf\x82" xml:id="rdg-60.2-esse">esse</rdg><note target="rdg-60.2-esse">teste Oudendorp (u. TLL 10.2.308.24-27 et 10.2.318.13-15)</note><rdg source="#Larsen" xml:id="rdg-60.2-esset-gap-addition"><supplied reason="lost">esset gap</supplied></rdg><rdg source="#Ciacconius" xml:id="rdg-60.2-esset-uetare-uel-prohibere">esset <uetare uel prohibere></rdg><rdg source="#Reinhardt" xml:id="rdg-60.2-esset-receptus-addition"><supplied reason="lost">esset receptus</supplied></rdg><note target="rdg-60.2-esset-receptus-addition">exempli gratia (cf. BC 1.45.6)</note><note>alii alia</note></app>'
+supplied tag in note. should be fixed programmatically.
+
 ERROR:Prose:b' problem finding lemma for section 60.3, lemma: animaduerteret causa\n'
+missing comma. fixed manually.
+
 ERROR:Prose:b' problem finding lemma for section 60.5, lemma: uitii\n'
+main text has 'uiti', CSV has 'uitii'. DAMON:CHECK
+
 ERROR:Prose:b' invalid app tag was generated for section 61.2, lemma: castris collata\n<!-- App entry for 61.2: castris collata --><app><lem source="#Stephanus" xml:id="lem-61.2-castris-collata">castris collata</lem><note target="lem-61.2-castris-collata">(cf. 61.4)</note><rdg wit="#M #U #S #T #V" xml:id="rdg-61.2-castris-conllocata">castris co(n/l)locata</rdg><note target="rdg-61.2-castris-co(nl)locata">(ex 61.5 collocatis? u. et ad BAfr 68.2 conlatis)</note><note>nisi mauis <contra> castris collocata (cf. BAfr 56.1)</note></app>'
+supplied tag in note. should be fixed programmatically.
+
 ERROR:Prose:b' problem finding lemma for section 61.3, lemma: ut et loci natura namque Vlia in edito monte posita est et\n'
+punctuation differences - fixed manually.
+
+
 ERROR:Prose:b' problem finding lemma for section 61.6, lemma: sibi usui \n'
+Unsure of problem. KATY:CHECK
+
 ERROR:Prose:b' invalid app tag was generated for section 63.5, lemma: iam constituta opera <cum>\n<!-- App entry for 63.5: iam constituta opera <cum> --><app><lem source="#Aldus" xml:id="lem-63.5-iam-constituta-opera-cum">iam constituta opera "><supplied reason="lost">cum</supplied></lem><note target="lem-63.5-iam-constituta-opera-cum-addition">(u. 61.6 et cf. BG 2.12.5 turribus ... constitutis)</note><rdg wit="#M #U #S #T #V" xml:id="rdg-63.5-iam-constituta-opera">iam constituta opera</rdg><rdg source="#Nipperdey" xml:id="rdg-63.5--iam-pace-constituta-opera-cum-addition"><supplied reason="lost">iam pace</supplied> constituta opera <cum</rdg><note target="rdg-63.5--iam-pace-constituta-opera-cum-addition">(cf. Cic. Q. fr. 1.1.25)</note><rdg source="#Castiglioni" xml:id="rdg-63.5-iam-constituta-pace-cum-opera">iam constituta <pace cum> opera</rdg><rdg source="#Damon" xml:id="rdg-63.5-iam-constituta-die-uel-prouincia-cum-opera">iam constituta <die (uel prouincia) cum> opera</rdg><note target="rdg-63.5-iam-constituta-<die-(uel-prouincia)-cum>-opera">exempli gratia (cf. BG 1.4.2 etc., 65.1)</note></app>'
+supplied tag in reading that is not getting detected or closed properly. Not sure if other changes will fix this too. KATY:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 63.5, lemma: complanarent (sc. Lepidus Marcellusque) \n'
+'(sc. Lepidus Marcellusque)' not in main text. DAMON:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 64.2, lemma: obtinendam uenit\n'
+<venit> is marked as supplied in main text but not in apparatus. DAMON:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 64.2, lemma: nau(e/i)s\n'
+Main text has 'naves' DAMON:CHECK HUSKEY:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 64.3, lemma: cum <in>\n'
+unsure of problem. KATY:CHECK.
+
 ERROR:Prose:b' invalid app tag was generated for section 64.3, lemma: derectam\n<!-- App entry for 64.3: derectam --><app><lem wit="#M #U #T #V" xml:id="lem-64.3-derectam">derectam</lem><note target="lem-64.3-derectam">(cf. BAfr 26.4 et u. TLL 5.1.1253.3-30 \'de motu et eis, quae moventur\')</note><rdg wit="#S" xml:id="rdg-64.3-in|directam">in|directam</rdg><rdg wit="\xcf\x82" xml:id="rdg-64.3-in-directum">in directum</rdg><note target="rdg-64.3-in-directum">teste Oudendorp, quod defendit Landgraf 1889 coll. Liu. 22.47.3 </note></app>'
+| (pipe) in XML:ID. It's coming from the reading: 'in|directam'. What does the pipe mean? HUSKEY:CHECK DAMON:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 65.2, lemma: (h)eae\n'
+Main text just has 'eae'. HUSKEY:CHECK DAMON:CHECK
+
 ERROR:Prose:b' invalid app tag was generated for section 66.3, lemma: Comana (sc. Cappadociae? uel Pontica?) <gap>\n<!-- App entry for 66.3: Comana (sc. Cappadociae? uel Pontica?) <gap> --><app><lem source="#K\xc3\xbcbler" xml:id="lem-66.3-Comana-sc.-Cappadociae?-uel-Pontica?-gap">Comana (sc. Cappadociae? uel Pontica?) "><supplied reason="lost">gap</supplied></lem><note target="lem-66.3-Comana-(sc.-Cappadociae?-uel-Pontica?)-gap-addition">dubitanter (u. Gaertner-Hausburg 91 n. 65)</note><rdg wit="#M #U #S #T #V" xml:id="rdg-66.3-Comana">Comana</rdg><note target="rdg-66.3-Comana">, quod defendit Madvig</note><rdg wit="\xcf\x82" xml:id="rdg-66.3-uenit-Comana-addition"><supplied reason="lost">uenit Comana</supplied></rdg><note target="rdg-66.3-uenit-Comana-addition">teste D\xc3\xbcbner</note><rdg source="#Nipperdey" xml:id="rdg-66.3-Comana-uenit-addition"><supplied reason="lost">Comana uenit</supplied></rdg><rdg source="#Damon" xml:id="rdg-66.3-Comana-ut-confirmarentur-et">Comana <ut confirmarentur et></rdg><note target="rdg-66.3-Comana-<ut-confirmarentur-et>">exempli gratia (cf. BC 1.29.3 Hispanias et, de coniunctione postposita, 45.3 et 56.6)</note><rdg source="#Damon" xml:id="rdg-66.3-Comana-cum-dissensionibus-essent-confecta-et-repeteretur">Comana <cum dissensionibus essent confecta et repeteretur></rdg><note target="rdg-66.3-Comana-<cum-dissensionibus-essent-confecta-et-repeteretur>">exempli gratia (cf. 42.2 et u., de re, u. 66.4, de coniunctione postposita, Gaertner-Hausburg 36-39)</note></app>'
+Supplied tags in reading. should be fixed programmatically.
+
 ERROR:Prose:b' invalid app tag was generated for section 66.3, lemma: maiestate imperio\n<!-- App entry for 66.3: maiestate imperio --><app><lem wit="#ed.pr." xml:id="lem-66.3-maiestate-imperio">maiestate imperio</lem><note target="lem-66.3-maiestate-imperio">(cf. BC 3.106.4 et Sal. Cat. 12.1)</note><rdg wit="#M #U #S #T #V" xml:id="rdg-66.3-magis-imperio">magis imperio</rdg><note>nisi mauis magis imperio <quam> (cf. 15.1 et, de antithesi, Sen. Cl. 1.3)</note></app>'
+supplied tag in note. should be fixed now.
+
 ERROR:Prose:b' problem finding lemma for section 66.4, lemma: B(i/y)thino\n'
+main text has 'Bithyno'. DAMON:CHECK HUSKEY:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 66.4, lemma: iure minime dubio uetustate tamen\n'
+comma missing. fixed manually.
+
 ERROR:Prose:b' problem finding lemma for section 66.5, lemma: terreret <gap> Ariobarzani \n'
+CSV has <gap>, but text has lacuna ***. DAMON:CHECK HUSKEY:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 67.1, lemma: iae\n'
+This is just a mess. the lemma in the CSV is 'gallogr(a)e(c/t)iae2' - this is getting split up for some reason. needs to be fixed somehow. HUSKEY:CHECK DAMON:CHECK
+
+
 ERROR:Prose:b' problem finding lemma for section 67.1, lemma: tet(h)rarchae\n'
+main text has 'tetrarchae'. HUSKEY:CHECK DAMON:CHECK
+
 ERROR:Prose:b' invalid app tag was generated for section 67.1, lemma: <et coactus> exercitibus imperiisque\n<!-- App entry for 67.1: <et coactus> exercitibus imperiisque --><app><lem source="#Bensch-Schaus" xml:id="lem-67.1-et-coactus-exercitibus-imperiisque"><et coactus> exercitibus imperiisque</lem><note target="lem-67.1-<et-coactus>-exercitibus-imperiisque">(cf. 43.1; <coactus> iam Hoffmann 1890)</note><rdg wit="#M #U #S #T #V" xml:id="rdg-67.1-exercitibus-imperiisque">exercitibus imperiisque</rdg><rdg source="#Markland" xml:id="rdg-67.1-excitusque-imperiis">excitusque imperiis</rdg><note target="rdg-67.1-excitusque-imperiis">(cf. BHisp 4.4)</note><rdg source="#Kraner" xml:id="rdg-67.1-excitus-imperiis">excitus imperiis</rdg><rdg source="#Madvig" xml:id="rdg-67.1-excitus-uerbis-imperiisque">excitus uerbis imperiisque</rdg><rdg source="#Larsen" xml:id="rdg-67.1-excitus-precibus-imperiisque">excitus precibus imperiisque</rdg><note target="rdg-67.1-excitus-precibus-imperiisque">coll. Cic. Deiot. 13</note><rdg source="#Dinter" xml:id="rdg-67.1--coercitus-exercitibus-imperiisque-addition"><supplied reason="lost">coercitus</supplied> exercitibus imperiisque</rdg><note target="rdg-67.1--coercitus-exercitibus-imperiisque-addition">(cf. 33.4 et BC 1.67.4)</note><rdg source="#Klotz" xml:id="rdg-67.1-exercitibus-imperiisque-aduersariorum-coactus">exercitibus imperiisque <aduersariorum coactus></rdg><note target="rdg-67.1-exercitibus-imperiisque-<aduersariorum-coactus>">, Cornelissen secutus (u. supra) </note><note>nisi mauis <et coactus> potestatibus imperiisque (cf. Cic. Leg. 1.23)</note></app>'
+supplied tag in note. should be fixed programmatically now.
+
 ERROR:Prose:b' problem finding lemma for section 67.1, lemma: imperiisque in\n'
+comma missing. fixed manually.
+
 ERROR:Prose:b' problem finding lemma for section 67.2, lemma: controuersiarum populi romani \n'
+unsure of problem. KATY:CHECK
+
 ERROR:Prose:b' invalid app tag was generated for section 68.1, lemma: defensionem eius\n<!-- App entry for 68.1: defensionem eius --><app><lem wit="#M #Uc #S #T #V" xml:id="lem-68.1-defensionem-eius">defensionem eius</lem><rdg wit="#Uac" xml:id="rdg-68.1-defensonem-eius">defensonem eius</rdg><rdg wit="\xcf\x82" xml:id="rdg-68.1-defectionem-eius">defectionem eius</rdg><note target="rdg-68.1-defectionem-eius">teste D\xc3\xbcbner (cf. BG 7.67.7)</note><rdg source="#Dauisius" xml:id="rdg-68.1-[defensionem-eius]">[defensionem eius]</rdg><note target="rdg-68.1-[defensionem-eius]">1727 ut glossema ad excusationem (u. et infra), sed cf. de pleonasmo Cic. Rab. Post. 27 Rufum necessitatis excusatio defendet</note></app>'
+[] in ID???? if so, this has been fixed programmatically
+
 ERROR:Prose:b' problem finding lemma for section 70.3, lemma: [non]\n'
+problem unclear. KATY:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 70.8, lemma: si fecisset iam\n'
+comma missing. fixed manually.
+
+
 ERROR:Prose:b' problem finding lemma for section 70.8, lemma: enim ei \n'
+Unsure of problem. KATY:CHECK
+
 ERROR:Prose:b' invalid app tag was generated for section 71.1, lemma: longiorem\n<!-- App entry for 71.1: longiorem --><app><lem wit="#S #T #V" xml:id="lem-71.1-longiorem">longiorem</lem><note target="lem-71.1-longiorem">(cf. BG 1.40.14)</note><rdg wit="#M #U" xml:id="rdg-71.1-longiores-sc.-pactiones?">longiores (sc. pactiones?)</rdg></app>'
+? in ID - should be fixed now.
+
+
 ERROR:Prose:b' invalid app tag was generated for section 72.2, lemma: unus qui\n<!-- App entry for 72.2: unus qui --><app><lem wit="#M #U #T #V" xml:id="lem-72.2-unus-qui">unus qui</lem><note target="lem-72.2-unus-qui">(de anacolutho u. Damon 2015b 242)</note><rdg wit="#S" xml:id="rdg-72.2-qui">qui</rdg><note target="rdg-72.2-qui">non male</note><note>nisi mauis unus [qui] uel unus <est> qui</note></app>'
+supplied tag in note - should be fixed now.
+
 ERROR:Prose:b' problem finding lemma for section 73.1, lemma: dubitanter\n'
+Not sure what the lemma is supposed to be, but dubitanter is nowhere to be found. Probably munirentur or munituras? HUSKEY:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 73.1, lemma: si modo ea loca hostes priores non cepissent\n'
+<non> is supplied in the main text. HUSKEY:CHECK DAMON:CHECK
+
 ERROR:Prose:b' invalid app tag was generated for section 73.2, lemma: prima luce\n<!-- App entry for 73.2: prima luce --><app><lem wit="#M #U #S #T #V" xml:id="lem-73.2-prima-luce">prima luce</lem><rdg source="#Larsen" xml:id="rdg-73.2-profectus-uel-egressus-prima-luce"><profectus uel egressus> prima luce</rdg><note target="rdg-73.2-<profectus-uel-egressus>-prima-luce">(cf. Liu. 27.42.14, Juu. 11.186)</note><note>nisi mauis [prima luce] (u. 74.1)</note></app>'
+Supplied tag in reading - should be ok now? KATY:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 73.3, lemma: passuum <mille>\n'
+unsure of problem. KATY:CHECK
+
 ERROR:Prose:b' invalid app tag was generated for section 73.3, lemma: Caesaris castrorum\n<!-- App entry for 73.3: Caesaris castrorum --><app><lem wit="#M #U #S #T #V" xml:id="lem-73.3-Caesaris-castrorum">Caesaris castrorum</lem><rdg source="#Kraner" xml:id="rdg-73.3-[Caesaris-castrorum]">[Caesaris castrorum]</rdg></app>'
+[] in ID - should be fixed now.
+
+
 ERROR:Prose:b' problem finding lemma for section 74.2, lemma: impulsus siue\n'
+Wrong sentence number. fixed in CSV
+
 ERROR:Prose:b' problem finding lemma for section 75.3, lemma: iis <in> quibus\n'
+unsure of problem. KATY:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 76.1, lemma: in procliui \n'
+Unsure of problem. possible whitespace issue? KATY:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 76.2, lemma: defendentibus\n'
+Wrong sentence number. fixed in CSV
+
 ERROR:Prose:b' problem finding lemma for section 77.1, lemma: eoque uel miles quoque \n'
+This is nowhere in the main text - it has 'eoque subiti periculi recordatione laetior' HUSKEY:CHECK DAMON:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 77.1, lemma: quod uictoria \n'
+Unsure of problem. Possible whitespace issue? KATY:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 78.2, lemma: a quo rem\n'
+<a> is supplied in main text. HUSKEY:CHECK DAMON:CHECK
+
 ERROR:Prose:b' problem finding lemma for section 78.3, lemma: [legibus]\n'
+unsure of problem. KATY:CHECK

@@ -41,11 +41,14 @@ def replace_with_xml(text, pattern, new_entries, index):
     beg, end = [(x.start(), x.end()) for x in re.finditer(pattern, text, flags=re.IGNORECASE)][index]
 
     # avoid replacing lemma instances that are in comments
-    if re.search("\<\!--(.)*" + pattern + "[\s\w\.]*--\>", text):
-        inc += 1
+    f1 = re.findall("<\!--[^>]*" + pattern + "[^>]*-->", text)
+    f2 = re.findall("xml\:id\=\"lem[^>\"]*" + pattern, text)
+    inc = len(f1) + len(f2)
+    #if re.search("<\!--(.)*" + pattern + "[\s\w\.]*-->", text):
+        #inc += 1
     # avoid replacing lemma instances in xml:id attributes
-    if re.search("xml\:id\=\"(.)*-" + pattern + "-", text):
-        inc += 1
+    #if re.search("xml\:id\=\"(.)*-" + pattern + "-", text):
+        #inc += 1
 
     # find updated indices if necessary
     beg, end = [(x.start(), x.end()) for x in re.finditer(pattern, text, flags=re.IGNORECASE)][index + inc]
@@ -75,9 +78,9 @@ def make_lem_tag(p, s, lem, wit, source, note):
     # this block deals with editorial additions, which have <> in the lemma
 
     # deal with lemmas of the form '<word> some other words' or 'some words here <word>'
-    if (re.match('<\w+(\s+\w+)*>(\s)*\w+|(\w+(\s)*)+<\w+>', lem)):
-        newLem = '<supplied reason="lost">' + lem.split('>')[0].replace('<', '') + '</supplied>' + \
-                 lem.split('>')[1]
+    if (re.match('\<\w+\>(\s)*\w+ | \w+(\s)*\<\w+\>', lem)):
+        newLem = lem.split('<')[0] + '<supplied>' + lem.split('<')[1].split('>')[0] + '</supplied>' + \
+                        lem.split('>')[1]
 
         # a copy of the lemma with <> removed to use in xml:id attributes
         idLem = lem.replace('<', '').replace('>', '') + " addition"
@@ -128,7 +131,7 @@ def make_lem_tag(p, s, lem, wit, source, note):
 
     # clean punctuation out of xml:id so that it is valid
     lem_xmlid = str(lem_xmlid())
-    puncRE = re.compile('[,;\'<>()/]')
+    puncRE = re.compile('[,;\'<>()/?]')
     lem_xmlid = puncRE.sub('', lem_xmlid)
 
     def lem_target():
@@ -282,13 +285,13 @@ def make_rdg_tag(p, s, reading, wit, source, note):
     if (re.search('\<\w+\s*\<gap reason=”lost”/>\s*\w+\>\w+|\<\w+\s*\*\*\*\s*\w+\>\w+', reading)):
         # deal with a lacuna in the middle of a word
         # this was written to deal with 13.5 but can be generalized as necessary
-        reading = '<supplied reason="lost">' + reading.split('>')[0].replace('<', '', 1) + ">" +reading.split('>')[1] + '</supplied>' + reading.split('>')[2]
+        reading = '<supplied reason="lost">' + reading.split('>')[0].replace('<', '', 1) + '</supplied>' + reading.split('>')[1]
         # we use a separate variable to contain the reading to use in xml:id
         idRdg = reading.replace('<', '').replace('>', '').replace('supplied', '').replace('reason="lost"', '') + " addition"
 
     # deal with readings of the form <word> some other words or some words <word>
     elif (re.search('\<\w+\>(\s)*\w+ | \w+(\s)*\<\w+\>', reading)):
-        reading = '<supplied reason="lost">' + reading.split('>')[0].replace('<', '') + '</supplied>' + \
+        reading = reading.split('<')[0] + '<supplied reason="lost">' + reading.split('<')[1].split('>')[0] + '</supplied>' + \
                         reading.split('>')[1]
         # we use a separate variable to contain the reading to use in xml:id
         idRdg = reading.replace('<', '').replace('>', '').replace('supplied', '').replace('reason="lost"', '') + " addition"
@@ -298,6 +301,12 @@ def make_rdg_tag(p, s, reading, wit, source, note):
         reading = reading.replace('<', '').replace('>', '')
         idRdg = reading + " addition"
         reading = '<supplied reason="lost">' + reading + '</supplied>'
+
+    # now deal with readings of the form 'word <some words>'
+    elif (re.search('\w+(\s+\w+)*<\w+(\s+\w+)*>', reading)):
+        idRdg = reading + " addition"
+        reading = reading.replace('<', '<supplied&&&').replace('>', '</supplied>').replace('&&&', '>')
+
 
     # deal with a deletion in a reading [some words] or {some words}
     # curly braces {} are preferred but square brackets are used in some older editions
@@ -345,7 +354,7 @@ def make_rdg_tag(p, s, reading, wit, source, note):
 
     # remove punctuation that would make @xml:id invalid
     rdg_xmlid = str(rdg_xmlid())
-    puncRE = re.compile('[,;\'<>()/]')
+    puncRE = re.compile('[,;\'<>()/?]')
     rdg_xmlid = puncRE.sub('', rdg_xmlid)
 
     def rdg_target():
@@ -841,7 +850,7 @@ def main():
 
             # now check readings
             for r in rdgIDs:
-                if re.search(r, text):
+                if text.find(r) >= 0:
                     # this currently only works for 2 identical readings
                     new_entries = new_entries.replace(r, r[:-1] + "-2\"")
 
@@ -879,7 +888,7 @@ def main():
 
             # exclude lemma instances within other words. uses negative lookahead and lookbehind assertion.
             # this will throw an exception (caught below) if the lemma is not found
-            replacePattern = "(?<![a-zA-Z\#])" + searchLem + "(?![a-zA-Z\#])"
+            replacePattern = "(?<![a-zA-Z\#-])" + searchLem + "(?![a-zA-Z\#-])"
 
             try:
                 # insert the <app> tag into the text using a custom function defined above
@@ -936,7 +945,6 @@ def main():
     print("Writing to a .xml file....")
     logger.info(" Finishing up the XML.")
     # time.sleep(2)
-
     # parse the newly cleaned up XML
     newRoot = ET.fromstring(bigstr)
 
