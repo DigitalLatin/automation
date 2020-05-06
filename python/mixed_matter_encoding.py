@@ -464,7 +464,7 @@ def make_rdg_tag(s, p, l, reading, wit, source, note):
                 split = note.split("/")
 
                 for s in split:
-                    if (s == "an" or s == "vel"):
+                    if (s == "an" or s == "vel" or s == "uel"):
                         # this note goes before the reading (e.g. an or vel)
                         # easily generalized to catch other "before reading" notes
                         beforeTags += ('<note target="' + rdg_target + '">' + s + '</note>')
@@ -480,7 +480,7 @@ def make_rdg_tag(s, p, l, reading, wit, source, note):
                 # if there is only one note, wrap it in tags and return it
                 return ['', '<note target="' + rdg_target + '">' + note + '</note>']
 
-    # n.b. this is a tuple not a string
+    # n.b. this is a list not a string
     notes = rdg_notes()
 
     # combine parts of the tag and return the finished <rdg> tag
@@ -820,12 +820,10 @@ def main():
         # decide if each chunk is prose or poetry.
         # this test assumes no line breaks within prose chunks.
         if 'POEM' in c:
-            # there are line breaks, so it's poetry.
             c = c.replace("POEM\n", "")
             encoded_chunk = poetry_chunk(c, poCount, logger)
             poCount += 1
         else:
-            # there are no line breaks, so it's prose.
             encoded_chunk = prose_chunk(c, prCount, logger)
             prCount += 1
 

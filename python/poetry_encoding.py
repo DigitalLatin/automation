@@ -694,8 +694,10 @@ def main():
 
             # if the next line is NOT a lacuna, or if we have reached end of the poem, replace with <gap>
             # otherwise, keep looking for the end of the lacuna
+            # TODO: check end condition
             if re.search(r'&lt;gap reason="lost"/&gt;', lines[index + 1]) or index == len(lines) - 1:
                 continue
+            # TODO: fix the Giarrantano bit
             else:
                 l = "<ab>" + lac_speaker + "<gap reason = \"lost\" quantity = \"" + str(
                     lCount) + "\" unit = \"lines\" resp = \"#Giarratano\"/></ab>"
@@ -810,7 +812,7 @@ def main():
                 # skip the first row, which contains column labels
                 continue
 
-            # get paragraph and section number and row length
+            # get poem and line number and row length
             pNum = row[0]
             lNum = row[1]
             l = len(row)
@@ -869,6 +871,7 @@ def main():
             print("Using XPath to find the section!....")
 
             # use Xpath to find the appropriate paragraph and section
+            # TODO: check that this works in the general case
             xpathstr = ".//tei:l[@n='" + str(lNum) + "']"
             linetag = root.find(xpathstr, namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})
 

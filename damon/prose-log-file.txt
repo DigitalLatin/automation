@@ -4,7 +4,7 @@ INFO:Prose: Segments have been encoded.
 INFO:Prose: Editorial symbols have been encoded.
 INFO:Prose: Base text wrapped in XML.
 INFO:Prose: Adding the TEI header and footer.
-INFO:Prose: The encoded base text has been written to: ../damon/prelim_test.xml
+INFO:Prose: The encoded base text has been written to: damon/prelim_test.xml
 INFO:Prose: Now encoding the critical apparatus. 
 Encoding errors will be shown below. 
 

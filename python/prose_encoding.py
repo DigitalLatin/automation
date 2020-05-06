@@ -44,11 +44,6 @@ def replace_with_xml(text, pattern, new_entries, index):
     f1 = re.findall("<\!--[^>]*" + pattern + "[^>]*-->", text)
     f2 = re.findall("xml\:id\=\"lem[^>\"]*" + pattern, text)
     inc = len(f1) + len(f2)
-    #if re.search("<\!--(.)*" + pattern + "[\s\w\.]*-->", text):
-        #inc += 1
-    # avoid replacing lemma instances in xml:id attributes
-    #if re.search("xml\:id\=\"(.)*-" + pattern + "-", text):
-        #inc += 1
 
     # find updated indices if necessary
     beg, end = [(x.start(), x.end()) for x in re.finditer(pattern, text, flags=re.IGNORECASE)][index + inc]
@@ -181,7 +176,7 @@ def make_lem_tag(p, s, lem, wit, source, note):
                 # in margin
                 elif re.match(u'[A-Z\u0391-\u03A9\u03B1-\u03C9]\(inmg\)', s):
                     detailTags += "<witDetail wit=\"#" + s + "\" target=\"#" + lem_target + "\">in margin</witDetail>"
-                # if the sigla doesn't have an annotation, it doesn't need a <witDetail>
+                # if the siglum doesn't have an annotation, it doesn't need a <witDetail>
                 else:
                     pass
 
@@ -258,8 +253,8 @@ def make_lem_tag(p, s, lem, wit, source, note):
     lemnote = str(lemnote())
 
     # return a tuple with the cleaned up lemma for searching and the full <lem> tag as a string
-    return [searchLem.strip(), '<lem ' + lemwit[0] + ' ' + lemsrc + ' ' + lem_xmlid + '>' \
-            + lem + '</lem>' + lemwit[1] + lemnote]
+    return (searchLem.strip(), '<lem ' + lemwit[0] + ' ' + lemsrc + ' ' + lem_xmlid + '>' \
+            + lem + '</lem>' + lemwit[1] + lemnote)
 
 
 def make_rdg_tag(p, s, reading, wit, source, note):
@@ -315,7 +310,7 @@ def make_rdg_tag(p, s, reading, wit, source, note):
         idRdg = reading + " deletion"
         reading = '<surplus>' + reading + '</surplus>'
 
-    # if there are no editorial addtions, initialize idRdg
+    # if there are no editorial additions, initialize idRdg
     else:
         idRdg = reading
 
@@ -447,7 +442,7 @@ def make_rdg_tag(p, s, reading, wit, source, note):
                 split = re.split("(?<!\(\w)/(?!\w+\))")
 
                 for s in split:
-                    if (s == "an" or s == "vel"):
+                    if (s == "an" or s == "vel" or s == "uel"):
                         # this note goes before the reading (e.g. an or vel)
                         # easily generalized to catch other "before reading" notes
                         beforeTags += ('<note target="' + rdg_target + '">' + s + '</note>')
@@ -755,8 +750,8 @@ def main():
     tree = ET.parse(new_path, parser=parser)
     root = tree.getroot()
     # the following statement is necessary to avoid having 'ns0' as a prefix for every tag in the doc.
-    # the TEI namespace (default ns for this doc) is found at: http://www.tei-c.org/ns/1.0
-    ET.register_namespace('tei', 'http://www.tei-c.org/ns/1.0')
+    # the TEI namespace (default ns for this doc) is found at: https://www.tei-c.org/ns/1.0
+    ET.register_namespace('tei', 'https://www.tei-c.org/ns/1.0')
 
     with open(sys.argv[2], encoding='utf-8') as appFile:
         readApp = csv.reader(appFile, delimiter=',')
@@ -835,7 +830,7 @@ def main():
             # use Xpath to find the appropriate paragraph and section
             xpathstr = ".//tei:p[@n='" + str(pNum) + "']/tei:seg[@n='" + str(sNum) + "']"
             section = root.find(xpathstr,
-                                namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})  # check this
+                                namespaces={'tei': 'http://www.tei-c.org/ns/1.0'})
 
             # get the section text
             text = "".join(section.itertext())
